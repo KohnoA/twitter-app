@@ -11,7 +11,10 @@
     "preview": "vite preview",
     "prepare": "husky install",
     "format": "prettier . --write",
-    "test": "jest"
+    "test": "jest",
+    "test:e2e": "start-server-and-test 'yarn dev' http://localhost:5173 'yarn cypress:run'",
+    "cypress:run": "cypress run --e2e --browser chrome",
+    "cypress:open": "cypress open --e2e --browser chrome"
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -28,6 +31,7 @@
     "@typescript-eslint/eslint-plugin": "^7.0.2",
     "@typescript-eslint/parser": "^7.0.2",
     "@vitejs/plugin-react-swc": "^3.5.0",
+    "cypress": "^13.6.6",
     "eslint": "^8.56.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-typescript": "^18.0.0",
@@ -45,6 +49,7 @@
     "jest-transformer-svg": "^2.0.2",
     "lint-staged": "^15.2.2",
     "prettier": "^3.2.5",
+    "start-server-and-test": "^2.0.3",
     "ts-jest": "^29.1.2",
     "typescript": "^5.2.2",
     "vite": "^5.1.4",

@@ -13,7 +13,14 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  ignorePatterns: ['dist', '.eslintrc.cjs', 'vite.config.ts', 'setupTests.ts'],
+  ignorePatterns: [
+    'dist',
+    '.eslintrc.cjs',
+    'vite.config.ts',
+    'cypress.config.ts',
+    'cypress/*',
+    'setupTests.ts',
+  ],
   parser: '@typescript-eslint/parser',
   plugins: ['react', 'react-refresh', '@typescript-eslint', 'simple-import-sort', 'import'],
   rules: {
