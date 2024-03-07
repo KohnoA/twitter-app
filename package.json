@@ -23,6 +23,10 @@
     "styled-components": "^6.1.8"
   },
   "devDependencies": {
+    "@swc/core": "^1.4.5",
+    "@swc/jest": "^0.2.36",
+    "@swc/plugin-react-remove-properties": "^1.5.117",
+    "@swc/plugin-styled-components": "^1.5.118",
     "@testing-library/jest-dom": "^6.4.2",
     "@testing-library/react": "^14.2.1",
     "@types/jest": "^29.5.12",
@@ -50,10 +54,8 @@
     "lint-staged": "^15.2.2",
     "prettier": "^3.2.5",
     "start-server-and-test": "^2.0.3",
-    "ts-jest": "^29.1.2",
     "typescript": "^5.2.2",
     "vite": "^5.1.4",
-    "vite-plugin-svgr": "^4.2.0",
-    "vite-tsconfig-paths": "^4.3.1"
+    "vite-plugin-svgr": "^4.2.0"
   }
 }

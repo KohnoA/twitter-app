@@ -14,7 +14,7 @@ const App = () => {
           <ReactLogo width={50} height={50} />
         </a>
       </div>
-      <h1>Vite + React</h1>
+      <h1 data-testid="container">Vite + React</h1>
       <div className="card">
         <button type="button" onClick={() => setCount((prev) => prev + 1)}>
           count is {count}

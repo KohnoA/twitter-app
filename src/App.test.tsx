@@ -6,6 +6,6 @@ describe('Test', () => {
   it('', () => {
     render(<App />);
 
-    expect(screen.getByText('Vite + React')).toBeInTheDocument();
+    expect(screen.getByTestId('container')).toBeInTheDocument();
   });
 });
