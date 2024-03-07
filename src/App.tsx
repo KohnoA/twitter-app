@@ -1,32 +1,12 @@
-import { useState } from 'react';
+import { Route, Routes } from 'react-router-dom';
 
-import ReactLogo from './assets/react.svg';
-import { TestContainer } from './App.styled';
+import { Login, SignUp } from '@/pages';
 
-const App = () => {
-  const [count, setCount] = useState(0);
-
-  return (
-    <>
-      <div>
-        <a href="https://react.dev">
-          React Logo
-          <ReactLogo width={50} height={50} />
-        </a>
-      </div>
-      <h1 data-testid="container">Vite + React</h1>
-      <div className="card">
-        <button type="button" onClick={() => setCount((prev) => prev + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <TestContainer />
-      <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
-    </>
-  );
-};
+const App = () => (
+  <Routes>
+    <Route path="/login" element={<Login />} />
+    <Route path="/signup" element={<SignUp />} />
+  </Routes>
+);
 
 export default App;
