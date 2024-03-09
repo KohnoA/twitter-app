@@ -1,0 +1,21 @@
+name: Deploy site to netlify
+on:
+  push:
+    branches: [develop]
+    pull_request: [develop]
+jobs:
+  Test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 18
+      - run: yarn install --frozen-lockfile
+      - run: yarn test
+  Deploy:
+    needs: [Test]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: curl -X POST -d {} https://api.netlify.com/build_hooks/65ec4aa7c242b3967bb6ffd2
