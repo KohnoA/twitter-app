@@ -36,6 +36,7 @@ module.exports = {
     'jsx-a11y/click-events-have-key-events': 'warn',
     'jsx-a11y/no-static-element-interactions': 'warn',
     'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+    'jsx-a11y/anchor-is-valid': 'warn',
     'simple-import-sort/imports': [
       'error',
       {
