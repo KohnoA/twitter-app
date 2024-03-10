@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 import { Button, Paragraph } from '@/components/UI';
 import { AppRoutes, ICONS, UNASSIGNED_LINK_VALUE } from '@/constants';
-import { Footer } from '@/layout/Footer';
+import { LayoutWithFooter } from '@/layout';
 
 import {
   ButtonsWrapper,
@@ -10,7 +10,6 @@ import {
   PolicyParagraph,
   SignUpForm,
   SignUpMain,
-  SignUpWrapper,
   SubTitle,
   TwitterBackground,
   TwitterIconWrapper,
@@ -19,7 +18,7 @@ import {
 const { TwitterIcon, GoogleIcon } = ICONS;
 
 export const SignUpPage = () => (
-  <SignUpWrapper>
+  <LayoutWithFooter>
     <SignUpMain>
       <TwitterBackground />
 
@@ -51,7 +50,5 @@ export const SignUpPage = () => (
         </Paragraph>
       </SignUpForm>
     </SignUpMain>
-
-    <Footer />
-  </SignUpWrapper>
+  </LayoutWithFooter>
 );

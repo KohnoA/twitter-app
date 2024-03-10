@@ -6,13 +6,6 @@ import { bgImage, flex, media } from '@/styles';
 
 const SIGH_UP_FORM_MAX_WIDTH = 403;
 
-export const SignUpWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-
-  min-height: 100vh;
-`;
-
 export const SignUpMain = styled.section`
   flex-grow: 1;
 
