@@ -3,19 +3,23 @@ import styled from 'styled-components';
 import { ICONS } from '@/constants';
 import { interactive, media } from '@/styles';
 
+import { SelectStyledProps } from './types';
+
 const { ArrowDownIcon } = ICONS;
 
-export const SelectWrapper = styled.div`
+export const PositionWrapper = styled.div`
   position: relative;
 `;
 
-export const SelectStyled = styled.select`
+export const SelectStyled = styled.select<SelectStyledProps>`
   width: 100%;
   padding: ${({ theme }) => theme.margins.md}px;
+  padding-right: 50px;
 
   font-size: ${({ theme }) => theme.fontSizes.xl}px;
 
-  border: 1px solid ${({ theme }) => theme.colors.bgSecondaryDark};
+  border-width: 1px;
+  border-style: solid;
   border-radius: ${({ theme }) => theme.radius.low}px;
   background-color: ${({ theme }) => theme.colors.bgPrimary};
 
@@ -25,8 +29,17 @@ export const SelectStyled = styled.select`
 
   ${interactive()}
 
+  ${({ theme, $hasError }) =>
+    $hasError
+      ? `
+    border-color: ${theme.colors.error};
+  `
+      : `
+    border-color: ${theme.colors.bgSecondaryDark};
+  `}
+
   &:focus {
-    outline: 1px solid ${({ theme }) => theme.colors.text};
+    outline: 1px solid ${({ theme, $hasError }) => ($hasError ? 'transparent' : theme.colors.text)};
   }
 
   ${({ theme }) =>

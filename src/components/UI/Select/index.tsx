@@ -1,25 +1,38 @@
-import { ArrowIconStyled, SelectStyled, SelectWrapper } from './styled';
+import { memo, useId } from 'react';
 
-interface SelectProps {
-  options: string[];
-  placeholder?: string;
-}
+import { ErrorMessage } from '../ErrorMessage';
 
-export const Select = ({ options, placeholder }: SelectProps) => (
-  <SelectWrapper>
-    <SelectStyled defaultValue={placeholder}>
-      {placeholder && (
-        <option disabled hidden>
-          {placeholder}
-        </option>
-      )}
+import { ArrowIconStyled, PositionWrapper, SelectStyled } from './styled';
+import { SelectProps } from './types';
 
-      {options.map((item) => (
-        <option key={item} value={item}>
-          {item}
-        </option>
-      ))}
-    </SelectStyled>
-    <ArrowIconStyled />
-  </SelectWrapper>
-);
+export const Select = memo((props: SelectProps) => {
+  const { label, options, placeholder, register, error } = props;
+
+  const id = useId();
+
+  return (
+    <div>
+      <PositionWrapper>
+        {label && <label htmlFor={id}>{label}</label>}
+
+        <SelectStyled id={id} defaultValue="" {...register}>
+          {placeholder && (
+            <option value="" disabled hidden>
+              {placeholder}
+            </option>
+          )}
+
+          {options.map((item) => (
+            <option key={item} value={item}>
+              {item}
+            </option>
+          ))}
+        </SelectStyled>
+
+        <ArrowIconStyled />
+      </PositionWrapper>
+
+      {error && <ErrorMessage>{error}</ErrorMessage>}
+    </div>
+  );
+});
