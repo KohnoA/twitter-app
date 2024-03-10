@@ -1,7 +1,9 @@
 import { memo, useId } from 'react';
 
+import { ErrorMessage } from '../ErrorMessage';
+
 import { DEFAULT_INPUT_TYPE } from './constants';
-import { ErrorMessage, InputStyled, InputWrapper } from './styled';
+import { InputStyled, InputWrapper } from './styled';
 import { InputProps } from './types';
 
 export const Input = memo((props: InputProps) => {

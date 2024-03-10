@@ -39,10 +39,3 @@ export const InputStyled = styled.input<InputStyledProps>`
     font-size: ${theme.fontSizes.md}px;
   `)}
 `;
-
-export const ErrorMessage = styled.p`
-  padding: 5px;
-
-  color: ${({ theme }) => theme.colors.error};
-  font-size: ${({ theme }) => theme.fontSizes.lg}px;
-`;
