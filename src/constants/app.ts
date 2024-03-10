@@ -1,4 +1,5 @@
 export enum AppRoutes {
+  NOT_FOUND = '*',
   ROOT = '/',
   SIGN_UP = '/signup',
   SIGN_UP_EMAIL = '/signup-email',
