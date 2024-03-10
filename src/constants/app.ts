@@ -18,4 +18,5 @@ export enum AppColors {
   BLUE_DARK = '#1D9BF0',
   GREY_LIGHT = '#EFF3F4',
   GREY_DARK = '#B3B8BB',
+  RED = '#FF0000',
 }
