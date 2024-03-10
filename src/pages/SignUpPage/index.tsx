@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-import { Button, Paragraph } from '@/components/UI';
+import { Button, MyLink, Paragraph } from '@/components/UI';
 import { AppRoutes, ICONS, UNASSIGNED_LINK_VALUE } from '@/constants';
 import { LayoutWithFooter } from '@/layout';
 
@@ -40,9 +40,10 @@ export const SignUpPage = () => (
         </ButtonsWrapper>
 
         <PolicyParagraph>
-          By singing up you agree to the <Link to={UNASSIGNED_LINK_VALUE}>Terms of Service</Link>{' '}
-          and <Link to={UNASSIGNED_LINK_VALUE}>Privacy Policy</Link>, including{' '}
-          <Link to={UNASSIGNED_LINK_VALUE}>Cookie Use</Link>.
+          By singing up you agree to the{' '}
+          <MyLink to={UNASSIGNED_LINK_VALUE}>Terms of Service</MyLink> and{' '}
+          <MyLink to={UNASSIGNED_LINK_VALUE}>Privacy Policy</MyLink>, including{' '}
+          <MyLink to={UNASSIGNED_LINK_VALUE}>Cookie Use</MyLink>.
         </PolicyParagraph>
 
         <Paragraph>
