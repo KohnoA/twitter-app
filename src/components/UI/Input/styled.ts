@@ -2,14 +2,15 @@ import styled from 'styled-components';
 
 import { media } from '@/styles';
 
-interface InputProps {
-  $hasError?: boolean;
-}
+import { InputStyledProps } from './types';
 
-export const Input = styled.input<InputProps>`
+export const InputWrapper = styled.div`
+  margin-bottom: ${({ theme }) => theme.margins.md}px;
+`;
+
+export const InputStyled = styled.input<InputStyledProps>`
   width: 100%;
   padding: ${({ theme }) => theme.margins.md}px;
-  margin-bottom: ${({ theme }) => theme.margins.md}px;
 
   font-size: ${({ theme }) => theme.fontSizes.xl}px;
 
@@ -28,8 +29,7 @@ export const Input = styled.input<InputProps>`
   `}
 
   &:focus {
-    outline: 1px solid
-      ${({ theme, $hasError }) => ($hasError ? theme.colors.error : theme.colors.text)};
+    outline: 1px solid ${({ theme, $hasError }) => ($hasError ? 'transparent' : theme.colors.text)};
   }
 
   ${({ theme }) =>
@@ -38,4 +38,11 @@ export const Input = styled.input<InputProps>`
 
     font-size: ${theme.fontSizes.md}px;
   `)}
+`;
+
+export const ErrorMessage = styled.p`
+  padding: 5px;
+
+  color: ${({ theme }) => theme.colors.error};
+  font-size: ${({ theme }) => theme.fontSizes.lg}px;
 `;
