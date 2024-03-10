@@ -46,7 +46,7 @@ export const SelectsWrapper = styled.div`
 
   margin-bottom: ${({ theme }) => theme.margins.xl}px;
 
-  ${media('mobileL')`
+  ${media('tablet')`
       grid-template-columns: 1fr;
       grid-template-rows: repeat(3, 1fr);
   `}
