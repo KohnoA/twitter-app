@@ -8,13 +8,13 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    min-width: ${({ theme }) => theme.breakpoints.mobileS};
+    min-width: ${({ theme }) => theme.breakpoints.mobileS}px;
 
     margin: 0;
     padding: 0;
   
     font-family: ${({ theme }) => theme.fontFamily};
-    font-size: ${({ theme }) => theme.fontSizes.xl};
+    font-size: ${({ theme }) => theme.fontSizes.xl}px;
     color: ${({ theme }) => theme.colors.text};
 
     background-color: ${({ theme }) => theme.colors.bgPrimary};
