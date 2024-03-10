@@ -1,0 +1,25 @@
+import { Link } from 'react-router-dom';
+
+import { Button } from '@/components/UI';
+import { AppRoutes, ICONS } from '@/constants';
+import { Footer } from '@/layout/Footer';
+
+import { NotFoundParagraph, NotFoundSection, NotFoundTitle, PageContainer } from './styles';
+
+const { TwitterIcon } = ICONS;
+
+export const NotFoundPage = () => (
+  <PageContainer>
+    <NotFoundSection>
+      <NotFoundTitle $size="xl6">
+        <TwitterIcon width={50} height={50} /> 404
+      </NotFoundTitle>
+      <NotFoundParagraph $size="xl3">Oops, page not found</NotFoundParagraph>
+      <Button to={AppRoutes.ROOT} as={Link}>
+        Go To Main
+      </Button>
+    </NotFoundSection>
+
+    <Footer />
+  </PageContainer>
+);
