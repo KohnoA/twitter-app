@@ -1,1 +1,9 @@
-export const SignUpEmailPage = () => <div>SignUp with email</div>;
+import { SignUpEmailForm } from '@/components';
+
+import { PageContainer } from './styled';
+
+export const SignUpEmailPage = () => (
+  <PageContainer>
+    <SignUpEmailForm />
+  </PageContainer>
+);
