@@ -37,6 +37,11 @@ export const BirthdayDescriptionParagraph = styled(Paragraph)`
   margin-bottom: ${({ theme }) => theme.margins.lg}px;
 
   opacity: ${({ theme }) => theme.opacity.low};
+
+  ${({ theme }) =>
+    media(`tablet`)(`
+    font-size: ${theme.fontSizes.md}px;
+  `)}
 `;
 
 export const SelectsWrapper = styled.div`
@@ -46,8 +51,10 @@ export const SelectsWrapper = styled.div`
 
   margin-bottom: ${({ theme }) => theme.margins.xl}px;
 
-  ${media('tablet')`
-      grid-template-columns: 1fr;
-      grid-template-rows: repeat(3, 1fr);
-  `}
+  ${({ theme }) =>
+    media(`tablet`)(`
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    gap: ${theme.margins.sm}px;
+  `)}
 `;
