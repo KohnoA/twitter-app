@@ -7,6 +7,7 @@ const lightTheme = {
   bgPrimary: AppColors.WHITE,
   bgSecondaryLight: AppColors.GREY_LIGHT,
   bgSecondaryDark: AppColors.GREY_DARK,
+  error: AppColors.RED,
 };
 
 const darkTheme = {
@@ -16,6 +17,7 @@ const darkTheme = {
   bgPrimary: AppColors.WHITE,
   bgSecondaryLight: AppColors.GREY_LIGHT,
   bgSecondaryDark: AppColors.GREY_DARK,
+  error: AppColors.RED,
 };
 
 export const generalTheme = {
@@ -59,6 +61,7 @@ export const generalTheme = {
 
   radius: {
     high: 42,
+    low: 6,
   },
 
   opacity: {
