@@ -15,7 +15,7 @@ export const Select = memo((props: SelectProps) => {
       <PositionWrapper>
         {label && <label htmlFor={id}>{label}</label>}
 
-        <SelectStyled id={id} defaultValue="" {...register}>
+        <SelectStyled $hasError={!!error} id={id} defaultValue="" {...register}>
           {placeholder && (
             <option value="" disabled hidden>
               {placeholder}
