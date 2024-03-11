@@ -6,6 +6,11 @@ import { InputStyledProps } from './types';
 
 export const InputWrapper = styled.div`
   margin-bottom: ${({ theme }) => theme.margins.md}px;
+
+  ${({ theme }) =>
+    media('tablet')(`
+    margin-bottom: ${theme.margins.sm}px;
+  `)}
 `;
 
 export const InputStyled = styled.input<InputStyledProps>`
