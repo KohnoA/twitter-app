@@ -20,6 +20,7 @@ export const SignUpEmailForm = ({ defaultValues, onSubmit }: SignUpEmailFormProp
   const {
     register,
     handleSubmit,
+    watch,
     formState: { errors },
   } = useForm<EmailFormFields>({ defaultValues });
 
@@ -63,7 +64,7 @@ export const SignUpEmailForm = ({ defaultValues, onSubmit }: SignUpEmailFormProp
         <Select
           placeholder="Day"
           error={errors.day?.message}
-          options={getDaysOptions(0, 2024)}
+          options={getDaysOptions(...watch(['month', 'year']))}
           register={register('day', config.selectValidation)}
         />
 
