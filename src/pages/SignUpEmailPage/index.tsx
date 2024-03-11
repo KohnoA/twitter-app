@@ -3,10 +3,9 @@ import { useCallback, useMemo, useState } from 'react';
 import { SignUpEmailForm, SignUpPasswordForm } from '@/components';
 import { Title } from '@/components/UI';
 import { SignUpSteps } from '@/constants';
+import { FormWrapper, PageContainer, TwitterIconStyled } from '@/styles';
 import { EmailFormFields, OnSubmitPasswordFormFields } from '@/types';
 import { getBirthdayDate } from '@/utils';
-
-import { FormWrapper, PageContainer, TwitterIconStyle } from './styled';
 
 export const SignUpEmailPage = () => {
   const [step, setStep] = useState<SignUpSteps>(SignUpSteps.EMAIL_STEP);
@@ -47,7 +46,7 @@ export const SignUpEmailPage = () => {
   return (
     <PageContainer>
       <FormWrapper>
-        <TwitterIconStyle width={50} height={50} />
+        <TwitterIconStyled width={50} height={50} />
         <Title $size="xl3">Create an account</Title>
 
         {signUpForms[step]}
