@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { media } from '@/styles';
+import { flex, media } from '@/styles';
 
 import { InputStyledProps } from './types';
 
@@ -13,9 +13,16 @@ export const InputWrapper = styled.div`
   `)}
 `;
 
+export const PositionInputWrapper = styled.div`
+  position: relative;
+
+  width: 100%;
+`;
+
 export const InputStyled = styled.input<InputStyledProps>`
   width: 100%;
   padding: ${({ theme }) => theme.margins.md}px;
+  padding-right: 60px;
 
   font-size: ${({ theme }) => theme.fontSizes.xl}px;
 
@@ -40,7 +47,57 @@ export const InputStyled = styled.input<InputStyledProps>`
   ${({ theme }) =>
     media('tablet')(`
     padding: ${theme.margins.sm}px;
+    padding-right: 40px;
 
     font-size: ${theme.fontSizes.md}px;
   `)}
+`;
+
+export const VisibilityButton = styled.button`
+  position: absolute;
+
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
+
+  ${flex()}
+
+  padding: 3px;
+
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+  & svg {
+    width: 25px;
+    height: 25px;
+
+    transition: opacity ${({ theme }) => theme.duration}ms;
+    opacity: ${({ theme }) => theme.opacity.high};
+
+    & path {
+      transform: scale(0.53);
+    }
+  }
+
+  &:hover {
+    & svg {
+      opacity: 1;
+    }
+  }
+
+  ${media('tablet')`
+    right: 8px;
+
+    padding: 0;
+
+    & svg {
+      width: 20px;
+      height: 20px;
+
+      & path {
+        transform: scale(0.4);
+      }
+    }
+  `}
 `;
