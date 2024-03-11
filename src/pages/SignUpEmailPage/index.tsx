@@ -3,6 +3,7 @@ import { useCallback, useMemo, useState } from 'react';
 import { SignUpEmailForm, SignUpPasswordForm } from '@/components';
 import { Title } from '@/components/UI';
 import { SignUpSteps } from '@/constants';
+import { signUpUser } from '@/services';
 import { FormWrapper, PageContainer, TwitterIconStyled } from '@/styles';
 import { EmailFormFields, OnSubmitPasswordFormFields } from '@/types';
 import { getBirthdayDate } from '@/utils';
@@ -29,6 +30,8 @@ export const SignUpEmailPage = () => {
 
       // eslint-disable-next-line no-console
       console.log(user);
+
+      signUpUser(user);
     },
     [emailFormData],
   );
