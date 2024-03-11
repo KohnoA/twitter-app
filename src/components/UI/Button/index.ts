@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { flex, interactive } from '@/styles';
+import { flex, interactive, media } from '@/styles';
 
 interface ButtonProps {
   $view?: 'primary' | 'secondary';
@@ -12,7 +12,7 @@ export const Button = styled.button<ButtonProps>`
   gap: ${({ theme }) => theme.margins.sm}px;
 
   width: 100%;
-  padding: 15px 0;
+  padding: 18px 0;
 
   font-size: ${({ theme }) => theme.fontSizes.xl2}px;
   font-weight: ${({ theme }) => theme.fontWeight.md};
@@ -35,11 +35,17 @@ export const Button = styled.button<ButtonProps>`
     border: 1px solid ${theme.colors.main};
   `}
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.desktopL}px) {
-    font-size: ${({ theme }) => theme.fontSizes.xl}px;
-  }
+  ${({ theme }) =>
+    media(`desktopL`)(`
+    font-size: ${theme.fontSizes.xl}px;
+  `)}
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.desktopM}px) {
-    font-size: ${({ theme }) => theme.fontSizes.lg}px;
-  }
+  ${({ theme }) =>
+    media(`desktopM`)(`
+    font-size: ${theme.fontSizes.lg}px;
+  `)}
+
+  ${media('tablet')`
+    padding: 12px 0;
+  `}
 `;
