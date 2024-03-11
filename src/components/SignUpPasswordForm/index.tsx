@@ -1,14 +1,17 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
 
 import { Errors } from '@/constants';
+import { PasswordFormFields } from '@/types';
 
 import { Button, Input } from '../UI';
 
 import { confirmPasswordValidation, passwordValidation } from './config';
 import { ButtonsWrapper, SignUpPasswordFormStyled } from './styled';
-import { PasswordFormFields } from './types';
+import { SignUpPasswordFormProps } from './types';
 
-export const SignUpPasswordForm = () => {
+export const SignUpPasswordForm = (props: SignUpPasswordFormProps) => {
+  const { onStepBack, onSubmit: innerOnSubmit } = props;
+
   const {
     register,
     handleSubmit,
@@ -21,7 +24,10 @@ export const SignUpPasswordForm = () => {
 
     if (password !== confirm) {
       setError('confirm', { message: Errors.PASSWORD_CONFIRM }, { shouldFocus: true });
+      return;
     }
+
+    innerOnSubmit({ password });
   };
 
   return (
@@ -41,7 +47,9 @@ export const SignUpPasswordForm = () => {
       />
 
       <ButtonsWrapper>
-        <Button type="button">Back</Button>
+        <Button type="button" onClick={onStepBack}>
+          Back
+        </Button>
         <Button type="submit">Sign Up</Button>
       </ButtonsWrapper>
     </SignUpPasswordFormStyled>

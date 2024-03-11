@@ -1,6 +1,7 @@
-import { SubmitHandler, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 
 import { AppRoutes, MONTH } from '@/constants';
+import { EmailFormFields } from '@/types';
 import { getDaysOptions, getYearsOptions } from '@/utils';
 
 import { Button, Input, Select } from '../UI';
@@ -13,16 +14,14 @@ import {
   SelectsWrapper,
   SignUpEmailFormStyled,
 } from './styled';
-import { EmailFormFields } from './types';
+import { SignUpEmailFormProps } from './types';
 
-export const SignUpEmailForm = () => {
+export const SignUpEmailForm = ({ defaultValues, onSubmit }: SignUpEmailFormProps) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<EmailFormFields>();
-
-  const onSubmit: SubmitHandler<EmailFormFields> = (data) => data;
+  } = useForm<EmailFormFields>({ defaultValues });
 
   return (
     <SignUpEmailFormStyled onSubmit={handleSubmit(onSubmit)}>

@@ -12,3 +12,8 @@ export const MONTH = [
   'November',
   'December',
 ];
+
+export enum SignUpSteps {
+  EMAIL_STEP,
+  PASSWORD_STEP,
+}

@@ -1,8 +1,8 @@
-export interface EmailFormFields {
-  name: string;
-  phone: string;
-  email: string;
-  day: string;
-  month: string;
-  year: string;
+import { SubmitHandler } from 'react-hook-form';
+
+import { EmailFormFields } from '@/types';
+
+export interface SignUpEmailFormProps {
+  defaultValues?: Partial<EmailFormFields>;
+  onSubmit: SubmitHandler<EmailFormFields>;
 }
