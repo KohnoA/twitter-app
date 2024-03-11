@@ -1,9 +1,17 @@
-import { SignUpEmailForm } from '@/components';
+import { SignUpEmailForm, SignUpPasswordForm } from '@/components';
+import { Title } from '@/components/UI';
 
-import { PageContainer } from './styled';
+import { FormWrapper, PageContainer, TwitterIconStyle } from './styled';
 
 export const SignUpEmailPage = () => (
   <PageContainer>
-    <SignUpEmailForm />
+    <FormWrapper>
+      <TwitterIconStyle width={50} height={50} />
+      <Title $size="xl3">Create an account</Title>
+
+      <SignUpEmailForm />
+
+      <SignUpPasswordForm />
+    </FormWrapper>
   </PageContainer>
 );

@@ -3,7 +3,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { AppRoutes, MONTH } from '@/constants';
 import { getDaysOptions, getYearsOptions } from '@/utils';
 
-import { Button, Input, Select, Title } from '../UI';
+import { Button, Input, Select } from '../UI';
 
 import * as config from './config';
 import {
@@ -11,25 +11,21 @@ import {
   DateOfBirthTitle,
   EmailLink,
   SelectsWrapper,
-  SignUpForm,
-  TwitterIconStyle,
+  SignUpEmailFormStyled,
 } from './styled';
-import { FormFields } from './types';
+import { EmailFormFields } from './types';
 
 export const SignUpEmailForm = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormFields>();
+  } = useForm<EmailFormFields>();
 
-  const onSubmit: SubmitHandler<FormFields> = (data) => data;
+  const onSubmit: SubmitHandler<EmailFormFields> = (data) => data;
 
   return (
-    <SignUpForm onSubmit={handleSubmit(onSubmit)}>
-      <TwitterIconStyle width={50} height={50} />
-      <Title $size="xl3">Create an account</Title>
-
+    <SignUpEmailFormStyled onSubmit={handleSubmit(onSubmit)}>
       <Input
         placeholder="Name"
         error={errors.name?.message}
@@ -81,6 +77,6 @@ export const SignUpEmailForm = () => {
       </SelectsWrapper>
 
       <Button type="submit">Next</Button>
-    </SignUpForm>
+    </SignUpEmailFormStyled>
   );
 };

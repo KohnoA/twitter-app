@@ -1,21 +1,11 @@
 import styled from 'styled-components';
 
 import { MyLink, Paragraph, Title } from '@/components/UI';
-import { ICONS } from '@/constants';
 import { media } from '@/styles';
 
-const { TwitterIcon } = ICONS;
-
-export const SignUpForm = styled.form`
-  max-width: 670px;
-  padding: ${({ theme }) => `${theme.margins.xl}px 0`};
-`;
-
-export const TwitterIconStyle = styled(TwitterIcon)`
-  display: block;
-
-  margin: 0 auto;
-  margin-bottom: ${({ theme }) => theme.margins.xl}px;
+export const SignUpEmailFormStyled = styled.form`
+  width: 100%;
+  margin-bottom: ${({ theme }) => `${theme.margins.xl}px`};
 `;
 
 export const EmailLink = styled(MyLink)`
