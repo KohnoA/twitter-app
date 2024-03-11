@@ -47,7 +47,7 @@ export const SignUpPage = () => (
         </PolicyParagraph>
 
         <Paragraph>
-          Already have an account? <Link to={AppRoutes.LOGIN}>Log in</Link>
+          Already have an account? <MyLink to={AppRoutes.LOGIN}>Log in</MyLink>
         </Paragraph>
       </SignUpForm>
     </SignUpMain>
