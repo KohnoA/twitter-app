@@ -28,9 +28,6 @@ export const SignUpEmailPage = () => {
         ...data,
       };
 
-      // eslint-disable-next-line no-console
-      console.log(user);
-
       signUpUser(user);
     },
     [emailFormData],

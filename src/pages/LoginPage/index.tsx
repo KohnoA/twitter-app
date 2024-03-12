@@ -1,12 +1,14 @@
 import { LoginForm } from '@/components/LoginForm';
 import { Title } from '@/components/UI';
+import { signInUser } from '@/services';
 import { FormWrapper, PageContainer, TwitterIconStyled } from '@/styles';
 import { LoginFormFields } from '@/types';
 
 export const LoginPage = () => {
   const loginFormSubmit = (data: LoginFormFields) => {
-    // eslint-disable-next-line no-console
-    console.log(data);
+    const { email, password } = data;
+
+    signInUser(email, password);
   };
 
   return (
