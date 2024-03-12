@@ -4,7 +4,7 @@ import { LoginForm } from '@/components/LoginForm';
 import { Title } from '@/components/UI';
 import { useAppDispatch, useAppSelector } from '@/hooks';
 import { userSelector } from '@/store/selectors';
-import { clearErrorStatus } from '@/store/slices/userSlice';
+import { clearUserError } from '@/store/slices';
 import { signInThunk } from '@/store/thunks';
 import { FormWrapper, PageContainer, TwitterIconStyled } from '@/styles';
 import { LoginFormFields } from '@/types';
@@ -19,9 +19,9 @@ export const LoginPage = () => {
 
   useEffect(
     () => () => {
-      dispatch(clearErrorStatus());
+      if (error) dispatch(clearUserError());
     },
-    [dispatch],
+    [error, dispatch],
   );
 
   return (

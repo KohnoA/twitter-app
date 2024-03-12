@@ -6,11 +6,11 @@ import { PasswordFormFields } from '@/types';
 import { Button, Input } from '../UI';
 
 import { confirmPasswordValidation, passwordValidation } from './config';
-import { ButtonsWrapper, SignUpPasswordFormStyled } from './styled';
+import { ButtonsWrapper, GeneralErrorMessage, SignUpPasswordFormStyled } from './styled';
 import { SignUpPasswordFormProps } from './types';
 
 export const SignUpPasswordForm = (props: SignUpPasswordFormProps) => {
-  const { onStepBack, onSubmit: innerOnSubmit } = props;
+  const { error, onStepBack, onSubmit: innerOnSubmit } = props;
 
   const {
     register,
@@ -45,6 +45,8 @@ export const SignUpPasswordForm = (props: SignUpPasswordFormProps) => {
         error={errors.confirm?.message}
         register={register('confirm', confirmPasswordValidation)}
       />
+
+      {error && <GeneralErrorMessage>{error}</GeneralErrorMessage>}
 
       <ButtonsWrapper>
         <Button type="button" onClick={onStepBack}>

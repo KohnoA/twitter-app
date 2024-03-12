@@ -1,1 +1,1 @@
-export { signUpThunk } from './userSlice';
+export * from './userSlice';

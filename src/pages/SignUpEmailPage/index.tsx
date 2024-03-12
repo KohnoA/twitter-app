@@ -1,9 +1,11 @@
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 
 import { SignUpEmailForm, SignUpPasswordForm } from '@/components';
 import { Title } from '@/components/UI';
 import { SignUpSteps } from '@/constants';
-import { useAppDispatch } from '@/hooks';
+import { useAppDispatch, useAppSelector } from '@/hooks';
+import { userSelector } from '@/store/selectors';
+import { clearUserError } from '@/store/slices';
 import { signUpThunk } from '@/store/thunks';
 import { FormWrapper, PageContainer, TwitterIconStyled } from '@/styles';
 import { EmailFormFields, OnSubmitPasswordFormFields } from '@/types';
@@ -12,6 +14,7 @@ import { getBirthdayDate } from '@/utils';
 export const SignUpEmailPage = () => {
   const [step, setStep] = useState<SignUpSteps>(SignUpSteps.EMAIL_STEP);
   const [emailFormData, setEmailFormData] = useState<EmailFormFields>();
+  const { error } = useAppSelector(userSelector);
   const dispatch = useAppDispatch();
 
   const emailFormSubmit = (data: EmailFormFields) => {
@@ -20,14 +23,14 @@ export const SignUpEmailPage = () => {
   };
 
   const passwordFormSubmit = useCallback(
-    (data: OnSubmitPasswordFormFields) => {
+    ({ password }: OnSubmitPasswordFormFields) => {
       if (!emailFormData) return;
 
       const { day, month, year, ...otherData } = emailFormData;
       const user = {
+        password,
         birthday: getBirthdayDate(year, month, day),
         ...otherData,
-        ...data,
       };
 
       dispatch(signUpThunk(user));
@@ -40,9 +43,16 @@ export const SignUpEmailPage = () => {
   const signUpForms = useMemo(
     () => [
       <SignUpEmailForm onSubmit={emailFormSubmit} defaultValues={emailFormData} />,
-      <SignUpPasswordForm onSubmit={passwordFormSubmit} onStepBack={onStepBack} />,
+      <SignUpPasswordForm error={error} onSubmit={passwordFormSubmit} onStepBack={onStepBack} />,
     ],
-    [emailFormData, passwordFormSubmit],
+    [error, emailFormData, passwordFormSubmit],
+  );
+
+  useEffect(
+    () => () => {
+      if (error) dispatch(clearUserError());
+    },
+    [error, dispatch],
   );
 
   return (
