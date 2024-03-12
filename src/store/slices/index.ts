@@ -1,0 +1,1 @@
+export { signUpThunk } from './userSlice';

@@ -5,4 +5,6 @@ export enum Errors {
   EMAIL = 'Invalid email value',
   PASSWORD = 'The password must contain a minimum of 8 characters, one capital letter and one number',
   PASSWORD_CONFIRM = 'Passwords must match',
+  GENERAL_ERROR = 'Something went wrong, try again later',
+  USER_EXIST = 'A user with this email address is already registered',
 }

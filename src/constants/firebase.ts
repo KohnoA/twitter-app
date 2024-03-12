@@ -5,3 +5,7 @@ export const FIREBASE_STORAGE_BUCKET = import.meta.env.VITE_FIREBASE_STORAGE_BUC
 export const FIREBASE_MESSAGING_SENDER_ID = import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID;
 export const FIREBASE_APP_ID = import.meta.env.VITE_FIREBASE_APP_ID;
 export const FIREBASE_MEASUREMENT_ID = import.meta.env.VITE_MEASUREMENT_ID;
+
+export enum FirebaseErrorCodes {
+  EMAIL_ALREADY_USE = 'auth/email-already-in-use',
+}

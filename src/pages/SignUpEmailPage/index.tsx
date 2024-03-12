@@ -3,7 +3,8 @@ import { useCallback, useMemo, useState } from 'react';
 import { SignUpEmailForm, SignUpPasswordForm } from '@/components';
 import { Title } from '@/components/UI';
 import { SignUpSteps } from '@/constants';
-import { signUp } from '@/services';
+import { useAppDispatch } from '@/hooks';
+import { signUpThunk } from '@/store/slices';
 import { FormWrapper, PageContainer, TwitterIconStyled } from '@/styles';
 import { EmailFormFields, OnSubmitPasswordFormFields } from '@/types';
 import { getBirthdayDate } from '@/utils';
@@ -11,6 +12,7 @@ import { getBirthdayDate } from '@/utils';
 export const SignUpEmailPage = () => {
   const [step, setStep] = useState<SignUpSteps>(SignUpSteps.EMAIL_STEP);
   const [emailFormData, setEmailFormData] = useState<EmailFormFields>();
+  const dispatch = useAppDispatch();
 
   const emailFormSubmit = (data: EmailFormFields) => {
     setStep(SignUpSteps.PASSWORD_STEP);
@@ -28,9 +30,9 @@ export const SignUpEmailPage = () => {
         ...data,
       };
 
-      signUp(user);
+      dispatch(signUpThunk(user));
     },
-    [emailFormData],
+    [emailFormData, dispatch],
   );
 
   const onStepBack = () => setStep(SignUpSteps.EMAIL_STEP);
