@@ -1,6 +1,6 @@
 import { LoginForm } from '@/components/LoginForm';
 import { Title } from '@/components/UI';
-import { signInUser } from '@/services';
+import { signIn } from '@/services';
 import { FormWrapper, PageContainer, TwitterIconStyled } from '@/styles';
 import { LoginFormFields } from '@/types';
 
@@ -8,7 +8,7 @@ export const LoginPage = () => {
   const loginFormSubmit = (data: LoginFormFields) => {
     const { email, password } = data;
 
-    signInUser(email, password);
+    signIn(email, password);
   };
 
   return (

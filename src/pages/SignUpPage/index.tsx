@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Button, MyLink, Paragraph } from '@/components/UI';
 import { AppRoutes, ICONS, UNASSIGNED_LINK_VALUE } from '@/constants';
 import { LayoutWithFooter } from '@/layout';
+import { signInViaGoogle } from '@/services';
 
 import {
   ButtonsWrapper,
@@ -17,39 +18,45 @@ import {
 
 const { TwitterIcon, GoogleIcon } = ICONS;
 
-export const SignUpPage = () => (
-  <LayoutWithFooter>
-    <SignUpMain>
-      <TwitterBackground />
+export const SignUpPage = () => {
+  const handleSignInViaGoogle = () => {
+    signInViaGoogle();
+  };
 
-      <SignUpForm>
-        <TwitterIconWrapper>
-          <TwitterIcon width={50} height={50} />
-        </TwitterIconWrapper>
+  return (
+    <LayoutWithFooter>
+      <SignUpMain>
+        <TwitterBackground />
 
-        <MainTitle>Happining now</MainTitle>
-        <SubTitle as="h3">Join ot twitter now</SubTitle>
+        <SignUpForm>
+          <TwitterIconWrapper>
+            <TwitterIcon width={50} height={50} />
+          </TwitterIconWrapper>
 
-        <ButtonsWrapper>
-          <Button $view="primary">
-            <GoogleIcon width={26} height={26} /> Sign up with Google
-          </Button>
-          <Button to={AppRoutes.SIGN_UP_EMAIL} as={Link} $view="primary">
-            Sign up with email
-          </Button>
-        </ButtonsWrapper>
+          <MainTitle>Happining now</MainTitle>
+          <SubTitle as="h3">Join ot twitter now</SubTitle>
 
-        <PolicyParagraph>
-          By singing up you agree to the{' '}
-          <MyLink to={UNASSIGNED_LINK_VALUE}>Terms of Service</MyLink> and{' '}
-          <MyLink to={UNASSIGNED_LINK_VALUE}>Privacy Policy</MyLink>, including{' '}
-          <MyLink to={UNASSIGNED_LINK_VALUE}>Cookie Use</MyLink>.
-        </PolicyParagraph>
+          <ButtonsWrapper>
+            <Button $view="primary" onClick={handleSignInViaGoogle}>
+              <GoogleIcon width={26} height={26} /> Sign up with Google
+            </Button>
+            <Button to={AppRoutes.SIGN_UP_EMAIL} as={Link} $view="primary">
+              Sign up with email
+            </Button>
+          </ButtonsWrapper>
 
-        <Paragraph>
-          Already have an account? <MyLink to={AppRoutes.LOGIN}>Log in</MyLink>
-        </Paragraph>
-      </SignUpForm>
-    </SignUpMain>
-  </LayoutWithFooter>
-);
+          <PolicyParagraph>
+            By singing up you agree to the{' '}
+            <MyLink to={UNASSIGNED_LINK_VALUE}>Terms of Service</MyLink> and{' '}
+            <MyLink to={UNASSIGNED_LINK_VALUE}>Privacy Policy</MyLink>, including{' '}
+            <MyLink to={UNASSIGNED_LINK_VALUE}>Cookie Use</MyLink>.
+          </PolicyParagraph>
+
+          <Paragraph>
+            Already have an account? <MyLink to={AppRoutes.LOGIN}>Log in</MyLink>
+          </Paragraph>
+        </SignUpForm>
+      </SignUpMain>
+    </LayoutWithFooter>
+  );
+};

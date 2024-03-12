@@ -6,7 +6,7 @@ import { UserDataType } from '@/types';
 
 /* eslint-disable */
 
-export async function signUpUser(data: UserDataType) {
+export async function signUp(data: UserDataType) {
   const { email, password, ...otherData } = data;
 
   try {

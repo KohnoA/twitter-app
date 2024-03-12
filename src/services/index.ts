@@ -1,2 +1,3 @@
-export { signInUser } from './signInUser';
-export { signUpUser } from './signUpUser';
+export { signIn } from './signIn';
+export { signInViaGoogle } from './signInViaGoogle';
+export { signUp } from './signUp';
