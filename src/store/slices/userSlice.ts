@@ -17,7 +17,11 @@ const initialState: UserStateType = {
 export const userSlice = createSlice({
   name: 'user',
   initialState,
-  reducers: {},
+  reducers: {
+    clearErrorStatus(state) {
+      state.error = null;
+    },
+  },
   extraReducers(builder) {
     builder.addCase(signUpThunk.fulfilled, (state) => {
       state.loading = false;
@@ -54,5 +58,7 @@ export const userSlice = createSlice({
     });
   },
 });
+
+export const { clearErrorStatus } = userSlice.actions;
 
 export default userSlice.reducer;

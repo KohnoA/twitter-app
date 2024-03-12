@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { media } from '@/styles';
 
-import { Button, MyLink } from '../UI';
+import { Button, ErrorMessage, MyLink } from '../UI';
 
 export const LoginFormStyled = styled.form`
   width: 100%;
@@ -20,4 +20,8 @@ export const SignUpLink = styled(MyLink)`
   display: block;
 
   text-align: right;
+`;
+
+export const GeneralErrorMessage = styled(ErrorMessage)`
+  text-align: center;
 `;
