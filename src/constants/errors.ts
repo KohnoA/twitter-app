@@ -7,4 +7,5 @@ export enum Errors {
   PASSWORD_CONFIRM = 'Passwords must match',
   GENERAL_ERROR = 'Something went wrong, try again later',
   USER_EXIST = 'A user with this email address is already registered',
+  INVALID_USER_CREDENTIAL = 'Invalid email address or password',
 }

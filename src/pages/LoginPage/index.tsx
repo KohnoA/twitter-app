@@ -1,14 +1,15 @@
 import { LoginForm } from '@/components/LoginForm';
 import { Title } from '@/components/UI';
-import { signIn } from '@/services';
+import { useAppDispatch } from '@/hooks';
+import { signInThunk } from '@/store/thunks';
 import { FormWrapper, PageContainer, TwitterIconStyled } from '@/styles';
 import { LoginFormFields } from '@/types';
 
 export const LoginPage = () => {
-  const loginFormSubmit = (data: LoginFormFields) => {
-    const { email, password } = data;
+  const dispatch = useAppDispatch();
 
-    signIn(email, password);
+  const loginFormSubmit = (data: LoginFormFields) => {
+    dispatch(signInThunk(data));
   };
 
   return (

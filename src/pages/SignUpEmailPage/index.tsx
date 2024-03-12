@@ -4,7 +4,7 @@ import { SignUpEmailForm, SignUpPasswordForm } from '@/components';
 import { Title } from '@/components/UI';
 import { SignUpSteps } from '@/constants';
 import { useAppDispatch } from '@/hooks';
-import { signUpThunk } from '@/store/slices';
+import { signUpThunk } from '@/store/thunks';
 import { FormWrapper, PageContainer, TwitterIconStyled } from '@/styles';
 import { EmailFormFields, OnSubmitPasswordFormFields } from '@/types';
 import { getBirthdayDate } from '@/utils';

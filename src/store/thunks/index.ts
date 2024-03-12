@@ -1,1 +1,1 @@
-export { signUpThunk } from './userThunks';
+export * from './userThunks';

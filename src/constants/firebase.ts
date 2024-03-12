@@ -8,4 +8,5 @@ export const FIREBASE_MEASUREMENT_ID = import.meta.env.VITE_MEASUREMENT_ID;
 
 export enum FirebaseErrorCodes {
   EMAIL_ALREADY_USE = 'auth/email-already-in-use',
+  INVALID_CREDENTIAL = 'auth/invalid-credential',
 }
