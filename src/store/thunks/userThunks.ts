@@ -9,9 +9,9 @@ export const signUpThunk = createAsyncThunk(
   'user/signUpThunk',
   async (userData: UserDataType, { rejectWithValue }) => {
     try {
-      const user = await signUp(userData);
+      const { user } = await signUp(userData);
 
-      return user.firestoreId;
+      return user.uid;
     } catch (error) {
       if (error instanceof FirebaseError && error.code === FirebaseErrorCodes.EMAIL_ALREADY_USE) {
         return rejectWithValue(Errors.USER_EXIST);
@@ -29,7 +29,7 @@ export const signInThunk = createAsyncThunk(
       const { email, password } = userData;
       const user = await signIn(email, password);
 
-      return user;
+      return user.uid;
     } catch (error) {
       if (error instanceof FirebaseError && error.code === FirebaseErrorCodes.INVALID_CREDENTIAL) {
         return rejectWithValue(Errors.INVALID_USER_CREDENTIAL);
