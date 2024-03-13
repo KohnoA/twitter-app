@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-import { Navigation } from '../components';
+import { Header, Navigation } from '../components';
 
 import { MainLayoutWrapper } from './styled';
 
@@ -12,6 +12,10 @@ export const MainLayout = ({ children }: MainLayoutProps) => (
   <MainLayoutWrapper>
     <Navigation />
 
-    {children}
+    <div>
+      <Header />
+
+      {children}
+    </div>
   </MainLayoutWrapper>
 );

@@ -14,6 +14,8 @@ export const UserCardWrapper = styled.div`
 `;
 
 export const UserAvatar = styled.div`
+  flex-shrink: 0;
+
   width: 50px;
   height: 50px;
 

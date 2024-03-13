@@ -13,6 +13,10 @@ export const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     min-width: ${({ theme }) => theme.breakpoints.mobileS}px;
 

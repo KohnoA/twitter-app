@@ -6,4 +6,5 @@ export { MyLink } from './MyLink';
 export { Paragraph } from './Paragraph';
 export { Select } from './Select';
 export { Spinner } from './Spinner';
+export { Switch } from './Switch';
 export { Title } from './Title';

@@ -1,17 +1,6 @@
-import { ICONS } from '@/constants';
-
+import { DEFAULT_HEIGHT, DEFAULT_SHOW_VALUE, DEFAULT_WIDTH, SpinnerIcon } from './constants';
 import { SpinnerWrapper } from './styled';
-
-const { SpinnerIcon } = ICONS;
-const DEFAULT_SHOW_VALUE = true;
-const DEFAULT_WIDTH = 30;
-const DEFAULT_HEIGHT = 30;
-
-interface SpinnerProps {
-  width?: number;
-  height?: number;
-  show?: boolean;
-}
+import { SpinnerProps } from './types';
 
 export const Spinner = ({ width, height, show = DEFAULT_SHOW_VALUE }: SpinnerProps) => {
   if (!show) {
