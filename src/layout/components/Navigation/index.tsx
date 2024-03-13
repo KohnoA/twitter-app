@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { UserCard } from '@/components';
 import { Button } from '@/components/UI';
 import { NAVIGATION_LIST } from '@/constants';
+import { signOut } from '@/services';
 
 import {
   NavigationLink,
@@ -14,6 +15,8 @@ import {
 
 export const Navigation = () => {
   const { pathname } = useLocation();
+
+  const handleSignOut = () => signOut();
 
   return (
     <NavigationWrapper>
@@ -35,7 +38,9 @@ export const Navigation = () => {
 
       <UserCard />
 
-      <Button $view="primary">Log out</Button>
+      <Button $view="primary" onClick={handleSignOut}>
+        Log out
+      </Button>
     </NavigationWrapper>
   );
 };
