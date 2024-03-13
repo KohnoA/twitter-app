@@ -1,1 +1,7 @@
-export const HomePage = () => <div>Home</div>;
+import { MainLayout } from '@/layout';
+
+export const HomePage = () => (
+  <MainLayout>
+    <div>Home</div>
+  </MainLayout>
+);
