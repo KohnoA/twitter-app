@@ -1,7 +1,9 @@
 export { Button } from './Button';
+export { ButtonWithSpinner } from './ButtonWithSpinner';
 export { ErrorMessage } from './ErrorMessage';
 export { Input } from './Input';
 export { MyLink } from './MyLink';
 export { Paragraph } from './Paragraph';
 export { Select } from './Select';
+export { Spinner } from './Spinner';
 export { Title } from './Title';

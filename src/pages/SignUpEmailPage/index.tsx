@@ -1,46 +1,23 @@
-import { useCallback, useMemo, useState } from 'react';
+import { useEffect, useMemo } from 'react';
 
 import { SignUpEmailForm, SignUpPasswordForm } from '@/components';
 import { Title } from '@/components/UI';
-import { SignUpSteps } from '@/constants';
+import { useAppDispatch, useAppSelector } from '@/hooks';
+import { signUpSelector } from '@/store/selectors';
+import { clearEmailFormData } from '@/store/slices';
 import { FormWrapper, PageContainer, TwitterIconStyled } from '@/styles';
-import { EmailFormFields, OnSubmitPasswordFormFields } from '@/types';
-import { getBirthdayDate } from '@/utils';
 
 export const SignUpEmailPage = () => {
-  const [step, setStep] = useState<SignUpSteps>(SignUpSteps.EMAIL_STEP);
-  const [emailFormData, setEmailFormData] = useState<EmailFormFields>();
+  const { step } = useAppSelector(signUpSelector);
+  const dispatch = useAppDispatch();
 
-  const emailFormSubmit = (data: EmailFormFields) => {
-    setStep(SignUpSteps.PASSWORD_STEP);
-    setEmailFormData(data);
-  };
+  const signUpForms = useMemo(() => [<SignUpEmailForm />, <SignUpPasswordForm />], []);
 
-  const passwordFormSubmit = useCallback(
-    (data: OnSubmitPasswordFormFields) => {
-      if (!emailFormData) return;
-
-      const { day, month, year, ...otherData } = emailFormData;
-      const user = {
-        birthday: getBirthdayDate(year, month, day),
-        ...otherData,
-        ...data,
-      };
-
-      // eslint-disable-next-line no-console
-      console.log(user);
+  useEffect(
+    () => () => {
+      dispatch(clearEmailFormData());
     },
-    [emailFormData],
-  );
-
-  const onStepBack = () => setStep(SignUpSteps.EMAIL_STEP);
-
-  const signUpForms = useMemo(
-    () => [
-      <SignUpEmailForm onSubmit={emailFormSubmit} defaultValues={emailFormData} />,
-      <SignUpPasswordForm onSubmit={passwordFormSubmit} onStepBack={onStepBack} />,
-    ],
-    [emailFormData, passwordFormSubmit],
+    [dispatch],
   );
 
   return (

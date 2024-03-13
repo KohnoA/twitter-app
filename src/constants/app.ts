@@ -4,6 +4,14 @@ export enum AppRoutes {
   SIGN_UP = '/signup',
   SIGN_UP_EMAIL = '/signup-email',
   LOGIN = '/login',
+  HOME = '/home',
+  EXPLORE = '/explore',
+  PROFILE = '/profile',
+  NOTIFICATION = '/notification',
+  MESSAGES = '/messages',
+  BOOKMARKS = '/bookmarks',
+  LISTS = '/lists',
+  MORE = '/more',
 }
 
 export enum AppThemes {

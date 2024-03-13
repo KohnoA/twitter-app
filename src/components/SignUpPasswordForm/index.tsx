@@ -1,17 +1,22 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
 
 import { Errors } from '@/constants';
+import { useAppDispatch, useAppSelector, useUserFormStatus } from '@/hooks';
+import { signUpSelector } from '@/store/selectors';
+import { setEmailStep } from '@/store/slices';
+import { signUpThunk } from '@/store/thunks';
 import { PasswordFormFields } from '@/types';
+import { getBirthdayDate } from '@/utils';
 
-import { Button, Input } from '../UI';
+import { Button, ButtonWithSpinner, Input } from '../UI';
 
 import { confirmPasswordValidation, passwordValidation } from './config';
-import { ButtonsWrapper, SignUpPasswordFormStyled } from './styled';
-import { SignUpPasswordFormProps } from './types';
+import { ButtonsWrapper, GeneralErrorMessage, SignUpPasswordFormStyled } from './styled';
 
-export const SignUpPasswordForm = (props: SignUpPasswordFormProps) => {
-  const { onStepBack, onSubmit: innerOnSubmit } = props;
-
+export const SignUpPasswordForm = () => {
+  const { error, loading } = useUserFormStatus();
+  const { emailFormData } = useAppSelector(signUpSelector);
+  const dispatch = useAppDispatch();
   const {
     register,
     handleSubmit,
@@ -27,8 +32,18 @@ export const SignUpPasswordForm = (props: SignUpPasswordFormProps) => {
       return;
     }
 
-    innerOnSubmit({ password });
+    if (!emailFormData) return;
+    const { day, month, year, ...otherData } = emailFormData;
+    dispatch(
+      signUpThunk({
+        password,
+        birthday: getBirthdayDate(year, month, day),
+        ...otherData,
+      }),
+    );
   };
+
+  const onStepBack = () => dispatch(setEmailStep());
 
   return (
     <SignUpPasswordFormStyled onSubmit={handleSubmit(onSubmit)}>
@@ -46,11 +61,15 @@ export const SignUpPasswordForm = (props: SignUpPasswordFormProps) => {
         register={register('confirm', confirmPasswordValidation)}
       />
 
+      {error && <GeneralErrorMessage>{error}</GeneralErrorMessage>}
+
       <ButtonsWrapper>
         <Button type="button" onClick={onStepBack}>
           Back
         </Button>
-        <Button type="submit">Sign Up</Button>
+        <ButtonWithSpinner type="submit" isLoading={loading}>
+          Sign Up
+        </ButtonWithSpinner>
       </ButtonsWrapper>
     </SignUpPasswordFormStyled>
   );
