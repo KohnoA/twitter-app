@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-import { Header, Navigation } from '../components';
+import { Header, Navigation, RightSidebar } from '../components';
 
 import { MainLayoutWrapper } from './styled';
 
@@ -17,5 +17,7 @@ export const MainLayout = ({ children }: MainLayoutProps) => (
 
       {children}
     </div>
+
+    <RightSidebar />
   </MainLayoutWrapper>
 );
