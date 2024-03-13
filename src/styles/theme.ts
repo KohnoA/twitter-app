@@ -12,9 +12,9 @@ const lightTheme = {
 
 const darkTheme = {
   main: AppColors.BLUE_LIGHT,
-  text: AppColors.BLACK,
+  text: AppColors.WHITE,
   textAlt: AppColors.WHITE,
-  bgPrimary: AppColors.WHITE,
+  bgPrimary: AppColors.VIOLET,
   bgSecondaryLight: AppColors.GREY_LIGHT,
   bgSecondaryDark: AppColors.GREY_DARK,
   error: AppColors.RED,
@@ -76,5 +76,3 @@ export const getTheme = (theme: AppThemes) => ({
   colors: theme === AppThemes.DARK ? darkTheme : lightTheme,
   ...generalTheme,
 });
-
-export const theme = getTheme(AppThemes.LIGHT);

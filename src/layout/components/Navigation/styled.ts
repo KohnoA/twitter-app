@@ -20,7 +20,7 @@ export const TwitterIconStyled = styled(TwitterIcon)`
 `;
 
 export const NavigationListWrapper = styled.div`
-  margin-bottom: 80px;
+  margin-bottom: 120px;
 `;
 
 export const NavigationList = styled.ul`
@@ -44,5 +44,9 @@ export const NavigationLink = styled(NavLink)`
   & svg {
     width: 28px;
     height: 28px;
+
+    & path {
+      fill: ${({ theme }) => theme.colors.text};
+    }
   }
 `;

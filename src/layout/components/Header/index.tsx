@@ -1,14 +1,15 @@
-import { memo, useMemo, useState } from 'react';
+import { memo, useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
 
 import { Switch } from '@/components/UI';
-import { NAVIGATION_LIST } from '@/constants';
+import { AppThemes, NAVIGATION_LIST } from '@/constants';
+import { useTheme } from '@/hooks';
 
 import { HeaderWrapper, PageTitle } from './styled';
 
 export const Header = memo(() => {
+  const { theme, toggleTheme } = useTheme();
   const { pathname } = useLocation();
-  const [isActiveSwitch, setIsActiveSwitch] = useState(false);
 
   const pageTitle = useMemo(
     () => NAVIGATION_LIST.find(({ link }) => link === pathname)?.title,
@@ -19,7 +20,7 @@ export const Header = memo(() => {
     <HeaderWrapper>
       <PageTitle $size="xl3">{pageTitle}</PageTitle>
 
-      <Switch isToggled={isActiveSwitch} onChange={() => setIsActiveSwitch(!isActiveSwitch)} />
+      <Switch isToggled={theme === AppThemes.DARK} onChange={toggleTheme} />
     </HeaderWrapper>
   );
 });
