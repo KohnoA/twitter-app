@@ -1,6 +1,9 @@
 import { useForm } from 'react-hook-form';
 
 import { AppRoutes, MONTH } from '@/constants';
+import { useAppDispatch, useAppSelector } from '@/hooks';
+import { signUpSelector } from '@/store/selectors';
+import { setEmailFormData, setPasswordStep } from '@/store/slices';
 import { EmailFormFields } from '@/types';
 import { getDaysOptions, getYearsOptions } from '@/utils';
 
@@ -14,15 +17,21 @@ import {
   SelectsWrapper,
   SignUpEmailFormStyled,
 } from './styled';
-import { SignUpEmailFormProps } from './types';
 
-export const SignUpEmailForm = ({ defaultValues, onSubmit }: SignUpEmailFormProps) => {
+export const SignUpEmailForm = () => {
+  const { emailFormData } = useAppSelector(signUpSelector);
+  const dispatch = useAppDispatch();
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm<EmailFormFields>({ defaultValues });
+  } = useForm<EmailFormFields>({ defaultValues: emailFormData });
+
+  const onSubmit = (data: EmailFormFields) => {
+    dispatch(setPasswordStep());
+    dispatch(setEmailFormData(data));
+  };
 
   return (
     <SignUpEmailFormStyled onSubmit={handleSubmit(onSubmit)}>

@@ -8,7 +8,7 @@ import { auth, provider } from '@/firebase';
 export async function signInViaGoogle() {
   try {
     const result = await signInWithPopup(auth, provider);
-    const credential = GoogleAuthProvider.credentialFromResult(result);
+    const credential = GoogleAuthProvider.credentialFromResult(result); // error
     const token = credential?.accessToken;
     const user = result.user;
 

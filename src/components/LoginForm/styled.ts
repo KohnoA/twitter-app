@@ -2,14 +2,14 @@ import styled from 'styled-components';
 
 import { media } from '@/styles';
 
-import { Button, ErrorMessage, MyLink } from '../UI';
+import { ButtonWithSpinner, ErrorMessage, MyLink } from '../UI';
 
 export const LoginFormStyled = styled.form`
   width: 100%;
   margin-bottom: ${({ theme }) => `${theme.margins.xl}px`};
 `;
 
-export const LoginButton = styled(Button)`
+export const LoginButton = styled(ButtonWithSpinner)`
   margin-top: ${({ theme }) => theme.margins.md}px;
   margin-bottom: ${({ theme }) => theme.margins.xl}px;
 

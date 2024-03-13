@@ -2,11 +2,11 @@ import styled from 'styled-components';
 
 import { flex, interactive, media } from '@/styles';
 
-interface ButtonProps {
-  $view?: 'primary' | 'secondary';
-}
+import { ButtonProps } from './types';
 
 export const Button = styled.button<ButtonProps>`
+  position: relative;
+
   ${flex()}
 
   gap: ${({ theme }) => theme.margins.sm}px;
@@ -34,6 +34,11 @@ export const Button = styled.button<ButtonProps>`
     background-color: ${theme.colors.main};
     border: 1px solid ${theme.colors.main};
   `}
+
+  &:disabled {
+    pointer-events: none;
+    opacity: ${({ theme }) => theme.opacity.low};
+  }
 
   ${({ theme }) =>
     media(`desktopL`)(`
