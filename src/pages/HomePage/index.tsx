@@ -2,6 +2,6 @@ import { MainLayout } from '@/layout';
 
 export const HomePage = () => (
   <MainLayout>
-    <div>Home</div>
+    <div>Home Page</div>
   </MainLayout>
 );

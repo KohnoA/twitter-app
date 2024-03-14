@@ -1,1 +1,7 @@
-export const MorePage = () => <div>More</div>;
+import { MainLayout } from '@/layout';
+
+export const MorePage = () => (
+  <MainLayout>
+    <div>More Page</div>
+  </MainLayout>
+);

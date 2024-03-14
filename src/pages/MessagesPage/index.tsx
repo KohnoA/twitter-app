@@ -1,1 +1,7 @@
-export const MessagesPage = () => <div>Messages</div>;
+import { MainLayout } from '@/layout';
+
+export const MessagesPage = () => (
+  <MainLayout>
+    <div>Messages Page</div>
+  </MainLayout>
+);

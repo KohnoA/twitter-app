@@ -1,1 +1,7 @@
-export const BookmarksPage = () => <div>Bookmarks</div>;
+import { MainLayout } from '@/layout';
+
+export const BookmarksPage = () => (
+  <MainLayout>
+    <div>Bookmarks Page</div>
+  </MainLayout>
+);

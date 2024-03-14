@@ -1,1 +1,7 @@
-export const ProfilePage = () => <div>Profile</div>;
+import { MainLayout } from '@/layout';
+
+export const ProfilePage = () => (
+  <MainLayout>
+    <div>Profile Page</div>
+  </MainLayout>
+);
