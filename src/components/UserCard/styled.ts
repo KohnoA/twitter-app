@@ -1,16 +1,23 @@
 import styled from 'styled-components';
 
 import defaultAvatar from '@/assets/images/default-avatar.png';
-import { flex } from '@/styles';
+import { flex, media } from '@/styles';
 
 export const UserCardWrapper = styled.div`
   ${flex('flex-start')}
 
   gap: ${({ theme }) => theme.margins.md}px;
 
-  max-width: 280px;
+  width: 100%;
   margin-bottom: ${({ theme }) => theme.margins.lg}px;
-  padding: ${({ theme }) => theme.margins.sm}px;
+  padding: 5px;
+
+  ${({ theme }) =>
+    media('desktopM')(`
+    padding: 2px;
+
+    gap: ${theme.margins.sm}px;
+  `)}
 `;
 
 export const UserAvatar = styled.div`
@@ -25,6 +32,15 @@ export const UserAvatar = styled.div`
   background-size: cover;
 
   border-radius: 50%;
+
+  ${media(`desktopM`)`
+    width: 40px;
+    height: 40px;
+  `}
+`;
+
+export const NameEmailWrapper = styled.div`
+  min-width: 0;
 `;
 
 export const UserName = styled.p`
@@ -34,5 +50,9 @@ export const UserName = styled.p`
 `;
 
 export const UserEmail = styled.p`
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
   color: ${({ theme }) => theme.colors.bgSecondaryDark};
 `;

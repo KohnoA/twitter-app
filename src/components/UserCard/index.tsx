@@ -1,12 +1,12 @@
-import { UserAvatar, UserCardWrapper, UserEmail, UserName } from './styled';
+import { NameEmailWrapper, UserAvatar, UserCardWrapper, UserEmail, UserName } from './styled';
 
 export const UserCard = () => (
   <UserCardWrapper>
     <UserAvatar />
 
-    <div>
+    <NameEmailWrapper>
       <UserName>Bobur</UserName>
       <UserEmail>@bobur_mavlonov</UserEmail>
-    </div>
+    </NameEmailWrapper>
   </UserCardWrapper>
 );

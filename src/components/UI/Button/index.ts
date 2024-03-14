@@ -42,11 +42,15 @@ export const Button = styled.button<ButtonProps>`
 
   ${({ theme }) =>
     media(`desktopL`)(`
+    padding: 16px 0;
+    
     font-size: ${theme.fontSizes.xl}px;
   `)}
 
   ${({ theme }) =>
     media(`desktopM`)(`
+    padding: 14px 0;
+
     font-size: ${theme.fontSizes.lg}px;
   `)}
 

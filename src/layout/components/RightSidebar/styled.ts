@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 
+import { media } from '@/styles';
+
 export const RightSidebarWrapper = styled.aside`
-  padding: ${({ theme }) => `${theme.margins.lg}px ${theme.margins.xl}px`};
+  padding: ${({ theme }) => theme.margins.md}px;
 
   border-left: 1px solid ${({ theme }) => theme.colors.bgSecondaryDark};
 `;
@@ -9,7 +11,9 @@ export const RightSidebarWrapper = styled.aside`
 export const RightSidebarFooter = styled.div`
   & ul {
     justify-content: space-evenly;
-    gap: ${({ theme }) => theme.margins.sm}px;
+    gap: 10px;
+
+    padding: 0;
 
     a {
       opacity: ${({ theme }) => theme.opacity.high};
@@ -19,4 +23,10 @@ export const RightSidebarFooter = styled.div`
       }
     }
   }
+
+  ${media('desktopM')`
+    & ul {
+      gap: 8px;
+    }
+  `}
 `;

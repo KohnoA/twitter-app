@@ -6,6 +6,7 @@ import { NAVIGATION_LIST } from '@/constants';
 import { signOut } from '@/services';
 
 import {
+  LogoutButton,
   NavigationLink,
   NavigationList,
   NavigationListWrapper,
@@ -38,9 +39,9 @@ export const Navigation = () => {
 
       <UserCard />
 
-      <Button $view="primary" onClick={handleSignOut}>
+      <LogoutButton $view="primary" onClick={handleSignOut}>
         Log out
-      </Button>
+      </LogoutButton>
     </NavigationWrapper>
   );
 };
