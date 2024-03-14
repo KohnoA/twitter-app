@@ -1,8 +1,10 @@
+import { memo } from 'react';
+
 import { Footer } from '../Footer';
 
 import { RightSidebarFooter, RightSidebarWrapper } from './styled';
 
-export const RightSidebar = () => (
+export const RightSidebar = memo(() => (
   <RightSidebarWrapper>
     <p style={{ marginBottom: '40px' }}>Elastic Search</p>
 
@@ -12,4 +14,4 @@ export const RightSidebar = () => (
       <Footer />
     </RightSidebarFooter>
   </RightSidebarWrapper>
-);
+));

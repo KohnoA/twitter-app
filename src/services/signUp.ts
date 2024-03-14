@@ -7,6 +7,7 @@ import { UserDataType } from '@/types';
 export async function signUp(data: UserDataType) {
   const { email, password, ...otherData } = data;
 
+  // TODO: Promise.all
   const { user } = await createUserWithEmailAndPassword(auth, email, password);
   const { id } = await addDoc(collection(db, 'users'), {
     email,

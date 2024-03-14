@@ -9,7 +9,11 @@ import { BurgerButton, HeaderWrapper, LeftWrapper, PageTitle } from './styled';
 
 const { BurgerIcon } = ICONS;
 
-export const Header = memo(() => {
+interface HeaderProps {
+  onClickBurger: () => void;
+}
+
+export const Header = memo(({ onClickBurger }: HeaderProps) => {
   const { theme, toggleTheme } = useTheme();
   const { pathname } = useLocation();
 
@@ -21,7 +25,7 @@ export const Header = memo(() => {
   return (
     <HeaderWrapper>
       <LeftWrapper>
-        <BurgerButton>
+        <BurgerButton onClick={onClickBurger}>
           <BurgerIcon width={35} height={35} />
         </BurgerButton>
 

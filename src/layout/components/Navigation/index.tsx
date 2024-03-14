@@ -2,10 +2,12 @@ import { useLocation } from 'react-router-dom';
 
 import { UserCard } from '@/components';
 import { Button } from '@/components/UI';
-import { NAVIGATION_LIST } from '@/constants';
+import { ICONS, NAVIGATION_LIST } from '@/constants';
 import { signOut } from '@/services';
 
 import {
+  Backdrop,
+  CrossButton,
   LogoutButton,
   NavigationLink,
   NavigationList,
@@ -13,35 +15,45 @@ import {
   NavigationWrapper,
   TwitterIconStyled,
 } from './styled';
+import { NavigationProps } from './types';
 
-export const Navigation = () => {
+const { CrossIcon } = ICONS;
+
+export const Navigation = ({ isActiveBurger, onCloseBurger }: NavigationProps) => {
   const { pathname } = useLocation();
 
   const handleSignOut = () => signOut();
 
   return (
-    <NavigationWrapper>
-      <NavigationListWrapper>
-        <TwitterIconStyled />
+    <>
+      <Backdrop $show={isActiveBurger} onClick={onCloseBurger} />
+      <NavigationWrapper $isActiveBurger={isActiveBurger}>
+        <CrossButton onClick={onCloseBurger}>
+          <CrossIcon width={40} height={40} />
+        </CrossButton>
 
-        <NavigationList>
-          {NAVIGATION_LIST.map(({ link, OutlineIcon, FillIcon, title }) => (
-            <li key={link}>
-              <NavigationLink to={link}>
-                {pathname === link ? <FillIcon /> : <OutlineIcon />} {title}
-              </NavigationLink>
-            </li>
-          ))}
-        </NavigationList>
+        <NavigationListWrapper>
+          <TwitterIconStyled />
 
-        <Button>Tweet</Button>
-      </NavigationListWrapper>
+          <NavigationList>
+            {NAVIGATION_LIST.map(({ link, OutlineIcon, FillIcon, title }) => (
+              <li key={link}>
+                <NavigationLink to={link}>
+                  {pathname === link ? <FillIcon /> : <OutlineIcon />} {title}
+                </NavigationLink>
+              </li>
+            ))}
+          </NavigationList>
 
-      <UserCard />
+          <Button>Tweet</Button>
+        </NavigationListWrapper>
 
-      <LogoutButton $view="primary" onClick={handleSignOut}>
-        Log out
-      </LogoutButton>
-    </NavigationWrapper>
+        <UserCard />
+
+        <LogoutButton $view="primary" onClick={handleSignOut}>
+          Log out
+        </LogoutButton>
+      </NavigationWrapper>
+    </>
   );
 };

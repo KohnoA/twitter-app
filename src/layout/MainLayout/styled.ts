@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { media } from '@/styles';
 
-export const MainLayoutWrapper = styled.div`
+export const MainLayoutWrapper = styled.section`
   display: grid;
   grid-template-columns: 20% 55% 25%;
 

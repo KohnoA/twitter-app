@@ -18,13 +18,17 @@ export const LeftWrapper = styled.div`
 export const BurgerButton = styled.button`
   display: none;
 
+  padding: 5px;
+
   ${interactive()}
 
   background-color: transparent;
   border: none;
 
   ${media('desktopS')(`
-    ${flex()}
+    display: flex;
+    justify-content: center;
+    align-items: center;
   `)}
 `;
 

@@ -1,6 +1,7 @@
 import ArrowDownIcon from '@/assets/icons/arrow-down.svg';
 import BookmarksOutlineIcon from '@/assets/icons/bookmarks-outline.svg';
 import BurgerIcon from '@/assets/icons/burger.svg';
+import CrossIcon from '@/assets/icons/cross.svg';
 import ExploreOutlineIcon from '@/assets/icons/explore.svg';
 import ExploreFillIcon from '@/assets/icons/explore-fill.svg';
 import GoogleIcon from '@/assets/icons/google-icon.svg';
@@ -42,4 +43,5 @@ export const ICONS = {
   ProfileOutlineIcon,
   MoreOutlineIcon,
   BurgerIcon,
+  CrossIcon,
 };

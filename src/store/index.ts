@@ -1,6 +1,6 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 
-import signUpReducer from './slices/signUoSlice';
+import signUpReducer from './slices/signUpSlice';
 import themeReducer from './slices/themeSlice';
 import userReducer from './slices/userSlice';
 
