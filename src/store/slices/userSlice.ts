@@ -22,6 +22,9 @@ export const userSlice = createSlice({
       if (state.error) state.error = null;
       if (state.loading) state.loading = false;
     },
+    setIsNotAuth(state) {
+      state.isAuth = false;
+    },
   },
   extraReducers(builder) {
     builder.addCase(signUpThunk.fulfilled, (state) => {
@@ -60,6 +63,6 @@ export const userSlice = createSlice({
   },
 });
 
-export const { clearUserStatus } = userSlice.actions;
+export const { clearUserStatus, setIsNotAuth } = userSlice.actions;
 
 export default userSlice.reducer;

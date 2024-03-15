@@ -17,6 +17,7 @@ export const SelectStyled = styled.select<SelectStyledProps>`
   padding-right: 50px;
 
   font-size: ${({ theme }) => theme.fontSizes.xl}px;
+  color: ${({ theme }) => theme.colors.text};
 
   border-width: 1px;
   border-style: solid;

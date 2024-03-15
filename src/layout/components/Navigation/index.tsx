@@ -3,7 +3,9 @@ import { useLocation } from 'react-router-dom';
 import { UserCard } from '@/components';
 import { Button } from '@/components/UI';
 import { ICONS, NAVIGATION_LIST } from '@/constants';
+import { useAppDispatch } from '@/hooks';
 import { signOut } from '@/services';
+import { setIsNotAuth } from '@/store/slices';
 
 import {
   Backdrop,
@@ -21,8 +23,12 @@ const { CrossIcon } = ICONS;
 
 export const Navigation = ({ isActiveBurger, onCloseBurger }: NavigationProps) => {
   const { pathname } = useLocation();
+  const dispatch = useAppDispatch();
 
-  const handleSignOut = () => signOut();
+  const handleSignOut = () => {
+    dispatch(setIsNotAuth());
+    signOut();
+  };
 
   return (
     <>
