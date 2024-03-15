@@ -9,7 +9,7 @@ interface UserStateType {
 }
 
 const initialState: UserStateType = {
-  isAuth: false, // TODO: Return to false
+  isAuth: true, // TODO: Return to false
   loading: false,
   error: null,
 };
