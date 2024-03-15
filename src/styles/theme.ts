@@ -15,7 +15,7 @@ const darkTheme = {
   text: AppColors.WHITE,
   textAlt: AppColors.WHITE,
   bgPrimary: AppColors.VIOLET,
-  bgSecondaryLight: AppColors.GREY_LIGHT,
+  bgSecondaryLight: AppColors.VIOLET_LIGHT,
   bgSecondaryDark: AppColors.GREY_DARK,
   error: AppColors.RED,
 };

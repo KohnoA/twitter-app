@@ -24,8 +24,9 @@ export enum AppColors {
   BLACK = '#000000',
   BLUE_LIGHT = '#1DA1F2',
   BLUE_DARK = '#1D9BF0',
-  GREY_LIGHT = '#EFF3F4',
+  GREY_LIGHT = '#D9DBDB',
   GREY_DARK = '#B3B8BB',
   RED = '#FF0000',
   VIOLET = '#120D18',
+  VIOLET_LIGHT = '#212223',
 }

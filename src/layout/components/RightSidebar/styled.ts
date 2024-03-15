@@ -5,7 +5,7 @@ import { media } from '@/styles';
 export const RightSidebarWrapper = styled.aside`
   padding: ${({ theme }) => theme.margins.md}px;
 
-  border-left: 1px solid ${({ theme }) => theme.colors.bgSecondaryDark};
+  border-left: 1px solid ${({ theme }) => theme.colors.bgSecondaryLight};
 `;
 
 export const RightSidebarFooter = styled.div`
