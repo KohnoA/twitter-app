@@ -1,7 +1,8 @@
+import { Profile } from '@/components';
 import { MainLayout } from '@/layout';
 
 export const ProfilePage = () => (
   <MainLayout>
-    <div>Profile Page</div>
+    <Profile />
   </MainLayout>
 );
