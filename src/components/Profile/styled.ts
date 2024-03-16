@@ -67,7 +67,7 @@ export const UserEmail = styled.p`
   color: ${({ theme }) => theme.colors.stroke};
 `;
 
-export const UserFollowsInfoList = styled.ul`
+export const UserStatsList = styled.ul`
   ${flex('flex-start')}
 
   flex-wrap: wrap;
@@ -76,7 +76,7 @@ export const UserFollowsInfoList = styled.ul`
   padding: ${({ theme }) => `${theme.margins.xl}px ${theme.margins.md}px`};
 `;
 
-export const UserFollowesInfoItem = styled.li`
+export const UserStatsItem = styled.li`
   color: ${({ theme }) => theme.colors.stroke};
 
   & span {

@@ -8,6 +8,7 @@ import ExploreFillIcon from '@/assets/icons/explore-fill.svg';
 import GoogleIcon from '@/assets/icons/google-icon.svg';
 import HomeFillIcon from '@/assets/icons/home-fill.svg';
 import HomeOutlineIcon from '@/assets/icons/home-outline.svg';
+import ImageIcon from '@/assets/icons/image.svg';
 import ListsFillIcon from '@/assets/icons/list-fill.svg';
 import ListsOutlineIcon from '@/assets/icons/lists.svg';
 import MessagesOutlineIcon from '@/assets/icons/messages.svg';
@@ -48,4 +49,5 @@ export const ICONS = {
   CrossIcon,
   SearchIcon,
   BookmarksFillIcon,
+  ImageIcon,
 };

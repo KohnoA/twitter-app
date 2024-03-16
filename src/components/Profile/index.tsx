@@ -11,10 +11,10 @@ import {
   ProfileWrapper,
   UserAvatar,
   UserEmail,
-  UserFollowesInfoItem,
-  UserFollowsInfoList,
   UserInfoWrapper,
   UserName,
+  UserStatsItem,
+  UserStatsList,
 } from './styled';
 
 const INITIAL_MODAL_STATE = false;
@@ -43,14 +43,17 @@ export const Profile = () => {
         </p>
       </UserInfoWrapper>
 
-      <UserFollowsInfoList>
-        <UserFollowesInfoItem>
+      <UserStatsList>
+        <UserStatsItem>
           <span>67</span> Following
-        </UserFollowesInfoItem>
-        <UserFollowesInfoItem>
+        </UserStatsItem>
+        <UserStatsItem>
           <span>47</span> Followers
-        </UserFollowesInfoItem>
-      </UserFollowsInfoList>
+        </UserStatsItem>
+        <UserStatsItem>
+          <span>47</span> Tweets
+        </UserStatsItem>
+      </UserStatsList>
 
       <Modal isActive={showEditModal} onClose={handleModal}>
         Edit Form
