@@ -1,4 +1,5 @@
 import ArrowDownIcon from '@/assets/icons/arrow-down.svg';
+import BookmarksFillIcon from '@/assets/icons/bookmarks-fill.svg';
 import BookmarksOutlineIcon from '@/assets/icons/bookmarks-outline.svg';
 import BurgerIcon from '@/assets/icons/burger.svg';
 import CrossIcon from '@/assets/icons/cross.svg';
@@ -16,6 +17,7 @@ import NotificationOutlineIcon from '@/assets/icons/notification.svg';
 import NotificationFillIcon from '@/assets/icons/notification-fill.svg';
 import ProfileFillIcon from '@/assets/icons/profile-fill.svg';
 import ProfileOutlineIcon from '@/assets/icons/profile-outline.svg';
+import SearchIcon from '@/assets/icons/search.svg';
 import SpinnerIcon from '@/assets/icons/spinner.svg';
 import TwitterIcon from '@/assets/icons/twitter-logo.svg';
 import UnvisibleIcon from '@/assets/icons/unvisible-icon.svg';
@@ -44,4 +46,6 @@ export const ICONS = {
   MoreOutlineIcon,
   BurgerIcon,
   CrossIcon,
+  SearchIcon,
+  BookmarksFillIcon,
 };

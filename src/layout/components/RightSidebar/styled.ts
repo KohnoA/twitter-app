@@ -1,11 +1,16 @@
 import styled from 'styled-components';
 
+import { ElasticSearch } from '@/components';
 import { media } from '@/styles';
 
 export const RightSidebarWrapper = styled.aside`
   padding: ${({ theme }) => theme.margins.md}px;
 
-  border-left: 1px solid ${({ theme }) => theme.colors.bgSecondaryLight};
+  border-left: 1px solid ${({ theme }) => theme.colors.bgSecondary};
+`;
+
+export const RightSidebarSearch = styled(ElasticSearch)`
+  margin-bottom: ${({ theme }) => theme.margins.xl}px;
 `;
 
 export const RightSidebarFooter = styled.div`

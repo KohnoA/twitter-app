@@ -50,7 +50,7 @@ export const CrossButton = styled.button`
 export const NavigationWrapper = styled.section<NavigationWrapperProps>`
   padding: ${({ theme }) => theme.margins.md}px;
 
-  border-right: 1px solid ${({ theme }) => theme.colors.bgSecondaryLight};
+  border-right: 1px solid ${({ theme }) => theme.colors.bgSecondary};
 
   ${({ theme }) =>
     media('desktopM')(`
@@ -71,7 +71,7 @@ export const NavigationWrapper = styled.section<NavigationWrapperProps>`
 
     background-color: ${theme.colors.bgPrimary};
     transition: transform ${theme.duration}ms;
-    drop-shadow(4px 4px 4px 4px);
+    filter: drop-shadow(4px 4px 4px 4px);
     overflow-y: auto;
 
     ${$isActiveBurger && `transform: translateX(0);`}

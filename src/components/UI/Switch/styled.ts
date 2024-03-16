@@ -9,7 +9,7 @@ export const Slider = styled.span`
   width: 50px;
   height: 25px;
 
-  border: 2px solid ${({ theme }) => theme.colors.bgSecondaryDark};
+  border: 2px solid ${({ theme }) => theme.colors.stroke};
   border-radius: 25px;
 `;
 
@@ -22,7 +22,7 @@ export const SliderLever = styled.span`
   height: 25px;
 
   border-radius: 50%;
-  border: 2px solid ${({ theme }) => theme.colors.bgSecondaryDark};
+  border: 2px solid ${({ theme }) => theme.colors.stroke};
   transition: transform ${({ theme }) => theme.duration}ms;
   background-color: ${({ theme }) => theme.bgPrimary};
 `;

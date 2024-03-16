@@ -36,7 +36,7 @@ export const SelectStyled = styled.select<SelectStyledProps>`
     border-color: ${theme.colors.error};
   `
       : `
-    border-color: ${theme.colors.bgSecondaryDark};
+    border-color: ${theme.colors.stroke};
   `}
 
   &:focus {

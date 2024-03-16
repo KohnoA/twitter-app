@@ -16,6 +16,7 @@ const {
   ProfileOutlineIcon,
   ProfileFillIcon,
   MoreOutlineIcon,
+  BookmarksFillIcon,
 } = ICONS;
 
 export const NAVIGATION_LIST = [
@@ -41,7 +42,7 @@ export const NAVIGATION_LIST = [
   {
     link: AppRoutes.BOOKMARKS,
     OutlineIcon: BookmarksOutlineIcon,
-    FillIcon: BookmarksOutlineIcon,
+    FillIcon: BookmarksFillIcon,
     title: 'Bookmarks',
   },
   {

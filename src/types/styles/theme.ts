@@ -8,9 +8,10 @@ declare module 'styled-components' {
       main: AppColors;
       text: AppColors;
       textAlt: AppColors;
+      textInput: AppColors;
       bgPrimary: AppColors;
-      bgSecondaryLight: AppColors;
-      bgSecondaryDark: AppColors;
+      bgSecondary: AppColors;
+      stroke: AppColors;
       error: AppColors;
     };
 

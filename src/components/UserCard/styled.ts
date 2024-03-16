@@ -54,5 +54,5 @@ export const UserEmail = styled.p`
   overflow: hidden;
   text-overflow: ellipsis;
 
-  color: ${({ theme }) => theme.colors.bgSecondaryDark};
+  color: ${({ theme }) => theme.colors.stroke};
 `;
