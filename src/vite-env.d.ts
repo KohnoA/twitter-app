@@ -1,6 +1,8 @@
 declare module '*.svg' {
-  const content: React.FC<React.SVGProps<SVGElement>>;
-  export default content;
+  import React from 'react';
+
+  const SVG: React.VFC<React.SVGProps<SVGSVGElement>>;
+  export default SVG;
 }
 
 declare module '*.jpg';
@@ -9,6 +11,7 @@ declare module '*.woff';
 
 /// <reference types="vite/client" />
 /// <reference types="vite-plugin-svgr/client" />
+/// <reference types="types/styles/theme" />
 
 interface ImportMetaEnv {
   VITE_APP_TITLE: string;

@@ -1,1 +1,7 @@
-export const NotificationsPage = () => <div>Notifications</div>;
+import { MainLayout } from '@/layout';
+
+export const NotificationsPage = () => (
+  <MainLayout>
+    <div>Notifications Page</div>
+  </MainLayout>
+);

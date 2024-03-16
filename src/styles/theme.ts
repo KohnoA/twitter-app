@@ -4,19 +4,21 @@ const lightTheme = {
   main: AppColors.BLUE_LIGHT,
   text: AppColors.BLACK,
   textAlt: AppColors.WHITE,
+  textInput: AppColors.PURPLE,
   bgPrimary: AppColors.WHITE,
-  bgSecondaryLight: AppColors.GREY_LIGHT,
-  bgSecondaryDark: AppColors.GREY_DARK,
+  bgSecondary: AppColors.GREY_LIGHT,
+  stroke: AppColors.GREY_DARK,
   error: AppColors.RED,
 };
 
 const darkTheme = {
   main: AppColors.BLUE_LIGHT,
-  text: AppColors.BLACK,
+  text: AppColors.WHITE,
   textAlt: AppColors.WHITE,
-  bgPrimary: AppColors.WHITE,
-  bgSecondaryLight: AppColors.GREY_LIGHT,
-  bgSecondaryDark: AppColors.GREY_DARK,
+  textInput: AppColors.PURPLE,
+  bgPrimary: AppColors.VIOLET,
+  bgSecondary: AppColors.VIOLET_LIGHT,
+  stroke: AppColors.GREY_DARK,
   error: AppColors.RED,
 };
 
@@ -76,5 +78,3 @@ export const getTheme = (theme: AppThemes) => ({
   colors: theme === AppThemes.DARK ? darkTheme : lightTheme,
   ...generalTheme,
 });
-
-export const theme = getTheme(AppThemes.LIGHT);

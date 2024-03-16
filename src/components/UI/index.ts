@@ -4,6 +4,8 @@ export { ErrorMessage } from './ErrorMessage';
 export { Input } from './Input';
 export { MyLink } from './MyLink';
 export { Paragraph } from './Paragraph';
+export { SearchInput } from './SearchInput';
 export { Select } from './Select';
 export { Spinner } from './Spinner';
+export { Switch } from './Switch';
 export { Title } from './Title';

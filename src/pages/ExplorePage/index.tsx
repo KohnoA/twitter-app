@@ -1,1 +1,7 @@
-export const ExplorePage = () => <div>Explore</div>;
+import { MainLayout } from '@/layout';
+
+export const ExplorePage = () => (
+  <MainLayout>
+    <div>Explore Page</div>
+  </MainLayout>
+);

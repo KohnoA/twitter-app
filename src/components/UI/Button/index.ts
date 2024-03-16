@@ -17,7 +17,7 @@ export const Button = styled.button<ButtonProps>`
   font-size: ${({ theme }) => theme.fontSizes.xl2}px;
   font-weight: ${({ theme }) => theme.fontWeight.md};
 
-  border: 1px solid ${({ theme }) => theme.colors.bgSecondaryDark};
+  border: 1px solid ${({ theme }) => theme.colors.stroke};
   border-radius: ${({ theme }) => theme.radius.high}px;
 
   ${interactive()}
@@ -27,7 +27,7 @@ export const Button = styled.button<ButtonProps>`
       ? `
     color: ${theme.colors.text};
     background-color: transparent;
-    border: 1px solid ${theme.colors.bgSecondaryDark};
+    border: 1px solid ${theme.colors.stroke};
   `
       : `
     color: ${theme.colors.textAlt};
@@ -42,11 +42,15 @@ export const Button = styled.button<ButtonProps>`
 
   ${({ theme }) =>
     media(`desktopL`)(`
+    padding: 16px 0;
+    
     font-size: ${theme.fontSizes.xl}px;
   `)}
 
   ${({ theme }) =>
     media(`desktopM`)(`
+    padding: 14px 0;
+
     font-size: ${theme.fontSizes.lg}px;
   `)}
 

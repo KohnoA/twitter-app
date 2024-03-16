@@ -9,7 +9,7 @@ interface UserStateType {
 }
 
 const initialState: UserStateType = {
-  isAuth: false,
+  isAuth: true, // TODO: Return to false
   loading: false,
   error: null,
 };
@@ -21,6 +21,9 @@ export const userSlice = createSlice({
     clearUserStatus(state) {
       if (state.error) state.error = null;
       if (state.loading) state.loading = false;
+    },
+    setIsNotAuth(state) {
+      state.isAuth = false;
     },
   },
   extraReducers(builder) {
@@ -60,6 +63,6 @@ export const userSlice = createSlice({
   },
 });
 
-export const { clearUserStatus } = userSlice.actions;
+export const { clearUserStatus, setIsNotAuth } = userSlice.actions;
 
 export default userSlice.reducer;
