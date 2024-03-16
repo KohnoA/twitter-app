@@ -2,6 +2,7 @@ export { Button } from './Button';
 export { ButtonWithSpinner } from './ButtonWithSpinner';
 export { ErrorMessage } from './ErrorMessage';
 export { Input } from './Input';
+export { Modal } from './Modal';
 export { MyLink } from './MyLink';
 export { Paragraph } from './Paragraph';
 export { SearchInput } from './SearchInput';

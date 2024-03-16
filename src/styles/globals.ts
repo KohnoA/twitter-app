@@ -61,3 +61,27 @@ export const TwitterIconStyled = styled(TwitterIcon)`
   margin: 0 auto;
   margin-bottom: ${({ theme }) => theme.margins.xl}px;
 `;
+
+export const Backdrop = styled.div<{ $show?: boolean }>`
+  position: fixed;
+  z-index: 1;
+
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: all ${({ theme }) => theme.duration}ms;
+
+  ${({ $show }) =>
+    $show
+      ? `
+    opacity: 1;
+    pointer-events: all;
+  `
+      : `
+    opacity: 0;
+    pointer-events: none;
+  `}
+`;

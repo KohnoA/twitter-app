@@ -6,9 +6,9 @@ import { ICONS, NAVIGATION_LIST } from '@/constants';
 import { useAppDispatch } from '@/hooks';
 import { signOut } from '@/services';
 import { setIsNotAuth } from '@/store/slices';
+import { Backdrop } from '@/styles';
 
 import {
-  Backdrop,
   CrossButton,
   LogoutButton,
   NavigationLink,

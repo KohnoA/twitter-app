@@ -6,7 +6,3 @@ export interface NavigationProps {
 export interface NavigationWrapperProps {
   $isActiveBurger: boolean;
 }
-
-export interface BackdropProps {
-  $show?: boolean;
-}
