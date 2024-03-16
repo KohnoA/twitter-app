@@ -6,13 +6,13 @@ import { DEFAULT_PLACEHOLDER, INITIAL_VALUE } from './constants';
 import {
   CrossButton,
   CrossIconStyled,
-  ElasticSearchForm,
-  ElasticSearchInput,
   SearchIconStyled,
+  SearchInputContainer,
+  SearchInputStyled,
 } from './styled';
 import { ElasticSearchProps } from './types';
 
-export const ElasticSearch = memo((props: ElasticSearchProps) => {
+export const SearchInput = memo((props: ElasticSearchProps) => {
   const { className, placeholder, onChange: innerOnChange } = props;
 
   const [value, setValue] = useState<string>(INITIAL_VALUE);
@@ -38,10 +38,10 @@ export const ElasticSearch = memo((props: ElasticSearchProps) => {
   }, [debouncedValue, innerOnChange]);
 
   return (
-    <ElasticSearchForm className={className} onSubmit={onSubmit}>
+    <SearchInputContainer className={className} onSubmit={onSubmit}>
       <SearchIconStyled />
 
-      <ElasticSearchInput
+      <SearchInputStyled
         value={value}
         onChange={onChange}
         type="text"
@@ -53,6 +53,6 @@ export const ElasticSearch = memo((props: ElasticSearchProps) => {
           <CrossIconStyled />
         </CrossButton>
       )}
-    </ElasticSearchForm>
+    </SearchInputContainer>
   );
 });

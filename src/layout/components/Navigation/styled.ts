@@ -50,7 +50,7 @@ export const CrossButton = styled.button`
 export const NavigationWrapper = styled.section<NavigationWrapperProps>`
   padding: ${({ theme }) => theme.margins.md}px;
 
-  border-right: 1px solid ${({ theme }) => theme.colors.bgSecondary};
+  border-right: 2px solid ${({ theme }) => theme.colors.bgSecondary};
 
   ${({ theme }) =>
     media('desktopM')(`

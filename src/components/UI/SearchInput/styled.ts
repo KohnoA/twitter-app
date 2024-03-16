@@ -5,7 +5,7 @@ import { flex, interactive, media } from '@/styles';
 
 const { SearchIcon, CrossIcon } = ICONS;
 
-export const ElasticSearchForm = styled.form`
+export const SearchInputContainer = styled.form`
   position: relative;
   width: 100%;
 `;
@@ -45,7 +45,7 @@ export const CrossButton = styled.button`
   ${interactive()}
 `;
 
-export const ElasticSearchInput = styled.input`
+export const SearchInputStyled = styled.input`
   width: 100%;
   padding: 12px 45px;
 

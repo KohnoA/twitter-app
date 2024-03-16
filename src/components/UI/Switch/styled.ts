@@ -6,7 +6,7 @@ export const Slider = styled.span`
   position: relative;
   display: inline-block;
 
-  width: 50px;
+  width: 48px;
   height: 25px;
 
   border: 2px solid ${({ theme }) => theme.colors.stroke};
@@ -41,6 +41,6 @@ export const SwitchWrapper = styled.label`
   }
 
   & input:checked + ${Slider} > ${SliderLever} {
-    transform: translateX(25px);
+    transform: translateX(23px);
   }
 `;

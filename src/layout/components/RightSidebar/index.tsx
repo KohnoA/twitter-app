@@ -4,14 +4,18 @@ import { Footer } from '../Footer';
 
 import { RightSidebarFooter, RightSidebarSearch, RightSidebarWrapper } from './styled';
 
-export const RightSidebar = memo(() => {
+interface RightSidebarProps {
+  className?: string;
+}
+
+export const RightSidebar = memo(({ className }: RightSidebarProps) => {
   const handleSearch = useCallback((value: string) => {
     // eslint-disable-next-line no-console
     console.log(value);
   }, []);
 
   return (
-    <RightSidebarWrapper>
+    <RightSidebarWrapper className={className}>
       <RightSidebarSearch onChange={handleSearch} />
 
       <p style={{ marginBottom: '40px' }}>Recommendations</p>

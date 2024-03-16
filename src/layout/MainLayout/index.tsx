@@ -1,8 +1,14 @@
-import { ReactNode, useState } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 
-import { Header, Navigation, RightSidebar } from '../components';
+import { Header, Navigation } from '../components';
 
-import { MainLayoutWrapper } from './styled';
+import {
+  FooterStyled,
+  MainContent,
+  MainLayoutWrapper,
+  PageWrapper,
+  RightSidebarStyled,
+} from './styled';
 
 const BURGER_MENU_INITIAL_VISIBILITY = false;
 
@@ -15,16 +21,29 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
 
   const toggleBurgerMenu = () => setShowBurger(!showBurger);
 
+  useEffect(() => {
+    const closeBurger = () => setShowBurger(BURGER_MENU_INITIAL_VISIBILITY);
+
+    window.addEventListener('resize', closeBurger);
+
+    return () => {
+      window.removeEventListener('resize', closeBurger);
+    };
+  }, []);
+
   return (
     <MainLayoutWrapper>
       <Navigation isActiveBurger={showBurger} onCloseBurger={toggleBurgerMenu} />
 
-      <div>
+      <PageWrapper>
         <Header onClickBurger={toggleBurgerMenu} />
-        {children}
-      </div>
 
-      <RightSidebar />
+        <MainContent>{children}</MainContent>
+
+        <FooterStyled />
+      </PageWrapper>
+
+      <RightSidebarStyled />
     </MainLayoutWrapper>
   );
 };
