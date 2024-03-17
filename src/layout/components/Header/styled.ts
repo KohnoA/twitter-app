@@ -12,6 +12,8 @@ export const HeaderWrapper = styled.header`
 
   padding: ${({ theme }) => `${theme.margins.md}px ${theme.margins.lg}px`};
 
+  border-bottom: 2px solid ${({ theme }) => theme.colors.bgSecondary};
+
   ${({ theme }) =>
     media('tablet')(`
     display: grid;

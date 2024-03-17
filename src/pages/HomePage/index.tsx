@@ -1,7 +1,8 @@
+import { TweetList } from '@/components';
 import { MainLayout } from '@/layout';
 
 export const HomePage = () => (
   <MainLayout>
-    <div>Home Page</div>
+    <TweetList />
   </MainLayout>
 );
