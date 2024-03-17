@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 import { UNASSIGNED_LINK_VALUE } from '@/constants';
 
+import { EditProfileForm } from '../EditProfileForm';
 import { Modal, MyLink } from '../UI';
 
 import {
@@ -56,7 +57,7 @@ export const Profile = () => {
       </UserStatsList>
 
       <Modal isActive={showEditModal} onClose={handleModal}>
-        Edit Form
+        <EditProfileForm />
       </Modal>
     </ProfileWrapper>
   );

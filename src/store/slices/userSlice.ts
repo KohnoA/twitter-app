@@ -9,7 +9,7 @@ interface UserStateType {
 }
 
 const initialState: UserStateType = {
-  isAuth: true, // TODO: Return to false
+  isAuth: false,
   loading: false,
   error: null,
 };
@@ -25,11 +25,13 @@ export const userSlice = createSlice({
     setIsNotAuth(state) {
       state.isAuth = false;
     },
+    setIsAuth(state) {
+      state.isAuth = true;
+    },
   },
   extraReducers(builder) {
     builder.addCase(signUpThunk.fulfilled, (state) => {
       state.loading = false;
-      state.isAuth = true;
       state.error = null;
     });
     builder.addCase(signUpThunk.pending, (state) => {
@@ -43,9 +45,7 @@ export const userSlice = createSlice({
         state.error = action.payload;
       }
     });
-
     builder.addCase(signInThunk.fulfilled, (state) => {
-      state.isAuth = true;
       state.loading = false;
       state.error = null;
     });
@@ -63,6 +63,6 @@ export const userSlice = createSlice({
   },
 });
 
-export const { clearUserStatus, setIsNotAuth } = userSlice.actions;
+export const { clearUserStatus, setIsNotAuth, setIsAuth } = userSlice.actions;
 
 export default userSlice.reducer;

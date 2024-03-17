@@ -4,9 +4,7 @@ import { useLocation } from 'react-router-dom';
 import { UserCard } from '@/components';
 import { Button, Title } from '@/components/UI';
 import { ICONS, NAVIGATION_LIST } from '@/constants';
-import { useAppDispatch } from '@/hooks';
 import { signOut } from '@/services';
-import { setIsNotAuth } from '@/store/slices';
 import { Backdrop } from '@/styles';
 
 import {
@@ -27,14 +25,10 @@ const { CrossIcon } = ICONS;
 export const Navigation = ({ isActiveBurger, onCloseBurger }: NavigationProps) => {
   const [newTweetModal, setNewTweetModal] = useState<boolean>(false);
   const { pathname } = useLocation();
-  const dispatch = useAppDispatch();
 
   const handleTweetModal = () => setNewTweetModal(!newTweetModal);
 
-  const handleSignOut = () => {
-    dispatch(setIsNotAuth());
-    signOut();
-  };
+  const handleSignOut = () => signOut();
 
   return (
     <>

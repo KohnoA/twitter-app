@@ -1,3 +1,4 @@
+export { EditProfileForm } from './EditProfileForm';
 export { ErrorBoundary } from './ErrorBoundary';
 export { NewTweet } from './NewTweet';
 export { Profile } from './Profile';
