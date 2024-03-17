@@ -1,7 +1,8 @@
 import { MainLayout } from '@/layout';
+import { NotImplementTitle } from '@/styles';
 
 export const BookmarksPage = () => (
   <MainLayout>
-    <div>Bookmarks Page</div>
+    <NotImplementTitle>Not implemented</NotImplementTitle>
   </MainLayout>
 );

@@ -86,3 +86,9 @@ export const Backdrop = styled.div<{ $show?: boolean }>`
     pointer-events: none;
   `}
 `;
+
+export const NotImplementTitle = styled.h4`
+  padding-top: ${({ theme }) => theme.margins.lg}px;
+
+  text-align: center;
+`;

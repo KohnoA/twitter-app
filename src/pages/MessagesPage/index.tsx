@@ -1,7 +1,8 @@
 import { MainLayout } from '@/layout';
+import { NotImplementTitle } from '@/styles';
 
 export const MessagesPage = () => (
   <MainLayout>
-    <div>Messages Page</div>
+    <NotImplementTitle>Not implemented</NotImplementTitle>
   </MainLayout>
 );

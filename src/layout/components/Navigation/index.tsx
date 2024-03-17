@@ -3,8 +3,10 @@ import { useLocation } from 'react-router-dom';
 
 import { UserCard } from '@/components';
 import { Button, Title } from '@/components/UI';
-import { ICONS, NAVIGATION_LIST } from '@/constants';
+import { AppRoutes, ICONS, NAVIGATION_LIST } from '@/constants';
+import { useAppSelector } from '@/hooks';
 import { signOut } from '@/services';
+import { userSelector } from '@/store/selectors';
 import { Backdrop } from '@/styles';
 
 import {
@@ -24,6 +26,7 @@ const { CrossIcon } = ICONS;
 
 export const Navigation = ({ isActiveBurger, onCloseBurger }: NavigationProps) => {
   const [newTweetModal, setNewTweetModal] = useState<boolean>(false);
+  const { data } = useAppSelector(userSelector);
   const { pathname } = useLocation();
 
   const handleTweetModal = () => setNewTweetModal(!newTweetModal);
@@ -43,7 +46,7 @@ export const Navigation = ({ isActiveBurger, onCloseBurger }: NavigationProps) =
           <NavigationList>
             {NAVIGATION_LIST.map(({ link, OutlineIcon, FillIcon, title }) => (
               <li key={link}>
-                <NavigationLink to={link}>
+                <NavigationLink to={link === AppRoutes.PROFILE ? `${link}/${data?.id}` : link}>
                   {pathname === link ? <FillIcon /> : <OutlineIcon />} {title}
                 </NavigationLink>
               </li>
@@ -53,7 +56,7 @@ export const Navigation = ({ isActiveBurger, onCloseBurger }: NavigationProps) =
           <Button onClick={handleTweetModal}>Tweet</Button>
         </NavigationListWrapper>
 
-        <UserCard />
+        <UserCard user={data} />
 
         <LogoutButton $view="primary" onClick={handleSignOut}>
           Log out

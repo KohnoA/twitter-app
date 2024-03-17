@@ -3,6 +3,10 @@ import styled from 'styled-components';
 import defaultAvatar from '@/assets/images/default-avatar.png';
 import { flex, media } from '@/styles';
 
+interface UserAvatarProps {
+  $avatarUrl?: string | null;
+}
+
 export const UserCardWrapper = styled.div`
   ${flex('flex-start')}
 
@@ -20,13 +24,13 @@ export const UserCardWrapper = styled.div`
   `)}
 `;
 
-export const UserAvatar = styled.div`
+export const UserAvatar = styled.div<UserAvatarProps>`
   flex-shrink: 0;
 
   width: 50px;
   height: 50px;
 
-  background-image: url(${defaultAvatar});
+  background-image: url(${({ $avatarUrl }) => $avatarUrl ?? defaultAvatar});
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
