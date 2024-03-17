@@ -10,3 +10,7 @@ export enum FirebaseErrorCodes {
   EMAIL_ALREADY_USE = 'auth/email-already-in-use',
   INVALID_CREDENTIAL = 'auth/invalid-credential',
 }
+
+export enum FirestoreDocKeys {
+  USERS = 'users',
+}

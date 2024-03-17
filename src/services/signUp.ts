@@ -1,18 +1,25 @@
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { addDoc, collection } from 'firebase/firestore';
+import { doc, setDoc } from 'firebase/firestore';
 
+import { FirestoreDocKeys } from '@/constants';
 import { auth, db } from '@/firebase';
 import { UserDataType } from '@/types';
 
-export async function signUp(data: UserDataType) {
+export async function signUp(data: Omit<UserDataType, 'id' | 'avatar'>) {
   const { email, password, ...otherData } = data;
 
-  // TODO: Promise.all
-  const { user } = await createUserWithEmailAndPassword(auth, email, password);
-  const { id } = await addDoc(collection(db, 'users'), {
+  const {
+    user: { uid, photoURL },
+  } = await createUserWithEmailAndPassword(auth, email, password);
+
+  const newUser = {
+    id: uid,
+    avatar: photoURL,
     email,
     ...otherData,
-  });
+  };
 
-  return { user, firestoreId: id };
+  await setDoc(doc(db, FirestoreDocKeys.USERS, uid), newUser);
+
+  return newUser;
 }

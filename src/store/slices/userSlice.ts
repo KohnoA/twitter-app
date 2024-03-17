@@ -1,15 +1,19 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+
+import { UserDataType } from '@/types';
 
 import { signInThunk, signUpThunk } from '../thunks';
 
 interface UserStateType {
   isAuth: boolean;
+  data: UserDataType | null;
   loading: boolean;
   error: string | null;
 }
 
 const initialState: UserStateType = {
   isAuth: false,
+  data: null,
   loading: false,
   error: null,
 };
@@ -24,9 +28,11 @@ export const userSlice = createSlice({
     },
     setIsNotAuth(state) {
       state.isAuth = false;
+      state.data = null;
     },
-    setIsAuth(state) {
+    setIsAuth(state, action: PayloadAction<UserDataType>) {
       state.isAuth = true;
+      state.data = action.payload;
     },
   },
   extraReducers(builder) {
