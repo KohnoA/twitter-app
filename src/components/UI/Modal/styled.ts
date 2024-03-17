@@ -10,7 +10,7 @@ export const ModalContent = styled.section`
   position: relative;
 
   margin: auto;
-  padding: ${({ theme }) => theme.margins.xl}px;
+  padding: 50px 40px 40px 40px;
 
   background-color: ${({ theme }) => theme.colors.bgPrimary};
   border-radius: ${({ theme }) => theme.radius.low}px;

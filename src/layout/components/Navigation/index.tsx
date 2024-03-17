@@ -1,7 +1,8 @@
+import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
 import { UserCard } from '@/components';
-import { Button } from '@/components/UI';
+import { Button, Title } from '@/components/UI';
 import { ICONS, NAVIGATION_LIST } from '@/constants';
 import { useAppDispatch } from '@/hooks';
 import { signOut } from '@/services';
@@ -11,10 +12,12 @@ import { Backdrop } from '@/styles';
 import {
   CrossButton,
   LogoutButton,
+  ModalStyled,
   NavigationLink,
   NavigationList,
   NavigationListWrapper,
   NavigationWrapper,
+  NewTweetStyled,
   TwitterIconStyled,
 } from './styled';
 import { NavigationProps } from './types';
@@ -22,8 +25,11 @@ import { NavigationProps } from './types';
 const { CrossIcon } = ICONS;
 
 export const Navigation = ({ isActiveBurger, onCloseBurger }: NavigationProps) => {
+  const [newTweetModal, setNewTweetModal] = useState<boolean>(false);
   const { pathname } = useLocation();
   const dispatch = useAppDispatch();
+
+  const handleTweetModal = () => setNewTweetModal(!newTweetModal);
 
   const handleSignOut = () => {
     dispatch(setIsNotAuth());
@@ -32,7 +38,6 @@ export const Navigation = ({ isActiveBurger, onCloseBurger }: NavigationProps) =
 
   return (
     <>
-      <Backdrop $show={isActiveBurger} onClick={onCloseBurger} />
       <NavigationWrapper $isActiveBurger={isActiveBurger}>
         <CrossButton onClick={onCloseBurger}>
           <CrossIcon width={40} height={40} />
@@ -51,7 +56,7 @@ export const Navigation = ({ isActiveBurger, onCloseBurger }: NavigationProps) =
             ))}
           </NavigationList>
 
-          <Button>Tweet</Button>
+          <Button onClick={handleTweetModal}>Tweet</Button>
         </NavigationListWrapper>
 
         <UserCard />
@@ -60,6 +65,13 @@ export const Navigation = ({ isActiveBurger, onCloseBurger }: NavigationProps) =
           Log out
         </LogoutButton>
       </NavigationWrapper>
+
+      <ModalStyled isActive={newTweetModal} onClose={handleTweetModal}>
+        <Title $size="xl3">New Tweet</Title>
+        <NewTweetStyled />
+      </ModalStyled>
+
+      <Backdrop $show={isActiveBurger} onClick={onCloseBurger} />
     </>
   );
 };

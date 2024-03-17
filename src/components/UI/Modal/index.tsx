@@ -8,7 +8,7 @@ import { ModalProps } from './types';
 
 const { CrossIcon } = ICONS;
 
-export const Modal = ({ isActive, children, onClose }: ModalProps) => {
+export const Modal = ({ className, isActive, children, onClose }: ModalProps) => {
   const handleContentClick = (event: MouseEvent) => event.stopPropagation();
 
   if (!isActive) {
@@ -17,7 +17,7 @@ export const Modal = ({ isActive, children, onClose }: ModalProps) => {
 
   return createPortal(
     <BackdropStyled $show onClick={onClose}>
-      <ModalContent onClick={handleContentClick}>
+      <ModalContent className={className} onClick={handleContentClick}>
         <ModalCloseButtom onClick={onClose}>
           <CrossIcon />
         </ModalCloseButtom>

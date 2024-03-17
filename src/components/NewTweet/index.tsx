@@ -10,8 +10,9 @@ import {
   TweetButton,
   UserAvatar,
 } from './styled';
+import { NewTweetProps } from './types';
 
-export const NewTweet = () => {
+export const NewTweet = ({ className }: NewTweetProps) => {
   const [tweetValue, setTweetValue] = useState<string>(INITIAL_VALUE);
 
   const handleTextaria = (event: ChangeEvent<HTMLTextAreaElement>) => {
@@ -19,7 +20,7 @@ export const NewTweet = () => {
   };
 
   return (
-    <NewTweetContainer>
+    <NewTweetContainer className={className}>
       <UserAvatar />
       <ControlsWrapper>
         <TextariaStyled

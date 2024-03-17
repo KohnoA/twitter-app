@@ -1,7 +1,8 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { Button } from '@/components/UI';
+import { NewTweet } from '@/components';
+import { Button, Modal } from '@/components/UI';
 import { ICONS } from '@/constants';
 import { flex, interactive, media } from '@/styles';
 
@@ -118,4 +119,14 @@ export const NavigationLink = styled(NavLink)`
 
 export const LogoutButton = styled(Button)`
   margin-bottom: ${({ theme }) => theme.margins.xl}px;
+`;
+
+export const ModalStyled = styled(Modal)`
+  width: 100%;
+  max-width: 650px;
+`;
+
+export const NewTweetStyled = styled(NewTweet)`
+  padding: 0;
+  border-bottom: none;
 `;

@@ -20,6 +20,10 @@ export const TweetItemContainer = styled.li`
   padding: ${({ theme }) => `${theme.margins.md}px ${theme.margins.lg}px`};
 
   border-bottom: 2px solid ${({ theme }) => theme.colors.bgSecondary};
+
+  &:last-child {
+    border-bottom: none;
+  }
 `;
 
 export const UserAvatar = styled.div<UserAvatarProps>`

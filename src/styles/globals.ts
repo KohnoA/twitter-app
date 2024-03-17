@@ -73,6 +73,7 @@ export const Backdrop = styled.div<{ $show?: boolean }>`
 
   background-color: rgba(0, 0, 0, 0.2);
   transition: all ${({ theme }) => theme.duration}ms;
+  overflow-y: auto;
 
   ${({ $show }) =>
     $show
