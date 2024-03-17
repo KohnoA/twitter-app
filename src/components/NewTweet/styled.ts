@@ -75,5 +75,5 @@ export const AddImageButton = styled.button`
 `;
 
 export const TweetButton = styled(Button)`
-  max-width: 140px;
+  max-width: 150px;
 `;

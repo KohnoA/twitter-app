@@ -3,12 +3,15 @@ import BookmarksFillIcon from '@/assets/icons/bookmarks-fill.svg';
 import BookmarksOutlineIcon from '@/assets/icons/bookmarks-outline.svg';
 import BurgerIcon from '@/assets/icons/burger.svg';
 import CrossIcon from '@/assets/icons/cross.svg';
+import DotsIcon from '@/assets/icons/dots.svg';
 import ExploreOutlineIcon from '@/assets/icons/explore.svg';
 import ExploreFillIcon from '@/assets/icons/explore-fill.svg';
 import GoogleIcon from '@/assets/icons/google-icon.svg';
 import HomeFillIcon from '@/assets/icons/home-fill.svg';
 import HomeOutlineIcon from '@/assets/icons/home-outline.svg';
 import ImageIcon from '@/assets/icons/image.svg';
+import LikeOutlineIcon from '@/assets/icons/like.svg';
+import LikeFillIcon from '@/assets/icons/like-fill.svg';
 import ListsFillIcon from '@/assets/icons/list-fill.svg';
 import ListsOutlineIcon from '@/assets/icons/lists.svg';
 import MessagesOutlineIcon from '@/assets/icons/messages.svg';
@@ -50,4 +53,7 @@ export const ICONS = {
   SearchIcon,
   BookmarksFillIcon,
   ImageIcon,
+  DotsIcon,
+  LikeOutlineIcon,
+  LikeFillIcon,
 };
