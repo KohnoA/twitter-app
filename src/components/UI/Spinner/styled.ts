@@ -16,8 +16,8 @@ export const SpinnerWrapper = styled.span`
   ${flex()}
 
   & svg {
-    & path {
-      fill: ${({ theme }) => theme.colors.text};
+    & circle {
+      stroke: ${({ theme }) => theme.colors.text};
     }
   }
 `;

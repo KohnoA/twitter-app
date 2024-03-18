@@ -4,7 +4,7 @@ import defaultAvatar from '@/assets/images/default-avatar.png';
 import defaultBg from '@/assets/images/default-profile-bg.jpg';
 import { flex } from '@/styles';
 
-import { Button, Title } from '../UI';
+import { Button, Paragraph, Title } from '../UI';
 
 import { ProfileBgProps, UserAvatarProps } from './types';
 
@@ -56,15 +56,20 @@ export const UserInfoWrapper = styled.section`
 `;
 
 export const UserName = styled(Title)`
-  margin-bottom: 5px;
+  margin-bottom: ${({ theme }) => theme.margins.md}px;
 
   font-size: 24px;
 `;
 
-export const UserEmail = styled.p`
-  margin-bottom: ${({ theme }) => theme.margins.md}px;
+export const UserInfoItem = styled.p`
+  margin-bottom: ${({ theme }) => theme.margins.sm}px;
 
   color: ${({ theme }) => theme.colors.stroke};
+`;
+
+export const UserDescription = styled(Paragraph)`
+  margin-top: ${({ theme }) => theme.margins.md}px;
+  margin-bottom: 0;
 `;
 
 export const UserStatsList = styled.ul`

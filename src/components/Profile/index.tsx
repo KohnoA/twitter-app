@@ -1,47 +1,63 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 
-import { UNASSIGNED_LINK_VALUE } from '@/constants';
+import { useAppSelector } from '@/hooks';
+import { userSelector } from '@/store/selectors';
+import { getDateString } from '@/utils';
 
 import { EditProfileForm } from '../EditProfileForm';
-import { Modal, MyLink } from '../UI';
+import { Modal } from '../UI';
 
+import { DEFAULT_PROFILE_RESCRIPTION, INITIAL_MODAL_STATE } from './constants';
 import {
   EditButton,
   EditWrapper,
   ProfileBg,
   ProfileWrapper,
   UserAvatar,
-  UserEmail,
+  UserDescription,
+  UserInfoItem,
   UserInfoWrapper,
   UserName,
   UserStatsItem,
   UserStatsList,
 } from './styled';
+import { ProfileProps } from './types';
 
-const INITIAL_MODAL_STATE = false;
+export const Profile = ({ user }: ProfileProps) => {
+  const { id, name, email, avatar, phone, birthday, description } = user;
 
-export const Profile = () => {
   const [showEditModal, setShowEditModal] = useState<boolean>(INITIAL_MODAL_STATE);
+  const { data } = useAppSelector(userSelector);
+  const isProfileOwner = id === data?.id;
 
   const handleModal = () => setShowEditModal(!showEditModal);
+
+  const birthdayString = useMemo(() => getDateString(birthday), [birthday]);
 
   return (
     <ProfileWrapper>
       <ProfileBg />
 
       <EditWrapper>
-        <UserAvatar />
-        <EditButton $view="primary" onClick={handleModal}>
-          Edit profile
-        </EditButton>
+        <UserAvatar $avatarUrl={avatar} />
+
+        {isProfileOwner && (
+          <EditButton $view="primary" onClick={handleModal}>
+            Edit profile
+          </EditButton>
+        )}
       </EditWrapper>
 
       <UserInfoWrapper>
-        <UserName $size="xl2">User name</UserName>
-        <UserEmail>@bobur_mavlonov</UserEmail>
-        <p>
-          UX&UI designer at <MyLink to={UNASSIGNED_LINK_VALUE}>@abutechuz</MyLink>
-        </p>
+        <UserName $size="xl2">{name}</UserName>
+
+        <UserInfoItem>Email: {email}</UserInfoItem>
+        <UserInfoItem>Phone: {phone}</UserInfoItem>
+        <UserInfoItem>Date of Birth: {birthdayString}</UserInfoItem>
+
+        <UserDescription $size="xl">
+          {description ?? <span>{DEFAULT_PROFILE_RESCRIPTION}</span>}
+        </UserDescription>
       </UserInfoWrapper>
 
       <UserStatsList>

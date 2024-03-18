@@ -1,11 +1,9 @@
 import { useEffect, useState } from 'react';
 import { onAuthStateChanged } from 'firebase/auth';
-import { doc, getDoc } from 'firebase/firestore';
 
-import { FirestoreDocKeys } from '@/constants';
-import { auth, db } from '@/firebase';
+import { auth } from '@/firebase';
+import { getUserById } from '@/services/firestore';
 import { setIsAuth, setIsNotAuth } from '@/store/slices';
-import { UserDataType } from '@/types';
 
 import { useAppDispatch } from './redux';
 
@@ -16,14 +14,9 @@ export function useAuth() {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if (user) {
-        const docRef = doc(db, FirestoreDocKeys.USERS, user.uid);
-        const docSnap = await getDoc(docRef);
+        const userData = await getUserById(user.uid);
 
-        if (docSnap.exists()) {
-          const userData = docSnap.data() as UserDataType;
-
-          dispatch(setIsAuth(userData));
-        }
+        dispatch(setIsAuth(userData));
       } else {
         dispatch(setIsNotAuth());
       }

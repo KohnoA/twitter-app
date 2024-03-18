@@ -6,4 +6,5 @@ export interface UserDataType {
   phone: string;
   avatar: string | null;
   id: string;
+  description?: string;
 }

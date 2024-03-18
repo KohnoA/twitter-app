@@ -47,7 +47,7 @@ export const Navigation = ({ isActiveBurger, onCloseBurger }: NavigationProps) =
             {NAVIGATION_LIST.map(({ link, OutlineIcon, FillIcon, title }) => (
               <li key={link}>
                 <NavigationLink to={link === AppRoutes.PROFILE ? `${link}/${data?.id}` : link}>
-                  {pathname === link ? <FillIcon /> : <OutlineIcon />} {title}
+                  {pathname.includes(link) ? <FillIcon /> : <OutlineIcon />} {title}
                 </NavigationLink>
               </li>
             ))}
