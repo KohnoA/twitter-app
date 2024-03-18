@@ -1,7 +1,6 @@
 import { useForm } from 'react-hook-form';
 
 import { useAppSelector } from '@/hooks';
-import { useGetUserAvatarQuery } from '@/store/api';
 import { userSelector } from '@/store/selectors';
 
 import { Textaria } from '../UI';
@@ -22,9 +21,8 @@ interface NewTweetFormFileds {
 }
 
 export const NewTweet = ({ className }: NewTweetProps) => {
-  const { handleSubmit, register } = useForm<NewTweetFormFileds>();
+  const { handleSubmit, register, watch } = useForm<NewTweetFormFileds>();
   const { data: userData } = useAppSelector(userSelector);
-  const { data: userAvatar } = useGetUserAvatarQuery(userData!.id);
 
   const onSubmit = (data: NewTweetFormFileds) => {
     // eslint-disable-next-line no-console
@@ -33,14 +31,14 @@ export const NewTweet = ({ className }: NewTweetProps) => {
 
   return (
     <NewTweetContainer className={className} onSubmit={handleSubmit(onSubmit)}>
-      <UserAvatar $avatarUrl={userAvatar} />
+      <UserAvatar $avatarUrl={userData?.avatar} />
       <ControlsWrapper>
-        <Textaria register={register('tweet')} placeholder="What’s happening" />
+        <Textaria register={register('tweet', { required: true })} placeholder="What’s happening" />
         <ButtonsWrapper>
           <AddImageButton>
             <ImageIcon />
           </AddImageButton>
-          <TweetButton disabled>Tweet</TweetButton>
+          <TweetButton disabled={!watch('tweet')}>Tweet</TweetButton>
         </ButtonsWrapper>
       </ControlsWrapper>
     </NewTweetContainer>

@@ -1,23 +1,20 @@
 import { createApi, fakeBaseQuery } from '@reduxjs/toolkit/query/react';
 
 import { Errors } from '@/constants';
-import {
-  getUserAvatar as getUserAvatarStorage,
-  getUserById as getUserByIdFirestore,
-  setUserAvatar as setUserAvatarStorage,
-  setUserById as setUserByIdFirestore,
-} from '@/services';
+import { addUserAvatar, getUserById, setUserById } from '@/services';
 import { UserDataType } from '@/types';
+
+import { updateUserData } from '../slices';
 
 export const userApi = createApi({
   reducerPath: 'userApi',
   baseQuery: fakeBaseQuery<{ message: Errors }>(),
   tagTypes: ['User', 'Avatar'],
   endpoints: (builder) => ({
-    getUserById: builder.query<UserDataType, string>({
+    getUser: builder.query<UserDataType, string>({
       queryFn: async (userId) => {
         try {
-          const userData = await getUserByIdFirestore(userId);
+          const userData = await getUserById(userId);
 
           return { data: userData };
         } catch {
@@ -26,48 +23,32 @@ export const userApi = createApi({
       },
       providesTags: ['User'],
     }),
-    setUserById: builder.mutation<null, { userId: string; data: UserDataType }>({
-      queryFn: async ({ userId, data }) => {
+    updateUser: builder.mutation<
+      UserDataType,
+      { userId: string; data: UserDataType; avatar?: FileList }
+    >({
+      queryFn: async ({ userId, data, avatar }, { dispatch }) => {
         try {
-          await setUserByIdFirestore(userId, data);
+          const updatedUserData = { ...data };
 
-          return { data: null };
+          if (avatar) {
+            const url = await addUserAvatar(userId, avatar);
+
+            updatedUserData.avatar = url;
+          }
+
+          await setUserById(userId, updatedUserData);
+
+          dispatch(updateUserData(updatedUserData));
+
+          return { data: updatedUserData };
         } catch {
           return { error: { message: Errors.GENERAL_ERROR } };
         }
       },
       invalidatesTags: ['User'],
     }),
-    getUserAvatar: builder.query<string | null, string>({
-      queryFn: async (userId) => {
-        try {
-          const url = await getUserAvatarStorage(userId);
-
-          return { data: url };
-        } catch {
-          return { data: null };
-        }
-      },
-      providesTags: ['Avatar'],
-    }),
-    setUserAvatar: builder.mutation<null, { userId: string; file: FileList }>({
-      queryFn: async ({ userId, file }) => {
-        try {
-          await setUserAvatarStorage(userId, file);
-
-          return { data: null };
-        } catch {
-          return { error: { message: Errors.GENERAL_ERROR } };
-        }
-      },
-      invalidatesTags: ['Avatar'],
-    }),
   }),
 });
 
-export const {
-  useGetUserByIdQuery,
-  useSetUserByIdMutation,
-  useGetUserAvatarQuery,
-  useSetUserAvatarMutation,
-} = userApi;
+export const { useGetUserQuery, useUpdateUserMutation } = userApi;

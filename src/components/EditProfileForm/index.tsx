@@ -2,14 +2,9 @@ import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 
 import { ICONS, MONTH } from '@/constants';
-import { useAppDispatch, useAppSelector } from '@/hooks';
-import {
-  useGetUserAvatarQuery,
-  useSetUserAvatarMutation,
-  useSetUserByIdMutation,
-} from '@/store/api';
+import { useAppSelector } from '@/hooks';
+import { useUpdateUserMutation } from '@/store/api';
 import { userSelector } from '@/store/selectors';
-import { updateUserData } from '@/store/slices';
 import { getDaysOptions, getYearsOptions } from '@/utils';
 
 import { Button, ButtonWithSpinner, Input, Select } from '../UI';
@@ -32,11 +27,8 @@ import { EditProfileFormFields, EditProfileFormProps } from './types';
 const { ImageIcon } = ICONS;
 
 export const EditProfileForm = ({ onClose }: EditProfileFormProps) => {
-  const [updateUserInFirestore, { isLoading, isSuccess }] = useSetUserByIdMutation();
-  const [saveUserAvatar] = useSetUserAvatarMutation();
+  const [updateUser, { isLoading, isSuccess }] = useUpdateUserMutation();
   const { data: userData } = useAppSelector(userSelector);
-  const { data: userAvatar } = useGetUserAvatarQuery(userData!.id);
-  const dispatch = useAppDispatch();
   const {
     handleSubmit,
     register,
@@ -56,21 +48,23 @@ export const EditProfileForm = ({ onClose }: EditProfileFormProps) => {
   const onSubmit = async (data: EditProfileFormFields) => {
     if (!userData) return;
 
-    const { year, month, day, avatar, ...otherData } = data;
+    const { year, month, day, avatar: avatarFile, ...newUserData } = data;
     const updatedUser = {
       ...userData,
+      ...newUserData,
       birthday: new Date(Number(year), MONTH.indexOf(month), Number(day)).toISOString(),
-      ...otherData,
     };
 
-    updateUserInFirestore({ userId: updatedUser.id, data: updatedUser });
-    if (data.avatar.length) saveUserAvatar({ userId: userData.id, file: data.avatar });
-    dispatch(updateUserData(updatedUser));
+    await updateUser({
+      userId: updatedUser.id,
+      data: updatedUser,
+      avatar: avatarFile.length ? avatarFile : undefined,
+    });
   };
 
   const currentAvatar = watch('avatar')?.length
     ? URL.createObjectURL(watch('avatar')[0])
-    : userAvatar;
+    : userData?.avatar;
 
   useEffect(() => {
     if (isSuccess) onClose();

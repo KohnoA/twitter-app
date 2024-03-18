@@ -13,4 +13,5 @@ export enum FirebaseErrorCodes {
 
 export enum FirestoreDocKeys {
   USERS = 'users',
+  TWEETS = 'tweets',
 }

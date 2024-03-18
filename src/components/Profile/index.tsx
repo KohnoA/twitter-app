@@ -1,7 +1,6 @@
 import { useMemo, useState } from 'react';
 
 import { useAppSelector } from '@/hooks';
-import { useGetUserAvatarQuery } from '@/store/api';
 import { userSelector } from '@/store/selectors';
 import { getDateString } from '@/utils';
 
@@ -25,12 +24,11 @@ import {
 import { ProfileProps } from './types';
 
 export const Profile = ({ user }: ProfileProps) => {
-  const { id, name, email, phone, birthday, description } = user;
+  const { id, name, email, phone, birthday, description, avatar } = user;
 
   const [showEditModal, setShowEditModal] = useState<boolean>(INITIAL_MODAL_STATE);
-  const { data } = useAppSelector(userSelector);
-  const { data: userAvatar } = useGetUserAvatarQuery(id);
-  const isProfileOwner = id === data?.id;
+  const { data: owner } = useAppSelector(userSelector);
+  const isProfileOwner = id === owner?.id;
 
   const handleModal = () => setShowEditModal(!showEditModal);
 
@@ -41,7 +39,7 @@ export const Profile = ({ user }: ProfileProps) => {
       <ProfileBg />
 
       <EditWrapper>
-        <UserAvatar $avatarUrl={userAvatar} />
+        <UserAvatar $avatarUrl={avatar} />
 
         {isProfileOwner && (
           <EditButton $view="primary" onClick={handleModal}>

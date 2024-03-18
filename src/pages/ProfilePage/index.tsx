@@ -3,11 +3,11 @@ import { useParams } from 'react-router-dom';
 import { NewTweet, Profile, TweetList } from '@/components';
 import { Spinner } from '@/components/UI';
 import { MainLayout } from '@/layout';
-import { useGetUserByIdQuery } from '@/store/api';
+import { useGetUserQuery } from '@/store/api';
 
 export const ProfilePage = () => {
   const { userId } = useParams();
-  const { data, isLoading } = useGetUserByIdQuery(userId!);
+  const { data, isLoading } = useGetUserQuery(userId!);
 
   return (
     <MainLayout>

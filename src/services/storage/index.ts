@@ -1,2 +1,1 @@
-export { getUserAvatar } from './getUserAvatar';
-export { setUserAvatar } from './setUserAvatar';
+export { addUserAvatar } from './addUserAvatar';
