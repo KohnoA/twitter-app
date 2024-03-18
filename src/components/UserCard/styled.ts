@@ -36,6 +36,7 @@ export const UserAvatar = styled.div<UserAvatarProps>`
   background-size: cover;
 
   border-radius: 50%;
+  transition: background-image ${({ theme }) => theme.duration}ms;
 
   ${media(`desktopM`)`
     width: 40px;

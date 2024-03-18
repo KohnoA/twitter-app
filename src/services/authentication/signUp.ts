@@ -1,9 +1,9 @@
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { doc, setDoc } from 'firebase/firestore';
 
-import { FirestoreDocKeys } from '@/constants';
-import { auth, db } from '@/firebase';
+import { auth } from '@/firebase';
 import { UserDataType } from '@/types';
+
+import { setUserById } from '../firestore';
 
 export async function signUp(data: Omit<UserDataType, 'id' | 'avatar'>) {
   const { email, password, ...otherData } = data;
@@ -19,7 +19,7 @@ export async function signUp(data: Omit<UserDataType, 'id' | 'avatar'>) {
     ...otherData,
   };
 
-  await setDoc(doc(db, FirestoreDocKeys.USERS, uid), newUser);
+  await setUserById(uid, newUser);
 
   return newUser;
 }

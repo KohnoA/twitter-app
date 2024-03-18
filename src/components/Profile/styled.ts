@@ -4,7 +4,7 @@ import defaultAvatar from '@/assets/images/default-avatar.png';
 import defaultBg from '@/assets/images/default-profile-bg.jpg';
 import { flex } from '@/styles';
 
-import { Button, Paragraph, Title } from '../UI';
+import { Button, Modal, Paragraph, Title } from '../UI';
 
 import { ProfileBgProps, UserAvatarProps } from './types';
 
@@ -88,4 +88,9 @@ export const UserStatsItem = styled.li`
     color: ${({ theme }) => theme.colors.text};
     font-weight: ${({ theme }) => theme.fontWeight.bk};
   }
+`;
+
+export const ModalStyled = styled(Modal)`
+  width: 100%;
+  max-width: 650px;
 `;

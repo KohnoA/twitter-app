@@ -1,23 +1,19 @@
+import { useGetUserAvatarQuery } from '@/store/api';
 import { UserDataType } from '@/types';
 
 import { NameEmailWrapper, UserAvatar, UserCardWrapper, UserEmail, UserName } from './styled';
-
-const DEFAULT_USER_DATA = {
-  name: 'User',
-  email: 'example@gmail.com',
-  avatar: null,
-};
 
 interface UserCardProps {
   user: UserDataType | null;
 }
 
 export const UserCard = ({ user }: UserCardProps) => {
-  const { name, email, avatar } = user ?? DEFAULT_USER_DATA;
+  const { name, email, id } = user!;
+  const { data: userAvatar } = useGetUserAvatarQuery(id);
 
   return (
     <UserCardWrapper>
-      <UserAvatar $avatarUrl={avatar} />
+      <UserAvatar $avatarUrl={userAvatar} />
 
       <NameEmailWrapper>
         <UserName>{name}</UserName>

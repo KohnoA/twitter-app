@@ -10,4 +10,5 @@ export { SearchInput } from './SearchInput';
 export { Select } from './Select';
 export { Spinner } from './Spinner';
 export { Switch } from './Switch';
+export { Textaria } from './Textaria';
 export { Title } from './Title';

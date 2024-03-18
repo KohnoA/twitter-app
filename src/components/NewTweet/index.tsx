@@ -1,34 +1,41 @@
-import { ChangeEvent, useState } from 'react';
+import { useForm } from 'react-hook-form';
 
-import { ImageIcon, INITIAL_VALUE } from './constants';
+import { useAppSelector } from '@/hooks';
+import { useGetUserAvatarQuery } from '@/store/api';
+import { userSelector } from '@/store/selectors';
+
+import { Textaria } from '../UI';
+
+import { ImageIcon } from './constants';
 import {
   AddImageButton,
   ButtonsWrapper,
   ControlsWrapper,
   NewTweetContainer,
-  TextariaStyled,
   TweetButton,
   UserAvatar,
 } from './styled';
 import { NewTweetProps } from './types';
 
-export const NewTweet = ({ className }: NewTweetProps) => {
-  const [tweetValue, setTweetValue] = useState<string>(INITIAL_VALUE);
+interface NewTweetFormFileds {
+  tweet: string;
+}
 
-  const handleTextaria = (event: ChangeEvent<HTMLTextAreaElement>) => {
-    setTweetValue(event.target.value);
+export const NewTweet = ({ className }: NewTweetProps) => {
+  const { handleSubmit, register } = useForm<NewTweetFormFileds>();
+  const { data: userData } = useAppSelector(userSelector);
+  const { data: userAvatar } = useGetUserAvatarQuery(userData!.id);
+
+  const onSubmit = (data: NewTweetFormFileds) => {
+    // eslint-disable-next-line no-console
+    console.log(data);
   };
 
   return (
-    <NewTweetContainer className={className}>
-      <UserAvatar />
+    <NewTweetContainer className={className} onSubmit={handleSubmit(onSubmit)}>
+      <UserAvatar $avatarUrl={userAvatar} />
       <ControlsWrapper>
-        <TextariaStyled
-          rows={3}
-          placeholder="What’s happening"
-          value={tweetValue}
-          onChange={handleTextaria}
-        />
+        <Textaria register={register('tweet')} placeholder="What’s happening" />
         <ButtonsWrapper>
           <AddImageButton>
             <ImageIcon />

@@ -26,29 +26,12 @@ export const UserAvatar = styled.div<UserAvatarProps>`
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+
+  border-radius: 50%;
 `;
 
 export const ControlsWrapper = styled.div`
   flex-grow: 1;
-`;
-
-export const TextariaStyled = styled.textarea`
-  width: 100%;
-  padding: ${({ theme }) => theme.margins.sm}px;
-  margin-bottom: ${({ theme }) => theme.margins.sm}px;
-
-  font: inherit;
-  color: ${({ theme }) => theme.colors.text};
-
-  background-color: ${({ theme }) => theme.colors.bgPrimary};
-  border: 2px solid ${({ theme }) => theme.colors.bgSecondary};
-  border-radius: ${({ theme }) => theme.radius.low}px;
-  resize: none;
-
-  &::placeholder {
-    font-size: ${({ theme }) => theme.fontSizes.xl2}px;
-    font-weight: ${({ theme }) => theme.fontWeight.bd};
-  }
 `;
 
 export const ButtonsWrapper = styled.div`

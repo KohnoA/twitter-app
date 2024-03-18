@@ -3,5 +3,5 @@ export interface NewTweetProps {
 }
 
 export interface UserAvatarProps {
-  $avatarUrl?: string;
+  $avatarUrl?: string | null;
 }

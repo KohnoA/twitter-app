@@ -34,6 +34,9 @@ export const userSlice = createSlice({
       state.isAuth = true;
       state.data = action.payload;
     },
+    updateUserData(state, action: PayloadAction<UserDataType>) {
+      state.data = action.payload;
+    },
   },
   extraReducers(builder) {
     builder.addCase(signUpThunk.fulfilled, (state) => {
@@ -69,6 +72,6 @@ export const userSlice = createSlice({
   },
 });
 
-export const { clearUserStatus, setIsNotAuth, setIsAuth } = userSlice.actions;
+export const { clearUserStatus, setIsNotAuth, setIsAuth, updateUserData } = userSlice.actions;
 
 export default userSlice.reducer;

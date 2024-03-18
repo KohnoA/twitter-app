@@ -4,7 +4,6 @@ export interface UserDataType {
   password: string;
   name: string;
   phone: string;
-  avatar: string | null;
   id: string;
   description?: string;
 }

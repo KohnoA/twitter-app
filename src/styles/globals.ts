@@ -28,6 +28,7 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.colors.text};
 
     background-color: ${({ theme }) => theme.colors.bgPrimary};
+    transition: background ${({ theme }) => theme.duration}ms, color ${({ theme }) => theme.duration}ms;
   }
 
   a {

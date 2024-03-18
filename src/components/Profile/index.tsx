@@ -1,16 +1,17 @@
 import { useMemo, useState } from 'react';
 
 import { useAppSelector } from '@/hooks';
+import { useGetUserAvatarQuery } from '@/store/api';
 import { userSelector } from '@/store/selectors';
 import { getDateString } from '@/utils';
 
 import { EditProfileForm } from '../EditProfileForm';
-import { Modal } from '../UI';
 
 import { DEFAULT_PROFILE_RESCRIPTION, INITIAL_MODAL_STATE } from './constants';
 import {
   EditButton,
   EditWrapper,
+  ModalStyled,
   ProfileBg,
   ProfileWrapper,
   UserAvatar,
@@ -24,10 +25,11 @@ import {
 import { ProfileProps } from './types';
 
 export const Profile = ({ user }: ProfileProps) => {
-  const { id, name, email, avatar, phone, birthday, description } = user;
+  const { id, name, email, phone, birthday, description } = user;
 
   const [showEditModal, setShowEditModal] = useState<boolean>(INITIAL_MODAL_STATE);
   const { data } = useAppSelector(userSelector);
+  const { data: userAvatar } = useGetUserAvatarQuery(id);
   const isProfileOwner = id === data?.id;
 
   const handleModal = () => setShowEditModal(!showEditModal);
@@ -39,7 +41,7 @@ export const Profile = ({ user }: ProfileProps) => {
       <ProfileBg />
 
       <EditWrapper>
-        <UserAvatar $avatarUrl={avatar} />
+        <UserAvatar $avatarUrl={userAvatar} />
 
         {isProfileOwner && (
           <EditButton $view="primary" onClick={handleModal}>
@@ -72,9 +74,9 @@ export const Profile = ({ user }: ProfileProps) => {
         </UserStatsItem>
       </UserStatsList>
 
-      <Modal isActive={showEditModal} onClose={handleModal}>
-        <EditProfileForm />
-      </Modal>
+      <ModalStyled isActive={showEditModal} onClose={handleModal}>
+        <EditProfileForm onClose={handleModal} />
+      </ModalStyled>
     </ProfileWrapper>
   );
 };
