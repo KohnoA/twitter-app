@@ -1,33 +1,51 @@
+import { useEffect, useMemo } from 'react';
 import { useForm } from 'react-hook-form';
 
 import { useAppSelector } from '@/hooks';
+import { useAddTweetMutation } from '@/store/api';
 import { userSelector } from '@/store/selectors';
 
 import { Textaria } from '../UI';
 
-import { ImageIcon } from './constants';
 import {
-  AddImageButton,
   ButtonsWrapper,
   ControlsWrapper,
+  FileContainer,
+  FileInputStyled,
   NewTweetContainer,
   TweetButton,
+  UploadedImage,
   UserAvatar,
 } from './styled';
 import { NewTweetProps } from './types';
 
 interface NewTweetFormFileds {
   tweet: string;
+  image: FileList;
 }
 
-export const NewTweet = ({ className }: NewTweetProps) => {
-  const { handleSubmit, register, watch } = useForm<NewTweetFormFileds>();
+export const NewTweet = ({ className, onSuccess }: NewTweetProps) => {
+  const { handleSubmit, register, watch, reset } = useForm<NewTweetFormFileds>();
+  const [addTweet, { isLoading, isSuccess }] = useAddTweetMutation();
   const { data: userData } = useAppSelector(userSelector);
+  const watchImage = watch('image');
 
-  const onSubmit = (data: NewTweetFormFileds) => {
-    // eslint-disable-next-line no-console
-    console.log(data);
+  const onSubmit = async (data: NewTweetFormFileds) => {
+    const { tweet, image } = data;
+    await addTweet({ tweet, image });
   };
+
+  const uploadedImage = useMemo(
+    () => !!watchImage?.length && URL.createObjectURL(watchImage[0]),
+    [watchImage],
+  );
+
+  useEffect(() => {
+    if (isSuccess) {
+      if (onSuccess) onSuccess();
+      reset();
+    }
+  }, [isSuccess, reset, onSuccess]);
 
   return (
     <NewTweetContainer className={className} onSubmit={handleSubmit(onSubmit)}>
@@ -35,10 +53,14 @@ export const NewTweet = ({ className }: NewTweetProps) => {
       <ControlsWrapper>
         <Textaria register={register('tweet', { required: true })} placeholder="What’s happening" />
         <ButtonsWrapper>
-          <AddImageButton>
-            <ImageIcon />
-          </AddImageButton>
-          <TweetButton disabled={!watch('tweet')}>Tweet</TweetButton>
+          <FileContainer>
+            <FileInputStyled register={register('image')} />
+            {uploadedImage && <UploadedImage $imageUrl={uploadedImage} />}
+          </FileContainer>
+
+          <TweetButton type="submit" disabled={!watch('tweet')} isLoading={isLoading}>
+            Tweet
+          </TweetButton>
         </ButtonsWrapper>
       </ControlsWrapper>
     </NewTweetContainer>

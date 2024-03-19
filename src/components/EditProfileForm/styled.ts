@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
 import defaultAvatar from '@/assets/images/default-avatar.png';
-import { flex, interactive } from '@/styles';
+import { flex } from '@/styles';
 
-import { Textaria, Title } from '../UI';
+import { FileInput, Textaria, Title } from '../UI';
 
 interface UserAvatarProps {
   $avatarUrl?: string | null;
@@ -61,34 +61,8 @@ export const TextariaStyled = styled(Textaria)`
   border-width: 1px;
 `;
 
-export const EditPhotoButton = styled.button`
-  ${flex()}
-  ${interactive()}
-
+export const FileInputStyled = styled(FileInput)`
   position: absolute;
   right: -5px;
   bottom: -5px;
-
-  padding: 5px;
-
-  background-color: ${({ theme }) => theme.colors.bgPrimary};
-  border: 1px solid ${({ theme }) => theme.colors.bgSecondary};
-  border-radius: ${({ theme }) => theme.radius.low}px;
-  cursor: pointer;
-
-  & svg {
-    width: 24px;
-    height: 24px;
-
-    & path {
-      fill: ${({ theme }) => theme.colors.main};
-    }
-  }
-`;
-
-export const FileInput = styled.input`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
 `;

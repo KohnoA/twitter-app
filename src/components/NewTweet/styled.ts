@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 
 import defaultAvatar from '@/assets/images/default-avatar.png';
-import { flex, interactive } from '@/styles';
+import { flex } from '@/styles';
 
-import { Button } from '../UI';
+import { ButtonWithSpinner, FileInput } from '../UI';
 
 import { UserAvatarProps } from './types';
 
-export const NewTweetContainer = styled.section`
+export const NewTweetContainer = styled.form`
   display: flex;
   gap: ${({ theme }) => theme.margins.md}px;
 
@@ -38,25 +38,29 @@ export const ButtonsWrapper = styled.div`
   ${flex('space-between', 'flex-start')}
 `;
 
-export const AddImageButton = styled.button`
-  ${flex()}
-  ${interactive()}
-
-  padding: 5px;
-
-  background-color: transparent;
-  border: none;
-
-  & svg {
-    width: 25px;
-    height: 25px;
-
-    & path {
-      fill: ${({ theme }) => theme.colors.main};
-    }
-  }
+export const TweetButton = styled(ButtonWithSpinner)`
+  max-width: 150px;
 `;
 
-export const TweetButton = styled(Button)`
-  max-width: 150px;
+export const FileContainer = styled.div`
+  ${flex('flex-start', 'flex-start')}
+
+  gap: ${({ theme }) => theme.margins.md}px;
+`;
+
+export const FileInputStyled = styled(FileInput)`
+  padding: 7px;
+  border: none;
+`;
+
+export const UploadedImage = styled.div<{ $imageUrl: string }>`
+  width: 80px;
+  height: 80px;
+
+  background-image: url(${({ $imageUrl }) => $imageUrl});
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  border-radius: ${({ theme }) => theme.radius.low}px;
 `;

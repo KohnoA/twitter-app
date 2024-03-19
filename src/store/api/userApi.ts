@@ -9,7 +9,7 @@ import { updateUserData } from '../slices';
 export const userApi = createApi({
   reducerPath: 'userApi',
   baseQuery: fakeBaseQuery<{ message: Errors }>(),
-  tagTypes: ['User', 'Avatar'],
+  tagTypes: ['User'],
   endpoints: (builder) => ({
     getUser: builder.query<UserDataType, string>({
       queryFn: async (userId) => {

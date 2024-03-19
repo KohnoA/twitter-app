@@ -2,6 +2,7 @@ export { AppLoader } from './AppLoader';
 export { Button } from './Button';
 export { ButtonWithSpinner } from './ButtonWithSpinner';
 export { ErrorMessage } from './ErrorMessage';
+export { FileInput } from './FileInput';
 export { Input } from './Input';
 export { Modal } from './Modal';
 export { MyLink } from './MyLink';

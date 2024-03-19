@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 
-import { ICONS, MONTH } from '@/constants';
+import { MONTH } from '@/constants';
 import { useAppSelector } from '@/hooks';
 import { useUpdateUserMutation } from '@/store/api';
 import { userSelector } from '@/store/selectors';
@@ -15,16 +15,13 @@ import {
   BirthdayLabel,
   BirthdaySelectsWrapper,
   ButtonsWrapper,
-  EditPhotoButton,
   EditProfileFormContainer,
-  FileInput,
+  FileInputStyled,
   FormTitle,
   TextariaStyled,
   UserAvatar,
 } from './styled';
 import { EditProfileFormFields, EditProfileFormProps } from './types';
-
-const { ImageIcon } = ICONS;
 
 export const EditProfileForm = ({ onClose }: EditProfileFormProps) => {
   const [updateUser, { isLoading, isSuccess }] = useUpdateUserMutation();
@@ -76,10 +73,7 @@ export const EditProfileForm = ({ onClose }: EditProfileFormProps) => {
 
       <AvatarWrapper>
         <UserAvatar $avatarUrl={currentAvatar}>
-          <EditPhotoButton>
-            <ImageIcon />
-            <FileInput type="file" {...register('avatar')} />
-          </EditPhotoButton>
+          <FileInputStyled register={register('avatar')} />
         </UserAvatar>
       </AvatarWrapper>
 

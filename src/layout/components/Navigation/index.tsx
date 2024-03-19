@@ -65,7 +65,7 @@ export const Navigation = ({ isActiveBurger, onCloseBurger }: NavigationProps) =
 
       <ModalStyled isActive={newTweetModal} onClose={handleTweetModal}>
         <Title $size="xl3">New Tweet</Title>
-        <NewTweetStyled />
+        <NewTweetStyled onSuccess={handleTweetModal} />
       </ModalStyled>
 
       <Backdrop $show={isActiveBurger} onClick={onCloseBurger} />
