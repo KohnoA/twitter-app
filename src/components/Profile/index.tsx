@@ -1,12 +1,12 @@
 import { useMemo, useState } from 'react';
 
-import { useAppSelector } from '@/hooks';
-import { userSelector } from '@/store/selectors';
+import { useGetUserQuery } from '@/store/api';
 import { getDateString } from '@/utils';
 
 import { EditProfileForm } from '../EditProfileForm';
+import { Spinner } from '../UI';
 
-import { DEFAULT_PROFILE_RESCRIPTION, INITIAL_MODAL_STATE } from './constants';
+import { DEFAULT_USER_DATA, INITIAL_MODAL_STATE } from './constants';
 import {
   EditButton,
   EditWrapper,
@@ -23,16 +23,18 @@ import {
 } from './styled';
 import { ProfileProps } from './types';
 
-export const Profile = ({ user }: ProfileProps) => {
-  const { id, name, email, phone, birthday, description, avatar } = user;
-
+export const Profile = ({ userId, isOwner }: ProfileProps) => {
+  const { data: user, isLoading } = useGetUserQuery(userId);
   const [showEditModal, setShowEditModal] = useState<boolean>(INITIAL_MODAL_STATE);
-  const { data: owner } = useAppSelector(userSelector);
-  const isProfileOwner = id === owner?.id;
+  const { name, email, phone, birthday, description, avatar } = user ?? DEFAULT_USER_DATA;
 
   const handleModal = () => setShowEditModal(!showEditModal);
 
   const birthdayString = useMemo(() => getDateString(birthday), [birthday]);
+
+  if (isLoading) {
+    return <Spinner width={50} height={50} />;
+  }
 
   return (
     <ProfileWrapper>
@@ -41,7 +43,7 @@ export const Profile = ({ user }: ProfileProps) => {
       <EditWrapper>
         <UserAvatar $avatarUrl={avatar} />
 
-        {isProfileOwner && (
+        {isOwner && (
           <EditButton $view="primary" onClick={handleModal}>
             Edit profile
           </EditButton>
@@ -55,9 +57,7 @@ export const Profile = ({ user }: ProfileProps) => {
         <UserInfoItem>Phone: {phone}</UserInfoItem>
         <UserInfoItem>Date of Birth: {birthdayString}</UserInfoItem>
 
-        <UserDescription $size="xl">
-          {description ?? <span>{DEFAULT_PROFILE_RESCRIPTION}</span>}
-        </UserDescription>
+        <UserDescription $size="xl">{description}</UserDescription>
       </UserInfoWrapper>
 
       <UserStatsList>

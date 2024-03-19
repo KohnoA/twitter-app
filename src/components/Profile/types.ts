@@ -1,7 +1,6 @@
-import { UserDataType } from '@/types';
-
 export interface ProfileProps {
-  user: UserDataType;
+  userId: string;
+  isOwner: boolean;
 }
 
 export interface ProfileBgProps {

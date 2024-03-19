@@ -1,8 +1,7 @@
 import { createApi, fakeBaseQuery } from '@reduxjs/toolkit/query/react';
-import { v4 } from 'uuid';
 
 import { Errors } from '@/constants';
-import { addTweetImage } from '@/services';
+import { addTweetImage, getUserTweets as getUserTweetsFirestore } from '@/services';
 import { addTweet as addTweetFireStore } from '@/services/firestore/addTweet';
 import { TweetDataType } from '@/types';
 
@@ -20,9 +19,9 @@ export const tweetApi = createApi({
             user: { data: userData },
           } = getState() as RootState;
           const { email, name, id } = userData!;
-          const tweetData: TweetDataType = {
-            id: v4(),
+          const tweetData: Omit<TweetDataType, 'id'> = {
             author: {
+              avatar: userData?.avatar,
               email,
               name,
               id,
@@ -50,7 +49,19 @@ export const tweetApi = createApi({
       },
       invalidatesTags: ['Tweet'],
     }),
+    getUserTweets: builder.query<TweetDataType[], string>({
+      queryFn: async (userId) => {
+        try {
+          const tweets = await getUserTweetsFirestore(userId);
+
+          return { data: tweets };
+        } catch {
+          return { error: { message: Errors.GENERAL_ERROR } };
+        }
+      },
+      providesTags: ['Tweet'],
+    }),
   }),
 });
 
-export const { useAddTweetMutation } = tweetApi;
+export const { useAddTweetMutation, useGetUserTweetsQuery } = tweetApi;

@@ -1,25 +1,24 @@
 import { useParams } from 'react-router-dom';
 
 import { NewTweet, Profile, TweetList } from '@/components';
-import { Spinner } from '@/components/UI';
+import { useAppSelector } from '@/hooks';
 import { MainLayout } from '@/layout';
-import { useGetUserQuery } from '@/store/api';
+import { useGetUserTweetsQuery } from '@/store/api';
+import { userSelector } from '@/store/selectors';
 
 export const ProfilePage = () => {
   const { userId } = useParams();
-  const { data, isLoading } = useGetUserQuery(userId!);
+  const { data: owner } = useAppSelector(userSelector);
+  const { data: tweets, isLoading: tweetsLoading } = useGetUserTweetsQuery(userId!);
+  const isProfileOwner = userId === owner?.id;
 
   return (
     <MainLayout>
-      {isLoading && <Spinner width={60} height={60} />}
+      <Profile userId={userId!} isOwner={isProfileOwner} />
 
-      {data && (
-        <>
-          <Profile user={data!} />
-          <NewTweet />
-          <TweetList />
-        </>
-      )}
+      {isProfileOwner && <NewTweet />}
+
+      <TweetList tweets={tweets} isLoading={tweetsLoading} />
     </MainLayout>
   );
 };

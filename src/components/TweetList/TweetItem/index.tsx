@@ -1,7 +1,8 @@
-import { memo, useState } from 'react';
+import { memo, useMemo, useState } from 'react';
 
 import { Paragraph } from '@/components/UI';
 import { ICONS } from '@/constants';
+import { TweetDataType } from '@/types';
 
 import {
   EmailAndDate,
@@ -10,29 +11,41 @@ import {
   TweetInfo,
   TweetItemContainer,
   TweetItemContent,
+  TweetPhoto,
   UserAvatar,
   UserName,
 } from './styled';
 
 const { DotsIcon, LikeOutlineIcon, LikeFillIcon } = ICONS;
 
-export const TweetItem = memo(() => {
+interface TweetItemProps {
+  tweet: TweetDataType;
+}
+
+export const TweetItem = memo(({ tweet }: TweetItemProps) => {
+  const { message, author, date, photo } = tweet;
   const [like, setLike] = useState<boolean>(false);
+
+  const tweetDate = useMemo(
+    () => new Date(date).toLocaleDateString('en-EN', { month: 'short', day: 'numeric' }),
+    [date],
+  );
 
   return (
     <TweetItemContainer>
-      <UserAvatar />
+      <UserAvatar $avatarUrl={author.avatar} />
+
       <TweetItemContent>
         <TweetInfo>
-          <UserName $size="xl2">Name</UserName>
-          <EmailAndDate>@bobur_mavlonov · Apr 1</EmailAndDate>
+          <UserName $size="xl2">{author.name}</UserName>
+          <EmailAndDate>
+            {author.email} · {tweetDate}
+          </EmailAndDate>
         </TweetInfo>
 
-        <Paragraph $size="xl">
-          4-kursni tugatgunimcha kamida bitta biznesim bo&apos;lishini, uylanish uchun moddiy
-          jihatdan to&apos;la-to&apos;kis tayyor bo&apos;lishni, sog&apos;lik va jismoniy holatni
-          normallashtirishni reja qildim
-        </Paragraph>
+        <Paragraph $size="xl">{message}</Paragraph>
+
+        <TweetPhoto src={photo} alt="Tweet image" />
 
         <LikeButton $isActive={like} onClick={() => setLike(!like)}>
           {like ? <LikeFillIcon /> : <LikeOutlineIcon />}

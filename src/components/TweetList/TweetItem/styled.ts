@@ -5,7 +5,7 @@ import { Title } from '@/components/UI';
 import { flex, interactive } from '@/styles';
 
 interface UserAvatarProps {
-  $avatarUrl?: string;
+  $avatarUrl?: string | null;
 }
 
 interface LikeButtonProps {
@@ -36,6 +36,8 @@ export const UserAvatar = styled.div<UserAvatarProps>`
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+
+  border-radius: 50%;
 `;
 
 export const TweetItemContent = styled.div`
@@ -94,4 +96,13 @@ export const MoreButton = styled(TweetButton)`
       fill: ${({ theme }) => theme.colors.text};
     }
   }
+`;
+
+export const TweetPhoto = styled.img`
+  width: 90%;
+  height: auto;
+
+  margin-bottom: ${({ theme }) => theme.margins.md}px;
+
+  border-radius: ${({ theme }) => theme.radius.low}px;
 `;
