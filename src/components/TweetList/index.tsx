@@ -10,28 +10,20 @@ interface TweetListProps {
   isLoading?: boolean;
 }
 
-export const TweetList = ({ tweets, isLoading }: TweetListProps) => {
-  if (!tweets) {
-    return null;
-  }
+export const TweetList = ({ tweets, isLoading }: TweetListProps) => (
+  <section>
+    <TweetListTitle>Tweets</TweetListTitle>
 
-  return (
-    <section>
-      <TweetListTitle>Tweets</TweetListTitle>
+    {tweets && !tweets.length && <EmptyMessage $size="xl2">No tweets yet</EmptyMessage>}
 
-      {!tweets.length && <EmptyMessage $size="xl2">No tweets yet</EmptyMessage>}
+    <TweetListStyled>
+      {isLoading && (
+        <SpinnerItem>
+          <Spinner width={40} height={40} />
+        </SpinnerItem>
+      )}
 
-      <TweetListStyled>
-        {isLoading && (
-          <SpinnerItem>
-            <Spinner width={40} height={40} />
-          </SpinnerItem>
-        )}
-
-        {tweets.map((tweet) => (
-          <TweetItem key={tweet.id} tweet={tweet} />
-        ))}
-      </TweetListStyled>
-    </section>
-  );
-};
+      {tweets && tweets.map((tweet) => <TweetItem key={tweet.id} tweet={tweet} />)}
+    </TweetListStyled>
+  </section>
+);
