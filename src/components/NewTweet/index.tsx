@@ -32,7 +32,8 @@ export const NewTweet = ({ className, onSuccess }: NewTweetProps) => {
 
   const onSubmit = async (data: NewTweetFormFileds) => {
     const { tweet, image } = data;
-    await addTweet({ tweet, image });
+
+    await addTweet({ tweet, image: image.length ? image : undefined });
   };
 
   const uploadedImage = useMemo(

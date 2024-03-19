@@ -5,10 +5,10 @@ import { ChildrenWapper } from './styled';
 import { ButtonWithSpinnerProps } from './types';
 
 export const ButtonWithSpinner = (props: ButtonWithSpinnerProps) => {
-  const { children, isLoading, ...otherProps } = props;
+  const { children, isLoading, disabled, ...otherProps } = props;
 
   return (
-    <Button disabled={isLoading} {...otherProps}>
+    <Button disabled={isLoading || disabled} {...otherProps}>
       <Spinner show={isLoading} />
 
       <ChildrenWapper $hidden={isLoading}>{children}</ChildrenWapper>

@@ -6,5 +6,5 @@ import { TweetDataType } from '@/types';
 
 export async function addTweet(tweetData: Omit<TweetDataType, 'id'>) {
   const docRef = collection(db, FirestoreDocKeys.TWEETS);
-  await addDoc(docRef, { ...tweetData, id: docRef.id });
+  await addDoc(docRef, tweetData);
 }

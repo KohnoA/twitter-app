@@ -1,8 +1,13 @@
 import { createApi, fakeBaseQuery } from '@reduxjs/toolkit/query/react';
+import { v4 } from 'uuid';
 
 import { Errors } from '@/constants';
-import { addTweetImage, getUserTweets as getUserTweetsFirestore } from '@/services';
-import { addTweet as addTweetFireStore } from '@/services/firestore/addTweet';
+import {
+  addTweet as addTweetFireStore,
+  addTweetImage,
+  getAllTweets as getAllTweetsFirestore,
+  getUserTweets as getUserTweetsFirestore,
+} from '@/services';
 import { TweetDataType } from '@/types';
 
 import { type RootState } from '..';
@@ -19,7 +24,8 @@ export const tweetApi = createApi({
             user: { data: userData },
           } = getState() as RootState;
           const { email, name, id } = userData!;
-          const tweetData: Omit<TweetDataType, 'id'> = {
+          const tweetData: TweetDataType = {
+            id: v4(),
             author: {
               avatar: userData?.avatar,
               email,
@@ -43,7 +49,9 @@ export const tweetApi = createApi({
           await addTweetFireStore(tweetData);
 
           return { data: null };
-        } catch {
+        } catch (error) {
+          console.error(error);
+
           return { error: { message: Errors.GENERAL_ERROR } };
         }
       },
@@ -55,7 +63,23 @@ export const tweetApi = createApi({
           const tweets = await getUserTweetsFirestore(userId);
 
           return { data: tweets };
-        } catch {
+        } catch (error) {
+          console.error(error);
+
+          return { error: { message: Errors.GENERAL_ERROR } };
+        }
+      },
+      providesTags: ['Tweet'],
+    }),
+    getAllTweets: builder.query<TweetDataType[], void>({
+      queryFn: async () => {
+        try {
+          const tweets = await getAllTweetsFirestore();
+
+          return { data: tweets };
+        } catch (error) {
+          console.error(error);
+
           return { error: { message: Errors.GENERAL_ERROR } };
         }
       },
@@ -64,4 +88,4 @@ export const tweetApi = createApi({
   }),
 });
 
-export const { useAddTweetMutation, useGetUserTweetsQuery } = tweetApi;
+export const { useAddTweetMutation, useGetUserTweetsQuery, useGetAllTweetsQuery } = tweetApi;

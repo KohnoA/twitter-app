@@ -43,9 +43,9 @@ export const TweetItem = memo(({ tweet }: TweetItemProps) => {
           </EmailAndDate>
         </TweetInfo>
 
-        <Paragraph $size="xl">{message}</Paragraph>
+        {message && <Paragraph $size="xl">{message}</Paragraph>}
 
-        <TweetPhoto src={photo} alt="Tweet image" />
+        {photo && <TweetPhoto src={photo} alt="Tweet image" />}
 
         <LikeButton $isActive={like} onClick={() => setLike(!like)}>
           {like ? <LikeFillIcon /> : <LikeOutlineIcon />}
