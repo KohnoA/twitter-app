@@ -1,8 +1,6 @@
 import { TweetDataType } from '@/types';
 
-import { Spinner } from '../UI';
-
-import { EmptyMessage, SpinnerItem, TweetListStyled, TweetListTitle } from './styled';
+import { EmptyMessage, SpinnerStyled, TweetListStyled, TweetListTitle } from './styled';
 import { TweetItem } from './TweetItem';
 
 interface TweetListProps {
@@ -14,15 +12,11 @@ export const TweetList = ({ tweets, isLoading }: TweetListProps) => (
   <section>
     <TweetListTitle>Tweets</TweetListTitle>
 
+    {isLoading && <SpinnerStyled width={50} height={50} />}
+
     {tweets && !tweets.length && <EmptyMessage $size="xl2">No tweets yet</EmptyMessage>}
 
     <TweetListStyled>
-      {isLoading && (
-        <SpinnerItem>
-          <Spinner width={40} height={40} />
-        </SpinnerItem>
-      )}
-
       {tweets && tweets.map((tweet) => <TweetItem key={tweet.id} tweet={tweet} />)}
     </TweetListStyled>
   </section>

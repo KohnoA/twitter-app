@@ -4,7 +4,6 @@ import { useGetUserQuery } from '@/store/api';
 import { getDateString } from '@/utils';
 
 import { EditProfileForm } from '../EditProfileForm';
-import { Spinner } from '../UI';
 
 import { DEFAULT_USER_DATA, INITIAL_MODAL_STATE } from './constants';
 import {
@@ -13,6 +12,7 @@ import {
   ModalStyled,
   ProfileBg,
   ProfileWrapper,
+  SpinnerStyled,
   UserAvatar,
   UserDescription,
   UserInfoItem,
@@ -33,7 +33,11 @@ export const Profile = ({ userId, isOwner }: ProfileProps) => {
   const birthdayString = useMemo(() => getDateString(birthday), [birthday]);
 
   if (isLoading) {
-    return <Spinner width={50} height={50} />;
+    return (
+      <ProfileWrapper>
+        <SpinnerStyled width={50} height={50} />
+      </ProfileWrapper>
+    );
   }
 
   return (

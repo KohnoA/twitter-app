@@ -4,7 +4,7 @@ import defaultAvatar from '@/assets/images/default-avatar.png';
 import defaultBg from '@/assets/images/default-profile-bg.jpg';
 import { flex } from '@/styles';
 
-import { Button, Modal, Paragraph, Title } from '../UI';
+import { Button, Modal, Paragraph, Spinner, Title } from '../UI';
 
 import { ProfileBgProps, UserAvatarProps } from './types';
 
@@ -93,4 +93,11 @@ export const UserStatsItem = styled.li`
 export const ModalStyled = styled(Modal)`
   width: 100%;
   max-width: 650px;
+`;
+
+export const SpinnerStyled = styled(Spinner)`
+  position: static;
+  transform: initial;
+
+  margin: 20vh auto;
 `;

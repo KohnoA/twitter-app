@@ -2,14 +2,10 @@ import styled from 'styled-components';
 
 import { flex } from '@/styles';
 
-import { Paragraph } from '../UI';
+import { Paragraph, Spinner } from '../UI';
 
 export const TweetListStyled = styled.ul`
   position: relative;
-`;
-
-export const SpinnerItem = styled.li`
-  padding: 80px 0;
 `;
 
 export const TweetListTitle = styled.h3`
@@ -26,4 +22,11 @@ export const EmptyMessage = styled(Paragraph)`
   ${flex()}
 
   padding: ${({ theme }) => `${theme.margins.xl}px 0`};
+`;
+
+export const SpinnerStyled = styled(Spinner)`
+  position: static;
+  transform: initial;
+
+  margin: 20vh auto;
 `;
