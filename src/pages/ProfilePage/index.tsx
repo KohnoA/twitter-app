@@ -9,12 +9,12 @@ import { userSelector } from '@/store/selectors';
 export const ProfilePage = () => {
   const { userId } = useParams();
   const { data: owner } = useAppSelector(userSelector);
-  const { data: tweets, isLoading: tweetsLoading } = useGetUserTweetsQuery(userId!);
-  const isProfileOwner = userId === owner?.id;
+  const { data: tweets, isLoading: tweetsLoading } = useGetUserTweetsQuery(userId ?? owner!.id);
+  const isProfileOwner = !userId;
 
   return (
     <MainLayout>
-      <Profile userId={userId!} isOwner={isProfileOwner} />
+      <Profile userId={userId ?? owner!.id} isOwner={isProfileOwner} />
 
       {isProfileOwner && <NewTweet />}
 

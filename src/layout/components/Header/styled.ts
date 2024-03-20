@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { SearchInput, Switch, Title } from '@/components/UI';
+import { ElasticSearch, Title } from '@/components/UI';
 import { flex, interactive, media } from '@/styles';
 
 export const HeaderWrapper = styled.header`
@@ -16,9 +16,8 @@ export const HeaderWrapper = styled.header`
 
   ${({ theme }) =>
     media('tablet')(`
-    display: grid;
-    grid-template-columns: 40% 60%;
-    column-gap: 0;
+    flex-direction: column;
+    align-items: stretch;
     row-gap: ${theme.margins.xl}px;
 
     &::before {
@@ -56,40 +55,54 @@ export const BurgerButton = styled.button`
     justify-content: center;
     align-items: center;
   `)}
-
-  ${media('tablet')(`
-    place-self: center start;
-  `)}
 `;
 
 export const PageTitle = styled(Title)`
+  flex-grow: 1;
   margin: 0 ${({ theme }) => theme.margins.sm}px;
 
   ${media('tablet')(`
-    order: 3;
-    place-self: center start;
+    text-align: right;
   `)}
 `;
 
-export const SearchInputStyled = styled(SearchInput)`
+export const SearchInputStyled = styled(ElasticSearch)`
   display: none;
 
   ${media('desktopM')`
     display: block;
 
     max-width: 300px;
-    margin-left: auto;
   `}
-
-  ${media('tablet')(`
-    order: 2;
-    place-self: center end;
-  `)}
 `;
 
-export const SwitchStyled = styled(Switch)`
-  ${media('tablet')(`
-    order: 4;
-    place-self: center end;
-  `)}
+export const BackButton = styled.button`
+  ${flex()}
+  ${interactive()}
+
+  padding: 0 10px;
+
+  background-color: transparent;
+  border: none;
+
+  & svg path {
+    fill: ${({ theme }) => theme.colors.text};
+  }
+`;
+
+export const LeftContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 20px;
+`;
+
+export const RightContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  ${media('tablet')`
+    order: -1;
+    justify-content: space-between;
+  `}
 `;

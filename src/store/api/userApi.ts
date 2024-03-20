@@ -1,7 +1,7 @@
 import { createApi, fakeBaseQuery } from '@reduxjs/toolkit/query/react';
 
 import { Errors } from '@/constants';
-import { addUserAvatar, getUserById, setUserById } from '@/services';
+import { addUserAvatar, getUserById, getUsersByName, setUserById } from '@/services';
 import { UserDataType } from '@/types';
 
 import { updateUserData } from '../slices';
@@ -48,7 +48,25 @@ export const userApi = createApi({
       },
       invalidatesTags: ['User'],
     }),
+    searchUsersByName: builder.query<UserDataType[], string>({
+      queryFn: async (value, { getState }) => {
+        try {
+          if (!value.length) return { data: [] };
+
+          const state = getState() as { user: { data: UserDataType | null } };
+          const { data } = state.user;
+          const users = await getUsersByName(value);
+          const usersWithoutOwner = users.filter((user) => user.id !== data?.id);
+
+          return { data: usersWithoutOwner };
+        } catch (error) {
+          console.error(error);
+
+          return { error: { message: Errors.GENERAL_ERROR } };
+        }
+      },
+    }),
   }),
 });
 
-export const { useGetUserQuery, useUpdateUserMutation } = userApi;
+export const { useGetUserQuery, useUpdateUserMutation, useLazySearchUsersByNameQuery } = userApi;

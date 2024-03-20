@@ -44,7 +44,7 @@ export const AppRouter = () => {
         <Route path={AppRoutes.LISTS} element={<ListsPage />} />
         <Route path={AppRoutes.MORE} element={<MorePage />} />
 
-        <Route path={AppRoutes.PROFILE}>
+        <Route path={AppRoutes.PROFILE} element={<ProfilePage />}>
           <Route path=":userId" element={<ProfilePage />} />
         </Route>
       </Route>

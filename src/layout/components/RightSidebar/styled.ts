@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { SearchInput } from '@/components/UI';
+import { ElasticSearch } from '@/components/UI';
 import { media } from '@/styles';
 
 export const RightSidebarWrapper = styled.aside`
@@ -9,7 +9,7 @@ export const RightSidebarWrapper = styled.aside`
   border-left: 2px solid ${({ theme }) => theme.colors.bgSecondary};
 `;
 
-export const RightSidebarSearch = styled(SearchInput)`
+export const RightSidebarSearch = styled(ElasticSearch)`
   margin-bottom: ${({ theme }) => theme.margins.xl}px;
 `;
 

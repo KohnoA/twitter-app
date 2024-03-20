@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useState } from 'react';
+import { ReactNode, useCallback, useEffect, useState } from 'react';
 
 import { Header, Navigation } from '../components';
 
@@ -19,7 +19,7 @@ interface MainLayoutProps {
 export const MainLayout = ({ children }: MainLayoutProps) => {
   const [showBurger, setShowBurger] = useState<boolean>(BURGER_MENU_INITIAL_VISIBILITY);
 
-  const toggleBurgerMenu = () => setShowBurger(!showBurger);
+  const toggleBurgerMenu = useCallback(() => setShowBurger((prev) => !prev), []);
 
   useEffect(() => {
     const closeBurger = () => setShowBurger(BURGER_MENU_INITIAL_VISIBILITY);

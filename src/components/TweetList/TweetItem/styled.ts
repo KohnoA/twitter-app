@@ -17,7 +17,7 @@ export const TweetItemContainer = styled.li`
   align-items: flex-start;
   gap: ${({ theme }) => theme.margins.sm}px;
 
-  padding: ${({ theme }) => `${theme.margins.md}px ${theme.margins.lg}px`};
+  padding: ${({ theme }) => theme.margins.md}px;
 
   border-bottom: 2px solid ${({ theme }) => theme.colors.bgSecondary};
 
@@ -31,6 +31,8 @@ export const UserAvatar = styled.div<UserAvatarProps>`
 
   width: 50px;
   height: 50px;
+  margin-top: 5px;
+  margin-right: 5px;
 
   background-image: url(${({ $avatarUrl }) => $avatarUrl ?? defaultAvatar});
   background-position: center;
