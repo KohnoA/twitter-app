@@ -89,6 +89,7 @@ export const ResultsContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.bgSecondary};
   border-radius: ${({ theme }) => theme.radius.low}px;
   overflow-y: auto;
+  box-shadow: 4px 4px 10px 4px rgba(0, 0, 0, 0.2);
 
   &::-webkit-scrollbar {
     width: 4px;

@@ -2,6 +2,7 @@ export { addTweet } from './addTweet';
 export { findTweetsByMessage } from './findTweetsByMessage';
 export { findUsersByName } from './findUsersByName';
 export { getAllTweets } from './getAllTweets';
+export { getAllUsers } from './getAllUsers';
 export { getTweetById } from './getTweetById';
 export { getUserById } from './getUserById';
 export { getUserTweets } from './getUserTweets';

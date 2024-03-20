@@ -1,13 +1,17 @@
 import styled from 'styled-components';
 
 import defaultAvatar from '@/assets/images/default-avatar.png';
-import { flex, media } from '@/styles';
+import { flex, interactive, media } from '@/styles';
 
 interface UserAvatarProps {
   $avatarUrl?: string | null;
 }
 
-export const UserCardWrapper = styled.div`
+interface UserCardWrapperProps {
+  $isOwner?: boolean;
+}
+
+export const UserCardWrapper = styled.div<UserCardWrapperProps>`
   ${flex('flex-start')}
 
   gap: ${({ theme }) => theme.margins.md}px;
@@ -15,6 +19,8 @@ export const UserCardWrapper = styled.div`
   width: 100%;
   margin-bottom: ${({ theme }) => theme.margins.lg}px;
   padding: 5px;
+
+  ${({ $isOwner }) => !$isOwner && interactive()}
 
   ${({ theme }) =>
     media('desktopM')(`

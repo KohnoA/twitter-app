@@ -1,10 +1,18 @@
 import { createApi, fakeBaseQuery } from '@reduxjs/toolkit/query/react';
 
 import { Errors } from '@/constants';
-import { addUserAvatar, findUsersByName, getUserById, setUserById } from '@/services';
+import {
+  addUserAvatar,
+  findUsersByName,
+  getAllUsers as getAllUsersFirestore,
+  getUserById,
+  setUserById,
+} from '@/services';
 import { UserDataType } from '@/types';
 
 import { updateUserData } from '../slices';
+
+const GENERAL_ERROR = { error: { message: Errors.GENERAL_ERROR } };
 
 export const userApi = createApi({
   reducerPath: 'userApi',
@@ -20,7 +28,24 @@ export const userApi = createApi({
         } catch (error) {
           console.error(error);
 
-          return { error: { message: Errors.GENERAL_ERROR } };
+          return GENERAL_ERROR;
+        }
+      },
+      providesTags: ['User'],
+    }),
+    getAllUsers: builder.query<UserDataType[], void>({
+      queryFn: async (_, { getState }) => {
+        try {
+          const state = getState() as { user: { data: UserDataType | null } };
+          const { data } = state.user;
+          const users = await getAllUsersFirestore();
+          const usersWithoutOwner = users.filter((user) => user.id !== data?.id);
+
+          return { data: usersWithoutOwner };
+        } catch (error) {
+          console.error(error);
+
+          return GENERAL_ERROR;
         }
       },
       providesTags: ['User'],
@@ -47,7 +72,7 @@ export const userApi = createApi({
         } catch (error) {
           console.error(error);
 
-          return { error: { message: Errors.GENERAL_ERROR } };
+          return GENERAL_ERROR;
         }
       },
       invalidatesTags: ['User'],
@@ -66,11 +91,16 @@ export const userApi = createApi({
         } catch (error) {
           console.error(error);
 
-          return { error: { message: Errors.GENERAL_ERROR } };
+          return GENERAL_ERROR;
         }
       },
     }),
   }),
 });
 
-export const { useGetUserQuery, useUpdateUserMutation, useLazyFindUsersQuery } = userApi;
+export const {
+  useGetUserQuery,
+  useUpdateUserMutation,
+  useLazyFindUsersQuery,
+  useGetAllUsersQuery,
+} = userApi;

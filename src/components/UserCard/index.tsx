@@ -17,17 +17,16 @@ export const UserCard = ({ className, user }: UserCardProps) => {
 
   const { data: ownerData } = useAppSelector(userSelector);
   const navigate = useNavigate();
+  const isOwnerCard = ownerData?.id === id;
 
   const handleClick = () => {
-    if (!ownerData) return;
-
-    if (ownerData.id !== id) {
+    if (!isOwnerCard) {
       navigate(`${AppRoutes.PROFILE}/${id}`);
     }
   };
 
   return (
-    <UserCardWrapper className={className} onClick={handleClick}>
+    <UserCardWrapper $isOwner={isOwnerCard} className={className} onClick={handleClick}>
       <UserAvatar $avatarUrl={avatar} />
 
       <NameEmailWrapper>

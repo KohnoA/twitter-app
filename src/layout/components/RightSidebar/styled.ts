@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+import { Recommendations } from '@/components';
 import { media } from '@/styles';
 
 export const RightSidebarWrapper = styled.aside`
@@ -9,7 +10,11 @@ export const RightSidebarWrapper = styled.aside`
 `;
 
 export const RightSidebarSearchWrapper = styled.div`
-  margin-bottom: ${({ theme }) => theme.margins.xl}px;
+  margin-bottom: 80px;
+`;
+
+export const RecommendationsStyled = styled(Recommendations)`
+  margin-bottom: 80px;
 `;
 
 export const RightSidebarFooter = styled.div`

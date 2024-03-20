@@ -6,7 +6,12 @@ import { AppRoutes } from '@/constants';
 
 import { Footer } from '../Footer';
 
-import { RightSidebarFooter, RightSidebarSearchWrapper, RightSidebarWrapper } from './styled';
+import {
+  RecommendationsStyled,
+  RightSidebarFooter,
+  RightSidebarSearchWrapper,
+  RightSidebarWrapper,
+} from './styled';
 
 interface RightSidebarProps {
   className?: string;
@@ -29,7 +34,7 @@ export const RightSidebar = memo(({ className }: RightSidebarProps) => {
     <RightSidebarWrapper className={className}>
       <RightSidebarSearchWrapper>{currentSearchBar}</RightSidebarSearchWrapper>
 
-      <p style={{ marginBottom: '40px' }}>Recommendations</p>
+      <RecommendationsStyled />
 
       <RightSidebarFooter>
         <Footer />
