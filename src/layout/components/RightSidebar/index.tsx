@@ -1,12 +1,12 @@
 import { memo, useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
 
-import { SearchBarByUsers } from '@/components';
+import { SearchBarByTweets, SearchBarByUsers } from '@/components';
 import { AppRoutes } from '@/constants';
 
 import { Footer } from '../Footer';
 
-import { RightSidebarFooter, RightSidebarSearch, RightSidebarWrapper } from './styled';
+import { RightSidebarFooter, RightSidebarSearchWrapper, RightSidebarWrapper } from './styled';
 
 interface RightSidebarProps {
   className?: string;
@@ -16,14 +16,18 @@ export const RightSidebar = memo(({ className }: RightSidebarProps) => {
   const { pathname } = useLocation();
 
   const currentSearchBar = useMemo(() => {
-    if (pathname === AppRoutes.HOME) return <SearchBarByUsers />;
+    switch (pathname) {
+      case AppRoutes.HOME:
+        return <SearchBarByTweets />;
 
-    return <RightSidebarSearch />;
+      default:
+        return <SearchBarByUsers />;
+    }
   }, [pathname]);
 
   return (
     <RightSidebarWrapper className={className}>
-      {currentSearchBar}
+      <RightSidebarSearchWrapper>{currentSearchBar}</RightSidebarSearchWrapper>
 
       <p style={{ marginBottom: '40px' }}>Recommendations</p>
 

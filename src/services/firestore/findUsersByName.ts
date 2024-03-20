@@ -6,7 +6,7 @@ import { UserDataType } from '@/types';
 
 const USERS_LIMIT = 8;
 
-export async function getUsersByName(value: string, _limit = USERS_LIMIT) {
+export async function findUsersByName(value: string, _limit = USERS_LIMIT) {
   const name = `${value[0].toUpperCase()}${value.slice(1)}`;
   const usersRef = collection(db, FirestoreDocKeys.USERS);
   const q = query(

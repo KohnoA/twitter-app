@@ -1,7 +1,7 @@
 import { createApi, fakeBaseQuery } from '@reduxjs/toolkit/query/react';
 
 import { Errors } from '@/constants';
-import { addUserAvatar, getUserById, getUsersByName, setUserById } from '@/services';
+import { addUserAvatar, findUsersByName, getUserById, setUserById } from '@/services';
 import { UserDataType } from '@/types';
 
 import { updateUserData } from '../slices';
@@ -17,7 +17,9 @@ export const userApi = createApi({
           const userData = await getUserById(userId);
 
           return { data: userData };
-        } catch {
+        } catch (error) {
+          console.error(error);
+
           return { error: { message: Errors.GENERAL_ERROR } };
         }
       },
@@ -42,20 +44,22 @@ export const userApi = createApi({
           dispatch(updateUserData(updatedUserData));
 
           return { data: updatedUserData };
-        } catch {
+        } catch (error) {
+          console.error(error);
+
           return { error: { message: Errors.GENERAL_ERROR } };
         }
       },
       invalidatesTags: ['User'],
     }),
-    searchUsersByName: builder.query<UserDataType[], string>({
+    findUsers: builder.query<UserDataType[], string>({
       queryFn: async (value, { getState }) => {
         try {
           if (!value.length) return { data: [] };
 
           const state = getState() as { user: { data: UserDataType | null } };
           const { data } = state.user;
-          const users = await getUsersByName(value);
+          const users = await findUsersByName(value);
           const usersWithoutOwner = users.filter((user) => user.id !== data?.id);
 
           return { data: usersWithoutOwner };
@@ -69,4 +73,4 @@ export const userApi = createApi({
   }),
 });
 
-export const { useGetUserQuery, useUpdateUserMutation, useLazySearchUsersByNameQuery } = userApi;
+export const { useGetUserQuery, useUpdateUserMutation, useLazyFindUsersQuery } = userApi;

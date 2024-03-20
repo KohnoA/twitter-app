@@ -34,6 +34,7 @@ export const ElasticSearch = memo((props: ElasticSearchProps) => {
 
   const [value, setValue] = useState<string>(INITIAL_VALUE);
   const debouncedValue = useDebounce(value);
+  const showEmptyMessage = !isLoading && !!debouncedValue && isEmpty;
   const showClearButton = !!value.length;
 
   const onSubmit = (event: FormEvent) => event.preventDefault();
@@ -73,17 +74,19 @@ export const ElasticSearch = memo((props: ElasticSearchProps) => {
         )}
       </ElasticSearchForm>
 
-      <ResultsContainer>
-        {children}
+      {showClearButton && (
+        <ResultsContainer onClick={onClear}>
+          {isLoading ? (
+            <SearchLoader>
+              <SpinnerIcon width={30} height={30} />
+            </SearchLoader>
+          ) : (
+            children
+          )}
 
-        {isLoading && (
-          <SearchLoader>
-            <SpinnerIcon width={30} height={30} />
-          </SearchLoader>
-        )}
-
-        {isEmpty && <EmptyMessage>{emptyMessage ?? DEFAULT_EMPTY_MESSAGE}</EmptyMessage>}
-      </ResultsContainer>
+          {showEmptyMessage && <EmptyMessage>{emptyMessage ?? DEFAULT_EMPTY_MESSAGE}</EmptyMessage>}
+        </ResultsContainer>
+      )}
     </ElasticSearchContainer>
   );
 });

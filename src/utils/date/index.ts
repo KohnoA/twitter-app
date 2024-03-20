@@ -1,0 +1,1 @@
+export { getShortDate } from './getShortDate';

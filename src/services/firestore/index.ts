@@ -1,7 +1,9 @@
 export { addTweet } from './addTweet';
+export { findTweetsByMessage } from './findTweetsByMessage';
+export { findUsersByName } from './findUsersByName';
 export { getAllTweets } from './getAllTweets';
+export { getTweetById } from './getTweetById';
 export { getUserById } from './getUserById';
-export { getUsersByName } from './getUsersByName';
 export { getUserTweets } from './getUserTweets';
 export { removeLikeToTweet } from './removeLikeToTweet';
 export { setLikeToTweet } from './setLikeToTweet';

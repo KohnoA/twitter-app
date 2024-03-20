@@ -1,31 +1,31 @@
-import { useCallback, useState } from 'react';
+import { useCallback } from 'react';
 
-import { useLazySearchUsersByNameQuery } from '@/store/api';
+import { useLazyFindUsersQuery } from '@/store/api';
 
-import { ElasticSearchStyled, UserCardStyled } from './styled';
+import { ElasticSearch } from '../UI';
+
+import { UserCardStyled } from './styled';
 
 export const SearchBarByUsers = () => {
-  const [trigger, { data, isLoading }] = useLazySearchUsersByNameQuery();
-  const [requestStr, setRequestStr] = useState<string>('');
-  const showEmptyMessage = !isLoading && !!requestStr.length && data && !data.length;
+  const [trigger, { data, isFetching }] = useLazyFindUsersQuery();
+  const showEmptyMessage = !data?.length;
 
   const handleSearchValue = useCallback(
     (value: string) => {
       trigger(value);
-      setRequestStr(value);
     },
     [trigger],
   );
 
   return (
-    <ElasticSearchStyled
-      placeholder="Search user by name"
+    <ElasticSearch
+      placeholder="Search Users"
       onChange={handleSearchValue}
-      isLoading={isLoading}
+      isLoading={isFetching}
       isEmpty={showEmptyMessage}
       emptyMessage="No Users Found"
     >
       {data && data.map((user) => <UserCardStyled key={user.id} user={user} />)}
-    </ElasticSearchStyled>
+    </ElasticSearch>
   );
 };
