@@ -14,4 +14,10 @@ export const SpinnerWrapper = styled.span`
   height: 100%;
 
   ${flex()}
+
+  & svg {
+    & circle {
+      stroke: ${({ theme }) => theme.colors.text};
+    }
+  }
 `;

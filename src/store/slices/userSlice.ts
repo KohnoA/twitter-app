@@ -1,15 +1,19 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+
+import { UserDataType } from '@/types';
 
 import { signInThunk, signUpThunk } from '../thunks';
 
 interface UserStateType {
   isAuth: boolean;
+  data: UserDataType | null;
   loading: boolean;
   error: string | null;
 }
 
 const initialState: UserStateType = {
-  isAuth: true, // TODO: Return to false
+  isAuth: false,
+  data: null,
   loading: false,
   error: null,
 };
@@ -24,12 +28,19 @@ export const userSlice = createSlice({
     },
     setIsNotAuth(state) {
       state.isAuth = false;
+      state.data = null;
+    },
+    setIsAuth(state, action: PayloadAction<UserDataType>) {
+      state.isAuth = true;
+      state.data = action.payload;
+    },
+    updateUserData(state, action: PayloadAction<UserDataType>) {
+      state.data = action.payload;
     },
   },
   extraReducers(builder) {
     builder.addCase(signUpThunk.fulfilled, (state) => {
       state.loading = false;
-      state.isAuth = true;
       state.error = null;
     });
     builder.addCase(signUpThunk.pending, (state) => {
@@ -43,9 +54,7 @@ export const userSlice = createSlice({
         state.error = action.payload;
       }
     });
-
     builder.addCase(signInThunk.fulfilled, (state) => {
-      state.isAuth = true;
       state.loading = false;
       state.error = null;
     });
@@ -63,6 +72,6 @@ export const userSlice = createSlice({
   },
 });
 
-export const { clearUserStatus, setIsNotAuth } = userSlice.actions;
+export const { clearUserStatus, setIsNotAuth, setIsAuth, updateUserData } = userSlice.actions;
 
 export default userSlice.reducer;

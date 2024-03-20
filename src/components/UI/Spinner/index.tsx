@@ -2,13 +2,15 @@ import { DEFAULT_HEIGHT, DEFAULT_SHOW_VALUE, DEFAULT_WIDTH, SpinnerIcon } from '
 import { SpinnerWrapper } from './styled';
 import { SpinnerProps } from './types';
 
-export const Spinner = ({ width, height, show = DEFAULT_SHOW_VALUE }: SpinnerProps) => {
+export const Spinner = (props: SpinnerProps) => {
+  const { className, width, height, show = DEFAULT_SHOW_VALUE } = props;
+
   if (!show) {
     return null;
   }
 
   return (
-    <SpinnerWrapper>
+    <SpinnerWrapper className={className}>
       <SpinnerIcon width={width ?? DEFAULT_WIDTH} height={height ?? DEFAULT_HEIGHT} />
     </SpinnerWrapper>
   );

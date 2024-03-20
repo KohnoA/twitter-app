@@ -1,12 +1,22 @@
+import { UserDataType } from '@/types';
+
 import { NameEmailWrapper, UserAvatar, UserCardWrapper, UserEmail, UserName } from './styled';
 
-export const UserCard = () => (
-  <UserCardWrapper>
-    <UserAvatar />
+interface UserCardProps {
+  user: UserDataType | null;
+}
 
-    <NameEmailWrapper>
-      <UserName>Bobur</UserName>
-      <UserEmail>@bobur_mavlonov</UserEmail>
-    </NameEmailWrapper>
-  </UserCardWrapper>
-);
+export const UserCard = ({ user }: UserCardProps) => {
+  const { name, email, avatar } = user!;
+
+  return (
+    <UserCardWrapper>
+      <UserAvatar $avatarUrl={avatar} />
+
+      <NameEmailWrapper>
+        <UserName>{name}</UserName>
+        <UserEmail>{email}</UserEmail>
+      </NameEmailWrapper>
+    </UserCardWrapper>
+  );
+};

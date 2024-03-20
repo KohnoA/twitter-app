@@ -30,6 +30,8 @@ export const PageWrapper = styled.div`
 `;
 
 export const MainContent = styled.main`
+  position: relative;
+
   flex-grow: 1;
 
   margin-bottom: ${({ theme }) => theme.margins.xl}px;

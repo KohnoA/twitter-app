@@ -17,7 +17,7 @@ export const Header = memo(({ onClickBurger }: HeaderProps) => {
   const { pathname } = useLocation();
 
   const pageTitle = useMemo(
-    () => NAVIGATION_LIST.find(({ link }) => link === pathname)?.title,
+    () => NAVIGATION_LIST.find(({ link }) => pathname.includes(link))?.title,
     [pathname],
   );
 

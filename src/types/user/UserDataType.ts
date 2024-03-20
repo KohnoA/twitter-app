@@ -4,4 +4,7 @@ export interface UserDataType {
   password: string;
   name: string;
   phone: string;
+  id: string;
+  description?: string;
+  avatar?: string | null;
 }

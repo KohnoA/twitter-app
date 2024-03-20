@@ -7,6 +7,7 @@ export interface ButtonWithSpinnerProps
     ButtonHTMLAttributes<HTMLButtonElement> {
   isLoading?: boolean;
   children: ReactNode;
+  className?: string;
 }
 
 export interface ChildrenWapperProps {

@@ -25,6 +25,7 @@ export const InputStyled = styled.input<InputStyledProps>`
   padding-right: 60px;
 
   font-size: ${({ theme }) => theme.fontSizes.xl}px;
+  color: ${({ theme }) => theme.colors.text};
 
   border-width: 1px;
   border-style: solid;
@@ -77,6 +78,7 @@ export const VisibilityButton = styled.button`
 
     & path {
       transform: scale(0.53);
+      fill: ${({ theme }) => theme.colors.text};
     }
   }
 

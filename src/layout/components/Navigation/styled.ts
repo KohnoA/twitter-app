@@ -1,37 +1,14 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { Button } from '@/components/UI';
+import { NewTweet } from '@/components';
+import { Button, Modal } from '@/components/UI';
 import { ICONS } from '@/constants';
 import { flex, interactive, media } from '@/styles';
 
-import { BackdropProps, NavigationWrapperProps } from './types';
+import { NavigationWrapperProps } from './types';
 
 const { TwitterIcon } = ICONS;
-
-export const Backdrop = styled.div<BackdropProps>`
-  position: fixed;
-  z-index: 1;
-
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-
-  background-color: rgba(0, 0, 0, 0.2);
-  transition: all ${({ theme }) => theme.duration}ms;
-
-  ${({ $show }) =>
-    $show
-      ? `
-    opacity: 1;
-    pointer-events: all;
-  `
-      : `
-    opacity: 0;
-    pointer-events: none;
-  `}
-`;
 
 export const CrossButton = styled.button`
   display: none;
@@ -71,7 +48,6 @@ export const NavigationWrapper = styled.section<NavigationWrapperProps>`
 
     background-color: ${theme.colors.bgPrimary};
     transition: transform ${theme.duration}ms;
-    filter: drop-shadow(4px 4px 4px 4px);
     overflow-y: auto;
 
     ${$isActiveBurger && `transform: translateX(0);`}
@@ -143,4 +119,14 @@ export const NavigationLink = styled(NavLink)`
 
 export const LogoutButton = styled(Button)`
   margin-bottom: ${({ theme }) => theme.margins.xl}px;
+`;
+
+export const ModalStyled = styled(Modal)`
+  width: 100%;
+  max-width: 650px;
+`;
+
+export const NewTweetStyled = styled(NewTweet)`
+  padding: 0;
+  border-bottom: none;
 `;

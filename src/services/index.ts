@@ -1,4 +1,3 @@
-export { signIn } from './signIn';
-export { signInViaGoogle } from './signInViaGoogle';
-export { signOut } from './signOut';
-export { signUp } from './signUp';
+export * from './authentication';
+export * from './firestore';
+export * from './storage';

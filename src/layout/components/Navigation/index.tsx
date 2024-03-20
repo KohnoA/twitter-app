@@ -1,20 +1,23 @@
+import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
 import { UserCard } from '@/components';
-import { Button } from '@/components/UI';
-import { ICONS, NAVIGATION_LIST } from '@/constants';
-import { useAppDispatch } from '@/hooks';
+import { Button, Title } from '@/components/UI';
+import { AppRoutes, ICONS, NAVIGATION_LIST } from '@/constants';
+import { useAppSelector } from '@/hooks';
 import { signOut } from '@/services';
-import { setIsNotAuth } from '@/store/slices';
+import { userSelector } from '@/store/selectors';
+import { Backdrop } from '@/styles';
 
 import {
-  Backdrop,
   CrossButton,
   LogoutButton,
+  ModalStyled,
   NavigationLink,
   NavigationList,
   NavigationListWrapper,
   NavigationWrapper,
+  NewTweetStyled,
   TwitterIconStyled,
 } from './styled';
 import { NavigationProps } from './types';
@@ -22,17 +25,16 @@ import { NavigationProps } from './types';
 const { CrossIcon } = ICONS;
 
 export const Navigation = ({ isActiveBurger, onCloseBurger }: NavigationProps) => {
+  const [newTweetModal, setNewTweetModal] = useState<boolean>(false);
+  const { data } = useAppSelector(userSelector);
   const { pathname } = useLocation();
-  const dispatch = useAppDispatch();
 
-  const handleSignOut = () => {
-    dispatch(setIsNotAuth());
-    signOut();
-  };
+  const handleTweetModal = () => setNewTweetModal(!newTweetModal);
+
+  const handleSignOut = () => signOut();
 
   return (
     <>
-      <Backdrop $show={isActiveBurger} onClick={onCloseBurger} />
       <NavigationWrapper $isActiveBurger={isActiveBurger}>
         <CrossButton onClick={onCloseBurger}>
           <CrossIcon width={40} height={40} />
@@ -44,22 +46,29 @@ export const Navigation = ({ isActiveBurger, onCloseBurger }: NavigationProps) =
           <NavigationList>
             {NAVIGATION_LIST.map(({ link, OutlineIcon, FillIcon, title }) => (
               <li key={link}>
-                <NavigationLink to={link}>
-                  {pathname === link ? <FillIcon /> : <OutlineIcon />} {title}
+                <NavigationLink to={link === AppRoutes.PROFILE ? `${link}/${data?.id}` : link}>
+                  {pathname.includes(link) ? <FillIcon /> : <OutlineIcon />} {title}
                 </NavigationLink>
               </li>
             ))}
           </NavigationList>
 
-          <Button>Tweet</Button>
+          <Button onClick={handleTweetModal}>Tweet</Button>
         </NavigationListWrapper>
 
-        <UserCard />
+        <UserCard user={data} />
 
         <LogoutButton $view="primary" onClick={handleSignOut}>
           Log out
         </LogoutButton>
       </NavigationWrapper>
+
+      <ModalStyled isActive={newTweetModal} onClose={handleTweetModal}>
+        <Title $size="xl3">New Tweet</Title>
+        <NewTweetStyled onSuccess={handleTweetModal} />
+      </ModalStyled>
+
+      <Backdrop $show={isActiveBurger} onClick={onCloseBurger} />
     </>
   );
 };

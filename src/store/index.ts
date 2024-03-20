@@ -11,6 +11,7 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
+import { tweetApi, userApi } from './api';
 import { rootReducer } from './rootReducer';
 
 const persistConfig = {
@@ -28,7 +29,7 @@ export const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }),
+    }).concat([userApi.middleware, tweetApi.middleware]),
 });
 
 export const persistor = persistStore(store);

@@ -1,7 +1,8 @@
 import { MainLayout } from '@/layout';
+import { NotImplementTitle } from '@/styles';
 
 export const ExplorePage = () => (
   <MainLayout>
-    <div>Explore Page</div>
+    <NotImplementTitle>Not implemented</NotImplementTitle>
   </MainLayout>
 );
