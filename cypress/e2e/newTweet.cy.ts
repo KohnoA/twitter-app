@@ -6,8 +6,9 @@ describe('Testing new tweet form', () => {
   after(() => cy.logout());
 
   it('Tweet must be added', () => {
-    const tweetMessage =
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt, voluptate?';
+    const tweetMessage = Math.random()
+      .toString(36)
+      .slice(2, 20 + 2);
 
     cy.get('[data-testid=new-tweet-form]').should('exist');
     cy.get('[data-testid=new-tweet-textarea]').type(tweetMessage);
