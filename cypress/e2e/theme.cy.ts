@@ -3,6 +3,8 @@ describe('Theme change testing', () => {
 
   beforeEach(() => cy.visit('/home'));
 
+  after(() => cy.logout());
+
   it('Must be a light theme', () => {
     cy.get('body').should('have.css', 'background-color', 'rgb(255, 255, 255)');
   });
@@ -18,6 +20,4 @@ describe('Theme change testing', () => {
     cy.reload();
     cy.get('body').should('have.css', 'background-color', 'rgb(18, 13, 24)');
   });
-
-  after(() => cy.logout());
 });

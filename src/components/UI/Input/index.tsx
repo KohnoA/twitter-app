@@ -34,13 +34,17 @@ export const Input = memo((props: InputProps) => {
         />
 
         {isPasswordInput && (
-          <VisibilityButton type="button" onClick={togglePasswordVisibility}>
+          <VisibilityButton
+            data-testid="toggle-password-visibility"
+            type="button"
+            onClick={togglePasswordVisibility}
+          >
             {showPassword ? <VisibleIcon /> : <UnvisibleIcon />}
           </VisibilityButton>
         )}
       </PositionInputWrapper>
 
-      {error && <ErrorMessage>{error}</ErrorMessage>}
+      {error && <ErrorMessage data-testid="input-error">{error}</ErrorMessage>}
     </InputWrapper>
   );
 });
