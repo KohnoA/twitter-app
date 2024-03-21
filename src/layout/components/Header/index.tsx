@@ -54,7 +54,11 @@ export const Header = memo(({ onClickBurger }: HeaderProps) => {
       <RightContainer>
         <SearchInputStyled />
 
-        <Switch isToggled={theme === AppThemes.DARK} onChange={toggleTheme} />
+        <Switch
+          data-testid="toggle-theme-switch"
+          isToggled={theme === AppThemes.DARK}
+          onChange={toggleTheme}
+        />
       </RightContainer>
     </HeaderWrapper>
   );
