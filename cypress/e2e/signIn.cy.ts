@@ -34,6 +34,16 @@ describe('Testing the login form', () => {
     ).should('exist');
   });
 
+  it('A notification should be displayed if such user does not exist', () => {
+    cy.fixture('testUser').then((testUser) => {
+      cy.get('[data-testid=login-email-input]').type(`yeyeye${testUser.email}`);
+      cy.get('[data-testid=login-password-input]').type(`qwuhdq${testUser.password}`);
+      cy.get('[data-testid=login-submit-button]').click();
+
+      cy.contains(/Invalid email address or password/).should('exist');
+    });
+  });
+
   it('Authorization should work correctly', () => {
     cy.fixture('testUser').then((testUser) => {
       cy.get('[data-testid=login-email-input]').type(testUser.email);

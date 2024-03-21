@@ -3,7 +3,7 @@ describe('Testing the registration form', () => {
 
   after(() => cy.logout());
 
-  it('', () => {
+  it('Errors should be displayed if fields are left blank', () => {
     cy.get('[data-testid=signup-next-button]').click();
     cy.get('[data-testid=input-error]')
       .should('have.length', 3)
@@ -13,7 +13,7 @@ describe('Testing the registration form', () => {
       .contains(/This field is required/);
   });
 
-  it('', () => {
+  it('An error should be displayed if the passwords do not match', () => {
     cy.fixture('testUser').then((testUser) => {
       const { name, phone, email, password } = testUser;
 
@@ -35,7 +35,7 @@ describe('Testing the registration form', () => {
     });
   });
 
-  it('', () => {
+  it('Form data should be saved if the user goes back a step', () => {
     cy.fixture('testUser').then((testUser) => {
       const { name, phone, email } = testUser;
 
@@ -59,7 +59,7 @@ describe('Testing the registration form', () => {
     });
   });
 
-  it('', () => {
+  it('A notification should be displayed if the user already exists', () => {
     cy.fixture('testUser').then((testUser) => {
       const { name, phone, email, password } = testUser;
 

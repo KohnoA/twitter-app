@@ -16,7 +16,7 @@ export const TweetList = ({ tweets, isLoading }: TweetListProps) => (
 
     {tweets && !tweets.length && <EmptyMessage $size="xl2">No tweets yet</EmptyMessage>}
 
-    <TweetListStyled>
+    <TweetListStyled data-testid="tweet-list">
       {tweets && tweets.map((tweet) => <TweetItem key={tweet.id} tweet={tweet} />)}
     </TweetListStyled>
   </section>

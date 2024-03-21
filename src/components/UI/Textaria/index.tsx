@@ -8,6 +8,7 @@ interface TextariaProps {
   register: UseFormRegisterReturn;
   placeholder?: string;
   label?: string;
+  'data-testid'?: string;
 }
 
 export const Textaria = ({ className, register, label, ...otherProps }: TextariaProps) => {
