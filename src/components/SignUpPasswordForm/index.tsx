@@ -34,11 +34,12 @@ export const SignUpPasswordForm = () => {
 
     if (!emailFormData) return;
     const { day, month, year, ...otherData } = emailFormData;
+    const userData = { birthday: getBirthdayDate(year, month, day), ...otherData };
+
     dispatch(
       signUpThunk({
+        userData,
         password,
-        birthday: getBirthdayDate(year, month, day),
-        ...otherData,
       }),
     );
   };

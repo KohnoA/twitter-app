@@ -4,14 +4,14 @@ import svgr from 'vite-plugin-svgr';
 import path from 'node:path';
 
 // https://vitejs.dev/config/
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   plugins: [
     svgr({ include: '**/*.svg', svgrOptions: { icon: true } }),
     react({
-      plugins: [
-        ['@swc/plugin-react-remove-properties', {}],
-        ['@swc/plugin-styled-components', {}],
-      ],
+      plugins:
+        mode === 'production'
+          ? [['@swc/plugin-react-remove-properties', {}]]
+          : [['@swc/plugin-styled-components', {}]],
     }),
   ],
   resolve: {
@@ -19,4 +19,4 @@ export default defineConfig({
       '@': path.resolve(__dirname, 'src'),
     },
   },
-});
+}));

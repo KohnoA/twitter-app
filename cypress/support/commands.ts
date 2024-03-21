@@ -35,3 +35,28 @@
 //     }
 //   }
 // }
+
+// import { signOut, signIn, signUp } from '../../src/services/authentication';
+// import testUser from '../fixtures/testUser.json';
+
+// Cypress.Commands.add('logout', () => {
+//   signOut();
+// });
+
+// Cypress.Commands.add('login', (email = testUser.email, password = testUser.password) => {
+//   signIn(email, password);
+// });
+
+// Cypress.Commands.add('signup', (userData = testUser) => {
+//   signUp(userData);
+// });
+
+// declare global {
+//   namespace Cypress {
+//     interface Chainable {
+//       logout(): Chainable<void>;
+//       login(email: string, password: string): Chainable<void>;
+//       signup(userData: typeof testUser): Chainable<void>;
+//     }
+//   }
+// }

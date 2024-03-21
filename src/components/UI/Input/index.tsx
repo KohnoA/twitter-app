@@ -29,6 +29,7 @@ export const Input = memo((props: InputProps) => {
           $hasError={!!error}
           type={isPasswordInput && showPassword ? 'text' : type}
           placeholder={placeholder}
+          data-testid={props['data-testid']}
           {...register}
         />
 

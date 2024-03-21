@@ -5,8 +5,8 @@ import { UserDataType } from '@/types';
 
 import { setUserById } from '../firestore';
 
-export async function signUp(data: Omit<UserDataType, 'id' | 'avatar'>) {
-  const { email, password, ...otherData } = data;
+export async function signUp(data: Omit<UserDataType, 'id' | 'avatar'>, password: string) {
+  const { email, ...otherData } = data;
 
   const {
     user: { uid, photoURL },

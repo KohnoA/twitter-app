@@ -7,9 +7,12 @@ import { UserDataType } from '@/types';
 
 export const signUpThunk = createAsyncThunk(
   'user/signUpThunk',
-  async (userData: Omit<UserDataType, 'id'>, { rejectWithValue }) => {
+  async (
+    { userData, password }: { userData: Omit<UserDataType, 'id'>; password: string },
+    { rejectWithValue },
+  ) => {
     try {
-      const user = await signUp(userData);
+      const user = await signUp(userData, password);
 
       return user;
     } catch (error) {
