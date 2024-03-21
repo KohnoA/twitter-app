@@ -1,6 +1,4 @@
 describe('Testing the login form', () => {
-  before(() => cy.logout());
-
   beforeEach(() => cy.visit('login'));
 
   after(() => cy.logout());

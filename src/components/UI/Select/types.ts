@@ -10,4 +10,5 @@ export interface SelectProps {
   options: string[];
   placeholder?: string;
   error?: string;
+  'data-testid'?: string;
 }

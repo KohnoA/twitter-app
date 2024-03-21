@@ -15,7 +15,13 @@ export const Select = memo((props: SelectProps) => {
       <PositionWrapper>
         {label && <label htmlFor={id}>{label}</label>}
 
-        <SelectStyled $hasError={!!error} id={id} defaultValue="" {...register}>
+        <SelectStyled
+          $hasError={!!error}
+          id={id}
+          defaultValue=""
+          {...register}
+          data-testid={props['data-testid']}
+        >
           {placeholder && (
             <option value="" disabled hidden>
               {placeholder}
@@ -32,7 +38,7 @@ export const Select = memo((props: SelectProps) => {
         <ArrowIconStyled />
       </PositionWrapper>
 
-      {error && <ErrorMessage>{error}</ErrorMessage>}
+      {error && <ErrorMessage data-testid="select-error">{error}</ErrorMessage>}
     </div>
   );
 });
