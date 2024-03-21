@@ -5,18 +5,35 @@ import { Errors } from '@/constants';
 import {
   addTweet as addTweetFireStore,
   addTweetImage,
+  findTweetsByMessage,
   getAllTweets as getAllTweetsFirestore,
+  getTweetById as getTweetByIdFirestore,
   getUserTweets as getUserTweetsFirestore,
 } from '@/services';
 import { TweetDataType } from '@/types';
 
 import { type RootState } from '..';
 
+const GENERAL_ERROR = { error: { message: Errors.GENERAL_ERROR } };
+
 export const tweetApi = createApi({
   reducerPath: 'tweetApi',
   baseQuery: fakeBaseQuery<{ message: Errors }>(),
   tagTypes: ['Tweet'],
   endpoints: (builder) => ({
+    getTweetById: builder.query<TweetDataType, string>({
+      queryFn: async (tweetId) => {
+        try {
+          const tweet = await getTweetByIdFirestore(tweetId);
+
+          return { data: tweet };
+        } catch (error) {
+          console.error(error);
+
+          return GENERAL_ERROR;
+        }
+      },
+    }),
     addTweet: builder.mutation<null, { tweet: string; image?: FileList }>({
       queryFn: async ({ tweet, image }, { getState }) => {
         try {
@@ -52,7 +69,7 @@ export const tweetApi = createApi({
         } catch (error) {
           console.error(error);
 
-          return { error: { message: Errors.GENERAL_ERROR } };
+          return GENERAL_ERROR;
         }
       },
       invalidatesTags: ['Tweet'],
@@ -66,7 +83,7 @@ export const tweetApi = createApi({
         } catch (error) {
           console.error(error);
 
-          return { error: { message: Errors.GENERAL_ERROR } };
+          return GENERAL_ERROR;
         }
       },
       providesTags: ['Tweet'],
@@ -80,12 +97,33 @@ export const tweetApi = createApi({
         } catch (error) {
           console.error(error);
 
-          return { error: { message: Errors.GENERAL_ERROR } };
+          return GENERAL_ERROR;
         }
       },
       providesTags: ['Tweet'],
     }),
+    findTweets: builder.query<TweetDataType[], string>({
+      queryFn: async (value) => {
+        try {
+          if (!value.length) return { data: [] };
+
+          const tweets = await findTweetsByMessage(value);
+
+          return { data: tweets };
+        } catch (error) {
+          console.error(error);
+
+          return GENERAL_ERROR;
+        }
+      },
+    }),
   }),
 });
 
-export const { useAddTweetMutation, useGetUserTweetsQuery, useGetAllTweetsQuery } = tweetApi;
+export const {
+  useAddTweetMutation,
+  useGetUserTweetsQuery,
+  useGetAllTweetsQuery,
+  useLazyFindTweetsQuery,
+  useGetTweetByIdQuery,
+} = tweetApi;

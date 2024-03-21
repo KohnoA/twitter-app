@@ -6,6 +6,7 @@ import { useAppSelector } from '@/hooks';
 import { removeLikeToTweet, setLikeToTweet } from '@/services';
 import { userSelector } from '@/store/selectors';
 import { TweetDataType } from '@/types';
+import { getShortDate } from '@/utils';
 
 import {
   EmailAndDate,
@@ -51,10 +52,7 @@ export const TweetItem = memo(({ tweet }: TweetItemProps) => {
     }, 500);
   };
 
-  const tweetDate = useMemo(
-    () => new Date(date).toLocaleDateString('en-EN', { month: 'short', day: 'numeric' }),
-    [date],
-  );
+  const tweetDate = useMemo(() => getShortDate(date), [date]);
 
   return (
     <TweetItemContainer>

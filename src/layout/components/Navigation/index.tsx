@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 
 import { UserCard } from '@/components';
 import { Button, Title } from '@/components/UI';
-import { AppRoutes, ICONS, NAVIGATION_LIST } from '@/constants';
+import { ICONS, NAVIGATION_LIST } from '@/constants';
 import { useAppSelector } from '@/hooks';
 import { signOut } from '@/services';
 import { userSelector } from '@/store/selectors';
@@ -46,8 +46,8 @@ export const Navigation = ({ isActiveBurger, onCloseBurger }: NavigationProps) =
           <NavigationList>
             {NAVIGATION_LIST.map(({ link, OutlineIcon, FillIcon, title }) => (
               <li key={link}>
-                <NavigationLink to={link === AppRoutes.PROFILE ? `${link}/${data?.id}` : link}>
-                  {pathname.includes(link) ? <FillIcon /> : <OutlineIcon />} {title}
+                <NavigationLink to={link}>
+                  {pathname === link ? <FillIcon /> : <OutlineIcon />} {title}
                 </NavigationLink>
               </li>
             ))}

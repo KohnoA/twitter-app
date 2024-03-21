@@ -11,6 +11,7 @@ export const TextariaStyled = styled.textarea`
   background-color: ${({ theme }) => theme.colors.bgPrimary};
   border: 2px solid ${({ theme }) => theme.colors.bgSecondary};
   border-radius: ${({ theme }) => theme.radius.low}px;
+  transition: background ${({ theme }) => theme.duration}ms;
   resize: none;
 
   &::placeholder {

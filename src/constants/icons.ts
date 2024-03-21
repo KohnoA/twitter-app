@@ -1,4 +1,5 @@
 import ArrowDownIcon from '@/assets/icons/arrow-down.svg';
+import BackIcon from '@/assets/icons/back.svg';
 import BookmarksFillIcon from '@/assets/icons/bookmarks-fill.svg';
 import BookmarksOutlineIcon from '@/assets/icons/bookmarks-outline.svg';
 import BurgerIcon from '@/assets/icons/burger.svg';
@@ -56,4 +57,5 @@ export const ICONS = {
   DotsIcon,
   LikeOutlineIcon,
   LikeFillIcon,
+  BackIcon,
 };

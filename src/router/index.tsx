@@ -15,6 +15,7 @@ import {
   ProfilePage,
   SignUpEmailPage,
   SignUpPage,
+  TweetPage,
 } from '@/pages';
 import { userSelector } from '@/store/selectors';
 
@@ -36,7 +37,6 @@ export const AppRouter = () => {
 
       <Route element={<ProtectedRoute condition={isAuth} redirectPath={AppRoutes.SIGN_UP} />}>
         <Route path={AppRoutes.ROOT} element={<Navigate to={AppRoutes.HOME} replace />} />
-        <Route path={AppRoutes.HOME} element={<HomePage />} />
         <Route path={AppRoutes.EXPLORE} element={<ExplorePage />} />
         <Route path={AppRoutes.NOTIFICATION} element={<NotificationsPage />} />
         <Route path={AppRoutes.MESSAGES} element={<MessagesPage />} />
@@ -44,7 +44,12 @@ export const AppRouter = () => {
         <Route path={AppRoutes.LISTS} element={<ListsPage />} />
         <Route path={AppRoutes.MORE} element={<MorePage />} />
 
-        <Route path={AppRoutes.PROFILE}>
+        <Route path={AppRoutes.HOME}>
+          <Route index element={<HomePage />} />
+          <Route path=":tweetId" element={<TweetPage />} />
+        </Route>
+
+        <Route path={AppRoutes.PROFILE} element={<ProfilePage />}>
           <Route path=":userId" element={<ProfilePage />} />
         </Route>
       </Route>

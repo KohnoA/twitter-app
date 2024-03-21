@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { SearchInput } from '@/components/UI';
+import { Recommendations } from '@/components';
 import { media } from '@/styles';
 
 export const RightSidebarWrapper = styled.aside`
@@ -9,8 +9,12 @@ export const RightSidebarWrapper = styled.aside`
   border-left: 2px solid ${({ theme }) => theme.colors.bgSecondary};
 `;
 
-export const RightSidebarSearch = styled(SearchInput)`
-  margin-bottom: ${({ theme }) => theme.margins.xl}px;
+export const RightSidebarSearchWrapper = styled.div`
+  margin-bottom: 80px;
+`;
+
+export const RecommendationsStyled = styled(Recommendations)`
+  margin-bottom: 80px;
 `;
 
 export const RightSidebarFooter = styled.div`

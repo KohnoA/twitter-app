@@ -10,3 +10,4 @@ export { NotificationsPage } from './NotificationsPage';
 export { ProfilePage } from './ProfilePage';
 export { SignUpEmailPage } from './SignUpEmailPage';
 export { SignUpPage } from './SignUpPage';
+export { TweetPage } from './TweetPage';
