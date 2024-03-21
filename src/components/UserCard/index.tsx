@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { AppRoutes } from '@/constants';
@@ -12,7 +13,7 @@ interface UserCardProps {
   user: UserDataType | null;
 }
 
-export const UserCard = ({ className, user }: UserCardProps) => {
+export const UserCard = memo(({ className, user }: UserCardProps) => {
   const { name, email, avatar, id } = user!;
 
   const { data: ownerData } = useAppSelector(userSelector);
@@ -35,4 +36,4 @@ export const UserCard = ({ className, user }: UserCardProps) => {
       </NameEmailWrapper>
     </UserCardWrapper>
   );
-};
+});
