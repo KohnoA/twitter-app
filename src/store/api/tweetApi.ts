@@ -3,12 +3,14 @@ import { v4 } from 'uuid';
 
 import { Errors } from '@/constants';
 import {
+  addLikeToTweet as setLikeToTweetFirestore,
   addTweet as addTweetFireStore,
   addTweetImage,
   findTweetsByMessage,
   getAllTweets as getAllTweetsFirestore,
   getTweetById as getTweetByIdFirestore,
   getUserTweets as getUserTweetsFirestore,
+  removeLikeToTweet,
 } from '@/services';
 import { TweetDataType } from '@/types';
 
@@ -33,6 +35,7 @@ export const tweetApi = createApi({
           return GENERAL_ERROR;
         }
       },
+      providesTags: ['Tweet'],
     }),
     addTweet: builder.mutation<null, { tweet: string; image?: FileList }>({
       queryFn: async ({ tweet, image }, { getState }) => {
@@ -117,6 +120,32 @@ export const tweetApi = createApi({
         }
       },
     }),
+    addLikeToTweet: builder.mutation<null, { tweetId: string; userId: string }>({
+      queryFn: async ({ tweetId, userId }) => {
+        try {
+          await setLikeToTweetFirestore(tweetId, userId);
+
+          return { data: null };
+        } catch (error) {
+          console.error(error);
+
+          return { error: { message: Errors.GENERAL_ERROR } };
+        }
+      },
+    }),
+    removeLikeToTweet: builder.mutation<null, { tweetId: string; userId: string }>({
+      queryFn: async ({ tweetId, userId }) => {
+        try {
+          await removeLikeToTweet(tweetId, userId);
+
+          return { data: null };
+        } catch (error) {
+          console.error(error);
+
+          return { error: { message: Errors.GENERAL_ERROR } };
+        }
+      },
+    }),
   }),
 });
 
@@ -126,4 +155,6 @@ export const {
   useGetAllTweetsQuery,
   useLazyFindTweetsQuery,
   useGetTweetByIdQuery,
+  useAddLikeToTweetMutation,
+  useRemoveLikeToTweetMutation,
 } = tweetApi;

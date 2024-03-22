@@ -2,8 +2,10 @@ import { Link } from 'react-router-dom';
 
 import { Button, MyLink, Paragraph } from '@/components/UI';
 import { AppRoutes, ICONS, UNASSIGNED_LINK_VALUE } from '@/constants';
+import { useAppDispatch } from '@/hooks';
 import { LayoutWithFooter } from '@/layout';
 import { signInViaGoogle } from '@/services';
+import { setIsAuth } from '@/store/slices';
 
 import {
   ButtonsWrapper,
@@ -19,8 +21,12 @@ import {
 const { TwitterIcon, GoogleIcon } = ICONS;
 
 export const SignUpPage = () => {
-  const handleSignInViaGoogle = () => {
-    signInViaGoogle();
+  const dispatch = useAppDispatch();
+
+  const handleSignInViaGoogle = async () => {
+    const user = await signInViaGoogle();
+
+    if (user) dispatch(setIsAuth(user));
   };
 
   return (

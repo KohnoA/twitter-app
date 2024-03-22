@@ -1,8 +1,7 @@
 import { useForm } from 'react-hook-form';
 
 import { AppRoutes } from '@/constants';
-import { useAppDispatch, useUserFormStatus } from '@/hooks';
-import { signInThunk } from '@/store/thunks';
+import { useLazySignInQuery } from '@/store/api';
 import { LoginFormFields } from '@/types';
 
 import { Input } from '../UI';
@@ -11,18 +10,14 @@ import { emailValidation, passwordValidation } from './config';
 import { GeneralErrorMessage, LoginButton, LoginFormStyled, SignUpLink } from './styled';
 
 export const LoginForm = () => {
-  const { error, loading } = useUserFormStatus();
-  const dispatch = useAppDispatch();
-
+  const [signIn, { isLoading, error }] = useLazySignInQuery();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<LoginFormFields>();
 
-  const onSubmit = (data: LoginFormFields) => {
-    dispatch(signInThunk(data));
-  };
+  const onSubmit = (data: LoginFormFields) => signIn(data);
 
   return (
     <LoginFormStyled onSubmit={handleSubmit(onSubmit)}>
@@ -41,9 +36,9 @@ export const LoginForm = () => {
         register={register('password', passwordValidation)}
       />
 
-      {error && <GeneralErrorMessage>{error}</GeneralErrorMessage>}
+      {error && <GeneralErrorMessage>{error.message}</GeneralErrorMessage>}
 
-      <LoginButton data-testid="login-submit-button" type="submit" isLoading={loading}>
+      <LoginButton data-testid="login-submit-button" type="submit" isLoading={isLoading}>
         Login
       </LoginButton>
 

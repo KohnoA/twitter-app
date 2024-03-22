@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import defaultAvatar from '@/assets/images/default-avatar.png';
 import defaultBg from '@/assets/images/default-profile-bg.jpg';
-import { flex } from '@/styles';
+import { bgImage, flex, media } from '@/styles';
 
 import { Button, Modal, Paragraph, Spinner, Title } from '../UI';
 
@@ -13,17 +13,24 @@ export const ProfileWrapper = styled.section`
 `;
 
 export const ProfileBg = styled.div<ProfileBgProps>`
+  position: relative;
   width: 100%;
   height: 280px;
 
-  background-image: url(${({ $bgUrl }) => $bgUrl ?? defaultBg});
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  margin-bottom: 100px;
+
+  ${({ $bgUrl }) => bgImage($bgUrl ?? defaultBg)};
+
+  ${media('tablet')`
+      margin-bottom: 80px;
+  `}
 `;
 
 export const EditWrapper = styled.div`
-  position: relative;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -80px;
 
   ${flex('flex-end')}
 
@@ -39,12 +46,14 @@ export const UserAvatar = styled.div<UserAvatarProps>`
   width: 150px;
   height: 150px;
 
-  background-image: url(${({ $avatarUrl }) => $avatarUrl ?? defaultAvatar});
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  ${({ $avatarUrl }) => bgImage($avatarUrl ?? defaultAvatar)};
 
   border-radius: 50%;
+
+  ${media('tablet')`
+    width: 100px;
+    height: 100px;
+  `}
 `;
 
 export const EditButton = styled(Button)`

@@ -1,8 +1,9 @@
 import { memo, useMemo } from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 
+import { SearchBarByTweets, SearchBarByUsers } from '@/components';
 import { Switch } from '@/components/UI';
-import { AppThemes, ICONS, NAVIGATION_LIST } from '@/constants';
+import { AppRoutes, AppThemes, ICONS, NAVIGATION_LIST } from '@/constants';
 import { useTheme } from '@/hooks';
 
 import {
@@ -12,7 +13,7 @@ import {
   LeftContainer,
   PageTitle,
   RightContainer,
-  SearchInputStyled,
+  SearchContainer,
 } from './styled';
 
 const { BurgerIcon, BackIcon } = ICONS;
@@ -28,12 +29,22 @@ export const Header = memo(({ onClickBurger }: HeaderProps) => {
   const params = useParams();
   const showBackButton = !!Object.keys(params).length;
 
-  const handleHistoryBack = () => navigate(-1);
+  const handleHistoryBack = () => navigate(AppRoutes.HOME);
 
   const pageTitle = useMemo(
     () => NAVIGATION_LIST.find(({ link }) => pathname.includes(link))?.title,
     [pathname],
   );
+
+  const currentSearchBar = useMemo(() => {
+    switch (pathname) {
+      case AppRoutes.HOME:
+        return <SearchBarByTweets />;
+
+      default:
+        return <SearchBarByUsers />;
+    }
+  }, [pathname]);
 
   return (
     <HeaderWrapper>
@@ -52,7 +63,7 @@ export const Header = memo(({ onClickBurger }: HeaderProps) => {
       </LeftContainer>
 
       <RightContainer>
-        <SearchInputStyled />
+        <SearchContainer>{currentSearchBar}</SearchContainer>
 
         <Switch
           data-testid="toggle-theme-switch"

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { ElasticSearch, Title } from '@/components/UI';
+import { Title } from '@/components/UI';
 import { flex, interactive, media } from '@/styles';
 
 export const HeaderWrapper = styled.header`
@@ -66,7 +66,7 @@ export const PageTitle = styled(Title)`
   `)}
 `;
 
-export const SearchInputStyled = styled(ElasticSearch)`
+export const SearchContainer = styled.div`
   display: none;
 
   ${media('desktopM')`
@@ -86,7 +86,7 @@ export const BackButton = styled.button`
   border: none;
 
   & svg path {
-    fill: ${({ theme }) => theme.colors.text};
+    fill: ${({ theme }) => theme.colors.stroke};
   }
 `;
 

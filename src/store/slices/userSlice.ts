@@ -2,8 +2,6 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { UserDataType } from '@/types';
 
-import { signInThunk, signUpThunk } from '../thunks';
-
 interface UserStateType {
   isAuth: boolean;
   data: UserDataType | null;
@@ -37,38 +35,6 @@ export const userSlice = createSlice({
     updateUserData(state, action: PayloadAction<UserDataType>) {
       state.data = action.payload;
     },
-  },
-  extraReducers(builder) {
-    builder.addCase(signUpThunk.fulfilled, (state) => {
-      state.loading = false;
-      state.error = null;
-    });
-    builder.addCase(signUpThunk.pending, (state) => {
-      state.loading = true;
-      state.error = null;
-    });
-    builder.addCase(signUpThunk.rejected, (state, action) => {
-      state.loading = false;
-
-      if (typeof action.payload === 'string') {
-        state.error = action.payload;
-      }
-    });
-    builder.addCase(signInThunk.fulfilled, (state) => {
-      state.loading = false;
-      state.error = null;
-    });
-    builder.addCase(signInThunk.pending, (state) => {
-      state.loading = true;
-      state.error = null;
-    });
-    builder.addCase(signInThunk.rejected, (state, action) => {
-      state.loading = false;
-
-      if (typeof action.payload === 'string') {
-        state.error = action.payload;
-      }
-    });
   },
 });
 

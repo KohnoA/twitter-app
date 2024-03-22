@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import defaultAvatar from '@/assets/images/default-avatar.png';
-import { flex } from '@/styles';
+import { flex, media } from '@/styles';
 
 import { ButtonWithSpinner, FileInput } from '../UI';
 
@@ -15,6 +15,11 @@ export const NewTweetContainer = styled.form`
   padding: ${({ theme }) => theme.margins.md}px;
 
   border-bottom: 2px solid ${({ theme }) => theme.colors.bgSecondary};
+
+  ${({ theme }) =>
+    media('tablet')(`
+    padding: ${theme.margins.sm}px;
+  `)}
 `;
 
 export const UserAvatar = styled.div<UserAvatarProps>`
@@ -28,6 +33,10 @@ export const UserAvatar = styled.div<UserAvatarProps>`
   background-size: cover;
 
   border-radius: 50%;
+
+  ${media('mobileL')`
+    display: none;
+  `}
 `;
 
 export const ControlsWrapper = styled.div`

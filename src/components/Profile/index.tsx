@@ -42,17 +42,17 @@ export const Profile = ({ userId, isOwner }: ProfileProps) => {
 
   return (
     <ProfileWrapper>
-      <ProfileBg />
+      <ProfileBg>
+        <EditWrapper>
+          <UserAvatar $avatarUrl={avatar} />
 
-      <EditWrapper>
-        <UserAvatar $avatarUrl={avatar} />
-
-        {isOwner && (
-          <EditButton data-testid="edit-profile-button" $view="primary" onClick={handleModal}>
-            Edit profile
-          </EditButton>
-        )}
-      </EditWrapper>
+          {isOwner && (
+            <EditButton data-testid="edit-profile-button" $view="primary" onClick={handleModal}>
+              Edit profile
+            </EditButton>
+          )}
+        </EditWrapper>
+      </ProfileBg>
 
       <UserInfoWrapper>
         <UserName $size="xl2" data-testid="user-name">

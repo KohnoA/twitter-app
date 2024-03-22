@@ -4,7 +4,7 @@ import { FirestoreDocKeys } from '@/constants';
 import { db } from '@/firebase';
 import { TweetDataType } from '@/types';
 
-export async function setLikeToTweet(tweetId: string, userId: string) {
+export async function addLikeToTweet(tweetId: string, userId: string) {
   const tweetRef = doc(db, FirestoreDocKeys.TWEETS, tweetId);
   const tweetSnap = await getDoc(tweetRef);
   const tweetData = tweetSnap.data() as TweetDataType;

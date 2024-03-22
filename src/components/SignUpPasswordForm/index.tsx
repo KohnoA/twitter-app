@@ -1,10 +1,10 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
 
 import { Errors } from '@/constants';
-import { useAppDispatch, useAppSelector, useUserFormStatus } from '@/hooks';
+import { useAppDispatch, useAppSelector } from '@/hooks';
+import { useLazySignUpQuery } from '@/store/api';
 import { signUpSelector } from '@/store/selectors';
 import { setEmailStep } from '@/store/slices';
-import { signUpThunk } from '@/store/thunks';
 import { PasswordFormFields } from '@/types';
 import { getBirthdayDate } from '@/utils';
 
@@ -14,7 +14,7 @@ import { confirmPasswordValidation, passwordValidation } from './config';
 import { ButtonsWrapper, GeneralErrorMessage, SignUpPasswordFormStyled } from './styled';
 
 export const SignUpPasswordForm = () => {
-  const { error, loading } = useUserFormStatus();
+  const [signUp, { isLoading, error }] = useLazySignUpQuery();
   const { emailFormData } = useAppSelector(signUpSelector);
   const dispatch = useAppDispatch();
   const {
@@ -36,12 +36,7 @@ export const SignUpPasswordForm = () => {
     const { day, month, year, ...otherData } = emailFormData;
     const userData = { birthday: getBirthdayDate(year, month, day), ...otherData };
 
-    dispatch(
-      signUpThunk({
-        userData,
-        password,
-      }),
-    );
+    signUp({ userData, password });
   };
 
   const onStepBack = () => dispatch(setEmailStep());
@@ -65,14 +60,16 @@ export const SignUpPasswordForm = () => {
       />
 
       {error && (
-        <GeneralErrorMessage data-testid="signup-general-error">{error}</GeneralErrorMessage>
+        <GeneralErrorMessage data-testid="signup-general-error">
+          {error.message}
+        </GeneralErrorMessage>
       )}
 
       <ButtonsWrapper>
         <Button data-testid="signup-back-button" type="button" onClick={onStepBack}>
           Back
         </Button>
-        <ButtonWithSpinner data-testid="signup-submit-button" type="submit" isLoading={loading}>
+        <ButtonWithSpinner data-testid="signup-submit-button" type="submit" isLoading={isLoading}>
           Sign Up
         </ButtonWithSpinner>
       </ButtonsWrapper>

@@ -29,7 +29,10 @@ export const Navigation = ({ isActiveBurger, onCloseBurger }: NavigationProps) =
   const { data } = useAppSelector(userSelector);
   const { pathname } = useLocation();
 
-  const handleTweetModal = () => setNewTweetModal(!newTweetModal);
+  const handleTweetModal = () => {
+    setNewTweetModal(!newTweetModal);
+    onCloseBurger();
+  };
 
   const handleSignOut = () => signOut();
 

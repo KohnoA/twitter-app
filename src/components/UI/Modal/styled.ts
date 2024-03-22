@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { Backdrop, flex, interactive } from '@/styles';
+import { Backdrop, flex, interactive, media } from '@/styles';
 
 export const BackdropStyled = styled(Backdrop)`
   ${flex()}
@@ -15,6 +15,10 @@ export const ModalContent = styled.section`
   background-color: ${({ theme }) => theme.colors.bgPrimary};
   border-radius: ${({ theme }) => theme.radius.low}px;
   box-shadow: 4px 4px 10px 4px rgba(0, 0, 0, 0.2);
+
+  ${media('tablet')`
+    padding: 40px 15px 25px 15px;
+  `}
 `;
 
 export const ModalCloseButtom = styled.button`

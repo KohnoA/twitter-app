@@ -3,7 +3,7 @@ import { memo, useMemo, useRef, useState } from 'react';
 import { Paragraph } from '@/components/UI';
 import { ICONS } from '@/constants';
 import { useAppSelector } from '@/hooks';
-import { removeLikeToTweet, setLikeToTweet } from '@/services';
+import { useAddLikeToTweetMutation, useRemoveLikeToTweetMutation } from '@/store/api';
 import { userSelector } from '@/store/selectors';
 import { TweetDataType } from '@/types';
 import { getShortDate } from '@/utils';
@@ -30,6 +30,8 @@ interface TweetItemProps {
 export const TweetItem = memo(({ tweet }: TweetItemProps) => {
   const { message, author, date, photo, id: tweetId, likes } = tweet;
 
+  const [addLike] = useAddLikeToTweetMutation();
+  const [removeLike] = useRemoveLikeToTweetMutation();
   const { data: userData } = useAppSelector(userSelector);
   const [countLikes, setCountLikes] = useState<number>(likes.count ?? DEFAULT_COUNT_LIKES);
   const [isOwnerLiked, setIsOwnerLiked] = useState<boolean>(
@@ -47,8 +49,8 @@ export const TweetItem = memo(({ tweet }: TweetItemProps) => {
 
     timerRef.current = setTimeout(async () => {
       if (!userData) return;
-      if (currentOwnerLiked) await setLikeToTweet(tweetId, userData.id);
-      else await removeLikeToTweet(tweetId, userData.id);
+      if (currentOwnerLiked) await addLike({ tweetId, userId: userData.id });
+      else await removeLike({ tweetId, userId: userData.id });
     }, 500);
   };
 

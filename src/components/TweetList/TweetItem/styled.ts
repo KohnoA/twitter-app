@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import defaultAvatar from '@/assets/images/default-avatar.png';
 import { Title } from '@/components/UI';
-import { flex, interactive } from '@/styles';
+import { bgImage, flex, interactive, media } from '@/styles';
 
 interface UserAvatarProps {
   $avatarUrl?: string | null;
@@ -24,6 +24,16 @@ export const TweetItemContainer = styled.li`
   &:last-child {
     border-bottom: none;
   }
+
+  ${({ theme }) =>
+    media('tablet')(`
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+
+      padding: ${theme.margins.md}px ${theme.margins.sm}px;
+
+      font-size: ${theme.fontSizes.md}px;
+  `)}
 `;
 
 export const UserAvatar = styled.div<UserAvatarProps>`
@@ -34,27 +44,50 @@ export const UserAvatar = styled.div<UserAvatarProps>`
   margin-top: 5px;
   margin-right: 5px;
 
-  background-image: url(${({ $avatarUrl }) => $avatarUrl ?? defaultAvatar});
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  ${({ $avatarUrl }) => bgImage($avatarUrl ?? defaultAvatar)}
 
   border-radius: 50%;
+
+  ${media('tablet')(`
+    order: 1;
+    margin-top: 0;
+    margin-right: 0;
+  `)}
 `;
 
 export const TweetItemContent = styled.div`
   flex-grow: 1;
+
+  ${media('tablet')`
+    order: 3;
+    grid-column: span 2;
+    width: 100%;
+
+    padding-top: 10px;
+  `}
 `;
 
 export const TweetInfo = styled.div`
   ${flex('flex-start')}
+
   gap: ${({ theme }) => theme.margins.sm}px;
 
   margin-bottom: ${({ theme }) => theme.margins.sm}px;
+
+  ${media('tablet')`
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  `}
 `;
 
 export const UserName = styled(Title)`
   margin: 0;
+
+  ${({ theme }) =>
+    media('tablet')(`
+    font-size: ${theme.fontSizes.lg}px;
+  `)}
 `;
 
 export const EmailAndDate = styled.p`
@@ -85,6 +118,13 @@ export const LikeButton = styled(TweetButton)<LikeButtonProps>`
       fill: ${({ theme, $isActive }) => !$isActive && theme.colors.textInput};
     }
   }
+
+  ${media('tablet')`
+     & svg {
+      width: 20px;
+      height: 20px;
+     }
+  `}
 `;
 
 export const MoreButton = styled(TweetButton)`
@@ -98,6 +138,11 @@ export const MoreButton = styled(TweetButton)`
       fill: ${({ theme }) => theme.colors.text};
     }
   }
+
+  ${media('tablet')`
+    order: 2;
+    place-self: center end;
+  `}
 `;
 
 export const TweetPhoto = styled.img`
@@ -107,4 +152,8 @@ export const TweetPhoto = styled.img`
   margin-bottom: ${({ theme }) => theme.margins.md}px;
 
   border-radius: ${({ theme }) => theme.radius.low}px;
+
+  ${media('tablet')(`
+    width: 100%;
+  `)}
 `;
