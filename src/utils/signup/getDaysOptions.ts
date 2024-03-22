@@ -1,8 +1,8 @@
 import { MONTH } from '@/constants';
 
-import { getDaysInMonth } from '../helpers';
+import { getDaysInMonth } from '../date';
 
-export function getDaysOptions(month?: string, year?: string) {
+export function getDaysOptions(month?: (typeof MONTH)[number], year?: string) {
   const FIRTS_DAY_NUMBER = 1;
   const MAX_DAYS_IN_MONTH = 31;
 
