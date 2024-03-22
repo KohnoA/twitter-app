@@ -49,17 +49,30 @@ export const NewTweet = ({ className, onSuccess }: NewTweetProps) => {
   }, [isSuccess, reset, onSuccess]);
 
   return (
-    <NewTweetContainer className={className} onSubmit={handleSubmit(onSubmit)}>
+    <NewTweetContainer
+      data-testid="new-tweet-form"
+      className={className}
+      onSubmit={handleSubmit(onSubmit)}
+    >
       <UserAvatar $avatarUrl={userData?.avatar} />
       <ControlsWrapper>
-        <Textaria register={register('tweet', { required: true })} placeholder="What’s happening" />
+        <Textaria
+          data-testid="new-tweet-textarea"
+          register={register('tweet', { required: true })}
+          placeholder="What’s happening"
+        />
         <ButtonsWrapper>
           <FileContainer>
             <FileInputStyled register={register('image')} />
             {uploadedImage && <UploadedImage $imageUrl={uploadedImage} />}
           </FileContainer>
 
-          <TweetButton type="submit" disabled={!watch('tweet')} isLoading={isLoading}>
+          <TweetButton
+            data-testid="new-tweet-submit"
+            type="submit"
+            disabled={!watch('tweet')}
+            isLoading={isLoading}
+          >
             Tweet
           </TweetButton>
         </ButtonsWrapper>

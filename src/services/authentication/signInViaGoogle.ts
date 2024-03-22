@@ -1,25 +1,30 @@
-import { FirebaseError } from 'firebase/app';
-import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { signInWithPopup } from 'firebase/auth';
 
+// import { store } from '@/store';
+// import { setIsAuth } from '@/store/slices';
 import { auth, provider } from '@/firebase';
 
-/* eslint-disable */
+import { setUserById } from '../firestore';
 
 export async function signInViaGoogle() {
   try {
-    const result = await signInWithPopup(auth, provider);
-    const credential = GoogleAuthProvider.credentialFromResult(result); // error
-    const token = credential?.accessToken;
-    const user = result.user;
+    const {
+      user: { uid, photoURL, email, phoneNumber, displayName },
+    } = await signInWithPopup(auth, provider);
+    if (!email) return;
 
-    console.log(token, user);
+    const newUser = {
+      id: uid,
+      email,
+      avatar: photoURL,
+      phone: phoneNumber ?? 'Indefined',
+      name: displayName ?? 'Unknown',
+      birthday: new Date(Date.now()).toISOString(),
+    };
+
+    await setUserById(uid, newUser);
+    // store.dispatch(setIsAuth(newUser));
   } catch (error) {
-    if (error instanceof FirebaseError) {
-      const credential = GoogleAuthProvider.credentialFromError(error);
-
-      console.log(credential);
-    }
-
     console.error(error);
   }
 }

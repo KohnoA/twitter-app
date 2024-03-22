@@ -34,11 +34,12 @@ export const SignUpPasswordForm = () => {
 
     if (!emailFormData) return;
     const { day, month, year, ...otherData } = emailFormData;
+    const userData = { birthday: getBirthdayDate(year, month, day), ...otherData };
+
     dispatch(
       signUpThunk({
+        userData,
         password,
-        birthday: getBirthdayDate(year, month, day),
-        ...otherData,
       }),
     );
   };
@@ -46,8 +47,9 @@ export const SignUpPasswordForm = () => {
   const onStepBack = () => dispatch(setEmailStep());
 
   return (
-    <SignUpPasswordFormStyled onSubmit={handleSubmit(onSubmit)}>
+    <SignUpPasswordFormStyled data-testid="signup-password-form" onSubmit={handleSubmit(onSubmit)}>
       <Input
+        data-testid="signup-password-input"
         type="password"
         placeholder="Password"
         error={errors.password?.message}
@@ -55,19 +57,22 @@ export const SignUpPasswordForm = () => {
       />
 
       <Input
+        data-testid="signup-confirm-password-input"
         type="password"
         placeholder="Confirm Password"
         error={errors.confirm?.message}
         register={register('confirm', confirmPasswordValidation)}
       />
 
-      {error && <GeneralErrorMessage>{error}</GeneralErrorMessage>}
+      {error && (
+        <GeneralErrorMessage data-testid="signup-general-error">{error}</GeneralErrorMessage>
+      )}
 
       <ButtonsWrapper>
-        <Button type="button" onClick={onStepBack}>
+        <Button data-testid="signup-back-button" type="button" onClick={onStepBack}>
           Back
         </Button>
-        <ButtonWithSpinner type="submit" isLoading={loading}>
+        <ButtonWithSpinner data-testid="signup-submit-button" type="submit" isLoading={loading}>
           Sign Up
         </ButtonWithSpinner>
       </ButtonsWrapper>

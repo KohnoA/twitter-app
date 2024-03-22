@@ -34,20 +34,23 @@ export const SignUpEmailForm = () => {
   };
 
   return (
-    <SignUpEmailFormStyled onSubmit={handleSubmit(onSubmit)}>
+    <SignUpEmailFormStyled data-testid="signup-email-form" onSubmit={handleSubmit(onSubmit)}>
       <Input
+        data-testid="signup-name-input"
         placeholder="Name"
         error={errors.name?.message}
         register={register('name', config.nameValidation)}
       />
 
       <Input
+        data-testid="signup-phone-input"
         placeholder="Phone"
         error={errors.phone?.message}
         register={register('phone', config.phoneValidation)}
       />
 
       <Input
+        data-testid="signup-email-input"
         placeholder="Email"
         error={errors.email?.message}
         register={register('email', config.emailValidation)}
@@ -64,6 +67,7 @@ export const SignUpEmailForm = () => {
 
       <SelectsWrapper>
         <Select
+          data-testid="signup-month-select"
           options={MONTH}
           placeholder="Month"
           error={errors.month?.message}
@@ -71,6 +75,7 @@ export const SignUpEmailForm = () => {
         />
 
         <Select
+          data-testid="signup-day-select"
           placeholder="Day"
           error={errors.day?.message}
           options={getDaysOptions(...watch(['month', 'year']))}
@@ -78,6 +83,7 @@ export const SignUpEmailForm = () => {
         />
 
         <Select
+          data-testid="signup-year-select"
           placeholder="Year"
           options={getYearsOptions()}
           error={errors.year?.message}
@@ -85,7 +91,9 @@ export const SignUpEmailForm = () => {
         />
       </SelectsWrapper>
 
-      <Button type="submit">Next</Button>
+      <Button type="submit" data-testid="signup-next-button">
+        Next
+      </Button>
     </SignUpEmailFormStyled>
   );
 };

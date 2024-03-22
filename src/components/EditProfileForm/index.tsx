@@ -68,7 +68,7 @@ export const EditProfileForm = ({ onClose }: EditProfileFormProps) => {
   }, [isSuccess, onClose]);
 
   return (
-    <EditProfileFormContainer onSubmit={handleSubmit(onSubmit)}>
+    <EditProfileFormContainer data-testid="edit-profile-form" onSubmit={handleSubmit(onSubmit)}>
       <FormTitle $size="xl2">Edit Profile</FormTitle>
 
       <AvatarWrapper>
@@ -78,17 +78,20 @@ export const EditProfileForm = ({ onClose }: EditProfileFormProps) => {
       </AvatarWrapper>
 
       <Input
+        data-testid="edit-user-name"
         register={register('name', nameValidation)}
         error={errors.name?.message}
         placeholder="New name"
       />
       <Input
+        data-testid="edit-user-phone"
         register={register('phone', phoneValidation)}
         error={errors.phone?.message}
         placeholder="Phone number"
       />
 
       <TextariaStyled
+        data-testid="edit-user-description"
         label="Description:"
         placeholder="A short description about you"
         register={register('description')}
@@ -120,7 +123,7 @@ export const EditProfileForm = ({ onClose }: EditProfileFormProps) => {
         <Button type="button" onClick={onClose}>
           Cancel
         </Button>
-        <ButtonWithSpinner type="submit" isLoading={isLoading}>
+        <ButtonWithSpinner data-testid="edit-submit-button" type="submit" isLoading={isLoading}>
           Accept
         </ButtonWithSpinner>
       </ButtonsWrapper>

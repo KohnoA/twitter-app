@@ -48,20 +48,24 @@ export const Profile = ({ userId, isOwner }: ProfileProps) => {
         <UserAvatar $avatarUrl={avatar} />
 
         {isOwner && (
-          <EditButton $view="primary" onClick={handleModal}>
+          <EditButton data-testid="edit-profile-button" $view="primary" onClick={handleModal}>
             Edit profile
           </EditButton>
         )}
       </EditWrapper>
 
       <UserInfoWrapper>
-        <UserName $size="xl2">{name}</UserName>
+        <UserName $size="xl2" data-testid="user-name">
+          {name}
+        </UserName>
 
-        <UserInfoItem>Email: {email}</UserInfoItem>
-        <UserInfoItem>Phone: {phone}</UserInfoItem>
+        <UserInfoItem data-testid="user-email">Email: {email}</UserInfoItem>
+        <UserInfoItem data-testid="user-phone">Phone: {phone}</UserInfoItem>
         <UserInfoItem>Date of Birth: {birthdayString}</UserInfoItem>
 
-        <UserDescription $size="xl">{description}</UserDescription>
+        <UserDescription $size="xl" data-testid="user-description">
+          {description}
+        </UserDescription>
       </UserInfoWrapper>
 
       <UserStatsList>

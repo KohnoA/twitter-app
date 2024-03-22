@@ -11,4 +11,5 @@ export interface InputProps {
   placeholder?: string;
   type?: HTMLInputTypeAttribute;
   error?: string;
+  'data-testid'?: string;
 }

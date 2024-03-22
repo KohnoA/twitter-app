@@ -27,12 +27,14 @@ export const LoginForm = () => {
   return (
     <LoginFormStyled onSubmit={handleSubmit(onSubmit)}>
       <Input
+        data-testid="login-email-input"
         placeholder="Email address"
         error={errors.email?.message}
         register={register('email', emailValidation)}
       />
 
       <Input
+        data-testid="login-password-input"
         type="password"
         placeholder="Password"
         error={errors.password?.message}
@@ -41,7 +43,7 @@ export const LoginForm = () => {
 
       {error && <GeneralErrorMessage>{error}</GeneralErrorMessage>}
 
-      <LoginButton type="submit" isLoading={loading}>
+      <LoginButton data-testid="login-submit-button" type="submit" isLoading={loading}>
         Login
       </LoginButton>
 
