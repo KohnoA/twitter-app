@@ -12,16 +12,14 @@
     "^.+\\.(t|j)sx?$": [
       "@swc/jest",
       {
+        "test": ".tsx?$",
         "jsc": {
           "parser": {
-            "syntax": "ecmascript",
-            "jsx": true
+            "importMeta": true,
+            "syntax": "typescript",
+            "tsx": true
           },
-          "transform": {
-            "react": {
-              "runtime": "automatic"
-            }
-          }
+          "target": "es5"
         }
       }
     ],
