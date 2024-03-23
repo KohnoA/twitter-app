@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useForm } from 'react-hook-form';
 
 import { MONTH } from '@/constants';
@@ -9,17 +9,16 @@ import { getDaysOptions, getYearsOptions } from '@/utils';
 
 import { Button, ButtonWithSpinner, Input, Select } from '../UI';
 
-import { nameValidation, phoneValidation, selectValidation } from './config';
+import { getDefaultFormFields, nameValidation, phoneValidation, selectValidation } from './config';
 import {
   AvatarWrapper,
   BirthdayLabel,
   BirthdaySelectsWrapper,
   ButtonsWrapper,
-  EditProfileFormContainer,
   FileInputStyled,
   FormTitle,
   TextariaStyled,
-  UserAvatar,
+  UserAvatarStyled,
 } from './styled';
 import { EditProfileFormFields, EditProfileFormProps } from './types';
 
@@ -31,16 +30,18 @@ export const EditProfileForm = ({ onClose }: EditProfileFormProps) => {
     register,
     watch,
     formState: { errors },
-  } = useForm<EditProfileFormFields>({
-    defaultValues: {
-      name: userData?.name,
-      phone: userData?.phone,
-      description: userData?.description,
-      day: userData ? String(new Date(userData.birthday).getDate()) : '',
-      month: userData ? MONTH[new Date(userData.birthday).getMonth()] : '',
-      year: userData ? String(new Date(userData.birthday).getFullYear()) : '',
-    },
-  });
+  } = useForm<EditProfileFormFields>({ defaultValues: getDefaultFormFields(userData) });
+  const currentAvatar = userData?.avatar;
+  const watchAvatar = watch('avatar');
+
+  const avatar = useMemo(
+    () => (watchAvatar?.length ? URL.createObjectURL(watchAvatar[0]) : currentAvatar),
+    [watchAvatar, currentAvatar],
+  );
+
+  useEffect(() => {
+    if (isSuccess) onClose();
+  }, [isSuccess, onClose]);
 
   const onSubmit = async (data: EditProfileFormFields) => {
     if (!userData) return;
@@ -59,22 +60,14 @@ export const EditProfileForm = ({ onClose }: EditProfileFormProps) => {
     });
   };
 
-  const currentAvatar = watch('avatar')?.length
-    ? URL.createObjectURL(watch('avatar')[0])
-    : userData?.avatar;
-
-  useEffect(() => {
-    if (isSuccess) onClose();
-  }, [isSuccess, onClose]);
-
   return (
-    <EditProfileFormContainer data-testid="edit-profile-form" onSubmit={handleSubmit(onSubmit)}>
+    <form data-testid="edit-profile-form" onSubmit={handleSubmit(onSubmit)}>
       <FormTitle $size="xl2">Edit Profile</FormTitle>
 
       <AvatarWrapper>
-        <UserAvatar $avatarUrl={currentAvatar}>
+        <UserAvatarStyled $avatarUrl={avatar}>
           <FileInputStyled register={register('avatar')} />
-        </UserAvatar>
+        </UserAvatarStyled>
       </AvatarWrapper>
 
       <Input
@@ -127,6 +120,6 @@ export const EditProfileForm = ({ onClose }: EditProfileFormProps) => {
           Accept
         </ButtonWithSpinner>
       </ButtonsWrapper>
-    </EditProfileFormContainer>
+    </form>
   );
 };

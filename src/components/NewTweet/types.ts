@@ -3,6 +3,7 @@ export interface NewTweetProps {
   onSuccess?: () => void;
 }
 
-export interface UserAvatarProps {
-  $avatarUrl?: string | null;
+export interface NewTweetFormFileds {
+  tweet: string;
+  image: FileList;
 }

@@ -1,15 +1,8 @@
 import styled from 'styled-components';
 
-import defaultAvatar from '@/assets/images/default-avatar.png';
-import { flex, interactive, media } from '@/styles';
+import { abbrText, flex, interactive, media, UserAvatar } from '@/styles';
 
-interface UserAvatarProps {
-  $avatarUrl?: string | null;
-}
-
-interface UserCardWrapperProps {
-  $isOwner?: boolean;
-}
+import { UserCardWrapperProps } from './types';
 
 export const UserCardWrapper = styled.div<UserCardWrapperProps>`
   ${flex('flex-start')}
@@ -30,19 +23,8 @@ export const UserCardWrapper = styled.div<UserCardWrapperProps>`
   `)}
 `;
 
-export const UserAvatar = styled.div<UserAvatarProps>`
+export const UserAvatarStyled = styled(UserAvatar)`
   flex-shrink: 0;
-
-  width: 50px;
-  height: 50px;
-
-  background-image: url(${({ $avatarUrl }) => $avatarUrl ?? defaultAvatar});
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-
-  border-radius: 50%;
-  transition: background-image ${({ theme }) => theme.duration}ms;
 
   ${media(`desktopM`)`
     width: 40px;
@@ -61,9 +43,7 @@ export const UserName = styled.p`
 `;
 
 export const UserEmail = styled.p`
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  ${abbrText()}
 
   color: ${({ theme }) => theme.colors.stroke};
 `;

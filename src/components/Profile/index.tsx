@@ -13,7 +13,7 @@ import {
   ProfileBg,
   ProfileWrapper,
   SpinnerStyled,
-  UserAvatar,
+  UserAvatarStyled,
   UserDescription,
   UserInfoItem,
   UserInfoWrapper,
@@ -44,7 +44,7 @@ export const Profile = ({ userId, isOwner }: ProfileProps) => {
     <ProfileWrapper>
       <ProfileBg>
         <EditWrapper>
-          <UserAvatar $avatarUrl={avatar} />
+          <UserAvatarStyled $avatarUrl={avatar} />
 
           {isOwner && (
             <EditButton data-testid="edit-profile-button" $view="primary" onClick={handleModal}>

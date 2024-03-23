@@ -1,12 +1,7 @@
-import { TweetDataType } from '@/types';
+import { TweetItem } from '../TweetItem';
 
 import { EmptyMessage, SpinnerStyled, TweetListStyled, TweetListTitle } from './styled';
-import { TweetItem } from './TweetItem';
-
-interface TweetListProps {
-  tweets?: TweetDataType[];
-  isLoading?: boolean;
-}
+import { TweetListProps } from './types';
 
 export const TweetList = ({ tweets, isLoading }: TweetListProps) => (
   <section>

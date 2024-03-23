@@ -13,6 +13,7 @@ declare module 'styled-components' {
       bgSecondary: AppColors;
       stroke: AppColors;
       error: AppColors;
+      blackTransparent: AppColors;
     };
 
     fontFamily: string;
@@ -64,5 +65,7 @@ declare module 'styled-components' {
     };
 
     duration: number;
+
+    shadow: string;
   }
 }

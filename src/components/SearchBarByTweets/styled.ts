@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { interactive } from '@/styles';
+import { abbrText, interactive } from '@/styles';
 
 export const TweetWrapper = styled.div`
   min-width: 0;
@@ -14,9 +14,8 @@ export const TweetAuthor = styled.p`
   margin-bottom: 5px;
 
   color: ${({ theme }) => theme.colors.stroke};
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+
+  ${abbrText()}
 `;
 
 export const TweetAuthorName = styled.span`
@@ -27,7 +26,5 @@ export const TweetAuthorName = styled.span`
 `;
 
 export const TweetMessage = styled.p`
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  ${abbrText()}
 `;

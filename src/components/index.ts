@@ -7,5 +7,6 @@ export { SearchBarByTweets } from './SearchBarByTweets';
 export { SearchBarByUsers } from './SearchBarByUsers';
 export { SignUpEmailForm } from './SignUpEmailForm';
 export { SignUpPasswordForm } from './SignUpPasswordForm';
+export { TweetItem } from './TweetItem';
 export { TweetList } from './TweetList';
 export { UserCard } from './UserCard';

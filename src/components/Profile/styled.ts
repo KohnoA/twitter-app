@@ -1,12 +1,11 @@
 import styled from 'styled-components';
 
-import defaultAvatar from '@/assets/images/default-avatar.png';
 import defaultBg from '@/assets/images/default-profile-bg.jpg';
-import { bgImage, flex, media } from '@/styles';
+import { bgImage, flex, media, UserAvatar } from '@/styles';
 
 import { Button, Modal, Paragraph, Spinner, Title } from '../UI';
 
-import { ProfileBgProps, UserAvatarProps } from './types';
+import { ProfileBgProps } from './types';
 
 export const ProfileWrapper = styled.section`
   border-bottom: 2px solid ${({ theme }) => theme.colors.bgSecondary};
@@ -30,14 +29,18 @@ export const EditWrapper = styled.div`
   position: absolute;
   left: 0;
   right: 0;
-  bottom: -80px;
+  bottom: -100px;
 
   ${flex('flex-end')}
 
   padding: ${({ theme }) => theme.margins.md}px;
+
+  ${media('tablet')`
+    bottom: -80px;
+  `}
 `;
 
-export const UserAvatar = styled.div<UserAvatarProps>`
+export const UserAvatarStyled = styled(UserAvatar)`
   position: absolute;
 
   left: 10px;
@@ -45,10 +48,6 @@ export const UserAvatar = styled.div<UserAvatarProps>`
 
   width: 150px;
   height: 150px;
-
-  ${({ $avatarUrl }) => bgImage($avatarUrl ?? defaultAvatar)};
-
-  border-radius: 50%;
 
   ${media('tablet')`
     width: 100px;

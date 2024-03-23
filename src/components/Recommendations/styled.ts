@@ -5,8 +5,6 @@ import { flex, interactive } from '@/styles';
 import { Title } from '../UI';
 import { UserCard } from '../UserCard';
 
-export const RecommendationsContainer = styled.section``;
-
 export const RecommendationsTitle = styled(Title)`
   margin-bottom: ${({ theme }) => theme.margins.sm}px;
   padding-bottom: ${({ theme }) => theme.margins.sm}px;

@@ -14,7 +14,7 @@ export const ModalContent = styled.section`
 
   background-color: ${({ theme }) => theme.colors.bgPrimary};
   border-radius: ${({ theme }) => theme.radius.low}px;
-  box-shadow: 4px 4px 10px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: ${({ theme }) => theme.shadow};
 
   ${media('tablet')`
     padding: 40px 15px 25px 15px;

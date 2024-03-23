@@ -31,3 +31,24 @@ export const flex = (justify = 'center', align = 'center') => css`
 export const media =
   (key: keyof typeof generalTheme.breakpoints) => (style: TemplateStringsArray | string) =>
     `@media (max-width: ${generalTheme.breakpoints[key]}px) { ${style} }`;
+
+export const styledScroll = () => css`
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+`;
+
+export const abbrText = () => css`
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+`;

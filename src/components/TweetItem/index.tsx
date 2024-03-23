@@ -1,13 +1,12 @@
 import { memo, useMemo, useRef, useState } from 'react';
 
 import { Paragraph } from '@/components/UI';
-import { ICONS } from '@/constants';
 import { useAppSelector } from '@/hooks';
 import { useAddLikeToTweetMutation, useRemoveLikeToTweetMutation } from '@/store/api';
 import { userSelector } from '@/store/selectors';
-import { TweetDataType } from '@/types';
 import { getShortDate } from '@/utils';
 
+import { DEFAULT_COUNT_LIKES, DotsIcon, LikeFillIcon, LikeOutlineIcon } from './constants';
 import {
   EmailAndDate,
   LikeButton,
@@ -16,16 +15,10 @@ import {
   TweetItemContainer,
   TweetItemContent,
   TweetPhoto,
-  UserAvatar,
+  UserAvatarStyled,
   UserName,
 } from './styled';
-
-const { DotsIcon, LikeOutlineIcon, LikeFillIcon } = ICONS;
-const DEFAULT_COUNT_LIKES = 0;
-
-interface TweetItemProps {
-  tweet: TweetDataType;
-}
+import { TweetItemProps } from './types';
 
 export const TweetItem = memo(({ tweet }: TweetItemProps) => {
   const { message, author, date, photo, id: tweetId, likes } = tweet;
@@ -38,6 +31,8 @@ export const TweetItem = memo(({ tweet }: TweetItemProps) => {
     !!userData && likes.users.includes(userData.id),
   );
   const timerRef = useRef<NodeJS.Timeout | null>(null);
+
+  const tweetDate = useMemo(() => getShortDate(date), [date]);
 
   const handleLikeClick = () => {
     const currentOwnerLiked = !isOwnerLiked;
@@ -54,11 +49,9 @@ export const TweetItem = memo(({ tweet }: TweetItemProps) => {
     }, 500);
   };
 
-  const tweetDate = useMemo(() => getShortDate(date), [date]);
-
   return (
     <TweetItemContainer>
-      <UserAvatar $avatarUrl={author.avatar} />
+      <UserAvatarStyled $avatarUrl={author.avatar} />
 
       <TweetItemContent>
         <TweetInfo>

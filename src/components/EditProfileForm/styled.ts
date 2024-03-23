@@ -1,15 +1,8 @@
 import styled from 'styled-components';
 
-import defaultAvatar from '@/assets/images/default-avatar.png';
-import { flex } from '@/styles';
+import { flex, UserAvatar } from '@/styles';
 
 import { FileInput, Textaria, Title } from '../UI';
-
-interface UserAvatarProps {
-  $avatarUrl?: string | null;
-}
-
-export const EditProfileFormContainer = styled.form``;
 
 export const FormTitle = styled(Title)`
   margin-bottom: ${({ theme }) => theme.margins.sm}px;
@@ -41,19 +34,10 @@ export const AvatarWrapper = styled.div`
   margin-bottom: ${({ theme }) => theme.margins.md}px;
 `;
 
-export const UserAvatar = styled.div<UserAvatarProps>`
-  position: relative;
-
+export const UserAvatarStyled = styled(UserAvatar)`
   width: 100px;
   height: 100px;
   margin-top: 5px;
-
-  background-image: url(${({ $avatarUrl }) => $avatarUrl ?? defaultAvatar});
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-
-  border-radius: 50%;
 `;
 
 export const TextariaStyled = styled(Textaria)`

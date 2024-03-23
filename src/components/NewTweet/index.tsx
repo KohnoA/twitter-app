@@ -15,14 +15,9 @@ import {
   NewTweetContainer,
   TweetButton,
   UploadedImage,
-  UserAvatar,
+  UserAvatarStyled,
 } from './styled';
-import { NewTweetProps } from './types';
-
-interface NewTweetFormFileds {
-  tweet: string;
-  image: FileList;
-}
+import { NewTweetFormFileds, NewTweetProps } from './types';
 
 export const NewTweet = ({ className, onSuccess }: NewTweetProps) => {
   const { handleSubmit, register, watch, reset } = useForm<NewTweetFormFileds>();
@@ -54,7 +49,7 @@ export const NewTweet = ({ className, onSuccess }: NewTweetProps) => {
       className={className}
       onSubmit={handleSubmit(onSubmit)}
     >
-      <UserAvatar $avatarUrl={userData?.avatar} />
+      <UserAvatarStyled $avatarUrl={userData?.avatar} />
       <ControlsWrapper>
         <Textaria
           data-testid="new-tweet-textarea"

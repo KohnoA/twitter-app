@@ -1,23 +1,10 @@
 import { useState } from 'react';
 
-import { ICONS } from '@/constants';
 import { useGetAllUsersQuery } from '@/store/api';
 
-import {
-  LoaderContainer,
-  MoreButton,
-  RecommendationsContainer,
-  RecommendationsTitle,
-  UserCardStyled,
-} from './styled';
-
-const { SpinnerIcon } = ICONS;
-const COUNT_RECOMMENDED_USERS_IN_STEP = 3;
-const MAX_COUNT_STEPS = 3;
-
-interface RecommendationsProps {
-  className?: string;
-}
+import { COUNT_RECOMMENDED_USERS_IN_STEP, MAX_COUNT_STEPS, SpinnerIcon } from './constants';
+import { LoaderContainer, MoreButton, RecommendationsTitle, UserCardStyled } from './styled';
+import { RecommendationsProps } from './types';
 
 export const Recommendations = ({ className }: RecommendationsProps) => {
   const [step, setStep] = useState(1);
@@ -29,7 +16,7 @@ export const Recommendations = ({ className }: RecommendationsProps) => {
   };
 
   return (
-    <RecommendationsContainer className={className}>
+    <section className={className}>
       <RecommendationsTitle $size="xl2">You Must Like</RecommendationsTitle>
 
       {isLoading && (
@@ -43,6 +30,6 @@ export const Recommendations = ({ className }: RecommendationsProps) => {
         .map((user) => <UserCardStyled key={user.id} user={user} />)}
 
       {showMoreButton && <MoreButton onClick={handleChangeStep}>Show more</MoreButton>}
-    </RecommendationsContainer>
+    </section>
   );
 };

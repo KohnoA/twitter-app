@@ -37,6 +37,10 @@ export const ElasticSearch = memo((props: ElasticSearchProps) => {
   const showEmptyMessage = !isLoading && !!debouncedValue && isEmpty;
   const showClearButton = !!value.length;
 
+  useEffect(() => {
+    if (innerOnChange && debouncedValue) innerOnChange(debouncedValue);
+  }, [debouncedValue, innerOnChange]);
+
   const onSubmit = (event: FormEvent) => event.preventDefault();
 
   const onChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -50,10 +54,6 @@ export const ElasticSearch = memo((props: ElasticSearchProps) => {
     setValue(INITIAL_VALUE);
     if (innerOnChange) innerOnChange(INITIAL_VALUE);
   };
-
-  useEffect(() => {
-    if (innerOnChange && debouncedValue) innerOnChange(debouncedValue);
-  }, [debouncedValue, innerOnChange]);
 
   return (
     <ElasticSearchContainer className={className}>

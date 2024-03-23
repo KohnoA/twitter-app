@@ -1,16 +1,11 @@
 import { memo } from 'react';
-import { UseFormRegisterReturn } from 'react-hook-form';
 
 import { ICONS } from '@/constants';
 
 import { FileInputStyled, ImageButton } from './styled';
+import { FileInputProps } from './types';
 
 const { ImageIcon } = ICONS;
-
-interface FileInputProps {
-  className?: string;
-  register: UseFormRegisterReturn;
-}
 
 export const FileInput = memo(({ className, register }: FileInputProps) => (
   <ImageButton className={className}>

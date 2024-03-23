@@ -9,6 +9,7 @@ const lightTheme = {
   bgSecondary: AppColors.GREY_LIGHT,
   stroke: AppColors.GREY_DARK,
   error: AppColors.RED,
+  blackTransparent: AppColors.BLACK_TRANSPARENT,
 };
 
 const darkTheme = {
@@ -20,6 +21,7 @@ const darkTheme = {
   bgSecondary: AppColors.VIOLET_LIGHT,
   stroke: AppColors.GREY_DARK,
   error: AppColors.RED,
+  blackTransparent: AppColors.BLACK_TRANSPARENT,
 };
 
 export const generalTheme = {
@@ -72,6 +74,8 @@ export const generalTheme = {
   },
 
   duration: 300,
+
+  shadow: `4px 4px 10px 4px ${AppColors.BLACK_TRANSPARENT}`,
 };
 
 export const getTheme = (theme: AppThemes) => ({

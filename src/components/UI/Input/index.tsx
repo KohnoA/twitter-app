@@ -1,21 +1,22 @@
 import { memo, useId, useState } from 'react';
 
-import { ICONS } from '@/constants';
-
 import { ErrorMessage } from '../ErrorMessage';
 
-import { DEFAULT_INPUT_TYPE, DEFAULT_SHOW_PASSWORD_VALUE } from './constants';
+import {
+  DEFAULT_INPUT_TYPE,
+  DEFAULT_SHOW_PASSWORD_VALUE,
+  UnvisibleIcon,
+  VisibleIcon,
+} from './constants';
 import { InputStyled, InputWrapper, PositionInputWrapper, VisibilityButton } from './styled';
 import { InputProps } from './types';
 
-const { VisibleIcon, UnvisibleIcon } = ICONS;
-
 export const Input = memo((props: InputProps) => {
   const { label, type = DEFAULT_INPUT_TYPE, placeholder, error, register } = props;
-  const isPasswordInput = type === 'password';
 
   const [showPassword, setShowPassword] = useState<boolean>(DEFAULT_SHOW_PASSWORD_VALUE);
   const id = useId();
+  const isPasswordInput = type === 'password';
 
   const togglePasswordVisibility = () => setShowPassword(!showPassword);
 

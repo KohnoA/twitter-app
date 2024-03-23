@@ -1,11 +1,8 @@
 import styled from 'styled-components';
 
-import defaultAvatar from '@/assets/images/default-avatar.png';
-import { flex, media } from '@/styles';
+import { flex, media, UserAvatar } from '@/styles';
 
 import { ButtonWithSpinner, FileInput } from '../UI';
-
-import { UserAvatarProps } from './types';
 
 export const NewTweetContainer = styled.form`
   display: flex;
@@ -22,17 +19,8 @@ export const NewTweetContainer = styled.form`
   `)}
 `;
 
-export const UserAvatar = styled.div<UserAvatarProps>`
-  width: 50px;
-  height: 50px;
+export const UserAvatarStyled = styled(UserAvatar)`
   margin-top: 5px;
-
-  background-image: url(${({ $avatarUrl }) => $avatarUrl ?? defaultAvatar});
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-
-  border-radius: 50%;
 
   ${media('mobileL')`
     display: none;

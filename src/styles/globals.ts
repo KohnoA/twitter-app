@@ -1,8 +1,9 @@
 import styled, { createGlobalStyle } from 'styled-components';
 
+import defaultAvatar from '@/assets/images/default-avatar.png';
 import { ICONS } from '@/constants';
 
-import { flex } from './mixins';
+import { bgImage, flex } from './mixins';
 
 const { TwitterIcon } = ICONS;
 
@@ -73,7 +74,7 @@ export const Backdrop = styled.div<{ $show?: boolean }>`
   right: 0;
   bottom: 0;
 
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: ${({ theme }) => theme.colors.blackTransparent};
   transition: all ${({ theme }) => theme.duration}ms;
   overflow-y: auto;
 
@@ -93,4 +94,13 @@ export const NotImplementTitle = styled.h4`
   padding-top: ${({ theme }) => theme.margins.lg}px;
 
   text-align: center;
+`;
+
+export const UserAvatar = styled.div<{ $avatarUrl?: string | null }>`
+  width: 50px;
+  height: 50px;
+
+  ${({ $avatarUrl }) => bgImage($avatarUrl ?? defaultAvatar)}
+
+  border-radius: 50%;
 `;

@@ -1,15 +1,7 @@
 import { useId } from 'react';
-import { UseFormRegisterReturn } from 'react-hook-form';
 
 import { TextariaLabelStyled, TextariaStyled } from './styled';
-
-interface TextariaProps {
-  className?: string;
-  register: UseFormRegisterReturn;
-  placeholder?: string;
-  label?: string;
-  'data-testid'?: string;
-}
+import { TextariaProps } from './types';
 
 export const Textaria = ({ className, register, label, ...otherProps }: TextariaProps) => {
   const id = useId();

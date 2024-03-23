@@ -4,14 +4,9 @@ import { useNavigate } from 'react-router-dom';
 import { AppRoutes } from '@/constants';
 import { useAppSelector } from '@/hooks';
 import { userSelector } from '@/store/selectors';
-import { UserDataType } from '@/types';
 
-import { NameEmailWrapper, UserAvatar, UserCardWrapper, UserEmail, UserName } from './styled';
-
-interface UserCardProps {
-  className?: string;
-  user: UserDataType | null;
-}
+import { NameEmailWrapper, UserAvatarStyled, UserCardWrapper, UserEmail, UserName } from './styled';
+import { UserCardProps } from './types';
 
 export const UserCard = memo(({ className, user }: UserCardProps) => {
   const { name, email, avatar, id } = user!;
@@ -28,7 +23,7 @@ export const UserCard = memo(({ className, user }: UserCardProps) => {
 
   return (
     <UserCardWrapper $isOwner={isOwnerCard} className={className} onClick={handleClick}>
-      <UserAvatar $avatarUrl={avatar} />
+      <UserAvatarStyled $avatarUrl={avatar} />
 
       <NameEmailWrapper>
         <UserName>{name}</UserName>

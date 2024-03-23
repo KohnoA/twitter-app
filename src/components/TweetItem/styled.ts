@@ -1,16 +1,9 @@
 import styled from 'styled-components';
 
-import defaultAvatar from '@/assets/images/default-avatar.png';
 import { Title } from '@/components/UI';
-import { bgImage, flex, interactive, media } from '@/styles';
+import { flex, interactive, media, UserAvatar } from '@/styles';
 
-interface UserAvatarProps {
-  $avatarUrl?: string | null;
-}
-
-interface LikeButtonProps {
-  $isActive?: boolean;
-}
+import { LikeButtonProps } from './types';
 
 export const TweetItemContainer = styled.li`
   display: flex;
@@ -36,17 +29,11 @@ export const TweetItemContainer = styled.li`
   `)}
 `;
 
-export const UserAvatar = styled.div<UserAvatarProps>`
+export const UserAvatarStyled = styled(UserAvatar)`
   flex-shrink: 0;
 
-  width: 50px;
-  height: 50px;
   margin-top: 5px;
   margin-right: 5px;
-
-  ${({ $avatarUrl }) => bgImage($avatarUrl ?? defaultAvatar)}
-
-  border-radius: 50%;
 
   ${media('tablet')(`
     order: 1;

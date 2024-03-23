@@ -6,7 +6,3 @@ export interface ProfileProps {
 export interface ProfileBgProps {
   $bgUrl?: string;
 }
-
-export interface UserAvatarProps {
-  $avatarUrl?: string | null;
-}

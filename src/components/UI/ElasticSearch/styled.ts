@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import { ICONS } from '@/constants';
-import { flex, interactive, media } from '@/styles';
+import { flex, interactive, media, styledScroll } from '@/styles';
 
 const { SearchIcon, CrossIcon } = ICONS;
 
@@ -89,20 +89,9 @@ export const ResultsContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.bgSecondary};
   border-radius: ${({ theme }) => theme.radius.low}px;
   overflow-y: auto;
-  box-shadow: 4px 4px 10px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: ${({ theme }) => theme.shadow};
 
-  &::-webkit-scrollbar {
-    width: 4px;
-  }
-
-  &::-webkit-scrollbar-track {
-    background-color: transparent;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    border-radius: 5px;
-    background-color: rgba(0, 0, 0, 0.2);
-  }
+  ${styledScroll()}
 `;
 
 export const SearchLoader = styled.div`
