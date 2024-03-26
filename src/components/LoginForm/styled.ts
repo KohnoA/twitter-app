@@ -17,9 +17,7 @@ export const LoginButton = styled(ButtonWithSpinner)`
 `;
 
 export const SignUpLink = styled(MyLink)`
-  display: block;
-
-  text-align: right;
+  float: inline-end;
 `;
 
 export const GeneralErrorMessage = styled(ErrorMessage)`

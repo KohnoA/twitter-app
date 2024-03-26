@@ -9,7 +9,7 @@ export const SignUpEmailFormStyled = styled.form`
 `;
 
 export const EmailLink = styled(MyLink)`
-  display: block;
+  display: inline-block;
 
   margin-bottom: ${({ theme }) => theme.margins.md}px;
 `;
