@@ -55,7 +55,7 @@ export const PageContainer = styled.div`
 
 export const FormWrapper = styled.div`
   width: 100%;
-  max-width: 670px;
+  max-width: 470px;
 `;
 
 export const TwitterIconStyled = styled(TwitterIcon)`
