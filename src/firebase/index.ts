@@ -1,7 +1,7 @@
 import { initializeApp } from 'firebase/app';
-import { getAuth, GoogleAuthProvider } from 'firebase/auth';
-import { getFirestore } from 'firebase/firestore';
-import { getStorage } from 'firebase/storage';
+import { connectAuthEmulator, getAuth, GoogleAuthProvider } from 'firebase/auth';
+import { connectFirestoreEmulator, getFirestore } from 'firebase/firestore';
+import { connectStorageEmulator, getStorage } from 'firebase/storage';
 
 import {
   FIREBASE_API_KEY,
@@ -28,3 +28,10 @@ export const auth = getAuth(app);
 export const db = getFirestore(app);
 export const provider = new GoogleAuthProvider();
 export const storage = getStorage(app);
+
+// eslint-disable-next-line no-restricted-globals
+if (location.hostname === 'localhost') {
+  connectAuthEmulator(auth, 'http://localhost:9099/', { disableWarnings: true });
+  connectFirestoreEmulator(db, 'localhost', 8080);
+  connectStorageEmulator(storage, 'localhost', 9199);
+}

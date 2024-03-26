@@ -9,20 +9,7 @@
     "^@/(.*)$": "<rootDir>/src/$1"
   },
   "transform": {
-    "^.+\\.(t|j)sx?$": [
-      "@swc/jest",
-      {
-        "test": ".tsx?$",
-        "jsc": {
-          "parser": {
-            "importMeta": true,
-            "syntax": "typescript",
-            "tsx": true
-          },
-          "target": "es5"
-        }
-      }
-    ],
+    "^.+\\.(t|j)sx?$": "@swc/jest",
     "^.+\\.svg$": "jest-transformer-svg",
     "\\.(jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|mp4|webm|wav|mp3)$": "jest-transform-stub"
   }

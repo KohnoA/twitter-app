@@ -35,6 +35,8 @@ export const AvatarWrapper = styled.div`
 `;
 
 export const UserAvatarStyled = styled(UserAvatar)`
+  position: relative;
+
   width: 100px;
   height: 100px;
   margin-top: 5px;
