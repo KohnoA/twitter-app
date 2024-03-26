@@ -37,8 +37,8 @@ export const Header = memo(({ onClickBurger }: HeaderProps) => {
   );
 
   const currentSearchBar = useMemo(() => {
-    switch (pathname) {
-      case AppRoutes.HOME:
+    switch (true) {
+      case pathname.includes(AppRoutes.HOME):
         return <SearchBarByTweets />;
 
       default:

@@ -21,8 +21,8 @@ export const RightSidebar = memo(({ className }: RightSidebarProps) => {
   const { pathname } = useLocation();
 
   const currentSearchBar = useMemo(() => {
-    switch (pathname) {
-      case AppRoutes.HOME:
+    switch (true) {
+      case pathname.includes(AppRoutes.HOME):
         return <SearchBarByTweets />;
 
       default:
