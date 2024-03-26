@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { styledScroll } from '@/styles';
+
 export const TextariaStyled = styled.textarea`
   width: 100%;
   padding: ${({ theme }) => theme.margins.sm}px;
@@ -13,6 +15,8 @@ export const TextariaStyled = styled.textarea`
   border-radius: ${({ theme }) => theme.radius.low}px;
   transition: background ${({ theme }) => theme.duration}ms;
   resize: none;
+
+  ${styledScroll()}
 
   &::placeholder {
     font-size: ${({ theme }) => theme.fontSizes.xl2}px;

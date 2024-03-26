@@ -32,4 +32,5 @@ export enum AppColors {
   VIOLET_LIGHT = '#171D24',
   PURPLE = '#5C6C79',
   BLACK_TRANSPARENT = '#00000033',
+  WHITE_TRANSPARENT = '#ffffff33',
 }

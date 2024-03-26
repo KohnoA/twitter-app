@@ -10,6 +10,7 @@ const lightTheme = {
   stroke: AppColors.GREY_DARK,
   error: AppColors.RED,
   blackTransparent: AppColors.BLACK_TRANSPARENT,
+  scrollThumb: AppColors.BLACK_TRANSPARENT,
 };
 
 const darkTheme = {
@@ -22,6 +23,7 @@ const darkTheme = {
   stroke: AppColors.GREY_DARK,
   error: AppColors.RED,
   blackTransparent: AppColors.BLACK_TRANSPARENT,
+  scrollThumb: AppColors.WHITE_TRANSPARENT,
 };
 
 export const generalTheme = {

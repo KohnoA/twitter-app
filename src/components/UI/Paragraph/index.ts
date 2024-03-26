@@ -10,6 +10,7 @@ export const Paragraph = styled.p<ParagraphProps>`
   margin-bottom: ${({ theme }) => theme.margins.md}px;
 
   font-size: ${({ theme, $size }) => ($size ? theme.fontSizes[$size] : theme.fontSizes.md)}px;
+  word-break: break-all;
 
   ${({ theme }) =>
     media('tablet')(`

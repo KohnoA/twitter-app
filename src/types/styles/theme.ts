@@ -14,6 +14,7 @@ declare module 'styled-components' {
       stroke: AppColors;
       error: AppColors;
       blackTransparent: AppColors;
+      scrollThumb: AppColors;
     };
 
     fontFamily: string;
