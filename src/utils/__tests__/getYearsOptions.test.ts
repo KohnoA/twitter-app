@@ -1,4 +1,4 @@
-import { getYearsOptions } from '../getYearsOptions';
+import { getYearsOptions } from '../signup';
 
 describe('Testing getYearsOptions function', () => {
   it('Should work correctly', () => {

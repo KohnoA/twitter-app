@@ -5,3 +5,11 @@ export function getDateString(date: string | number | Date) {
 
   return `${day}.${month}.${currentDate.getFullYear()}`;
 }
+
+export function getDaysInMonth(month: number, year: number) {
+  return new Date(year, month + 1, 0).getDate();
+}
+
+export function getShortDate(date: string | number | Date) {
+  return new Date(date).toLocaleDateString('en-EN', { month: 'short', day: 'numeric' });
+}

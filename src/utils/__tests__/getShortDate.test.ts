@@ -1,4 +1,4 @@
-import { getShortDate } from '../getShortDate';
+import { getShortDate } from '../date';
 
 describe('Testing getShortDate function', () => {
   it('Should work correctly', () => {

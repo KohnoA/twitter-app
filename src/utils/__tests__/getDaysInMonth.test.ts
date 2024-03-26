@@ -1,4 +1,4 @@
-import { getDaysInMonth } from '../getDaysInMonth';
+import { getDaysInMonth } from '../date';
 
 describe('Testing getDaysInMonth function', () => {
   it('Should work correctly', () => {

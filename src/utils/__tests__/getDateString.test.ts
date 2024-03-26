@@ -1,4 +1,4 @@
-import { getDateString } from '../getDateString';
+import { getDateString } from '../date';
 
 describe('Testing getDateString function', () => {
   it('Must work with different types of arguments', () => {

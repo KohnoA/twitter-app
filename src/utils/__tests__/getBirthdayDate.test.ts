@@ -1,4 +1,4 @@
-import { getBirthdayDate } from '../getBirthdayDate';
+import { getBirthdayDate } from '../signup';
 
 describe('Testing getBirthdayDate function', () => {
   it('Should work correctly', () => {

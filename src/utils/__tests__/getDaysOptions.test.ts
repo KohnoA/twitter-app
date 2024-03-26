@@ -1,4 +1,4 @@
-import { getDaysOptions } from '../getDaysOptions';
+import { getDaysOptions } from '../signup';
 
 describe('Testing getDaysOptions function', () => {
   it('Should work correctly', () => {
