@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { flex, interactive } from '@/styles';
 
-import { Title } from '../UI';
+import { Paragraph, Title } from '../UI';
 import { UserCard } from '../UserCard';
 
 export const RecommendationsTitle = styled(Title)`
@@ -32,4 +32,10 @@ export const LoaderContainer = styled.div`
   ${flex()}
 
   padding: ${({ theme }) => `${theme.margins.md}px 0`};
+`;
+
+export const EmptyMessage = styled(Paragraph)`
+  margin-top: ${({ theme }) => theme.margins.md}px;
+
+  text-align: center;
 `;
