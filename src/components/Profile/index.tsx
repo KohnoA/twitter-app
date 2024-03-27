@@ -28,7 +28,7 @@ export const Profile = ({ userId, isOwner }: ProfileProps) => {
   const [showEditModal, setShowEditModal] = useState<boolean>(INITIAL_MODAL_STATE);
   const { name, email, phone, birthday, description, avatar } = user ?? DEFAULT_USER_DATA;
 
-  const handleModal = () => setShowEditModal(!showEditModal);
+  const handleModal = () => setShowEditModal((prev) => !prev);
 
   const birthdayString = useMemo(() => getDateString(birthday), [birthday]);
 
