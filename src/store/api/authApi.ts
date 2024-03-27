@@ -5,14 +5,17 @@ import { Errors, FirebaseErrorCodes } from '@/constants';
 import { signIn as signInFirebase, signUp as signUpFirebase } from '@/services';
 import { UserDataType } from '@/types';
 
+import { setEmailStep } from '../slices';
+
 export const authApi = createApi({
   reducerPath: 'authApi',
   baseQuery: fakeBaseQuery<{ message: Errors }>(),
   endpoints: (builder) => ({
     signUp: builder.query<null, { userData: Omit<UserDataType, 'id'>; password: string }>({
-      queryFn: async ({ userData, password }) => {
+      queryFn: async ({ userData, password }, { dispatch }) => {
         try {
           await signUpFirebase(userData, password);
+          dispatch(setEmailStep());
 
           return { data: null };
         } catch (error) {

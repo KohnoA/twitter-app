@@ -1,11 +1,11 @@
-import { HTMLInputTypeAttribute } from 'react';
+import { HTMLInputTypeAttribute, InputHTMLAttributes } from 'react';
 import { UseFormRegisterReturn } from 'react-hook-form';
 
 export interface InputStyledProps {
   $hasError?: boolean;
 }
 
-export interface InputProps {
+export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   register: UseFormRegisterReturn;
   label?: string;
   placeholder?: string;
