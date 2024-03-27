@@ -34,7 +34,7 @@ export const MainContent = styled.main`
 
   flex-grow: 1;
 
-  margin-bottom: ${({ theme }) => theme.margins.xl}px;
+  margin-bottom: 120px;
 `;
 
 export const RightSidebarStyled = styled(RightSidebar)`

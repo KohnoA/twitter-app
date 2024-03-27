@@ -81,21 +81,19 @@ export const EmailAndDate = styled.p`
   color: ${({ theme }) => theme.colors.stroke};
 `;
 
-const TweetButton = styled.button`
+export const LikeButton = styled.button<LikeButtonProps>`
   ${flex()}
   ${interactive()}
 
-  background-color: transparent;
-  border: none;
-`;
-
-export const LikeButton = styled(TweetButton)<LikeButtonProps>`
   gap: 5px;
 
   padding: 5px;
 
   font-size: ${({ theme }) => theme.fontSizes.lg}px;
   color: ${({ theme }) => theme.colors.textInput};
+
+  background-color: transparent;
+  border: none;
 
   & svg {
     width: 24px;
@@ -111,24 +109,6 @@ export const LikeButton = styled(TweetButton)<LikeButtonProps>`
       width: 20px;
       height: 20px;
      }
-  `}
-`;
-
-export const MoreButton = styled(TweetButton)`
-  padding: 5px 10px;
-
-  & svg {
-    width: 20px;
-    height: 20px;
-
-    & path {
-      fill: ${({ theme }) => theme.colors.text};
-    }
-  }
-
-  ${media('tablet')`
-    order: 2;
-    place-self: center end;
   `}
 `;
 

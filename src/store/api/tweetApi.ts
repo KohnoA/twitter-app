@@ -6,6 +6,7 @@ import {
   addLikeToTweet as setLikeToTweetFirestore,
   addTweet as addTweetFireStore,
   addTweetImage,
+  deleteTweet as deleteTweetFirestore,
   findTweetsByMessage,
   getAllTweets as getAllTweetsFirestore,
   getTweetById as getTweetByIdFirestore,
@@ -129,7 +130,7 @@ export const tweetApi = createApi({
         } catch (error) {
           console.error(error);
 
-          return { error: { message: Errors.GENERAL_ERROR } };
+          return GENERAL_ERROR;
         }
       },
     }),
@@ -142,9 +143,23 @@ export const tweetApi = createApi({
         } catch (error) {
           console.error(error);
 
-          return { error: { message: Errors.GENERAL_ERROR } };
+          return GENERAL_ERROR;
         }
       },
+    }),
+    deleteTweet: builder.mutation<null, string>({
+      queryFn: async (tweetId) => {
+        try {
+          await deleteTweetFirestore(tweetId);
+
+          return { data: null };
+        } catch (error) {
+          console.error(error);
+
+          return GENERAL_ERROR;
+        }
+      },
+      invalidatesTags: ['Tweet'],
     }),
   }),
 });
@@ -157,4 +172,5 @@ export const {
   useGetTweetByIdQuery,
   useAddLikeToTweetMutation,
   useRemoveLikeToTweetMutation,
+  useDeleteTweetMutation,
 } = tweetApi;

@@ -6,11 +6,10 @@ import { useAddLikeToTweetMutation, useRemoveLikeToTweetMutation } from '@/store
 import { userSelector } from '@/store/selectors';
 import { getShortDate } from '@/utils';
 
-import { DEFAULT_COUNT_LIKES, DotsIcon, LikeFillIcon, LikeOutlineIcon } from './constants';
+import { DEFAULT_COUNT_LIKES, LikeFillIcon, LikeOutlineIcon } from './constants';
 import {
   EmailAndDate,
   LikeButton,
-  MoreButton,
   TweetInfo,
   TweetItemContainer,
   TweetItemContent,
@@ -18,6 +17,7 @@ import {
   UserAvatarStyled,
   UserName,
 } from './styled';
+import { TweetOptions } from './TweetOptions';
 import { TweetItemProps } from './types';
 
 export const TweetItem = memo(({ tweet }: TweetItemProps) => {
@@ -31,6 +31,7 @@ export const TweetItem = memo(({ tweet }: TweetItemProps) => {
     !!userData && likes.users.includes(userData.id),
   );
   const timerRef = useRef<NodeJS.Timeout | null>(null);
+  const isOwnerTweet = userData?.id === author.id;
 
   const tweetDate = useMemo(() => getShortDate(date), [date]);
 
@@ -52,7 +53,6 @@ export const TweetItem = memo(({ tweet }: TweetItemProps) => {
   return (
     <TweetItemContainer>
       <UserAvatarStyled $avatarUrl={author.avatar} />
-
       <TweetItemContent>
         <TweetInfo>
           <UserName $size="xl2">{author.name}</UserName>
@@ -71,9 +71,7 @@ export const TweetItem = memo(({ tweet }: TweetItemProps) => {
         </LikeButton>
       </TweetItemContent>
 
-      <MoreButton>
-        <DotsIcon />
-      </MoreButton>
+      {isOwnerTweet && <TweetOptions tweetId={tweetId} />}
     </TweetItemContainer>
   );
 });
