@@ -9,6 +9,7 @@ export const FIREBASE_MEASUREMENT_ID = process.env.VITE_FIREBASE_MEASUREMENT_ID;
 export enum FirebaseErrorCodes {
   EMAIL_ALREADY_USE = 'auth/email-already-in-use',
   INVALID_CREDENTIAL = 'auth/invalid-credential',
+  INVALID_PASSWORD = 'auth/wrong-password',
 }
 
 export enum FirestoreDocKeys {

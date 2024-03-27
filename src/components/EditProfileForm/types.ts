@@ -9,5 +9,6 @@ export interface EditProfileFormFields {
 }
 
 export interface EditProfileFormProps {
-  onClose: () => void;
+  onCancel: () => void;
+  onChangePassword: () => void;
 }

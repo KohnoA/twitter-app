@@ -4,6 +4,8 @@ import { Backdrop, flex, interactive, media } from '@/styles';
 
 export const BackdropStyled = styled(Backdrop)`
   ${flex()}
+
+  padding: 5px;
 `;
 
 export const ModalContent = styled.section`

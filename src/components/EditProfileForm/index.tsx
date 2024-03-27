@@ -15,6 +15,7 @@ import {
   BirthdayLabel,
   BirthdaySelectsWrapper,
   ButtonsWrapper,
+  ChangePasswordButton,
   FileInputStyled,
   FormTitle,
   TextariaStyled,
@@ -22,7 +23,7 @@ import {
 } from './styled';
 import { EditProfileFormFields, EditProfileFormProps } from './types';
 
-export const EditProfileForm = ({ onClose }: EditProfileFormProps) => {
+export const EditProfileForm = ({ onCancel, onChangePassword }: EditProfileFormProps) => {
   const [updateUser, { isLoading, isSuccess }] = useUpdateUserMutation();
   const { data: userData } = useAppSelector(userSelector);
   const {
@@ -40,8 +41,8 @@ export const EditProfileForm = ({ onClose }: EditProfileFormProps) => {
   );
 
   useEffect(() => {
-    if (isSuccess) onClose();
-  }, [isSuccess, onClose]);
+    if (isSuccess) onCancel();
+  }, [isSuccess, onCancel]);
 
   const onSubmit = async (data: EditProfileFormFields) => {
     if (!userData) return;
@@ -63,7 +64,6 @@ export const EditProfileForm = ({ onClose }: EditProfileFormProps) => {
   return (
     <form data-testid="edit-profile-form" onSubmit={handleSubmit(onSubmit)}>
       <FormTitle $size="xl2">Edit Profile</FormTitle>
-
       <AvatarWrapper>
         <UserAvatarStyled $avatarUrl={avatar}>
           <FileInputStyled register={register('avatar')} />
@@ -82,7 +82,6 @@ export const EditProfileForm = ({ onClose }: EditProfileFormProps) => {
         error={errors.phone?.message}
         placeholder="Phone number"
       />
-
       <TextariaStyled
         data-testid="edit-user-description"
         label="Description:"
@@ -112,8 +111,12 @@ export const EditProfileForm = ({ onClose }: EditProfileFormProps) => {
         />
       </BirthdaySelectsWrapper>
 
+      <ChangePasswordButton type="button" onClick={onChangePassword}>
+        Change Password
+      </ChangePasswordButton>
+
       <ButtonsWrapper>
-        <Button type="button" onClick={onClose}>
+        <Button type="button" onClick={onCancel}>
           Cancel
         </Button>
         <ButtonWithSpinner data-testid="edit-submit-button" type="submit" isLoading={isLoading}>

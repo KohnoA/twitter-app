@@ -100,7 +100,7 @@ export const UserStatsItem = styled.li`
 
 export const ModalStyled = styled(Modal)`
   width: 100%;
-  max-width: 650px;
+  max-width: 600px;
 `;
 
 export const SpinnerStyled = styled(Spinner)`

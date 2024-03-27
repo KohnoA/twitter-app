@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { flex, UserAvatar } from '@/styles';
+import { flex, interactive, UserAvatar } from '@/styles';
 
 import { FileInput, Textaria, Title } from '../UI';
 
@@ -51,4 +51,16 @@ export const FileInputStyled = styled(FileInput)`
   position: absolute;
   right: -5px;
   bottom: -5px;
+`;
+
+export const ChangePasswordButton = styled.button`
+  padding: 5px;
+
+  font-size: inherit;
+  color: ${({ theme }) => theme.colors.main};
+
+  background-color: transparent;
+  border: none;
+
+  ${interactive()}
 `;

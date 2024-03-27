@@ -3,9 +3,14 @@ import { useMemo, useState } from 'react';
 import { useGetUserQuery } from '@/store/api';
 import { getDateString } from '@/utils';
 
+import { ChangePasswordForm } from '../ChangePasswordForm';
 import { EditProfileForm } from '../EditProfileForm';
 
-import { DEFAULT_USER_DATA, INITIAL_MODAL_STATE } from './constants';
+import {
+  DEFAULT_USER_DATA,
+  INITIAL_CHANGE_PASSWORD_FORM_VISIBILITY,
+  INITIAL_MODAL_STATE,
+} from './constants';
 import {
   EditButton,
   EditWrapper,
@@ -26,11 +31,21 @@ import { ProfileProps } from './types';
 export const Profile = ({ userId, isOwner }: ProfileProps) => {
   const { data: user, isLoading } = useGetUserQuery(userId);
   const [showEditModal, setShowEditModal] = useState<boolean>(INITIAL_MODAL_STATE);
+  const [showChangePasswordForm, setShowChangePasswordForm] = useState(
+    INITIAL_CHANGE_PASSWORD_FORM_VISIBILITY,
+  );
   const { name, email, phone, birthday, description, avatar } = user ?? DEFAULT_USER_DATA;
 
-  const handleModal = () => setShowEditModal((prev) => !prev);
-
   const birthdayString = useMemo(() => getDateString(birthday), [birthday]);
+
+  const handleChangeForm = () => setShowChangePasswordForm((prev) => !prev);
+
+  const handleModal = () => {
+    setShowEditModal((prev) => {
+      if (prev) setShowChangePasswordForm(INITIAL_CHANGE_PASSWORD_FORM_VISIBILITY);
+      return !prev;
+    });
+  };
 
   if (isLoading) {
     return (
@@ -45,7 +60,6 @@ export const Profile = ({ userId, isOwner }: ProfileProps) => {
       <ProfileBg>
         <EditWrapper>
           <UserAvatarStyled $avatarUrl={avatar} />
-
           {isOwner && (
             <EditButton data-testid="edit-profile-button" $view="primary" onClick={handleModal}>
               Edit profile
@@ -81,7 +95,11 @@ export const Profile = ({ userId, isOwner }: ProfileProps) => {
       </UserStatsList>
 
       <ModalStyled isActive={showEditModal} onClose={handleModal}>
-        <EditProfileForm onClose={handleModal} />
+        {showChangePasswordForm ? (
+          <ChangePasswordForm onCancel={handleModal} />
+        ) : (
+          <EditProfileForm onCancel={handleModal} onChangePassword={handleChangeForm} />
+        )}
       </ModalStyled>
     </ProfileWrapper>
   );
