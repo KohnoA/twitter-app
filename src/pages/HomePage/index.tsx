@@ -1,22 +1,15 @@
-import { useState } from 'react';
-
 import { NewTweet, TweetList } from '@/components';
 import { ButtonWithSpinner } from '@/components/UI';
+import { usePagination } from '@/hooks';
 import { MainLayout } from '@/layout';
 import { useGetAllTweetsQuery } from '@/store/api';
 
 import { MoreTweetButtonWrapper } from './styled';
 
-const INIT_PAGE = 1;
-
 export const HomePage = () => {
-  const [page, setPage] = useState<number>(INIT_PAGE);
+  const { page, incPage } = usePagination();
   const { data, isLoading, isFetching } = useGetAllTweetsQuery(page);
   const showMoreButton = data && data?.tweets.length < data?.total;
-
-  const incrementTweetsPage = () => {
-    setPage((prev) => prev + 1);
-  };
 
   return (
     <MainLayout>
@@ -25,7 +18,7 @@ export const HomePage = () => {
 
       {showMoreButton && (
         <MoreTweetButtonWrapper>
-          <ButtonWithSpinner $view="primary" isLoading={isFetching} onClick={incrementTweetsPage}>
+          <ButtonWithSpinner $view="primary" isLoading={isFetching} onClick={incPage}>
             More Tweets
           </ButtonWithSpinner>
         </MoreTweetButtonWrapper>
