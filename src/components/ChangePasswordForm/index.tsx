@@ -7,7 +7,7 @@ import { useLazyUpdatePasswordQuery } from '@/store/api';
 import { Button, ButtonWithSpinner, Input, Title } from '../UI';
 
 import { confirmPasswordValidation, passwordValidation } from './config';
-import { ButtonsWrapper, ErrorMessageStyled } from './styled';
+import * as S from './styled';
 import { ChangePasswordFormFields, ChangePasswordFormProps } from './types';
 
 export const ChangePasswordForm = ({ onCancel }: ChangePasswordFormProps) => {
@@ -49,16 +49,16 @@ export const ChangePasswordForm = ({ onCancel }: ChangePasswordFormProps) => {
         register={register('confirm', confirmPasswordValidation)}
       />
 
-      {error && <ErrorMessageStyled>{error.message}</ErrorMessageStyled>}
+      {error && <S.ErrorMessageStyled>{error.message}</S.ErrorMessageStyled>}
 
-      <ButtonsWrapper>
+      <S.ButtonsWrapper>
         <Button type="button" onClick={onCancel}>
           Cancel
         </Button>
         <ButtonWithSpinner type="submit" isLoading={isLoading}>
           Change
         </ButtonWithSpinner>
-      </ButtonsWrapper>
+      </S.ButtonsWrapper>
     </form>
   );
 };

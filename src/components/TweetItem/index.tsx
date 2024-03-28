@@ -7,16 +7,7 @@ import { userSelector } from '@/store/selectors';
 import { getShortDate } from '@/utils';
 
 import { DEFAULT_COUNT_LIKES, LikeFillIcon, LikeOutlineIcon } from './constants';
-import {
-  EmailAndDate,
-  LikeButton,
-  TweetInfo,
-  TweetItemContainer,
-  TweetItemContent,
-  TweetPhoto,
-  UserAvatarStyled,
-  UserName,
-} from './styled';
+import * as S from './styled';
 import { TweetOptions } from './TweetOptions';
 import { TweetItemProps } from './types';
 
@@ -51,27 +42,27 @@ export const TweetItem = memo(({ tweet }: TweetItemProps) => {
   };
 
   return (
-    <TweetItemContainer>
-      <UserAvatarStyled $avatarUrl={author.avatar} />
-      <TweetItemContent>
-        <TweetInfo>
-          <UserName $size="xl2">{author.name}</UserName>
-          <EmailAndDate>
+    <S.TweetItemContainer>
+      <S.UserAvatarStyled $avatarUrl={author.avatar} />
+      <S.TweetItemContent>
+        <S.TweetInfo>
+          <S.UserName $size="xl2">{author.name}</S.UserName>
+          <S.EmailAndDate>
             {author.email} · {tweetDate}
-          </EmailAndDate>
-        </TweetInfo>
+          </S.EmailAndDate>
+        </S.TweetInfo>
 
         {message && <Paragraph $size="xl">{message}</Paragraph>}
 
-        {photo && <TweetPhoto src={photo} alt="Tweet image" />}
+        {photo && <S.TweetPhoto src={photo} alt="Tweet image" />}
 
-        <LikeButton $isActive={isOwnerLiked} onClick={handleLikeClick}>
+        <S.LikeButton $isActive={isOwnerLiked} onClick={handleLikeClick}>
           {isOwnerLiked ? <LikeFillIcon /> : <LikeOutlineIcon />}
           {countLikes}
-        </LikeButton>
-      </TweetItemContent>
+        </S.LikeButton>
+      </S.TweetItemContent>
 
       {isOwnerTweet && <TweetOptions tweetId={tweetId} />}
-    </TweetItemContainer>
+    </S.TweetItemContainer>
   );
 });

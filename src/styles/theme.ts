@@ -7,7 +7,7 @@ const lightTheme = {
   textInput: AppColors.PURPLE,
   bgPrimary: AppColors.WHITE,
   bgSecondary: AppColors.GREY_LIGHT,
-  stroke: AppColors.GREY_DARK,
+  stroke: AppColors.GREY_DARK_ALT,
   error: AppColors.RED,
   blackTransparent: AppColors.BLACK_TRANSPARENT,
   scrollThumb: AppColors.BLACK_TRANSPARENT,

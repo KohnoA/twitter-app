@@ -2,13 +2,7 @@ import { ReactNode, useCallback, useEffect, useState } from 'react';
 
 import { Header, Navigation } from '../components';
 
-import {
-  FooterStyled,
-  MainContent,
-  MainLayoutWrapper,
-  PageWrapper,
-  RightSidebarStyled,
-} from './styled';
+import * as S from './styled';
 
 const BURGER_MENU_INITIAL_VISIBILITY = false;
 
@@ -32,18 +26,18 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
   }, []);
 
   return (
-    <MainLayoutWrapper>
+    <S.MainLayoutWrapper>
       <Navigation isActiveBurger={showBurger} onCloseBurger={toggleBurgerMenu} />
 
-      <PageWrapper>
+      <S.PageWrapper>
         <Header onClickBurger={toggleBurgerMenu} />
 
-        <MainContent>{children}</MainContent>
+        <S.MainContent>{children}</S.MainContent>
 
-        <FooterStyled />
-      </PageWrapper>
+        <S.FooterStyled />
+      </S.PageWrapper>
 
-      <RightSidebarStyled />
-    </MainLayoutWrapper>
+      <S.RightSidebarStyled />
+    </S.MainLayoutWrapper>
   );
 };

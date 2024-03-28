@@ -1,6 +1,6 @@
 import { TweetItem } from '../TweetItem';
 
-import { EmptyMessage, SpinnerStyled, TweetListStyled, TweetListTitle } from './styled';
+import * as S from './styled';
 import { TweetListProps } from './types';
 
 export const TweetList = (props: TweetListProps) => {
@@ -8,15 +8,15 @@ export const TweetList = (props: TweetListProps) => {
 
   return (
     <section>
-      <TweetListTitle>Tweets</TweetListTitle>
+      <S.TweetListTitle>Tweets</S.TweetListTitle>
 
-      {isLoading && <SpinnerStyled width={50} height={50} />}
+      {isLoading && <S.SpinnerStyled width={50} height={50} />}
 
-      {tweets && !tweets.length && <EmptyMessage $size="xl2">No tweets yet</EmptyMessage>}
+      {tweets && !tweets.length && <S.EmptyMessage $size="xl2">No tweets yet</S.EmptyMessage>}
 
-      <TweetListStyled data-testid="tweet-list">
+      <S.TweetListStyled data-testid="tweet-list">
         {tweets && tweets.map((tweet) => <TweetItem key={tweet.id} tweet={tweet} />)}
-      </TweetListStyled>
+      </S.TweetListStyled>
     </section>
   );
 };

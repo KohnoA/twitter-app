@@ -5,7 +5,7 @@ import { AppRoutes } from '@/constants';
 import { useAppSelector } from '@/hooks';
 import { userSelector } from '@/store/selectors';
 
-import { NameEmailWrapper, UserAvatarStyled, UserCardWrapper, UserEmail, UserName } from './styled';
+import * as S from './styled';
 import { UserCardProps } from './types';
 
 export const UserCard = memo(({ className, user }: UserCardProps) => {
@@ -22,13 +22,13 @@ export const UserCard = memo(({ className, user }: UserCardProps) => {
   };
 
   return (
-    <UserCardWrapper $isOwner={isOwnerCard} className={className} onClick={handleClick}>
-      <UserAvatarStyled $avatarUrl={avatar} />
+    <S.UserCardWrapper $isOwner={isOwnerCard} className={className} onClick={handleClick}>
+      <S.UserAvatarStyled $avatarUrl={avatar} />
 
-      <NameEmailWrapper>
-        <UserName>{name}</UserName>
-        <UserEmail>{email}</UserEmail>
-      </NameEmailWrapper>
-    </UserCardWrapper>
+      <S.NameEmailWrapper>
+        <S.UserName>{name}</S.UserName>
+        <S.UserEmail>{email}</S.UserEmail>
+      </S.NameEmailWrapper>
+    </S.UserCardWrapper>
   );
 });

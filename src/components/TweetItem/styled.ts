@@ -113,7 +113,7 @@ export const LikeButton = styled.button<LikeButtonProps>`
 `;
 
 export const TweetPhoto = styled.img`
-  width: 90%;
+  width: 100%;
   height: auto;
 
   margin-bottom: ${({ theme }) => theme.margins.md}px;

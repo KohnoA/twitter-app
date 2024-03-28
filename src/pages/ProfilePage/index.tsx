@@ -21,7 +21,7 @@ export const ProfilePage = () => {
     userId: userId ?? owner!.id,
     page,
   });
-  const showMoreButton = userTweets && userTweets?.tweets.length < userTweets?.total;
+  const showMoreButton = !isLoading && userTweets && userTweets?.tweets.length < userTweets?.total;
   const isProfileOwner = !userId;
 
   return (

@@ -7,7 +7,7 @@ import { LoginFormFields } from '@/types';
 import { Input } from '../UI';
 
 import { emailValidation, passwordValidation } from './config';
-import { GeneralErrorMessage, LoginButton, LoginFormStyled, SignUpLink } from './styled';
+import * as S from './styled';
 
 export const LoginForm = () => {
   const [signIn, { isLoading, error }] = useLazySignInQuery();
@@ -20,7 +20,7 @@ export const LoginForm = () => {
   const onSubmit = (data: LoginFormFields) => signIn(data);
 
   return (
-    <LoginFormStyled onSubmit={handleSubmit(onSubmit)}>
+    <S.LoginFormStyled onSubmit={handleSubmit(onSubmit)}>
       <Input
         data-testid="login-email-input"
         placeholder="Email address"
@@ -36,13 +36,13 @@ export const LoginForm = () => {
         register={register('password', passwordValidation)}
       />
 
-      {error && <GeneralErrorMessage>{error.message}</GeneralErrorMessage>}
+      {error && <S.GeneralErrorMessage>{error.message}</S.GeneralErrorMessage>}
 
-      <LoginButton data-testid="login-submit-button" type="submit" isLoading={isLoading}>
+      <S.LoginButton data-testid="login-submit-button" type="submit" isLoading={isLoading}>
         Login
-      </LoginButton>
+      </S.LoginButton>
 
-      <SignUpLink to={AppRoutes.SIGN_UP}>Sign up to Twitter</SignUpLink>
-    </LoginFormStyled>
+      <S.SignUpLink to={AppRoutes.SIGN_UP}>Sign up to Twitter</S.SignUpLink>
+    </S.LoginFormStyled>
   );
 };

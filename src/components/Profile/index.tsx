@@ -11,21 +11,7 @@ import {
   INITIAL_CHANGE_PASSWORD_FORM_VISIBILITY,
   INITIAL_MODAL_STATE,
 } from './constants';
-import {
-  EditButton,
-  EditWrapper,
-  ModalStyled,
-  ProfileBg,
-  ProfileWrapper,
-  SpinnerStyled,
-  UserAvatarStyled,
-  UserDescription,
-  UserInfoItem,
-  UserInfoWrapper,
-  UserName,
-  UserStatsItem,
-  UserStatsList,
-} from './styled';
+import * as S from './styled';
 import { ProfileProps } from './types';
 
 export const Profile = memo(({ userId, isOwner }: ProfileProps) => {
@@ -49,58 +35,58 @@ export const Profile = memo(({ userId, isOwner }: ProfileProps) => {
 
   if (isLoading) {
     return (
-      <ProfileWrapper>
-        <SpinnerStyled width={50} height={50} />
-      </ProfileWrapper>
+      <S.ProfileWrapper>
+        <S.SpinnerStyled width={50} height={50} />
+      </S.ProfileWrapper>
     );
   }
 
   return (
-    <ProfileWrapper>
-      <ProfileBg>
-        <EditWrapper>
-          <UserAvatarStyled $avatarUrl={avatar} />
+    <S.ProfileWrapper>
+      <S.ProfileBg>
+        <S.EditWrapper>
+          <S.UserAvatarStyled $avatarUrl={avatar} />
           {isOwner && (
-            <EditButton data-testid="edit-profile-button" $view="primary" onClick={handleModal}>
+            <S.EditButton data-testid="edit-profile-button" $view="primary" onClick={handleModal}>
               Edit profile
-            </EditButton>
+            </S.EditButton>
           )}
-        </EditWrapper>
-      </ProfileBg>
+        </S.EditWrapper>
+      </S.ProfileBg>
 
-      <UserInfoWrapper>
-        <UserName $size="xl2" data-testid="user-name">
+      <S.UserInfoWrapper>
+        <S.UserName $size="xl2" data-testid="user-name">
           {name}
-        </UserName>
+        </S.UserName>
 
-        <UserInfoItem data-testid="user-email">Email: {email}</UserInfoItem>
-        <UserInfoItem data-testid="user-phone">Phone: {phone}</UserInfoItem>
-        <UserInfoItem>Date of Birth: {birthdayString}</UserInfoItem>
+        <S.UserInfoItem data-testid="user-email">Email: {email}</S.UserInfoItem>
+        <S.UserInfoItem data-testid="user-phone">Phone: {phone}</S.UserInfoItem>
+        <S.UserInfoItem>Date of Birth: {birthdayString}</S.UserInfoItem>
 
-        <UserDescription $size="xl" data-testid="user-description">
+        <S.UserDescription $size="xl" data-testid="user-description">
           {description}
-        </UserDescription>
-      </UserInfoWrapper>
+        </S.UserDescription>
+      </S.UserInfoWrapper>
 
-      <UserStatsList>
-        <UserStatsItem>
+      <S.UserStatsList>
+        <S.UserStatsItem>
           <span>67</span> Following
-        </UserStatsItem>
-        <UserStatsItem>
+        </S.UserStatsItem>
+        <S.UserStatsItem>
           <span>47</span> Followers
-        </UserStatsItem>
-        <UserStatsItem>
+        </S.UserStatsItem>
+        <S.UserStatsItem>
           <span>47</span> Tweets
-        </UserStatsItem>
-      </UserStatsList>
+        </S.UserStatsItem>
+      </S.UserStatsList>
 
-      <ModalStyled isActive={showEditModal} onClose={handleModal}>
+      <S.ModalStyled isActive={showEditModal} onClose={handleModal}>
         {showChangePasswordForm ? (
           <ChangePasswordForm onCancel={handleModal} />
         ) : (
           <EditProfileForm onCancel={handleModal} onChangePassword={handleChangeForm} />
         )}
-      </ModalStyled>
-    </ProfileWrapper>
+      </S.ModalStyled>
+    </S.ProfileWrapper>
   );
 });

@@ -11,7 +11,7 @@ import { getBirthdayDate } from '@/utils';
 import { Button, ButtonWithSpinner, Input } from '../UI';
 
 import { confirmPasswordValidation, passwordValidation } from './config';
-import { ButtonsWrapper, GeneralErrorMessage, SignUpPasswordFormStyled } from './styled';
+import * as S from './styled';
 
 export const SignUpPasswordForm = () => {
   const [signUp, { isLoading, error }] = useLazySignUpQuery();
@@ -42,7 +42,10 @@ export const SignUpPasswordForm = () => {
   const onStepBack = () => dispatch(setEmailStep());
 
   return (
-    <SignUpPasswordFormStyled data-testid="signup-password-form" onSubmit={handleSubmit(onSubmit)}>
+    <S.SignUpPasswordFormStyled
+      data-testid="signup-password-form"
+      onSubmit={handleSubmit(onSubmit)}
+    >
       <Input
         data-testid="signup-password-input"
         type="password"
@@ -60,19 +63,19 @@ export const SignUpPasswordForm = () => {
       />
 
       {error && (
-        <GeneralErrorMessage data-testid="signup-general-error">
+        <S.GeneralErrorMessage data-testid="signup-general-error">
           {error.message}
-        </GeneralErrorMessage>
+        </S.GeneralErrorMessage>
       )}
 
-      <ButtonsWrapper>
+      <S.ButtonsWrapper>
         <Button data-testid="signup-back-button" type="button" onClick={onStepBack}>
           Back
         </Button>
         <ButtonWithSpinner data-testid="signup-submit-button" type="submit" isLoading={isLoading}>
           Sign Up
         </ButtonWithSpinner>
-      </ButtonsWrapper>
-    </SignUpPasswordFormStyled>
+      </S.ButtonsWrapper>
+    </S.SignUpPasswordFormStyled>
   );
 };

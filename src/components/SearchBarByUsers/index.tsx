@@ -4,7 +4,7 @@ import { useLazyFindUsersQuery } from '@/store/api';
 
 import { ElasticSearch } from '../UI';
 
-import { UserCardStyled } from './styled';
+import * as S from './styled';
 
 export const SearchBarByUsers = () => {
   const [trigger, { data, isFetching }] = useLazyFindUsersQuery();
@@ -25,7 +25,7 @@ export const SearchBarByUsers = () => {
       isEmpty={showEmptyMessage}
       emptyMessage="No Users Found"
     >
-      {data && data.map((user) => <UserCardStyled key={user.id} user={user} />)}
+      {data && data.map((user) => <S.UserCardStyled key={user.id} user={user} />)}
     </ElasticSearch>
   );
 };

@@ -9,17 +9,7 @@ import { signOut } from '@/services';
 import { userSelector } from '@/store/selectors';
 import { Backdrop } from '@/styles';
 
-import {
-  CrossButton,
-  LogoutButton,
-  ModalStyled,
-  NavigationLink,
-  NavigationList,
-  NavigationListWrapper,
-  NavigationWrapper,
-  NewTweetStyled,
-  TwitterIconStyled,
-} from './styled';
+import * as S from './styled';
 import { NavigationProps } from './types';
 
 const { CrossIcon } = ICONS;
@@ -38,38 +28,38 @@ export const Navigation = ({ isActiveBurger, onCloseBurger }: NavigationProps) =
 
   return (
     <>
-      <NavigationWrapper $isActiveBurger={isActiveBurger}>
-        <CrossButton onClick={onCloseBurger}>
+      <S.NavigationWrapper $isActiveBurger={isActiveBurger}>
+        <S.CrossButton onClick={onCloseBurger}>
           <CrossIcon width={40} height={40} />
-        </CrossButton>
+        </S.CrossButton>
 
-        <NavigationListWrapper>
-          <TwitterIconStyled />
+        <S.NavigationListWrapper>
+          <S.TwitterIconStyled />
 
-          <NavigationList>
+          <S.NavigationList>
             {NAVIGATION_LIST.map(({ link, OutlineIcon, FillIcon, title }) => (
               <li key={link}>
-                <NavigationLink to={link}>
+                <S.NavigationLink to={link}>
                   {pathname === link ? <FillIcon /> : <OutlineIcon />} {title}
-                </NavigationLink>
+                </S.NavigationLink>
               </li>
             ))}
-          </NavigationList>
+          </S.NavigationList>
 
           <Button onClick={handleTweetModal}>Tweet</Button>
-        </NavigationListWrapper>
+        </S.NavigationListWrapper>
 
         <UserCard user={data} />
 
-        <LogoutButton $view="primary" onClick={handleSignOut}>
+        <S.LogoutButton $view="primary" onClick={handleSignOut}>
           Log out
-        </LogoutButton>
-      </NavigationWrapper>
+        </S.LogoutButton>
+      </S.NavigationWrapper>
 
-      <ModalStyled isActive={newTweetModal} onClose={handleTweetModal}>
+      <S.ModalStyled isActive={newTweetModal} onClose={handleTweetModal}>
         <Title $size="xl3">New Tweet</Title>
-        <NewTweetStyled onSuccess={handleTweetModal} />
-      </ModalStyled>
+        <S.NewTweetStyled onSuccess={handleTweetModal} />
+      </S.ModalStyled>
 
       <Backdrop $show={isActiveBurger} onClick={onCloseBurger} />
     </>

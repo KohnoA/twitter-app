@@ -7,7 +7,7 @@ import { getShortDate } from '@/utils';
 
 import { ElasticSearch } from '../UI';
 
-import { TweetAuthor, TweetAuthorName, TweetMessage, TweetWrapper } from './styled';
+import * as S from './styled';
 
 export const SearchBarByTweets = () => {
   const [trigger, { data, isFetching }] = useLazyFindTweetsQuery();
@@ -35,12 +35,13 @@ export const SearchBarByTweets = () => {
     >
       {data &&
         data.map(({ message, author, date, id }) => (
-          <TweetWrapper key={id} onClick={() => handleClick(id)}>
-            <TweetAuthor>
-              <TweetAuthorName>{author.name}</TweetAuthorName> {author.email} · {getShortDate(date)}
-            </TweetAuthor>
-            <TweetMessage>{message}</TweetMessage>
-          </TweetWrapper>
+          <S.TweetWrapper key={id} onClick={() => handleClick(id)}>
+            <S.TweetAuthor>
+              <S.TweetAuthorName>{author.name}</S.TweetAuthorName> {author.email} ·{' '}
+              {getShortDate(date)}
+            </S.TweetAuthor>
+            <S.TweetMessage>{message}</S.TweetMessage>
+          </S.TweetWrapper>
         ))}
     </ElasticSearch>
   );

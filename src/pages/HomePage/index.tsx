@@ -9,7 +9,7 @@ import { MoreTweetButtonWrapper } from './styled';
 export const HomePage = () => {
   const { page, incPage } = usePagination();
   const { data, isLoading, isFetching } = useGetAllTweetsQuery(page);
-  const showMoreButton = data && data?.tweets.length < data?.total;
+  const showMoreButton = !isLoading && data && data?.tweets.length < data?.total;
 
   return (
     <MainLayout>

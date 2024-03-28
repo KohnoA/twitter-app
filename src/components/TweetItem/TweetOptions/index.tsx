@@ -3,14 +3,7 @@ import { memo, useState } from 'react';
 import { useDeleteTweetMutation } from '@/store/api';
 
 import { DotsIcon, INITIAL_OPTIONS_VIISIBILITY, SpinnerIcon } from './constants';
-import {
-  BgForClosing,
-  Loader,
-  MoreButton,
-  MoreWrapper,
-  TweetOption,
-  TweetOptionsStyled,
-} from './styled';
+import * as S from './styled';
 import { TweetOptionsProps } from './types';
 
 export const TweetOptions = memo(({ tweetId }: TweetOptionsProps) => {
@@ -22,20 +15,21 @@ export const TweetOptions = memo(({ tweetId }: TweetOptionsProps) => {
   const hanldeRemove = () => deleteTweet(tweetId);
 
   return (
-    <MoreWrapper $isActive={showOptions}>
-      <MoreButton onClick={handleOptionVisibility}>
+    <S.MoreWrapper $isActive={showOptions}>
+      <S.MoreButton onClick={handleOptionVisibility}>
         <DotsIcon />
-      </MoreButton>
+      </S.MoreButton>
 
-      <TweetOptionsStyled>
-        <TweetOption $isLoading={isLoading} onClick={hanldeRemove}>
-          <Loader>
+      <S.TweetOptionsStyled>
+        <S.TweetOption $isLoading={isLoading} onClick={hanldeRemove}>
+          <S.Loader>
             <SpinnerIcon width={24} height={24} />
-          </Loader>
+          </S.Loader>
           <span>Remove Tweet</span>
-        </TweetOption>
-      </TweetOptionsStyled>
-      <BgForClosing onClick={handleOptionVisibility} />
-    </MoreWrapper>
+        </S.TweetOption>
+      </S.TweetOptionsStyled>
+
+      <S.BgForClosing onClick={handleOptionVisibility} />
+    </S.MoreWrapper>
   );
 });

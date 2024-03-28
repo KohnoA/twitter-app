@@ -6,15 +6,7 @@ import { Switch } from '@/components/UI';
 import { AppRoutes, AppThemes, ICONS, NAVIGATION_LIST } from '@/constants';
 import { useTheme } from '@/hooks';
 
-import {
-  BackButton,
-  BurgerButton,
-  HeaderWrapper,
-  LeftContainer,
-  PageTitle,
-  RightContainer,
-  SearchContainer,
-} from './styled';
+import * as S from './styled';
 
 const { BurgerIcon, BackIcon } = ICONS;
 
@@ -47,30 +39,30 @@ export const Header = memo(({ onClickBurger }: HeaderProps) => {
   }, [pathname]);
 
   return (
-    <HeaderWrapper>
-      <LeftContainer>
+    <S.HeaderWrapper>
+      <S.LeftContainer>
         {showBackButton && (
-          <BackButton onClick={handleHistoryBack}>
+          <S.BackButton onClick={handleHistoryBack}>
             <BackIcon width={30} height={30} />
-          </BackButton>
+          </S.BackButton>
         )}
 
-        <BurgerButton onClick={onClickBurger}>
+        <S.BurgerButton onClick={onClickBurger}>
           <BurgerIcon width={35} height={35} />
-        </BurgerButton>
+        </S.BurgerButton>
 
-        <PageTitle $size="xl3">{pageTitle}</PageTitle>
-      </LeftContainer>
+        <S.PageTitle $size="xl3">{pageTitle}</S.PageTitle>
+      </S.LeftContainer>
 
-      <RightContainer>
-        <SearchContainer>{currentSearchBar}</SearchContainer>
+      <S.RightContainer>
+        <S.SearchContainer>{currentSearchBar}</S.SearchContainer>
 
         <Switch
           data-testid="toggle-theme-switch"
           isToggled={theme === AppThemes.DARK}
           onChange={toggleTheme}
         />
-      </RightContainer>
-    </HeaderWrapper>
+      </S.RightContainer>
+    </S.HeaderWrapper>
   );
 });

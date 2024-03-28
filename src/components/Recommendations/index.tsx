@@ -3,13 +3,7 @@ import { useMemo, useState } from 'react';
 import { useGetAllUsersQuery } from '@/store/api';
 
 import { COUNT_RECOMMENDED_USERS_IN_STEP, MAX_COUNT_STEPS, SpinnerIcon } from './constants';
-import {
-  EmptyMessage,
-  LoaderContainer,
-  MoreButton,
-  RecommendationsTitle,
-  UserCardStyled,
-} from './styled';
+import * as S from './styled';
 import { RecommendationsProps } from './types';
 
 export const Recommendations = ({ className }: RecommendationsProps) => {
@@ -26,25 +20,25 @@ export const Recommendations = ({ className }: RecommendationsProps) => {
     () =>
       data
         ?.slice(0, COUNT_RECOMMENDED_USERS_IN_STEP * step)
-        .map((user) => <UserCardStyled key={user.id} user={user} />),
+        .map((user) => <S.UserCardStyled key={user.id} user={user} />),
     [data, step],
   );
 
   return (
     <section className={className}>
-      <RecommendationsTitle $size="xl2">You Must Like</RecommendationsTitle>
+      <S.RecommendationsTitle $size="xl2">You Must Like</S.RecommendationsTitle>
 
       {isLoading && (
-        <LoaderContainer>
+        <S.LoaderContainer>
           <SpinnerIcon width={30} height={30} />
-        </LoaderContainer>
+        </S.LoaderContainer>
       )}
 
-      {showEmptyMessage && <EmptyMessage $size="xl">No users yet</EmptyMessage>}
+      {showEmptyMessage && <S.EmptyMessage $size="xl">No users yet</S.EmptyMessage>}
 
       {recommendationsData}
 
-      {showMoreButton && <MoreButton onClick={handleChangeStep}>Show more</MoreButton>}
+      {showMoreButton && <S.MoreButton onClick={handleChangeStep}>Show more</S.MoreButton>}
     </section>
   );
 };

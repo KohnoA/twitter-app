@@ -38,6 +38,7 @@ export const Button = styled.button<ButtonProps>`
   &:disabled {
     pointer-events: none;
     opacity: ${({ theme }) => theme.opacity.low};
+    user-select: none;
   }
 
   ${({ theme }) =>

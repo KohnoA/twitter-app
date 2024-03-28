@@ -10,13 +10,7 @@ import { getDaysOptions, getYearsOptions } from '@/utils';
 import { Button, Input, Select } from '../UI';
 
 import * as config from './config';
-import {
-  BirthdayDescriptionParagraph,
-  DateOfBirthTitle,
-  EmailLink,
-  SelectsWrapper,
-  SignUpEmailFormStyled,
-} from './styled';
+import * as S from './styled';
 
 export const SignUpEmailForm = () => {
   const { emailFormData } = useAppSelector(signUpSelector);
@@ -34,7 +28,7 @@ export const SignUpEmailForm = () => {
   };
 
   return (
-    <SignUpEmailFormStyled data-testid="signup-email-form" onSubmit={handleSubmit(onSubmit)}>
+    <S.SignUpEmailFormStyled data-testid="signup-email-form" onSubmit={handleSubmit(onSubmit)}>
       <Input
         data-testid="signup-name-input"
         placeholder="Name"
@@ -56,16 +50,16 @@ export const SignUpEmailForm = () => {
         register={register('email', config.emailValidation)}
       />
 
-      <EmailLink to={AppRoutes.SIGN_UP}>Use email</EmailLink>
-      <DateOfBirthTitle $size="xl" as="h4">
+      <S.EmailLink to={AppRoutes.SIGN_UP}>Use email</S.EmailLink>
+      <S.DateOfBirthTitle $size="xl" as="h4">
         Date of birth
-      </DateOfBirthTitle>
+      </S.DateOfBirthTitle>
 
-      <BirthdayDescriptionParagraph $size="lg">
+      <S.BirthdayDescriptionParagraph $size="lg">
         {config.birthdayDescription}
-      </BirthdayDescriptionParagraph>
+      </S.BirthdayDescriptionParagraph>
 
-      <SelectsWrapper>
+      <S.SelectsWrapper>
         <Select
           data-testid="signup-month-select"
           options={MONTH}
@@ -89,11 +83,11 @@ export const SignUpEmailForm = () => {
           error={errors.year?.message}
           register={register('year', config.selectValidation)}
         />
-      </SelectsWrapper>
+      </S.SelectsWrapper>
 
       <Button type="submit" data-testid="signup-next-button">
         Next
       </Button>
-    </SignUpEmailFormStyled>
+    </S.SignUpEmailFormStyled>
   );
 };

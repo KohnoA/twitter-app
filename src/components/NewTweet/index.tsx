@@ -7,16 +7,7 @@ import { userSelector } from '@/store/selectors';
 
 import { Textaria } from '../UI';
 
-import {
-  ButtonsWrapper,
-  ControlsWrapper,
-  FileContainer,
-  FileInputStyled,
-  NewTweetContainer,
-  TweetButton,
-  UploadedImage,
-  UserAvatarStyled,
-} from './styled';
+import * as S from './styled';
 import { NewTweetFormFileds, NewTweetProps } from './types';
 
 export const NewTweet = memo(({ className, onSuccess }: NewTweetProps) => {
@@ -44,34 +35,34 @@ export const NewTweet = memo(({ className, onSuccess }: NewTweetProps) => {
   }, [isSuccess, reset, onSuccess]);
 
   return (
-    <NewTweetContainer
+    <S.NewTweetContainer
       data-testid="new-tweet-form"
       className={className}
       onSubmit={handleSubmit(onSubmit)}
     >
-      <UserAvatarStyled $avatarUrl={userData?.avatar} />
-      <ControlsWrapper>
+      <S.UserAvatarStyled $avatarUrl={userData?.avatar} />
+      <S.ControlsWrapper>
         <Textaria
           data-testid="new-tweet-textarea"
           register={register('tweet', { required: true })}
           placeholder="What’s happening"
         />
-        <ButtonsWrapper>
-          <FileContainer>
-            <FileInputStyled register={register('image')} />
-            {uploadedImage && <UploadedImage $imageUrl={uploadedImage} />}
-          </FileContainer>
+        <S.ButtonsWrapper>
+          <S.FileContainer>
+            <S.FileInputStyled register={register('image')} />
+            {uploadedImage && <S.UploadedImage $imageUrl={uploadedImage} />}
+          </S.FileContainer>
 
-          <TweetButton
+          <S.TweetButton
             data-testid="new-tweet-submit"
             type="submit"
             disabled={!watch('tweet')}
             isLoading={isLoading}
           >
             Tweet
-          </TweetButton>
-        </ButtonsWrapper>
-      </ControlsWrapper>
-    </NewTweetContainer>
+          </S.TweetButton>
+        </S.ButtonsWrapper>
+      </S.ControlsWrapper>
+    </S.NewTweetContainer>
   );
 });

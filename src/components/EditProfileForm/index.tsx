@@ -10,17 +10,7 @@ import { getDaysOptions, getYearsOptions } from '@/utils';
 import { Button, ButtonWithSpinner, Input, Select } from '../UI';
 
 import { getDefaultFormFields, nameValidation, phoneValidation, selectValidation } from './config';
-import {
-  AvatarWrapper,
-  BirthdayLabel,
-  BirthdaySelectsWrapper,
-  ButtonsWrapper,
-  ChangePasswordButton,
-  FileInputStyled,
-  FormTitle,
-  TextariaStyled,
-  UserAvatarStyled,
-} from './styled';
+import * as S from './styled';
 import { EditProfileFormFields, EditProfileFormProps } from './types';
 
 export const EditProfileForm = ({ onCancel, onChangePassword }: EditProfileFormProps) => {
@@ -63,12 +53,12 @@ export const EditProfileForm = ({ onCancel, onChangePassword }: EditProfileFormP
 
   return (
     <form data-testid="edit-profile-form" onSubmit={handleSubmit(onSubmit)}>
-      <FormTitle $size="xl2">Edit Profile</FormTitle>
-      <AvatarWrapper>
-        <UserAvatarStyled $avatarUrl={avatar}>
-          <FileInputStyled register={register('avatar')} />
-        </UserAvatarStyled>
-      </AvatarWrapper>
+      <S.FormTitle $size="xl2">Edit Profile</S.FormTitle>
+      <S.AvatarWrapper>
+        <S.UserAvatarStyled $avatarUrl={avatar}>
+          <S.FileInputStyled register={register('avatar')} />
+        </S.UserAvatarStyled>
+      </S.AvatarWrapper>
 
       <Input
         data-testid="edit-user-name"
@@ -82,15 +72,15 @@ export const EditProfileForm = ({ onCancel, onChangePassword }: EditProfileFormP
         error={errors.phone?.message}
         placeholder="Phone number"
       />
-      <TextariaStyled
+      <S.TextariaStyled
         data-testid="edit-user-description"
         label="Description:"
         placeholder="A short description about you"
         register={register('description')}
       />
 
-      <BirthdayLabel>Birthday:</BirthdayLabel>
-      <BirthdaySelectsWrapper>
+      <S.BirthdayLabel>Birthday:</S.BirthdayLabel>
+      <S.BirthdaySelectsWrapper>
         <Select
           placeholder="Month"
           options={MONTH}
@@ -109,20 +99,20 @@ export const EditProfileForm = ({ onCancel, onChangePassword }: EditProfileFormP
           options={getYearsOptions()}
           register={register('year', selectValidation)}
         />
-      </BirthdaySelectsWrapper>
+      </S.BirthdaySelectsWrapper>
 
-      <ChangePasswordButton type="button" onClick={onChangePassword}>
+      <S.ChangePasswordButton type="button" onClick={onChangePassword}>
         Change Password
-      </ChangePasswordButton>
+      </S.ChangePasswordButton>
 
-      <ButtonsWrapper>
+      <S.ButtonsWrapper>
         <Button type="button" onClick={onCancel}>
           Cancel
         </Button>
         <ButtonWithSpinner data-testid="edit-submit-button" type="submit" isLoading={isLoading}>
           Accept
         </ButtonWithSpinner>
-      </ButtonsWrapper>
+      </S.ButtonsWrapper>
     </form>
   );
 };
