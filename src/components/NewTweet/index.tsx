@@ -2,18 +2,27 @@ import { memo, useEffect, useMemo } from 'react';
 import { useForm } from 'react-hook-form';
 
 import { useAppSelector } from '@/hooks';
-import { useAddTweetMutation } from '@/store/api';
+import { useAddTweetMutation, useUserAvatarQuery } from '@/store/api';
 import { userSelector } from '@/store/selectors';
 
-import { Textaria } from '../UI';
+import { ErrorMessage, Textaria } from '../UI';
 
+import { imageValidation, messageValidation } from './config';
 import * as S from './styled';
 import { NewTweetFormFileds, NewTweetProps } from './types';
 
 export const NewTweet = memo(({ className, onSuccess }: NewTweetProps) => {
-  const { handleSubmit, register, watch, reset } = useForm<NewTweetFormFileds>();
   const [addTweet, { isLoading, isSuccess }] = useAddTweetMutation();
   const { data: userData } = useAppSelector(userSelector);
+  const { data: avatar } = useUserAvatarQuery(userData?.id);
+  const {
+    handleSubmit,
+    register,
+    watch,
+    reset,
+    formState: { errors },
+  } = useForm<NewTweetFormFileds>({ mode: 'onChange' });
+  const imageError = errors.image?.message;
   const watchImage = watch('image');
 
   const onSubmit = async (data: NewTweetFormFileds) => {
@@ -23,8 +32,8 @@ export const NewTweet = memo(({ className, onSuccess }: NewTweetProps) => {
   };
 
   const uploadedImage = useMemo(
-    () => !!watchImage?.length && URL.createObjectURL(watchImage[0]),
-    [watchImage],
+    () => !imageError && !!watchImage?.length && URL.createObjectURL(watchImage[0]),
+    [imageError, watchImage],
   );
 
   useEffect(() => {
@@ -40,17 +49,19 @@ export const NewTweet = memo(({ className, onSuccess }: NewTweetProps) => {
       className={className}
       onSubmit={handleSubmit(onSubmit)}
     >
-      <S.UserAvatarStyled $avatarUrl={userData?.avatar} />
+      <S.UserAvatarStyled $avatarUrl={avatar} />
       <S.ControlsWrapper>
         <Textaria
           data-testid="new-tweet-textarea"
-          register={register('tweet', { required: true })}
+          register={register('tweet', messageValidation)}
+          error={errors.tweet?.message}
           placeholder="What’s happening"
         />
         <S.ButtonsWrapper>
           <S.FileContainer>
-            <S.FileInputStyled register={register('image')} />
+            <S.FileInputStyled accept="image/jpeg" register={register('image', imageValidation)} />
             {uploadedImage && <S.UploadedImage $imageUrl={uploadedImage} />}
+            {imageError && <ErrorMessage>{imageError}</ErrorMessage>}
           </S.FileContainer>
 
           <S.TweetButton

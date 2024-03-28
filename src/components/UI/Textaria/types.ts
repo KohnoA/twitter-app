@@ -5,5 +5,10 @@ export interface TextariaProps {
   register: UseFormRegisterReturn;
   placeholder?: string;
   label?: string;
+  error?: string;
   'data-testid'?: string;
+}
+
+export interface TextariaStyledProps {
+  $isError?: boolean;
 }

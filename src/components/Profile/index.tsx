@@ -1,6 +1,6 @@
 import { memo, useMemo, useState } from 'react';
 
-import { useGetUserQuery } from '@/store/api';
+import { useGetUserQuery, useUserAvatarQuery } from '@/store/api';
 import { getDateString } from '@/utils';
 
 import { ChangePasswordForm } from '../ChangePasswordForm';
@@ -16,11 +16,12 @@ import { ProfileProps } from './types';
 
 export const Profile = memo(({ userId, isOwner }: ProfileProps) => {
   const { data: user, isLoading } = useGetUserQuery(userId);
+  const { data: avatar } = useUserAvatarQuery(userId);
   const [showEditModal, setShowEditModal] = useState<boolean>(INITIAL_MODAL_STATE);
   const [showChangePasswordForm, setShowChangePasswordForm] = useState(
     INITIAL_CHANGE_PASSWORD_FORM_VISIBILITY,
   );
-  const { name, email, phone, birthday, description, avatar } = user ?? DEFAULT_USER_DATA;
+  const { name, email, phone, birthday, description } = user ?? DEFAULT_USER_DATA;
 
   const birthdayString = useMemo(() => getDateString(birthday), [birthday]);
 

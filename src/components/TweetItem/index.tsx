@@ -2,7 +2,11 @@ import { memo, useMemo, useRef, useState } from 'react';
 
 import { Paragraph } from '@/components/UI';
 import { useAppSelector } from '@/hooks';
-import { useAddLikeToTweetMutation, useRemoveLikeToTweetMutation } from '@/store/api';
+import {
+  useAddLikeToTweetMutation,
+  useRemoveLikeToTweetMutation,
+  useUserAvatarQuery,
+} from '@/store/api';
 import { userSelector } from '@/store/selectors';
 import { getShortDate } from '@/utils';
 
@@ -12,19 +16,20 @@ import { TweetOptions } from './TweetOptions';
 import { TweetItemProps } from './types';
 
 export const TweetItem = memo(({ tweet }: TweetItemProps) => {
-  const { message, author, date, photo, id: tweetId, likes } = tweet;
+  const { id: tweetId, message, author, date, photo, likes } = tweet;
+  const { id: authorId, name, email } = author;
 
+  const { data: avatar } = useUserAvatarQuery(authorId);
   const [addLike] = useAddLikeToTweetMutation();
   const [removeLike] = useRemoveLikeToTweetMutation();
-  const { data: userData } = useAppSelector(userSelector);
+  const { data: owner } = useAppSelector(userSelector);
   const [countLikes, setCountLikes] = useState<number>(likes.count ?? DEFAULT_COUNT_LIKES);
   const [isOwnerLiked, setIsOwnerLiked] = useState<boolean>(
-    !!userData && likes.users.includes(userData.id),
+    !!owner && likes.users.includes(owner.id),
   );
   const timerRef = useRef<NodeJS.Timeout | null>(null);
-  const isOwnerTweet = userData?.id === author.id;
-
   const tweetDate = useMemo(() => getShortDate(date), [date]);
+  const isOwnerTweet = owner?.id === authorId;
 
   const handleLikeClick = () => {
     const currentOwnerLiked = !isOwnerLiked;
@@ -35,20 +40,20 @@ export const TweetItem = memo(({ tweet }: TweetItemProps) => {
     if (timerRef.current) clearTimeout(timerRef.current);
 
     timerRef.current = setTimeout(async () => {
-      if (!userData) return;
-      if (currentOwnerLiked) await addLike({ tweetId, userId: userData.id });
-      else await removeLike({ tweetId, userId: userData.id });
+      if (!owner) return;
+      if (currentOwnerLiked) await addLike({ tweetId, userId: owner.id });
+      else await removeLike({ tweetId, userId: owner.id });
     }, 500);
   };
 
   return (
     <S.TweetItemContainer>
-      <S.UserAvatarStyled $avatarUrl={author.avatar} />
+      <S.UserAvatarStyled $avatarUrl={avatar} />
       <S.TweetItemContent>
         <S.TweetInfo>
-          <S.UserName $size="xl2">{author.name}</S.UserName>
+          <S.UserName $size="xl2">{name}</S.UserName>
           <S.EmailAndDate>
-            {author.email} · {tweetDate}
+            {email} · {tweetDate}
           </S.EmailAndDate>
         </S.TweetInfo>
 

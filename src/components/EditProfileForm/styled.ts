@@ -31,6 +31,9 @@ export const BirthdaySelectsWrapper = styled.div`
 export const AvatarWrapper = styled.div`
   ${flex()}
 
+  flex-direction: column;
+  gap: ${({ theme }) => theme.margins.sm}px;
+
   margin-bottom: ${({ theme }) => theme.margins.md}px;
 `;
 

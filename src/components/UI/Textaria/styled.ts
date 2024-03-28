@@ -2,19 +2,26 @@ import styled from 'styled-components';
 
 import { styledScroll } from '@/styles';
 
-export const TextariaStyled = styled.textarea`
+import { TextariaStyledProps } from './types';
+
+export const TextariaWrapper = styled.div`
+  margin-bottom: ${({ theme }) => theme.margins.sm}px;
+`;
+
+export const TextariaStyled = styled.textarea<TextariaStyledProps>`
   width: 100%;
   padding: ${({ theme }) => theme.margins.sm}px;
-  margin-bottom: ${({ theme }) => theme.margins.sm}px;
 
   font: inherit;
   color: ${({ theme }) => theme.colors.text};
 
   background-color: ${({ theme }) => theme.colors.bgPrimary};
-  border: 2px solid ${({ theme }) => theme.colors.bgSecondary};
   border-radius: ${({ theme }) => theme.radius.low}px;
   transition: background ${({ theme }) => theme.duration}ms;
   resize: none;
+
+  border: 2px solid
+    ${({ theme, $isError }) => ($isError ? theme.colors.error : theme.colors.bgSecondary)};
 
   ${styledScroll()}
 

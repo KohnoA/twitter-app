@@ -1,6 +1,6 @@
 import { RegisterOptions } from 'react-hook-form';
 
-import { Errors, MONTH, REGEX_NAME, REGEX_PHONE } from '@/constants';
+import { Errors, MAX_IMAGE_SIZE_BYTES, MONTH, REGEX_NAME, REGEX_PHONE } from '@/constants';
 import { UserDataType } from '@/types';
 import { setPhoneMask } from '@/utils';
 
@@ -26,6 +26,13 @@ export const phoneValidation: RegisterOptions = {
 
 export const selectValidation: RegisterOptions = {
   required: Errors.REQUIRED,
+};
+
+export const avatarValidation: RegisterOptions = {
+  validate(files) {
+    const { size } = files[0];
+    return size <= MAX_IMAGE_SIZE_BYTES || Errors.INVALID_IMAGE_SIZE;
+  },
 };
 
 export function getDefaultFormFields(userData: UserDataType | null) {

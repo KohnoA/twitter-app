@@ -5,5 +5,4 @@ export interface UserDataType {
   phone: string;
   id: string;
   description?: string;
-  avatar?: string | null;
 }

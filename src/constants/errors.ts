@@ -9,4 +9,6 @@ export enum Errors {
   USER_EXIST = 'A user with this email address is already registered',
   INVALID_USER_CREDENTIAL = 'Invalid email address or password',
   INVALID_PASSWORD = 'Invalid password',
+  INVALID_TWEET_MESSAGE = 'Message must be less than 10,000 characters',
+  INVALID_IMAGE_SIZE = 'Image size is too large',
 }

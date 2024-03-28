@@ -8,3 +8,4 @@ export * from './regexes';
 export * from './signup';
 
 export const UNASSIGNED_LINK_VALUE = '#';
+export const MAX_IMAGE_SIZE_BYTES = 2097152;

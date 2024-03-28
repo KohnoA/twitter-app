@@ -43,10 +43,10 @@ export const tweetApi = createApi({
             user: { data: userData },
           } = getState() as { user: { data: UserDataType | null } };
           const { email, name, id } = userData!;
+          const tweetId = v4();
           const tweetData: TweetDataType = {
-            id: v4(),
+            id: tweetId,
             author: {
-              avatar: userData?.avatar,
               email,
               name,
               id,
@@ -60,7 +60,7 @@ export const tweetApi = createApi({
           };
 
           if (image) {
-            const url = await addTweetImage(image);
+            const url = await addTweetImage(tweetId, image);
 
             tweetData.photo = url;
           }
