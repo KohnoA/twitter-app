@@ -9,6 +9,8 @@ export const messageValidation: RegisterOptions = {
 
 export const imageValidation: RegisterOptions = {
   validate(files) {
+    if (!files.length) return true;
+
     const { size } = files[0];
     return size <= MAX_IMAGE_SIZE_BYTES || Errors.INVALID_IMAGE_SIZE;
   },

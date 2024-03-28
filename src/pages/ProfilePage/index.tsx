@@ -26,7 +26,11 @@ export const ProfilePage = () => {
 
   return (
     <MainLayout>
-      <Profile userId={userId ?? owner!.id} isOwner={isProfileOwner} />
+      <Profile
+        userId={userId ?? owner!.id}
+        isOwner={isProfileOwner}
+        tweetsCount={userTweets?.total}
+      />
 
       {isProfileOwner && <NewTweet />}
 

@@ -7,6 +7,7 @@ import { ChangePasswordForm } from '../ChangePasswordForm';
 import { EditProfileForm } from '../EditProfileForm';
 
 import {
+  DEFAULT_STAT_VALUE,
   DEFAULT_USER_DATA,
   INITIAL_CHANGE_PASSWORD_FORM_VISIBILITY,
   INITIAL_MODAL_STATE,
@@ -14,7 +15,7 @@ import {
 import * as S from './styled';
 import { ProfileProps } from './types';
 
-export const Profile = memo(({ userId, isOwner }: ProfileProps) => {
+export const Profile = memo(({ userId, isOwner, tweetsCount }: ProfileProps) => {
   const { data: user, isLoading } = useGetUserQuery(userId);
   const { data: avatar } = useUserAvatarQuery(userId);
   const [showEditModal, setShowEditModal] = useState<boolean>(INITIAL_MODAL_STATE);
@@ -77,7 +78,7 @@ export const Profile = memo(({ userId, isOwner }: ProfileProps) => {
           <span>47</span> Followers
         </S.UserStatsItem>
         <S.UserStatsItem>
-          <span>47</span> Tweets
+          <span>{tweetsCount ?? DEFAULT_STAT_VALUE}</span> Tweets
         </S.UserStatsItem>
       </S.UserStatsList>
 
