@@ -1,5 +1,6 @@
 export interface TweetOptionsProps {
   tweetId: string;
+  isOwner?: boolean;
 }
 
 export interface TweetOptionProps {
@@ -7,5 +8,6 @@ export interface TweetOptionProps {
 }
 
 export interface MoreWrapperProps {
+  $isOwner?: boolean;
   $isActive?: boolean;
 }

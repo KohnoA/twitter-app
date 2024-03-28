@@ -99,4 +99,11 @@ export const MoreWrapper = styled.div<MoreWrapperProps>`
       pointer-events: all;
     }
   `}
+
+  ${({ $isOwner }) =>
+    !$isOwner &&
+    `
+    visibility: hidden;
+    pointer-events: none;
+  `}
 `;

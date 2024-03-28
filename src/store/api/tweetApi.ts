@@ -13,9 +13,7 @@ import {
   getUserTweets as getUserTweetsFirestore,
   removeLikeToTweet,
 } from '@/services';
-import { TweetDataType } from '@/types';
-
-import { type RootState } from '..';
+import { TweetDataType, UserDataType } from '@/types';
 
 const GENERAL_ERROR = { error: { message: Errors.GENERAL_ERROR } };
 
@@ -43,7 +41,7 @@ export const tweetApi = createApi({
         try {
           const {
             user: { data: userData },
-          } = getState() as RootState;
+          } = getState() as { user: { data: UserDataType | null } };
           const { email, name, id } = userData!;
           const tweetData: TweetDataType = {
             id: v4(),

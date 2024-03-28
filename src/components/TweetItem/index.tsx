@@ -62,7 +62,7 @@ export const TweetItem = memo(({ tweet }: TweetItemProps) => {
         </S.LikeButton>
       </S.TweetItemContent>
 
-      {isOwnerTweet && <TweetOptions tweetId={tweetId} />}
+      <TweetOptions isOwner={isOwnerTweet} tweetId={tweetId} />
     </S.TweetItemContainer>
   );
 });

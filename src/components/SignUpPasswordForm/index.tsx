@@ -2,7 +2,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 
 import { Errors } from '@/constants';
 import { useAppDispatch, useAppSelector } from '@/hooks';
-import { useLazySignUpQuery } from '@/store/api';
+import { useLazySignUpQuery, userApi } from '@/store/api';
 import { signUpSelector } from '@/store/selectors';
 import { setEmailStep } from '@/store/slices';
 import { PasswordFormFields } from '@/types';
@@ -37,6 +37,7 @@ export const SignUpPasswordForm = () => {
     const userData = { birthday: getBirthdayDate(year, month, day), ...otherData };
 
     signUp({ userData, password });
+    dispatch(userApi.util.invalidateTags(['User']));
   };
 
   const onStepBack = () => dispatch(setEmailStep());

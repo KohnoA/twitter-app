@@ -1,5 +1,6 @@
 import { Navigate } from 'react-router-dom';
 
+import { AppRoutes } from '@/constants';
 import {
   BookmarksPage,
   ExplorePage,
@@ -15,9 +16,7 @@ import {
   TweetPage,
 } from '@/pages';
 
-import { AppRoutes } from './app';
-
-export const unauthorizedRoutes = [
+export const PUBLIC_ROUTES = [
   {
     path: AppRoutes.ROOT,
     element: <Navigate to={AppRoutes.SIGN_UP} replace />,
@@ -36,59 +35,48 @@ export const unauthorizedRoutes = [
   },
 ];
 
-export const authorizedRoutes = [
+export const PROTECTED_ROUTES = [
   {
-    id: 1,
     path: AppRoutes.ROOT,
     element: <Navigate to={AppRoutes.HOME} replace />,
   },
   {
-    id: 2,
     path: AppRoutes.EXPLORE,
     element: <ExplorePage />,
   },
   {
-    id: 3,
     path: AppRoutes.NOTIFICATION,
     element: <NotificationsPage />,
   },
   {
-    id: 4,
     path: AppRoutes.MESSAGES,
     element: <MessagesPage />,
   },
   {
-    id: 5,
     path: AppRoutes.BOOKMARKS,
     element: <BookmarksPage />,
   },
   {
-    id: 6,
     path: AppRoutes.LISTS,
     element: <ListsPage />,
   },
   {
-    id: 7,
     path: AppRoutes.MORE,
     element: <MorePage />,
   },
   {
-    id: 8,
     path: AppRoutes.HOME,
     element: <HomePage />,
   },
   {
-    id: 9,
     path: `${AppRoutes.HOME}/:tweetId`,
     element: <TweetPage />,
   },
   {
-    id: 10,
     path: AppRoutes.PROFILE,
     element: <ProfilePage />,
   },
   {
-    id: 11,
     path: `${AppRoutes.PROFILE}/:userId`,
     element: <ProfilePage />,
   },

@@ -6,7 +6,7 @@ import { DotsIcon, INITIAL_OPTIONS_VIISIBILITY, SpinnerIcon } from './constants'
 import * as S from './styled';
 import { TweetOptionsProps } from './types';
 
-export const TweetOptions = memo(({ tweetId }: TweetOptionsProps) => {
+export const TweetOptions = memo(({ tweetId, isOwner }: TweetOptionsProps) => {
   const [deleteTweet, { isLoading }] = useDeleteTweetMutation();
   const [showOptions, setShowOptions] = useState<boolean>(INITIAL_OPTIONS_VIISIBILITY);
 
@@ -15,7 +15,7 @@ export const TweetOptions = memo(({ tweetId }: TweetOptionsProps) => {
   const hanldeRemove = () => deleteTweet(tweetId);
 
   return (
-    <S.MoreWrapper $isActive={showOptions}>
+    <S.MoreWrapper $isActive={showOptions} $isOwner={isOwner}>
       <S.MoreButton onClick={handleOptionVisibility}>
         <DotsIcon />
       </S.MoreButton>

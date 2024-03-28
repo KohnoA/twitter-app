@@ -5,6 +5,7 @@ import { TweetListProps } from './types';
 
 export const TweetList = (props: TweetListProps) => {
   const { tweets, isLoading } = props;
+  const showEmptyMessage = !isLoading && tweets && !tweets.length;
 
   return (
     <section>
@@ -12,7 +13,7 @@ export const TweetList = (props: TweetListProps) => {
 
       {isLoading && <S.SpinnerStyled width={50} height={50} />}
 
-      {tweets && !tweets.length && <S.EmptyMessage $size="xl2">No tweets yet</S.EmptyMessage>}
+      {showEmptyMessage && <S.EmptyMessage $size="xl2">No tweets yet</S.EmptyMessage>}
 
       <S.TweetListStyled data-testid="tweet-list">
         {tweets && tweets.map((tweet) => <TweetItem key={tweet.id} tweet={tweet} />)}

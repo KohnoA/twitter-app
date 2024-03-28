@@ -39,11 +39,13 @@ export const ChangePasswordForm = ({ onCancel }: ChangePasswordFormProps) => {
       <Title $size="xl2">Change Password</Title>
 
       <Input
+        type="password"
         placeholder="Password"
         error={errors.password?.message}
         register={register('password', passwordValidation)}
       />
       <Input
+        type="password"
         placeholder="Confirm Password"
         error={errors.confirm?.message}
         register={register('confirm', confirmPasswordValidation)}
