@@ -24,6 +24,7 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   plugins: ['react', 'react-refresh', '@typescript-eslint', 'simple-import-sort', 'import'],
   rules: {
+    'no-restricted-globals': 'warn',
     'react/function-component-definition': ['error', { namedComponents: 'arrow-function' }],
     'no-restricted-exports': ['error', { restrictDefaultExports: { namedFrom: false } }],
     'no-param-reassign': ['error', { ignorePropertyModificationsFor: ['state'] }],

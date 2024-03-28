@@ -17,7 +17,7 @@ export const SignUpEmailPage = () => {
     () => () => {
       dispatch(clearEmailFormData());
     },
-    [dispatch],
+    [],
   );
 
   return (
