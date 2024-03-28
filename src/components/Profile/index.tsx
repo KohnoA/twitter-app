@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { memo, useMemo, useState } from 'react';
 
 import { useGetUserQuery } from '@/store/api';
 import { getDateString } from '@/utils';
@@ -28,7 +28,7 @@ import {
 } from './styled';
 import { ProfileProps } from './types';
 
-export const Profile = ({ userId, isOwner }: ProfileProps) => {
+export const Profile = memo(({ userId, isOwner }: ProfileProps) => {
   const { data: user, isLoading } = useGetUserQuery(userId);
   const [showEditModal, setShowEditModal] = useState<boolean>(INITIAL_MODAL_STATE);
   const [showChangePasswordForm, setShowChangePasswordForm] = useState(
@@ -103,4 +103,4 @@ export const Profile = ({ userId, isOwner }: ProfileProps) => {
       </ModalStyled>
     </ProfileWrapper>
   );
-};
+});

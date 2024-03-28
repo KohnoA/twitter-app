@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from 'react';
+import { memo, useEffect, useMemo } from 'react';
 import { useForm } from 'react-hook-form';
 
 import { useAppSelector } from '@/hooks';
@@ -19,7 +19,7 @@ import {
 } from './styled';
 import { NewTweetFormFileds, NewTweetProps } from './types';
 
-export const NewTweet = ({ className, onSuccess }: NewTweetProps) => {
+export const NewTweet = memo(({ className, onSuccess }: NewTweetProps) => {
   const { handleSubmit, register, watch, reset } = useForm<NewTweetFormFileds>();
   const [addTweet, { isLoading, isSuccess }] = useAddTweetMutation();
   const { data: userData } = useAppSelector(userSelector);
@@ -74,4 +74,4 @@ export const NewTweet = ({ className, onSuccess }: NewTweetProps) => {
       </ControlsWrapper>
     </NewTweetContainer>
   );
-};
+});

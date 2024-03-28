@@ -78,12 +78,15 @@ export const tweetApi = createApi({
       },
       invalidatesTags: ['Tweet'],
     }),
-    getUserTweets: builder.query<TweetDataType[], string>({
-      queryFn: async (userId) => {
+    getUserTweets: builder.query<
+      { total: number; tweets: TweetDataType[] },
+      { userId: string; page?: number }
+    >({
+      queryFn: async ({ userId, page }) => {
         try {
-          const tweets = await getUserTweetsFirestore(userId);
+          const data = await getUserTweetsFirestore(userId, page);
 
-          return { data: tweets };
+          return { data };
         } catch (error) {
           console.error(error);
 
@@ -92,12 +95,12 @@ export const tweetApi = createApi({
       },
       providesTags: ['Tweet'],
     }),
-    getAllTweets: builder.query<TweetDataType[], void>({
-      queryFn: async () => {
+    getAllTweets: builder.query<{ total: number; tweets: TweetDataType[] }, number | void>({
+      queryFn: async (page) => {
         try {
-          const tweets = await getAllTweetsFirestore();
+          const data = await getAllTweetsFirestore(page ?? undefined);
 
-          return { data: tweets };
+          return { data };
         } catch (error) {
           console.error(error);
 

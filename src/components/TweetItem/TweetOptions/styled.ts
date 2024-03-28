@@ -25,7 +25,7 @@ export const MoreButton = styled.button`
 export const TweetOptionsStyled = styled.ul`
   position: absolute;
   z-index: 2;
-  top: 100%;
+  top: 0;
   right: 100%;
 
   padding: ${({ theme }) => theme.margins.sm}px;
@@ -54,6 +54,7 @@ export const TweetOption = styled.li<TweetOptionProps>`
   ${interactive()}
 
   color: ${({ theme }) => theme.colors.stroke};
+  font-size: ${({ theme }) => theme.fontSizes.lg}px;
   font-weight: ${({ theme }) => theme.fontWeight.md};
   white-space: nowrap;
 
