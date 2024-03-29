@@ -9,8 +9,7 @@ export async function removeLikeToTweet(tweetId: string, userId: string) {
   const tweetSnap = await getDoc(tweetRef);
   const tweetData = tweetSnap.data() as TweetDataType;
 
-  const likesCount = tweetData.likes.count - 1;
   const users = [...tweetData.likes.users].filter((id) => id !== userId);
 
-  await updateDoc(tweetRef, { 'likes.count': likesCount, 'likes.users': users });
+  await updateDoc(tweetRef, { 'likes.count': users.length, 'likes.users': users });
 }

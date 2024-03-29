@@ -136,6 +136,7 @@ export const tweetApi = createApi({
           return GENERAL_ERROR;
         }
       },
+      invalidatesTags: ['Tweet'],
     }),
     removeLikeToTweet: builder.mutation<null, { tweetId: string; userId: string }>({
       queryFn: async ({ tweetId, userId }) => {
@@ -149,6 +150,7 @@ export const tweetApi = createApi({
           return GENERAL_ERROR;
         }
       },
+      invalidatesTags: ['Tweet'],
     }),
     deleteTweet: builder.mutation<null, string>({
       queryFn: async (tweetId) => {
