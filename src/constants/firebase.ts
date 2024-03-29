@@ -11,6 +11,7 @@ export enum FirebaseErrorCodes {
   INVALID_CREDENTIAL = 'auth/invalid-credential',
   INVALID_PASSWORD = 'auth/wrong-password',
   STORAGE_NOT_FOUND = 'storage/object-not-found',
+  USER_NOT_FOUND = 'auth/user-not-found',
 }
 
 export enum FirestoreDocKeys {

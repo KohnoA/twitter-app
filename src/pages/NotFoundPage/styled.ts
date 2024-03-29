@@ -21,6 +21,11 @@ export const NotFoundTitle = styled(Title)`
   color: ${({ theme }) => theme.colors.main};
 
   ${({ theme }) => media('tablet')(`font-size: ${theme.fontSizes.xl5}px;`)}
+
+  & svg {
+    width: ${({ theme }) => theme.iconSize.xl}px;
+    height: ${({ theme }) => theme.iconSize.xl}px;
+  }
 `;
 
 export const NotFoundParagraph = styled(Paragraph)`

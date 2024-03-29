@@ -12,6 +12,8 @@ import { firebaseErrorHandler } from '@/utils';
 
 import { setEmailStep } from '../slices';
 
+const GENERAL_ERROR = { error: { message: Errors.GENERAL_ERROR } };
+
 export const authApi = createApi({
   reducerPath: 'authApi',
   baseQuery: fakeBaseQuery<{ message: Errors }>(),
@@ -27,7 +29,7 @@ export const authApi = createApi({
           if (error instanceof FirebaseError) return firebaseErrorHandler(error);
 
           console.error(error);
-          return { error: { message: Errors.GENERAL_ERROR } };
+          return GENERAL_ERROR;
         }
       },
     }),
@@ -41,7 +43,7 @@ export const authApi = createApi({
           if (error instanceof FirebaseError) return firebaseErrorHandler(error);
 
           console.error(error);
-          return { error: { message: Errors.GENERAL_ERROR } };
+          return GENERAL_ERROR;
         }
       },
     }),
@@ -54,7 +56,7 @@ export const authApi = createApi({
         } catch (error) {
           console.error(error);
 
-          return { error: { message: Errors.GENERAL_ERROR } };
+          return GENERAL_ERROR;
         }
       },
     }),

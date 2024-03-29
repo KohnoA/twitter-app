@@ -4,6 +4,8 @@ import { Errors, FirebaseErrorCodes } from '@/constants';
 
 export function firebaseErrorHandler(error: FirebaseError) {
   switch (error.code) {
+    case FirebaseErrorCodes.USER_NOT_FOUND:
+      return { error: { message: Errors.USER_NOT_FOUND } };
     case FirebaseErrorCodes.INVALID_CREDENTIAL:
       return { error: { message: Errors.INVALID_USER_CREDENTIAL } };
     case FirebaseErrorCodes.INVALID_PASSWORD:
