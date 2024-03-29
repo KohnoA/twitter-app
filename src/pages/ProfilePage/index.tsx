@@ -18,7 +18,7 @@ export const ProfilePage = () => {
     isLoading,
     isFetching,
   } = useGetUserTweetsQuery({
-    userId: userId ?? owner!.id,
+    userId: userId ?? owner?.id,
     page,
   });
   const showMoreButton = !isLoading && userTweets && userTweets?.tweets.length < userTweets?.total;

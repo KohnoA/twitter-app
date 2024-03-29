@@ -78,9 +78,11 @@ export const tweetApi = createApi({
     }),
     getUserTweets: builder.query<
       { total: number; tweets: TweetDataType[] },
-      { userId: string; page?: number }
+      { userId?: string | null; page?: number }
     >({
       queryFn: async ({ userId, page }) => {
+        if (!userId) return { data: { total: 0, tweets: [] } };
+
         try {
           const data = await getUserTweetsFirestore(userId, page);
 
