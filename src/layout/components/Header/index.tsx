@@ -40,7 +40,7 @@ export const Header = memo(({ onClickBurger }: HeaderProps) => {
 
   return (
     <S.HeaderWrapper>
-      <S.LeftContainer>
+      <S.SideContainer>
         {showBackButton && (
           <S.BackButton onClick={handleHistoryBack}>
             <BackIcon width={30} height={30} />
@@ -52,7 +52,7 @@ export const Header = memo(({ onClickBurger }: HeaderProps) => {
         </S.BurgerButton>
 
         <S.PageTitle $size="xl3">{pageTitle}</S.PageTitle>
-      </S.LeftContainer>
+      </S.SideContainer>
 
       <S.RightContainer>
         <S.SearchContainer>{currentSearchBar}</S.SearchContainer>
