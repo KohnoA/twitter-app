@@ -8,17 +8,7 @@ import {
   INITIAL_VALUE,
   SpinnerIcon,
 } from './constants';
-import {
-  CrossButton,
-  CrossIconStyled,
-  ElasticSearchContainer,
-  ElasticSearchForm,
-  EmptyMessage,
-  ResultsContainer,
-  SearchIconStyled,
-  SearchInputStyled,
-  SearchLoader,
-} from './styled';
+import * as S from './styled';
 import { ElasticSearchProps } from './types';
 
 export const ElasticSearch = memo((props: ElasticSearchProps) => {
@@ -56,11 +46,11 @@ export const ElasticSearch = memo((props: ElasticSearchProps) => {
   };
 
   return (
-    <ElasticSearchContainer className={className}>
-      <ElasticSearchForm onSubmit={onSubmit}>
-        <SearchIconStyled />
+    <S.ElasticSearchContainer className={className}>
+      <S.ElasticSearchForm onSubmit={onSubmit}>
+        <S.SearchIconStyled />
 
-        <SearchInputStyled
+        <S.SearchInputStyled
           value={value}
           onChange={onChange}
           type="text"
@@ -68,25 +58,27 @@ export const ElasticSearch = memo((props: ElasticSearchProps) => {
         />
 
         {showClearButton && (
-          <CrossButton onClick={onClear}>
-            <CrossIconStyled />
-          </CrossButton>
+          <S.CrossButton onClick={onClear}>
+            <S.CrossIconStyled />
+          </S.CrossButton>
         )}
-      </ElasticSearchForm>
+      </S.ElasticSearchForm>
 
       {showClearButton && (
-        <ResultsContainer onClick={onClear}>
+        <S.ResultsContainer onClick={onClear}>
           {isLoading ? (
-            <SearchLoader>
-              <SpinnerIcon width={30} height={30} />
-            </SearchLoader>
+            <S.SearchLoader>
+              <SpinnerIcon />
+            </S.SearchLoader>
           ) : (
             children
           )}
 
-          {showEmptyMessage && <EmptyMessage>{emptyMessage ?? DEFAULT_EMPTY_MESSAGE}</EmptyMessage>}
-        </ResultsContainer>
+          {showEmptyMessage && (
+            <S.EmptyMessage as="p">{emptyMessage ?? DEFAULT_EMPTY_MESSAGE}</S.EmptyMessage>
+          )}
+        </S.ResultsContainer>
       )}
-    </ElasticSearchContainer>
+    </S.ElasticSearchContainer>
   );
 });

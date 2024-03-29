@@ -35,7 +35,7 @@ export const Recommendations = ({ className }: RecommendationsProps) => {
 
       {isLoading && (
         <S.LoaderContainer>
-          <SpinnerIcon width={30} height={30} />
+          <SpinnerIcon />
         </S.LoaderContainer>
       )}
 

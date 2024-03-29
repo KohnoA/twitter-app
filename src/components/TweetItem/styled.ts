@@ -96,20 +96,21 @@ export const LikeButton = styled.button<LikeButtonProps>`
   border: none;
 
   & svg {
-    width: 24px;
-    height: 24px;
+    width: ${({ theme }) => theme.iconSize.md}px;
+    height: ${({ theme }) => theme.iconSize.md}px;
 
     & path {
       fill: ${({ theme, $isActive }) => !$isActive && theme.colors.textInput};
     }
   }
 
-  ${media('tablet')`
+  ${({ theme }) =>
+    media('tablet')(`
      & svg {
-      width: 20px;
-      height: 20px;
+      width: ${theme.iconSize.sm}px;
+      height: ${theme.iconSize.sm}px;
      }
-  `}
+  `)}
 `;
 
 export const TweetPhoto = styled.img`

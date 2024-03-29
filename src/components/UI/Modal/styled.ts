@@ -37,7 +37,7 @@ export const ModalCloseButtom = styled.button`
   cursor: pointer;
 
   & svg {
-    width: 40px;
-    height: 40px;
+    width: ${({ theme }) => theme.iconSize.xl}px;
+    height: ${({ theme }) => theme.iconSize.xl}px;
   }
 `;

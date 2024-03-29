@@ -32,6 +32,11 @@ export const LoaderContainer = styled.div`
   ${flex()}
 
   padding: ${({ theme }) => `${theme.margins.md}px 0`};
+
+  & svg {
+    width: ${({ theme }) => theme.iconSize.lg}px;
+    height: ${({ theme }) => theme.iconSize.lg}px;
+  }
 `;
 
 export const EmptyMessage = styled(Paragraph)`

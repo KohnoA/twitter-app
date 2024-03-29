@@ -68,5 +68,13 @@ declare module 'styled-components' {
     duration: number;
 
     shadow: string;
+
+    iconSize: {
+      xl2: number;
+      xl: number;
+      lg: number;
+      md: number;
+      sm: number;
+    };
   }
 }

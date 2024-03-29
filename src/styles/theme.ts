@@ -78,6 +78,14 @@ export const generalTheme = {
   duration: 300,
 
   shadow: `4px 4px 10px 4px ${AppColors.BLACK_TRANSPARENT}`,
+
+  iconSize: {
+    xl2: 60,
+    xl: 40,
+    lg: 30,
+    md: 24,
+    sm: 20,
+  },
 };
 
 export const getTheme = (theme: AppThemes) => ({

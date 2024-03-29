@@ -23,7 +23,7 @@ export const TweetOptions = memo(({ tweetId, isOwner }: TweetOptionsProps) => {
       <S.TweetOptionsStyled>
         <S.TweetOption $isLoading={isLoading} onClick={hanldeRemove}>
           <S.Loader>
-            <SpinnerIcon width={24} height={24} />
+            <SpinnerIcon />
           </S.Loader>
           <span>Remove Tweet</span>
         </S.TweetOption>

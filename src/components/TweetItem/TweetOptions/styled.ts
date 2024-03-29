@@ -12,14 +12,16 @@ export const MoreButton = styled.button`
 
   ${interactive()}
 
-  & svg {
-    width: 20px;
-    height: 20px;
+  ${({ theme }) => `
+    & svg {
+      width: ${theme.iconSize.sm}px;
+      height: ${theme.iconSize.sm}px;
 
-    & path {
-      fill: ${({ theme }) => theme.colors.text};
+      & path {
+        fill: ${theme.colors.text};
+      }
     }
-  }
+  `}
 `;
 
 export const TweetOptionsStyled = styled.ul`
@@ -39,12 +41,17 @@ export const TweetOptionsStyled = styled.ul`
 `;
 
 export const Loader = styled.div`
+  display: none;
+
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
 
-  display: none;
+  & svg {
+    width: ${({ theme }) => theme.iconSize.md}px;
+    height: ${({ theme }) => theme.iconSize.md}px;
+  }
 `;
 
 export const TweetOption = styled.li<TweetOptionProps>`
