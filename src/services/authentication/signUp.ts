@@ -5,16 +5,15 @@ import { UserDataType } from '@/types';
 
 import { setUserById } from '../firestore';
 
-export async function signUp(data: Omit<UserDataType, 'id' | 'avatar'>, password: string) {
+export async function signUp(data: Omit<UserDataType, 'id'>, password: string) {
   const { email, ...otherData } = data;
 
   const {
-    user: { uid, photoURL },
+    user: { uid },
   } = await createUserWithEmailAndPassword(auth, email, password);
 
   const newUser = {
     id: uid,
-    avatar: photoURL,
     email,
     ...otherData,
   };

@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { useForm } from 'react-hook-form';
 
 import { AppRoutes, MONTH } from '@/constants';
@@ -5,7 +6,7 @@ import { useAppDispatch, useAppSelector } from '@/hooks';
 import { signUpSelector } from '@/store/selectors';
 import { setEmailFormData, setPasswordStep } from '@/store/slices';
 import { EmailFormFields } from '@/types';
-import { getDaysOptions, getYearsOptions } from '@/utils';
+import { getDaysOptions } from '@/utils';
 
 import { Button, Input, Select } from '../UI';
 
@@ -21,6 +22,9 @@ export const SignUpEmailForm = () => {
     watch,
     formState: { errors },
   } = useForm<EmailFormFields>({ defaultValues: emailFormData });
+  const monthAndYearWatch = watch(['month', 'year']);
+
+  const dayOptions = useMemo(() => getDaysOptions(...monthAndYearWatch), [monthAndYearWatch]);
 
   const onSubmit = (data: EmailFormFields) => {
     dispatch(setPasswordStep());
@@ -72,14 +76,14 @@ export const SignUpEmailForm = () => {
           data-testid="signup-day-select"
           placeholder="Day"
           error={errors.day?.message}
-          options={getDaysOptions(...watch(['month', 'year']))}
+          options={dayOptions}
           register={register('day', config.selectValidation)}
         />
 
         <Select
           data-testid="signup-year-select"
           placeholder="Year"
-          options={getYearsOptions()}
+          options={config.yearOptions}
           error={errors.year?.message}
           register={register('year', config.selectValidation)}
         />

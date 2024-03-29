@@ -13,3 +13,12 @@ export interface TweetDataType {
     users: string[];
   };
 }
+
+export interface UserDataType {
+  birthday: string;
+  email: string;
+  name: string;
+  phone: string;
+  id: string;
+  description?: string;
+}

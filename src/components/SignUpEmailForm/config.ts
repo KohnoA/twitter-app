@@ -1,7 +1,7 @@
 import { RegisterOptions } from 'react-hook-form';
 
 import { Errors, REGEX_EMAIL, REGEX_NAME, REGEX_PHONE } from '@/constants';
-import { setPhoneMask } from '@/utils';
+import { getYearsOptions, setPhoneMask } from '@/utils';
 
 export const birthdayDescription =
   'Facilisi sem pulvinar velit nunc, gravida scelerisque amet nibh sit. Quis bibendum ante phasellus metus, magna lacinia sed augue. Odio enim nascetur leo mauris vel eget. Pretium id ullamcorper blandit viverra dignissim eget tellus. Nibh mi massa in molestie a sit. Elit congue.';
@@ -37,3 +37,5 @@ export const phoneValidation: RegisterOptions = {
 export const selectValidation: RegisterOptions = {
   required: Errors.REQUIRED,
 };
+
+export const yearOptions = getYearsOptions();

@@ -11,4 +11,4 @@ declare module '*.woff';
 
 /// <reference types="vite/client" />
 /// <reference types="vite-plugin-svgr/client" />
-/// <reference types="types/styles/theme" />
+/// <reference types="types/theme" />
