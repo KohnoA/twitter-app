@@ -28,5 +28,10 @@ export const SpinnerStyled = styled(Spinner)`
   position: static;
   transform: initial;
 
-  margin: 20vh auto;
+  margin: 15% auto;
+
+  & svg {
+    width: ${({ theme }) => theme.iconSize.xl}px;
+    height: ${({ theme }) => theme.iconSize.xl}px;
+  }
 `;

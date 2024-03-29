@@ -38,7 +38,7 @@ export const Profile = memo(({ userId, isOwner, tweetsCount }: ProfileProps) => 
   if (isLoading) {
     return (
       <S.ProfileWrapper>
-        <S.SpinnerStyled width={50} height={50} />
+        <S.SpinnerStyled />
       </S.ProfileWrapper>
     );
   }

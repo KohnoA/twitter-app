@@ -7,9 +7,9 @@ import { Footer, RightSidebar } from '../components';
 export const MainLayoutWrapper = styled.section`
   display: grid;
   grid-template-columns: 20% 55% 25%;
+  align-items: stretch;
 
   max-width: 1920px;
-  min-height: 100vh;
 
   margin: 0 auto;
 
@@ -25,8 +25,6 @@ export const MainLayoutWrapper = styled.section`
 export const PageWrapper = styled.div`
   display: flex;
   flex-direction: column;
-
-  min-height: 100vh;
 `;
 
 export const MainContent = styled.main`
