@@ -10,7 +10,7 @@ import { ElasticSearch } from '../UI';
 import * as S from './styled';
 
 interface SearchBarByTweetsProps {
-  onOpen?: () => void;
+  onOpen?: (isOpen: boolean) => void;
 }
 
 export const SearchBarByTweets = ({ onOpen }: SearchBarByTweetsProps) => {
@@ -22,7 +22,7 @@ export const SearchBarByTweets = ({ onOpen }: SearchBarByTweetsProps) => {
   const handleSearchValue = (value: string) => {
     debounce(() => {
       trigger(value);
-      if (onOpen) onOpen();
+      if (onOpen) onOpen(!!value.length);
     });
   };
 

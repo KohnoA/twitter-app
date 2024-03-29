@@ -6,7 +6,7 @@ import { ElasticSearch } from '../UI';
 import * as S from './styled';
 
 interface SearchBarByUsersProps {
-  onOpen?: () => void;
+  onOpen?: (isOpen: boolean) => void;
 }
 
 export const SearchBarByUsers = ({ onOpen }: SearchBarByUsersProps) => {
@@ -17,7 +17,7 @@ export const SearchBarByUsers = ({ onOpen }: SearchBarByUsersProps) => {
   const handleSearchValue = (value: string) => {
     debounce(() => {
       trigger(value);
-      if (onOpen) onOpen();
+      if (onOpen) onOpen(!!value.length);
     });
   };
 

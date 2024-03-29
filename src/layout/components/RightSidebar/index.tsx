@@ -13,7 +13,9 @@ export const RightSidebar = memo(({ className }: RightSidebarProps) => {
   const [hideRecommendations, setHideRecommendations] = useState<boolean>(false);
   const { pathname } = useLocation();
 
-  const handleRecommendationShow = () => setHideRecommendations((prev) => !prev);
+  const handleRecommendationShow = (isOpen: boolean) => {
+    setHideRecommendations(isOpen);
+  };
 
   const currentSearchBar = useMemo(() => {
     switch (true) {
