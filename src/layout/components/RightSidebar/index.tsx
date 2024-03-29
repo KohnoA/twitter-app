@@ -1,4 +1,4 @@
-import { memo, useMemo } from 'react';
+import { memo, useMemo, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
 import { SearchBarByTweets, SearchBarByUsers } from '@/components';
@@ -7,21 +7,20 @@ import { AppRoutes } from '@/constants';
 import { Footer } from '../Footer';
 
 import * as S from './styled';
-
-interface RightSidebarProps {
-  className?: string;
-}
+import { RightSidebarProps } from './types';
 
 export const RightSidebar = memo(({ className }: RightSidebarProps) => {
+  const [hideRecommendations, setHideRecommendations] = useState<boolean>(false);
   const { pathname } = useLocation();
+
+  const handleRecommendationShow = () => setHideRecommendations((prev) => !prev);
 
   const currentSearchBar = useMemo(() => {
     switch (true) {
       case pathname.includes(AppRoutes.HOME):
-        return <SearchBarByTweets />;
-
+        return <SearchBarByTweets onOpen={handleRecommendationShow} />;
       default:
-        return <SearchBarByUsers />;
+        return <SearchBarByUsers onOpen={handleRecommendationShow} />;
     }
   }, [pathname]);
 
@@ -29,7 +28,7 @@ export const RightSidebar = memo(({ className }: RightSidebarProps) => {
     <S.RightSidebarWrapper className={className}>
       <S.RightSidebarSearchWrapper>{currentSearchBar}</S.RightSidebarSearchWrapper>
 
-      <S.RecommendationsStyled />
+      <S.RecommendationsStyled $isHidden={hideRecommendations} />
 
       <S.RightSidebarFooter>
         <Footer />

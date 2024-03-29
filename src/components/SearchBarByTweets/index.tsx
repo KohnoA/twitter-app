@@ -1,7 +1,7 @@
-import { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { AppRoutes } from '@/constants';
+import { useDebounce } from '@/hooks';
 import { useLazyFindTweetsQuery } from '@/store/api';
 import { getShortDate } from '@/utils';
 
@@ -9,17 +9,22 @@ import { ElasticSearch } from '../UI';
 
 import * as S from './styled';
 
-export const SearchBarByTweets = () => {
-  const [trigger, { data, isFetching }] = useLazyFindTweetsQuery();
-  const navigate = useNavigate();
-  const showEmptyMessage = !data?.length;
+interface SearchBarByTweetsProps {
+  onOpen?: () => void;
+}
 
-  const handleSearchValue = useCallback(
-    (value: string) => {
+export const SearchBarByTweets = ({ onOpen }: SearchBarByTweetsProps) => {
+  const [trigger, { data, isFetching }] = useLazyFindTweetsQuery();
+  const debounce = useDebounce();
+  const navigate = useNavigate();
+  const showEmptyMessage = !!data && !data.length;
+
+  const handleSearchValue = (value: string) => {
+    debounce(() => {
       trigger(value);
-    },
-    [trigger],
-  );
+      if (onOpen) onOpen();
+    });
+  };
 
   const handleClick = (tweetId: string) => {
     navigate(`${AppRoutes.HOME}/${tweetId}`);

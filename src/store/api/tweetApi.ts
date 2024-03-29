@@ -109,10 +109,10 @@ export const tweetApi = createApi({
       },
       providesTags: ['Tweet'],
     }),
-    findTweets: builder.query<TweetDataType[], string>({
+    findTweets: builder.query<TweetDataType[] | null, string>({
       queryFn: async (value) => {
         try {
-          if (!value.length) return { data: [] };
+          if (!value.length) return { data: null };
 
           const tweets = await findTweetsByMessage(value);
 

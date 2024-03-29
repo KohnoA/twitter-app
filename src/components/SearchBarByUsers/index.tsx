@@ -1,21 +1,25 @@
-import { useCallback } from 'react';
-
+import { useDebounce } from '@/hooks/useDebounce';
 import { useLazyFindUsersQuery } from '@/store/api';
 
 import { ElasticSearch } from '../UI';
 
 import * as S from './styled';
 
-export const SearchBarByUsers = () => {
-  const [trigger, { data, isFetching }] = useLazyFindUsersQuery();
-  const showEmptyMessage = !data?.length;
+interface SearchBarByUsersProps {
+  onOpen?: () => void;
+}
 
-  const handleSearchValue = useCallback(
-    (value: string) => {
+export const SearchBarByUsers = ({ onOpen }: SearchBarByUsersProps) => {
+  const [trigger, { data, isFetching }] = useLazyFindUsersQuery();
+  const debounce = useDebounce();
+  const showEmptyMessage = !!data && !data.length;
+
+  const handleSearchValue = (value: string) => {
+    debounce(() => {
       trigger(value);
-    },
-    [trigger],
-  );
+      if (onOpen) onOpen();
+    });
+  };
 
   return (
     <ElasticSearch

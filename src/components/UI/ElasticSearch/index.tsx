@@ -1,6 +1,4 @@
-import { ChangeEvent, FormEvent, memo, useEffect, useState } from 'react';
-
-import { useDebounce } from '@/hooks';
+import { ChangeEvent, Children, FormEvent, memo, useState } from 'react';
 
 import {
   DEFAULT_EMPTY_MESSAGE,
@@ -23,13 +21,9 @@ export const ElasticSearch = memo((props: ElasticSearchProps) => {
   } = props;
 
   const [value, setValue] = useState<string>(INITIAL_VALUE);
-  const debouncedValue = useDebounce(value);
-  const showEmptyMessage = !isLoading && !!debouncedValue && isEmpty;
+  const showEmptyMessage = !isLoading && isEmpty;
   const showClearButton = !!value.length;
-
-  useEffect(() => {
-    if (innerOnChange && debouncedValue) innerOnChange(debouncedValue);
-  }, [debouncedValue, innerOnChange]);
+  const showOptions = isLoading || isEmpty || Children.count(children) > 0;
 
   const onSubmit = (event: FormEvent) => event.preventDefault();
 
@@ -37,7 +31,7 @@ export const ElasticSearch = memo((props: ElasticSearchProps) => {
     const newValue = event.target.value;
 
     setValue(newValue);
-    if (innerOnChange && !newValue.length) innerOnChange(INITIAL_VALUE);
+    if (innerOnChange) innerOnChange(newValue);
   };
 
   const onClear = () => {
@@ -64,7 +58,7 @@ export const ElasticSearch = memo((props: ElasticSearchProps) => {
         )}
       </S.ElasticSearchForm>
 
-      {showClearButton && (
+      {showOptions && (
         <S.ResultsContainer onClick={onClear}>
           {isLoading ? (
             <S.SearchLoader>

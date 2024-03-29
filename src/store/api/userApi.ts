@@ -76,10 +76,10 @@ export const userApi = createApi({
       },
       invalidatesTags: ['User'],
     }),
-    findUsers: builder.query<UserDataType[], string>({
+    findUsers: builder.query<UserDataType[] | null, string>({
       queryFn: async (value, { getState }) => {
         try {
-          if (!value.length) return { data: [] };
+          if (!value.length) return { data: null };
 
           const state = getState() as { user: { data: UserDataType | null } };
           const { data } = state.user;
