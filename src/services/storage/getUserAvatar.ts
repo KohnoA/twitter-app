@@ -1,10 +1,17 @@
-import { getDownloadURL, ref } from 'firebase/storage';
+import { getDownloadURL, listAll, ref } from 'firebase/storage';
 
 import { storage } from '@/firebase';
 
 export async function getUserAvatar(userId: string) {
-  const imageRef = ref(storage, `avatars/${userId}`);
-  const url = await getDownloadURL(imageRef);
+  const avatarRef = ref(storage, `avatars/${userId}`);
+  const listData = await listAll(avatarRef);
+  const avatarIsExist = listData.items.length;
 
-  return url;
+  if (avatarIsExist) {
+    const url = await getDownloadURL(ref(storage, listData.items[0].fullPath));
+
+    return url;
+  }
+
+  return null;
 }

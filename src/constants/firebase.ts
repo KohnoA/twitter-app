@@ -10,6 +10,7 @@ export enum FirebaseErrorCodes {
   EMAIL_ALREADY_USE = 'auth/email-already-in-use',
   INVALID_CREDENTIAL = 'auth/invalid-credential',
   INVALID_PASSWORD = 'auth/wrong-password',
+  STORAGE_NOT_FOUND = 'storage/object-not-found',
 }
 
 export enum FirestoreDocKeys {
