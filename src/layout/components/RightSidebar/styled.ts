@@ -18,7 +18,7 @@ export const RightSidebarSearchWrapper = styled.div`
 export const RecommendationsStyled = styled(Recommendations)<RecommendationsStyledProps>`
   margin-bottom: 80px;
 
-  transition: all ${({ theme }) => theme.duration}ms;
+  transition: ${({ theme }) => `opacity ${theme.duration}ms, blur ${theme.duration}ms`};
 
   ${({ $isHidden }) =>
     $isHidden &&

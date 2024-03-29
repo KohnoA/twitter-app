@@ -1,7 +1,7 @@
-import { memo, useMemo, useRef, useState } from 'react';
+import { memo, useMemo, useState } from 'react';
 
 import { Paragraph } from '@/components/UI';
-import { useAppSelector } from '@/hooks';
+import { useAppSelector, useDebounce } from '@/hooks';
 import {
   useAddLikeToTweetMutation,
   useRemoveLikeToTweetMutation,
@@ -19,6 +19,7 @@ export const TweetItem = memo(({ tweet }: TweetItemProps) => {
   const { id: tweetId, message, author, date, photo, likes } = tweet;
   const { id: authorId, name, email } = author;
 
+  const debounce = useDebounce();
   const { data: avatar } = useUserAvatarQuery(authorId);
   const [addLike] = useAddLikeToTweetMutation();
   const [removeLike] = useRemoveLikeToTweetMutation();
@@ -27,23 +28,21 @@ export const TweetItem = memo(({ tweet }: TweetItemProps) => {
   const [isOwnerLiked, setIsOwnerLiked] = useState<boolean>(
     !!owner && likes.users.includes(owner.id),
   );
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
   const tweetDate = useMemo(() => getShortDate(date), [date]);
   const isOwnerTweet = owner?.id === authorId;
 
   const handleLikeClick = () => {
+    if (!owner) return;
+
     const currentOwnerLiked = !isOwnerLiked;
 
     setIsOwnerLiked(currentOwnerLiked);
     setCountLikes(currentOwnerLiked ? countLikes + 1 : countLikes - 1);
 
-    if (timerRef.current) clearTimeout(timerRef.current);
-
-    timerRef.current = setTimeout(async () => {
-      if (!owner) return;
-      if (currentOwnerLiked) await addLike({ tweetId, userId: owner.id });
-      else await removeLike({ tweetId, userId: owner.id });
-    }, 500);
+    debounce(() => {
+      if (currentOwnerLiked) addLike({ tweetId, userId: owner.id });
+      else removeLike({ tweetId, userId: owner.id });
+    });
   };
 
   return (
