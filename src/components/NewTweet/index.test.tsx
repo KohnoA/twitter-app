@@ -12,6 +12,8 @@ describe('Testing NewTweet component', () => {
     render(<NewTweet />);
   });
 
+  afterAll(() => jest.clearAllMocks());
+
   it('Should be rendered', () => {
     expect(screen.getByTestId('new-tweet-form')).toBeInTheDocument();
   });

@@ -17,6 +17,8 @@ describe('Testing EditProfileForm component', () => {
     render(<EditProfileForm {...mockProps} />);
   });
 
+  afterAll(() => jest.clearAllMocks());
+
   it('Should be rendered', () => {
     expect(screen.getByTestId('edit-profile-form')).toBeInTheDocument();
   });

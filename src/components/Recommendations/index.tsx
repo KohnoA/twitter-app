@@ -43,7 +43,11 @@ export const Recommendations = ({ className }: RecommendationsProps) => {
 
       {recommendationsData}
 
-      {showMoreButton && <S.MoreButton onClick={handleChangeStep}>Show more</S.MoreButton>}
+      {showMoreButton && (
+        <S.MoreButton onClick={handleChangeStep} data-testid="show-more-button">
+          Show more
+        </S.MoreButton>
+      )}
     </section>
   );
 };

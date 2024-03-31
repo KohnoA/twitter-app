@@ -7,6 +7,8 @@ import { LoginForm } from './index';
 describe('Testing LoginForm component', () => {
   beforeEach(() => render(<LoginForm />));
 
+  afterAll(() => jest.clearAllMocks());
+
   it('Should be rendered', () => {
     expect(screen.getByTestId('login-form')).toBeInTheDocument();
   });

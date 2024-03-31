@@ -11,6 +11,8 @@ const mockProps = {
 describe('Testing ChangePasswordForm component', () => {
   beforeEach(() => render(<ChangePasswordForm {...mockProps} />));
 
+  afterAll(() => jest.clearAllMocks());
+
   it('Should be rendered', () => {
     expect(screen.getByTestId('change-password-form')).toBeInTheDocument();
   });
