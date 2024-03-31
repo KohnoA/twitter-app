@@ -20,7 +20,7 @@ export const LoginForm = () => {
   const onSubmit = (data: LoginFormFields) => signIn(data);
 
   return (
-    <S.LoginFormStyled onSubmit={handleSubmit(onSubmit)}>
+    <S.LoginFormStyled onSubmit={handleSubmit(onSubmit)} data-testid="login-form">
       <Input
         data-testid="login-email-input"
         placeholder="Email address"

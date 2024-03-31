@@ -30,7 +30,7 @@ export const Recommendations = ({ className }: RecommendationsProps) => {
   );
 
   return (
-    <section className={className}>
+    <section className={className} data-testid="recommendations">
       <S.RecommendationsTitle $size="xl2">You Must Like</S.RecommendationsTitle>
 
       {isLoading && (

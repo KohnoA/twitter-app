@@ -1,4 +1,4 @@
-import { memo, useEffect, useMemo } from 'react';
+import { memo, useMemo } from 'react';
 import { useForm } from 'react-hook-form';
 
 import { useAppSelector } from '@/hooks';
@@ -12,7 +12,7 @@ import * as S from './styled';
 import { NewTweetFormFileds, NewTweetProps } from './types';
 
 export const NewTweet = memo(({ className, onSuccess }: NewTweetProps) => {
-  const [addTweet, { isLoading, isSuccess }] = useAddTweetMutation();
+  const [addTweet, { isLoading }] = useAddTweetMutation();
   const { data: userData } = useAppSelector(userSelector);
   const { data: avatar } = useUserAvatarQuery(userData?.id);
   const {
@@ -29,19 +29,14 @@ export const NewTweet = memo(({ className, onSuccess }: NewTweetProps) => {
     const { tweet, image } = data;
 
     await addTweet({ tweet, image: image.length ? image : undefined });
+    reset();
+    if (onSuccess) onSuccess();
   };
 
   const uploadedImage = useMemo(
     () => !imageError && !!watchImage?.length && URL.createObjectURL(watchImage[0]),
     [imageError, watchImage],
   );
-
-  useEffect(() => {
-    if (isSuccess) {
-      if (onSuccess) onSuccess();
-      reset();
-    }
-  }, [isSuccess, reset, onSuccess]);
 
   return (
     <S.NewTweetContainer

@@ -24,7 +24,12 @@ export const UserCard = memo(({ className, user }: UserCardProps) => {
   };
 
   return (
-    <S.UserCardWrapper $isOwner={isOwnerCard} className={className} onClick={handleClick}>
+    <S.UserCardWrapper
+      $isOwner={isOwnerCard}
+      className={className}
+      onClick={handleClick}
+      data-testid="user-card"
+    >
       <S.UserAvatarStyled $avatarUrl={avatar} />
 
       <S.NameEmailWrapper>

@@ -44,7 +44,7 @@ export const Profile = memo(({ userId, isOwner, tweetsCount }: ProfileProps) => 
   }
 
   return (
-    <S.ProfileWrapper>
+    <S.ProfileWrapper data-testid="profile">
       <S.ProfileBg>
         <S.EditWrapper>
           <S.UserAvatarStyled $avatarUrl={avatar} />

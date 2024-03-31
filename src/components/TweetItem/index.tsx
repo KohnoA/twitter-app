@@ -46,7 +46,7 @@ export const TweetItem = memo(({ tweet }: TweetItemProps) => {
   };
 
   return (
-    <S.TweetItemContainer>
+    <S.TweetItemContainer data-testid="tweet-item">
       <S.UserAvatarStyled $avatarUrl={avatar} />
       <S.TweetItemContent>
         <S.TweetInfo>

@@ -12,12 +12,12 @@ import { ElasticSearchProps } from './types';
 export const ElasticSearch = memo((props: ElasticSearchProps) => {
   const {
     children,
-    className,
     placeholder,
     isLoading,
     isEmpty,
     emptyMessage,
     onChange: innerOnChange,
+    ...otherProps
   } = props;
 
   const [value, setValue] = useState<string>(INITIAL_VALUE);
@@ -40,7 +40,7 @@ export const ElasticSearch = memo((props: ElasticSearchProps) => {
   };
 
   return (
-    <S.ElasticSearchContainer className={className}>
+    <S.ElasticSearchContainer {...otherProps}>
       <S.ElasticSearchForm onSubmit={onSubmit}>
         <S.SearchIconStyled />
 

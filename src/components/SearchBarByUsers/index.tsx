@@ -23,6 +23,7 @@ export const SearchBarByUsers = ({ onOpen }: SearchBarByUsersProps) => {
 
   return (
     <ElasticSearch
+      data-testid="searchbar-by-users"
       placeholder="Search Users"
       onChange={handleSearchValue}
       isLoading={isFetching}

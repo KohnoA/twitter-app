@@ -13,6 +13,7 @@
     "prepare": "husky install",
     "format": "prettier . --write",
     "test": "jest",
+    "test:coverage": "jest --coverage",
     "test:e2e": "start-server-and-test 'yarn dev' http://localhost:5173 'yarn cypress:run'",
     "cypress:run": "cypress run --e2e --browser chrome",
     "cypress:open": "cypress open --e2e --browser chrome"

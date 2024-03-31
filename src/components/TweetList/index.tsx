@@ -8,7 +8,7 @@ export const TweetList = (props: TweetListProps) => {
   const showEmptyMessage = !isLoading && tweets && !tweets.length;
 
   return (
-    <section>
+    <section data-testid="tweet-list-section">
       <S.TweetListTitle>Tweets</S.TweetListTitle>
 
       {isLoading && <S.SpinnerStyled />}

@@ -8,4 +8,5 @@ export interface ElasticSearchProps {
   isLoading?: boolean;
   isEmpty?: boolean;
   emptyMessage?: string;
+  'data-testid'?: string;
 }

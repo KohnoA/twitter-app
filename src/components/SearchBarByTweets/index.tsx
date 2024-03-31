@@ -32,6 +32,7 @@ export const SearchBarByTweets = ({ onOpen }: SearchBarByTweetsProps) => {
 
   return (
     <ElasticSearch
+      data-testid="searchbar-by-tweets"
       placeholder="Search Tweets"
       isLoading={isFetching}
       isEmpty={showEmptyMessage}

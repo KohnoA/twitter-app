@@ -5,11 +5,32 @@
   "setupFilesAfterEnv": ["./src/setupTests.ts"],
   "transformIgnorePatterns": ["/node_modules/"],
   "extensionsToTreatAsEsm": [".ts", ".tsx"],
+  "collectCoverageFrom": ["<rootDir>/src/components/**/*.tsx", "<rootDir>/src/utils/**/*.ts"],
   "moduleNameMapper": {
     "^@/(.*)$": "<rootDir>/src/$1"
   },
   "transform": {
-    "^.+\\.(t|j)sx?$": "@swc/jest",
+    "^.+\\.(t|j)sx?$": [
+      "@swc/jest",
+      {
+        "$schema": "https://json.schemastore.org/swcrc",
+        "jsc": {
+          "parser": {
+            "syntax": "typescript"
+          },
+          "transform": {
+            "react": {
+              "runtime": "automatic"
+            }
+          },
+          "target": "es5",
+          "loose": false,
+          "externalHelpers": false,
+          "keepClassNames": false
+        },
+        "minify": false
+      }
+    ],
     "^.+\\.svg$": "jest-transformer-svg",
     "\\.(jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|mp4|webm|wav|mp3)$": "jest-transform-stub"
   }

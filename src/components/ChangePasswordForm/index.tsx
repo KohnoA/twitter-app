@@ -35,7 +35,7 @@ export const ChangePasswordForm = ({ onCancel }: ChangePasswordFormProps) => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)} data-testid="change-password-form">
       <Title $size="xl2">Change Password</Title>
 
       <Input
