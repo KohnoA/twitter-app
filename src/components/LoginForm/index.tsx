@@ -42,7 +42,9 @@ export const LoginForm = () => {
         Login
       </S.LoginButton>
 
-      <S.SignUpLink to={AppRoutes.SIGN_UP}>Sign up to Twitter</S.SignUpLink>
+      <S.SignUpLink to={AppRoutes.SIGN_UP} data-testid="signup-link">
+        Sign up to Twitter
+      </S.SignUpLink>
     </S.LoginFormStyled>
   );
 };
