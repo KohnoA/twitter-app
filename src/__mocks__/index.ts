@@ -7,3 +7,4 @@ jest.mock('@/services');
 export const getUserByIdMock = jest.spyOn(services, 'getUserById');
 export const getUserAvatarMock = jest.spyOn(services, 'getUserAvatar');
 export const getAllUserByIdMock = jest.spyOn(services, 'getAllUsers');
+export const updatePasswordMock = jest.spyOn(services, 'updatePassword');

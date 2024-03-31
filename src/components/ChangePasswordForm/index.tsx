@@ -39,12 +39,14 @@ export const ChangePasswordForm = ({ onCancel }: ChangePasswordFormProps) => {
       <Title $size="xl2">Change Password</Title>
 
       <Input
+        data-testid="change-password-input"
         type="password"
         placeholder="Password"
         error={errors.password?.message}
         register={register('password', passwordValidation)}
       />
       <Input
+        data-testid="change-password-confirm-input"
         type="password"
         placeholder="Confirm Password"
         error={errors.confirm?.message}
@@ -54,10 +56,10 @@ export const ChangePasswordForm = ({ onCancel }: ChangePasswordFormProps) => {
       {error && <S.ErrorMessageStyled>{error.message}</S.ErrorMessageStyled>}
 
       <S.ButtonsWrapper>
-        <Button type="button" onClick={onCancel}>
+        <Button type="button" onClick={onCancel} data-testid="change-password-cancel-button">
           Cancel
         </Button>
-        <ButtonWithSpinner type="submit" isLoading={isLoading}>
+        <ButtonWithSpinner type="submit" isLoading={isLoading} data-testid="change-password-submit">
           Change
         </ButtonWithSpinner>
       </S.ButtonsWrapper>
