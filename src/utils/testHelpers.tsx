@@ -8,11 +8,11 @@ import { AppThemes } from '@/constants';
 import { store } from '@/store';
 import { getTheme } from '@/styles';
 
-interface AllTheProvidersProps {
+interface TestProvidersProps {
   children: ReactNode;
 }
 
-const AllTheProviders = ({ children }: AllTheProvidersProps) => (
+const TestProviders = ({ children }: TestProvidersProps) => (
   <Provider store={store}>
     <BrowserRouter>
       <ThemeProvider theme={getTheme(AppThemes.LIGHT)}>{children}</ThemeProvider>
@@ -21,7 +21,7 @@ const AllTheProviders = ({ children }: AllTheProvidersProps) => (
 );
 
 const customRender = (ui: ReactElement, options?: Omit<RenderOptions, 'wrapper'>) =>
-  render(ui, { wrapper: AllTheProviders, ...options });
+  render(ui, { wrapper: TestProviders, ...options });
 
 export * from '@testing-library/react';
 export { customRender as render };

@@ -92,18 +92,21 @@ export const EditProfileForm = ({ onCancel, onChangePassword }: EditProfileFormP
       <S.BirthdayLabel>Birthday:</S.BirthdayLabel>
       <S.BirthdaySelectsWrapper>
         <Select
+          data-testid="month-select"
           placeholder="Month"
           options={MONTH}
           error={errors.month?.message}
           register={register('month', config.selectValidation)}
         />
         <Select
+          data-testid="day-select"
           placeholder="Day"
           error={errors.day?.message}
           options={getDaysOptions(...watch(['month', 'year']))}
           register={register('day', config.selectValidation)}
         />
         <Select
+          data-testid="year-select"
           placeholder="Year"
           error={errors.year?.message}
           options={getYearsOptions()}
@@ -111,12 +114,16 @@ export const EditProfileForm = ({ onCancel, onChangePassword }: EditProfileFormP
         />
       </S.BirthdaySelectsWrapper>
 
-      <S.ChangePasswordButton type="button" onClick={onChangePassword}>
+      <S.ChangePasswordButton
+        type="button"
+        onClick={onChangePassword}
+        data-testid="change-password-button"
+      >
         Change Password
       </S.ChangePasswordButton>
 
       <S.ButtonsWrapper>
-        <Button type="button" onClick={onCancel}>
+        <Button type="button" onClick={onCancel} data-testid="cancel-edit-profile">
           Cancel
         </Button>
         <ButtonWithSpinner data-testid="edit-submit-button" type="submit" isLoading={isLoading}>
