@@ -54,8 +54,14 @@ export const NewTweet = memo(({ className, onSuccess }: NewTweetProps) => {
         />
         <S.ButtonsWrapper>
           <S.FileContainer>
-            <S.FileInputStyled accept="image/jpeg" register={register('image', imageValidation)} />
-            {uploadedImage && <S.UploadedImage $imageUrl={uploadedImage} />}
+            <S.FileInputStyled
+              data-testid="file-input"
+              accept="image/jpeg"
+              register={register('image', imageValidation)}
+            />
+            {uploadedImage && (
+              <S.UploadedImage data-testid="image-container" $imageUrl={uploadedImage} />
+            )}
             {imageError && <ErrorMessage>{imageError}</ErrorMessage>}
           </S.FileContainer>
 
