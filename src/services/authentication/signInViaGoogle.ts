@@ -1,10 +1,10 @@
 import { signInWithPopup } from 'firebase/auth';
-import { ref, uploadString } from 'firebase/storage';
-import { v4 } from 'uuid';
 
-import { auth, provider, storage } from '@/firebase';
+import { auth, provider } from '@/firebase';
+import { convertUrlToFileJpg } from '@/utils';
 
 import { setUserById } from '../firestore';
+import { addUserAvatar } from '../storage';
 
 export async function signInViaGoogle() {
   try {
@@ -20,12 +20,12 @@ export async function signInViaGoogle() {
       birthday: new Date(Date.now()).toISOString(),
     };
 
-    await setUserById(uid, newUser);
-
     if (photoURL) {
-      const avatarRef = ref(storage, `avatars/${uid}/${v4()}`);
-      await uploadString(avatarRef, photoURL);
+      const file = await convertUrlToFileJpg(photoURL);
+      await addUserAvatar(uid, file);
     }
+
+    await setUserById(uid, newUser);
 
     return newUser;
   } catch (error) {
