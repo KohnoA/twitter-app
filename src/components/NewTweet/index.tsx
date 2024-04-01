@@ -7,7 +7,8 @@ import { userSelector } from '@/store/selectors';
 
 import { ErrorMessage, Textaria } from '../UI';
 
-import { imageValidation, messageValidation } from './config';
+import * as config from './config';
+import { MAX_TWEET_MESSAGE_LENGTH } from './constants';
 import * as S from './styled';
 import { NewTweetFormFileds, NewTweetProps } from './types';
 
@@ -47,8 +48,9 @@ export const NewTweet = memo(({ className, onSuccess }: NewTweetProps) => {
       <S.UserAvatarStyled $avatarUrl={avatar} />
       <S.ControlsWrapper>
         <Textaria
+          maxLength={MAX_TWEET_MESSAGE_LENGTH}
           data-testid="new-tweet-textarea"
-          register={register('tweet', messageValidation)}
+          register={register('tweet', config.messageValidation)}
           error={errors.tweet?.message}
           placeholder="What’s happening"
         />
@@ -57,7 +59,7 @@ export const NewTweet = memo(({ className, onSuccess }: NewTweetProps) => {
             <S.FileInputStyled
               data-testid="file-input"
               accept="image/jpeg"
-              register={register('image', imageValidation)}
+              register={register('image', config.imageValidation)}
             />
             {uploadedImage && (
               <S.UploadedImage data-testid="image-container" $imageUrl={uploadedImage} />

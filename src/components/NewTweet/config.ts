@@ -2,9 +2,11 @@ import { RegisterOptions } from 'react-hook-form';
 
 import { Errors, MAX_IMAGE_SIZE_BYTES } from '@/constants';
 
+import { MAX_TWEET_MESSAGE_LENGTH } from './constants';
+
 export const messageValidation: RegisterOptions = {
   required: true,
-  maxLength: { message: Errors.INVALID_TWEET_MESSAGE, value: 500 },
+  maxLength: { message: Errors.INVALID_TWEET_MESSAGE, value: MAX_TWEET_MESSAGE_LENGTH - 1 },
 };
 
 export const imageValidation: RegisterOptions = {

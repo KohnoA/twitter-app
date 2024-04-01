@@ -1,0 +1,1 @@
+export const MAX_TWEET_MESSAGE_LENGTH = 500;
