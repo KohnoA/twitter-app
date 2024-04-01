@@ -22,15 +22,14 @@ export const ProfilePage = () => {
     page,
   });
   const showMoreButton = !isLoading && userTweets && userTweets?.tweets.length < userTweets?.total;
+  const currentUserId = userId ?? owner?.id;
   const isProfileOwner = !userId;
 
   return (
     <MainLayout>
-      <Profile
-        userId={userId ?? owner!.id}
-        isOwner={isProfileOwner}
-        tweetsCount={userTweets?.total}
-      />
+      {currentUserId && (
+        <Profile userId={currentUserId} isOwner={isProfileOwner} tweetsCount={userTweets?.total} />
+      )}
 
       {isProfileOwner && <NewTweet />}
 
