@@ -10,6 +10,7 @@ export const MainLayoutWrapper = styled.section`
   align-items: stretch;
 
   max-width: 1920px;
+  height: 100%;
 
   margin: 0 auto;
 

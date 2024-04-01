@@ -12,7 +12,7 @@ export const NotFoundSection = styled.section`
 
   max-width: fit-content;
 
-  ${media('tablet')`min-height: 100vh;`}
+  ${media('tablet')`min-height: 100%;`}
 `;
 
 export const NotFoundTitle = styled(Title)`

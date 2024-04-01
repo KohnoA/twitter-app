@@ -12,8 +12,7 @@ export const SignUpMain = styled.section`
   display: flex;
 
   ${media('tablet')`
-    min-height: 100vh;
-
+    min-height: 100%;
     justify-content: center;
     align-items: center;
   `}

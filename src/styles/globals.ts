@@ -17,9 +17,16 @@ export const GlobalStyles = createGlobalStyle`
   html {
     scroll-behavior: smooth;
     color-scheme: dark;
+
+    width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+
+    display: flex;
   }
 
   body {
+    width: 100%;
     min-width: ${({ theme }) => theme.breakpoints.mobileS}px;
 
     margin: 0;
@@ -31,6 +38,10 @@ export const GlobalStyles = createGlobalStyle`
 
     background-color: ${({ theme }) => theme.colors.bgPrimary};
     transition: background ${({ theme }) => theme.duration}ms, color ${({ theme }) => theme.duration}ms;
+  }
+
+  #root {
+    height: 100%;
   }
 
   a {
@@ -49,7 +60,8 @@ export const GlobalStyles = createGlobalStyle`
 export const PageContainer = styled.div`
   ${flex()}
 
-  min-height: 100vh;
+  width: 100%;
+  height: 100%;
   padding: ${({ theme }) => theme.margins.lg}px;
 `;
 
