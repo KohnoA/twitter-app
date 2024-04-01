@@ -11,7 +11,7 @@ export const TweetList = (props: TweetListProps) => {
     <section data-testid="tweet-list-section">
       <S.TweetListTitle>Tweets</S.TweetListTitle>
 
-      {isLoading && <S.SpinnerStyled />}
+      {isLoading && <S.SpinnerStyled data-testid="tweet-list-loader" />}
 
       {showEmptyMessage && <S.EmptyMessage $size="xl2">No tweets yet</S.EmptyMessage>}
 
