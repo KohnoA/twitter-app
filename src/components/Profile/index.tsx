@@ -82,7 +82,11 @@ export const Profile = memo(({ userId, isOwner, tweetsCount }: ProfileProps) => 
         </S.UserStatsItem>
       </S.UserStatsList>
 
-      <S.ModalStyled isActive={showEditModal} onClose={handleModal}>
+      <S.ModalStyled
+        data-testid="edit-profile-modal"
+        isActive={showEditModal}
+        onClose={handleModal}
+      >
         {showChangePasswordForm ? (
           <ChangePasswordForm onCancel={handleModal} />
         ) : (
