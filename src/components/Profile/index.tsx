@@ -1,5 +1,6 @@
 import { memo, useMemo, useState } from 'react';
 
+import { DEFAULT_USER_DATA } from '@/constants';
 import { useGetUserQuery, useUserAvatarQuery } from '@/store/api';
 import { getDateString } from '@/utils';
 
@@ -8,7 +9,6 @@ import { EditProfileForm } from '../EditProfileForm';
 
 import {
   DEFAULT_STAT_VALUE,
-  DEFAULT_USER_DATA,
   INITIAL_CHANGE_PASSWORD_FORM_VISIBILITY,
   INITIAL_MODAL_STATE,
 } from './constants';

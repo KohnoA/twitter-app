@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { AppRoutes } from '@/constants';
+import { AppRoutes, DEFAULT_USER_DATA } from '@/constants';
 import { useAppSelector } from '@/hooks';
 import { useUserAvatarQuery } from '@/store/api';
 import { userSelector } from '@/store/selectors';
@@ -10,7 +10,7 @@ import * as S from './styled';
 import { UserCardProps } from './types';
 
 export const UserCard = memo(({ className, user }: UserCardProps) => {
-  const { name, email, id } = user!;
+  const { name, email, id } = user ?? DEFAULT_USER_DATA;
 
   const { data: avatar } = useUserAvatarQuery(id);
   const { data: ownerData } = useAppSelector(userSelector);

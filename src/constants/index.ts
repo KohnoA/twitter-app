@@ -1,4 +1,5 @@
 export * from './app';
+export * from './defaultUserData';
 export * from './errors';
 export * from './firebase';
 export { FOOTER_LINKS } from './footerLinks';
