@@ -30,7 +30,7 @@ describe('Testing the login form', () => {
 
     cy.contains(/Invalid email value/).should('exist');
     cy.contains(
-      /The password must contain a minimum of 8 characters, one capital letter and one number/,
+      /The password must consist of numbers and upper and lower case Latin letters/,
     ).should('exist');
   });
 
@@ -40,7 +40,7 @@ describe('Testing the login form', () => {
       cy.get('[data-testid=login-password-input]').type(`qwuhdq${testUser.password}`);
       cy.get('[data-testid=login-submit-button]').click();
 
-      cy.contains(/Invalid email address or password/).should('exist');
+      cy.contains(/User is not found/).should('exist');
     });
   });
 
