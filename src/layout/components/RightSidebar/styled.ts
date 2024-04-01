@@ -25,6 +25,7 @@ export const RecommendationsStyled = styled(Recommendations)<RecommendationsStyl
     `
     opacity: 0.7;
     filter: blur(3px);
+    pointer-events: none;
   `}
 `;
 
