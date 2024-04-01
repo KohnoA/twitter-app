@@ -22,3 +22,12 @@ export const testTweet: TweetDataType = {
     users: [],
   },
 };
+
+export const testEmailFormData = {
+  name: 'TestName',
+  phone: '+375 (29) 123-12-12',
+  email: 'test123@gmail.com',
+  month: 'May',
+  day: '1',
+  year: '2000',
+};
