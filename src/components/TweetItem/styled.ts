@@ -81,15 +81,10 @@ export const EmailAndDate = styled.p`
   color: ${({ theme }) => theme.colors.stroke};
 `;
 
-const TweetButton = styled.button`
+export const LikeButton = styled.button<LikeButtonProps>`
   ${flex()}
   ${interactive()}
 
-  background-color: transparent;
-  border: none;
-`;
-
-export const LikeButton = styled(TweetButton)<LikeButtonProps>`
   gap: 5px;
 
   padding: 5px;
@@ -97,43 +92,29 @@ export const LikeButton = styled(TweetButton)<LikeButtonProps>`
   font-size: ${({ theme }) => theme.fontSizes.lg}px;
   color: ${({ theme }) => theme.colors.textInput};
 
+  background-color: transparent;
+  border: none;
+
   & svg {
-    width: 24px;
-    height: 24px;
+    width: ${({ theme }) => theme.iconSize.md}px;
+    height: ${({ theme }) => theme.iconSize.md}px;
 
     & path {
       fill: ${({ theme, $isActive }) => !$isActive && theme.colors.textInput};
     }
   }
 
-  ${media('tablet')`
+  ${({ theme }) =>
+    media('tablet')(`
      & svg {
-      width: 20px;
-      height: 20px;
+      width: ${theme.iconSize.sm}px;
+      height: ${theme.iconSize.sm}px;
      }
-  `}
-`;
-
-export const MoreButton = styled(TweetButton)`
-  padding: 5px 10px;
-
-  & svg {
-    width: 20px;
-    height: 20px;
-
-    & path {
-      fill: ${({ theme }) => theme.colors.text};
-    }
-  }
-
-  ${media('tablet')`
-    order: 2;
-    place-self: center end;
-  `}
+  `)}
 `;
 
 export const TweetPhoto = styled.img`
-  width: 90%;
+  width: 100%;
   height: auto;
 
   margin-bottom: ${({ theme }) => theme.margins.md}px;

@@ -7,9 +7,9 @@ import { FileInputProps } from './types';
 
 const { ImageIcon } = ICONS;
 
-export const FileInput = memo(({ className, register }: FileInputProps) => (
+export const FileInput = memo(({ className, register, ...otherProps }: FileInputProps) => (
   <ImageButton className={className}>
     <ImageIcon />
-    <FileInputStyled type="file" {...register} />
+    <FileInputStyled type="file" {...otherProps} {...register} />
   </ImageButton>
 ));

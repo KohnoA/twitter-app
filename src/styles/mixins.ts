@@ -43,7 +43,7 @@ export const styledScroll = () => css`
 
   &::-webkit-scrollbar-thumb {
     border-radius: 5px;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: ${({ theme }) => theme.colors.scrollThumb};
   }
 `;
 

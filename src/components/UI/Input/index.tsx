@@ -12,7 +12,7 @@ import { InputStyled, InputWrapper, PositionInputWrapper, VisibilityButton } fro
 import { InputProps } from './types';
 
 export const Input = memo((props: InputProps) => {
-  const { label, type = DEFAULT_INPUT_TYPE, placeholder, error, register } = props;
+  const { label, type = DEFAULT_INPUT_TYPE, placeholder, error, register, ...otherProps } = props;
 
   const [showPassword, setShowPassword] = useState<boolean>(DEFAULT_SHOW_PASSWORD_VALUE);
   const id = useId();
@@ -32,6 +32,7 @@ export const Input = memo((props: InputProps) => {
           placeholder={placeholder}
           data-testid={props['data-testid']}
           {...register}
+          {...otherProps}
         />
 
         {isPasswordInput && (

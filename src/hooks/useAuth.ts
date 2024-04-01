@@ -25,7 +25,7 @@ export function useAuth() {
     });
 
     return unsubscribe;
-  }, [dispatch]);
+  }, []);
 
   return { isLoading };
 }

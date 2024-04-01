@@ -1,77 +1,80 @@
-import { useEffect, useMemo } from 'react';
+import { memo, useMemo } from 'react';
 import { useForm } from 'react-hook-form';
 
 import { useAppSelector } from '@/hooks';
-import { useAddTweetMutation } from '@/store/api';
+import { useAddTweetMutation, useUserAvatarQuery } from '@/store/api';
 import { userSelector } from '@/store/selectors';
 
-import { Textaria } from '../UI';
+import { ErrorMessage, Textaria } from '../UI';
 
-import {
-  ButtonsWrapper,
-  ControlsWrapper,
-  FileContainer,
-  FileInputStyled,
-  NewTweetContainer,
-  TweetButton,
-  UploadedImage,
-  UserAvatarStyled,
-} from './styled';
+import { imageValidation, messageValidation } from './config';
+import * as S from './styled';
 import { NewTweetFormFileds, NewTweetProps } from './types';
 
-export const NewTweet = ({ className, onSuccess }: NewTweetProps) => {
-  const { handleSubmit, register, watch, reset } = useForm<NewTweetFormFileds>();
-  const [addTweet, { isLoading, isSuccess }] = useAddTweetMutation();
+export const NewTweet = memo(({ className, onSuccess }: NewTweetProps) => {
+  const [addTweet, { isLoading }] = useAddTweetMutation();
   const { data: userData } = useAppSelector(userSelector);
+  const { data: avatar } = useUserAvatarQuery(userData?.id);
+  const {
+    handleSubmit,
+    register,
+    watch,
+    reset,
+    formState: { errors },
+  } = useForm<NewTweetFormFileds>({ mode: 'onChange' });
+  const imageError = errors.image?.message;
   const watchImage = watch('image');
 
   const onSubmit = async (data: NewTweetFormFileds) => {
     const { tweet, image } = data;
 
     await addTweet({ tweet, image: image.length ? image : undefined });
+    reset();
+    if (onSuccess) onSuccess();
   };
 
   const uploadedImage = useMemo(
-    () => !!watchImage?.length && URL.createObjectURL(watchImage[0]),
-    [watchImage],
+    () => !imageError && !!watchImage?.length && URL.createObjectURL(watchImage[0]),
+    [imageError, watchImage],
   );
 
-  useEffect(() => {
-    if (isSuccess) {
-      if (onSuccess) onSuccess();
-      reset();
-    }
-  }, [isSuccess, reset, onSuccess]);
-
   return (
-    <NewTweetContainer
+    <S.NewTweetContainer
       data-testid="new-tweet-form"
       className={className}
       onSubmit={handleSubmit(onSubmit)}
     >
-      <UserAvatarStyled $avatarUrl={userData?.avatar} />
-      <ControlsWrapper>
+      <S.UserAvatarStyled $avatarUrl={avatar} />
+      <S.ControlsWrapper>
         <Textaria
           data-testid="new-tweet-textarea"
-          register={register('tweet', { required: true })}
+          register={register('tweet', messageValidation)}
+          error={errors.tweet?.message}
           placeholder="What’s happening"
         />
-        <ButtonsWrapper>
-          <FileContainer>
-            <FileInputStyled register={register('image')} />
-            {uploadedImage && <UploadedImage $imageUrl={uploadedImage} />}
-          </FileContainer>
+        <S.ButtonsWrapper>
+          <S.FileContainer>
+            <S.FileInputStyled
+              data-testid="file-input"
+              accept="image/jpeg"
+              register={register('image', imageValidation)}
+            />
+            {uploadedImage && (
+              <S.UploadedImage data-testid="image-container" $imageUrl={uploadedImage} />
+            )}
+            {imageError && <ErrorMessage>{imageError}</ErrorMessage>}
+          </S.FileContainer>
 
-          <TweetButton
+          <S.TweetButton
             data-testid="new-tweet-submit"
             type="submit"
             disabled={!watch('tweet')}
             isLoading={isLoading}
           >
             Tweet
-          </TweetButton>
-        </ButtonsWrapper>
-      </ControlsWrapper>
-    </NewTweetContainer>
+          </S.TweetButton>
+        </S.ButtonsWrapper>
+      </S.ControlsWrapper>
+    </S.NewTweetContainer>
   );
-};
+});

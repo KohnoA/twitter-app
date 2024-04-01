@@ -90,17 +90,13 @@ export const BackButton = styled.button`
   }
 `;
 
-export const LeftContainer = styled.div`
+export const SideContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 20px;
 `;
 
-export const RightContainer = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 20px;
-
+export const RightContainer = styled(SideContainer)`
   ${media('tablet')`
     order: -1;
     justify-content: space-between;

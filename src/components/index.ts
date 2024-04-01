@@ -1,3 +1,4 @@
+export { ChangePasswordForm } from './ChangePasswordForm';
 export { EditProfileForm } from './EditProfileForm';
 export { ErrorBoundary } from './ErrorBoundary';
 export { NewTweet } from './NewTweet';

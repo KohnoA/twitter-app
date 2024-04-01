@@ -1,9 +1,8 @@
 import styled from 'styled-components';
 
-import { ICONS } from '@/constants';
 import { flex, interactive, media, styledScroll } from '@/styles';
 
-const { SearchIcon, CrossIcon } = ICONS;
+import { CrossIcon, SearchIcon } from './constants';
 
 export const ElasticSearchContainer = styled.div`
   position: relative;
@@ -22,13 +21,17 @@ export const SearchIconStyled = styled(SearchIcon)`
 
   transform: translateY(-50%);
 
-  width: 20px;
-  height: 20px;
+  width: ${({ theme }) => theme.iconSize.sm}px;
+  height: ${({ theme }) => theme.iconSize.sm}px;
+
+  & path {
+    fill: ${({ theme }) => theme.colors.textInput};
+  }
 `;
 
 export const CrossIconStyled = styled(CrossIcon)`
-  width: 24px;
-  height: 24px;
+  width: ${({ theme }) => theme.iconSize.md}px;
+  height: ${({ theme }) => theme.iconSize.md}px;
 
   & path {
     fill: ${({ theme }) => theme.colors.textInput};
@@ -94,24 +97,29 @@ export const ResultsContainer = styled.div`
   ${styledScroll()}
 `;
 
-export const SearchLoader = styled.div`
+const SaerchStateBlock = styled.div`
   ${flex()}
 
   width: 100%;
-  padding: 20px 0;
-
-  & svg {
-    circle {
-      stroke: ${({ theme }) => theme.colors.stroke};
-    }
-  }
 `;
 
-export const EmptyMessage = styled.p`
-  ${flex()}
+export const SearchLoader = styled(SaerchStateBlock)`
+  padding: 25px 0;
 
-  width: 100%;
-  padding: 20px 0;
+  ${({ theme }) => `
+    & svg {
+      width: ${theme.iconSize.lg}px;
+      height: ${theme.iconSize.lg}px;
+
+      & circle {
+        stroke: ${theme.colors.stroke};
+      }
+    }
+  `}
+`;
+
+export const EmptyMessage = styled(SaerchStateBlock)`
+  padding: ${({ theme }) => theme.margins.lg}px 0;
 
   color: ${({ theme }) => theme.colors.stroke};
 `;

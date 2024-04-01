@@ -12,15 +12,22 @@
     "^.+\\.(t|j)sx?$": [
       "@swc/jest",
       {
-        "test": ".tsx?$",
+        "$schema": "https://json.schemastore.org/swcrc",
         "jsc": {
           "parser": {
-            "importMeta": true,
-            "syntax": "typescript",
-            "tsx": true
+            "syntax": "typescript"
           },
-          "target": "es5"
-        }
+          "transform": {
+            "react": {
+              "runtime": "automatic"
+            }
+          },
+          "target": "es5",
+          "loose": false,
+          "externalHelpers": false,
+          "keepClassNames": false
+        },
+        "minify": false
       }
     ],
     "^.+\\.svg$": "jest-transformer-svg",

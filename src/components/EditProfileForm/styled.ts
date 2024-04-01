@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { flex, UserAvatar } from '@/styles';
+import { flex, interactive, UserAvatar } from '@/styles';
 
 import { FileInput, Textaria, Title } from '../UI';
 
@@ -31,10 +31,15 @@ export const BirthdaySelectsWrapper = styled.div`
 export const AvatarWrapper = styled.div`
   ${flex()}
 
+  flex-direction: column;
+  gap: ${({ theme }) => theme.margins.sm}px;
+
   margin-bottom: ${({ theme }) => theme.margins.md}px;
 `;
 
 export const UserAvatarStyled = styled(UserAvatar)`
+  position: relative;
+
   width: 100px;
   height: 100px;
   margin-top: 5px;
@@ -49,4 +54,16 @@ export const FileInputStyled = styled(FileInput)`
   position: absolute;
   right: -5px;
   bottom: -5px;
+`;
+
+export const ChangePasswordButton = styled.button`
+  padding: 5px;
+
+  font-size: inherit;
+  color: ${({ theme }) => theme.colors.main};
+
+  background-color: transparent;
+  border: none;
+
+  ${interactive()}
 `;

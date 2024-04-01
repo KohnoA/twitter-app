@@ -13,3 +13,5 @@ export interface ButtonWithSpinnerProps
 export interface ChildrenWapperProps {
   $hidden?: boolean;
 }
+
+export interface SpinnerStyledProps extends Pick<ButtonProps, '$view'> {}

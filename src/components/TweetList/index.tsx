@@ -1,18 +1,23 @@
 import { TweetItem } from '../TweetItem';
 
-import { EmptyMessage, SpinnerStyled, TweetListStyled, TweetListTitle } from './styled';
+import * as S from './styled';
 import { TweetListProps } from './types';
 
-export const TweetList = ({ tweets, isLoading }: TweetListProps) => (
-  <section>
-    <TweetListTitle>Tweets</TweetListTitle>
+export const TweetList = (props: TweetListProps) => {
+  const { tweets, isLoading } = props;
+  const showEmptyMessage = !isLoading && tweets && !tweets.length;
 
-    {isLoading && <SpinnerStyled width={50} height={50} />}
+  return (
+    <section data-testid="tweet-list-section">
+      <S.TweetListTitle>Tweets</S.TweetListTitle>
 
-    {tweets && !tweets.length && <EmptyMessage $size="xl2">No tweets yet</EmptyMessage>}
+      {isLoading && <S.SpinnerStyled data-testid="tweet-list-loader" />}
 
-    <TweetListStyled data-testid="tweet-list">
-      {tweets && tweets.map((tweet) => <TweetItem key={tweet.id} tweet={tweet} />)}
-    </TweetListStyled>
-  </section>
-);
+      {showEmptyMessage && <S.EmptyMessage $size="xl2">No tweets yet</S.EmptyMessage>}
+
+      <S.TweetListStyled data-testid="tweet-list">
+        {tweets && tweets.map((tweet) => <TweetItem key={tweet.id} tweet={tweet} />)}
+      </S.TweetListStyled>
+    </section>
+  );
+};

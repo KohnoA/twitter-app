@@ -1,15 +1,20 @@
 import { useId } from 'react';
 
-import { TextariaLabelStyled, TextariaStyled } from './styled';
+import { ErrorMessage } from '../ErrorMessage';
+
+import * as S from './styled';
 import { TextariaProps } from './types';
 
-export const Textaria = ({ className, register, label, ...otherProps }: TextariaProps) => {
+export const Textaria = (props: TextariaProps) => {
+  const { className, register, label, error, ...otherProps } = props;
+
   const id = useId();
 
   return (
-    <>
-      {label && <TextariaLabelStyled htmlFor={id}>{label}</TextariaLabelStyled>}
-      <TextariaStyled id={id} className={className} rows={3} {...register} {...otherProps} />
-    </>
+    <S.TextariaWrapper>
+      {label && <S.TextariaLabelStyled htmlFor={id}>{label}</S.TextariaLabelStyled>}
+      <S.TextariaStyled id={id} className={className} rows={3} {...register} {...otherProps} />
+      {error && <ErrorMessage data-testid="input-error">{error}</ErrorMessage>}
+    </S.TextariaWrapper>
   );
 };

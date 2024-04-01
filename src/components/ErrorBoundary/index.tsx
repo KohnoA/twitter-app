@@ -2,7 +2,7 @@ import { Component, ErrorInfo } from 'react';
 
 import { Errors } from '@/constants';
 
-import { ErrorMessage } from './styled';
+import * as S from './styled';
 import { ErrorBoundaryProps, ErrorBoundaryState } from './types';
 
 export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
@@ -25,7 +25,7 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
     const { children } = this.props;
 
     if (hasError) {
-      return <ErrorMessage>{Errors.GENERAL_ERROR}</ErrorMessage>;
+      return <S.ErrorMessage>{Errors.GENERAL_ERROR}</S.ErrorMessage>;
     }
 
     return children;

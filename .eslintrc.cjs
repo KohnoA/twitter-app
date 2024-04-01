@@ -24,6 +24,21 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   plugins: ['react', 'react-refresh', '@typescript-eslint', 'simple-import-sort', 'import'],
   rules: {
+    'import/no-extraneous-dependencies': [
+      'error',
+      {
+        devDependencies: [
+          'test.{ts,tsx}',
+          'test-*.{ts,tsx}',
+          '**/*{.,_}{test,spec}.{ts,tsx}',
+          '**/jest.config.ts',
+          '**/setupTests.tsx',
+          '**/testHelpers.tsx'
+        ],
+        optionalDependencies: false,
+      },
+    ],
+    'no-restricted-globals': 'warn',
     'react/function-component-definition': ['error', { namedComponents: 'arrow-function' }],
     'no-restricted-exports': ['error', { restrictDefaultExports: { namedFrom: false } }],
     'no-param-reassign': ['error', { ignorePropertyModificationsFor: ['state'] }],

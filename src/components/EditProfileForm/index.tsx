@@ -3,45 +3,39 @@ import { useForm } from 'react-hook-form';
 
 import { MONTH } from '@/constants';
 import { useAppSelector } from '@/hooks';
-import { useUpdateUserMutation } from '@/store/api';
+import { useUpdateUserMutation, useUserAvatarQuery } from '@/store/api';
 import { userSelector } from '@/store/selectors';
 import { getDaysOptions, getYearsOptions } from '@/utils';
 
-import { Button, ButtonWithSpinner, Input, Select } from '../UI';
+import { Button, ButtonWithSpinner, ErrorMessage, Input, Select } from '../UI';
 
-import { getDefaultFormFields, nameValidation, phoneValidation, selectValidation } from './config';
-import {
-  AvatarWrapper,
-  BirthdayLabel,
-  BirthdaySelectsWrapper,
-  ButtonsWrapper,
-  FileInputStyled,
-  FormTitle,
-  TextariaStyled,
-  UserAvatarStyled,
-} from './styled';
+import * as config from './config';
+import * as S from './styled';
 import { EditProfileFormFields, EditProfileFormProps } from './types';
 
-export const EditProfileForm = ({ onClose }: EditProfileFormProps) => {
+export const EditProfileForm = ({ onCancel, onChangePassword }: EditProfileFormProps) => {
   const [updateUser, { isLoading, isSuccess }] = useUpdateUserMutation();
   const { data: userData } = useAppSelector(userSelector);
+  const { data: currentAvatar } = useUserAvatarQuery(userData?.id);
   const {
     handleSubmit,
     register,
     watch,
+    trigger,
     formState: { errors },
-  } = useForm<EditProfileFormFields>({ defaultValues: getDefaultFormFields(userData) });
-  const currentAvatar = userData?.avatar;
+  } = useForm<EditProfileFormFields>({ defaultValues: config.getDefaultFormFields(userData) });
   const watchAvatar = watch('avatar');
+  const avatarError = errors.avatar?.message;
 
   const avatar = useMemo(
-    () => (watchAvatar?.length ? URL.createObjectURL(watchAvatar[0]) : currentAvatar),
-    [watchAvatar, currentAvatar],
+    () =>
+      !avatarError && watchAvatar?.length ? URL.createObjectURL(watchAvatar[0]) : currentAvatar,
+    [avatarError, watchAvatar, currentAvatar],
   );
 
   useEffect(() => {
-    if (isSuccess) onClose();
-  }, [isSuccess, onClose]);
+    if (isSuccess) onCancel();
+  }, [isSuccess, onCancel]);
 
   const onSubmit = async (data: EditProfileFormFields) => {
     if (!userData) return;
@@ -62,64 +56,80 @@ export const EditProfileForm = ({ onClose }: EditProfileFormProps) => {
 
   return (
     <form data-testid="edit-profile-form" onSubmit={handleSubmit(onSubmit)}>
-      <FormTitle $size="xl2">Edit Profile</FormTitle>
-
-      <AvatarWrapper>
-        <UserAvatarStyled $avatarUrl={avatar}>
-          <FileInputStyled register={register('avatar')} />
-        </UserAvatarStyled>
-      </AvatarWrapper>
+      <S.FormTitle $size="xl2">Edit Profile</S.FormTitle>
+      <S.AvatarWrapper>
+        <S.UserAvatarStyled $avatarUrl={avatar}>
+          <S.FileInputStyled
+            accept="image/jpeg"
+            register={register('avatar', {
+              ...config.avatarValidation,
+              onChange: () => trigger('avatar'),
+            })}
+          />
+        </S.UserAvatarStyled>
+        {avatarError && <ErrorMessage>{avatarError}</ErrorMessage>}
+      </S.AvatarWrapper>
 
       <Input
         data-testid="edit-user-name"
-        register={register('name', nameValidation)}
+        register={register('name', config.nameValidation)}
         error={errors.name?.message}
         placeholder="New name"
       />
       <Input
         data-testid="edit-user-phone"
-        register={register('phone', phoneValidation)}
+        register={register('phone', config.phoneValidation)}
         error={errors.phone?.message}
         placeholder="Phone number"
       />
-
-      <TextariaStyled
+      <S.TextariaStyled
         data-testid="edit-user-description"
         label="Description:"
         placeholder="A short description about you"
         register={register('description')}
       />
 
-      <BirthdayLabel>Birthday:</BirthdayLabel>
-      <BirthdaySelectsWrapper>
+      <S.BirthdayLabel>Birthday:</S.BirthdayLabel>
+      <S.BirthdaySelectsWrapper>
         <Select
+          data-testid="month-select"
           placeholder="Month"
           options={MONTH}
           error={errors.month?.message}
-          register={register('month', selectValidation)}
+          register={register('month', config.selectValidation)}
         />
         <Select
+          data-testid="day-select"
           placeholder="Day"
           error={errors.day?.message}
           options={getDaysOptions(...watch(['month', 'year']))}
-          register={register('day', selectValidation)}
+          register={register('day', config.selectValidation)}
         />
         <Select
+          data-testid="year-select"
           placeholder="Year"
           error={errors.year?.message}
           options={getYearsOptions()}
-          register={register('year', selectValidation)}
+          register={register('year', config.selectValidation)}
         />
-      </BirthdaySelectsWrapper>
+      </S.BirthdaySelectsWrapper>
 
-      <ButtonsWrapper>
-        <Button type="button" onClick={onClose}>
+      <S.ChangePasswordButton
+        type="button"
+        onClick={onChangePassword}
+        data-testid="change-password-button"
+      >
+        Change Password
+      </S.ChangePasswordButton>
+
+      <S.ButtonsWrapper>
+        <Button type="button" onClick={onCancel} data-testid="cancel-edit-profile">
           Cancel
         </Button>
         <ButtonWithSpinner data-testid="edit-submit-button" type="submit" isLoading={isLoading}>
           Accept
         </ButtonWithSpinner>
-      </ButtonsWrapper>
+      </S.ButtonsWrapper>
     </form>
   );
 };

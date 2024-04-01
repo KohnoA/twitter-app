@@ -1,30 +1,35 @@
 import { createApi, fakeBaseQuery } from '@reduxjs/toolkit/query/react';
 import { FirebaseError } from 'firebase/app';
 
-import { Errors, FirebaseErrorCodes } from '@/constants';
-import { signIn as signInFirebase, signUp as signUpFirebase } from '@/services';
+import { Errors } from '@/constants';
+import {
+  signIn as signInFirebase,
+  signUp as signUpFirebase,
+  updatePassword as updatePasswordFirebase,
+} from '@/services';
 import { UserDataType } from '@/types';
+import { firebaseErrorHandler } from '@/utils';
+
+import { setEmailStep } from '../slices';
+
+const GENERAL_ERROR = { error: { message: Errors.GENERAL_ERROR } };
 
 export const authApi = createApi({
   reducerPath: 'authApi',
   baseQuery: fakeBaseQuery<{ message: Errors }>(),
   endpoints: (builder) => ({
     signUp: builder.query<null, { userData: Omit<UserDataType, 'id'>; password: string }>({
-      queryFn: async ({ userData, password }) => {
+      queryFn: async ({ userData, password }, { dispatch }) => {
         try {
           await signUpFirebase(userData, password);
+          dispatch(setEmailStep());
 
           return { data: null };
         } catch (error) {
-          if (
-            error instanceof FirebaseError &&
-            error.code === FirebaseErrorCodes.EMAIL_ALREADY_USE
-          ) {
-            return { error: { message: Errors.USER_EXIST } };
-          }
+          if (error instanceof FirebaseError) return firebaseErrorHandler(error);
 
           console.error(error);
-          return { error: { message: Errors.GENERAL_ERROR } };
+          return GENERAL_ERROR;
         }
       },
     }),
@@ -35,19 +40,27 @@ export const authApi = createApi({
 
           return { data: null };
         } catch (error) {
-          if (
-            error instanceof FirebaseError &&
-            error.code === FirebaseErrorCodes.INVALID_CREDENTIAL
-          ) {
-            return { error: { message: Errors.INVALID_USER_CREDENTIAL } };
-          }
+          if (error instanceof FirebaseError) return firebaseErrorHandler(error);
 
           console.error(error);
-          return { error: { message: Errors.GENERAL_ERROR } };
+          return GENERAL_ERROR;
+        }
+      },
+    }),
+    updatePassword: builder.query<null, string>({
+      queryFn: async (newPassword) => {
+        try {
+          await updatePasswordFirebase(newPassword);
+
+          return { data: null };
+        } catch (error) {
+          console.error(error);
+
+          return GENERAL_ERROR;
         }
       },
     }),
   }),
 });
 
-export const { useLazySignUpQuery, useLazySignInQuery } = authApi;
+export const { useLazySignUpQuery, useLazySignInQuery, useLazyUpdatePasswordQuery } = authApi;

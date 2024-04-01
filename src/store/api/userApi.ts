@@ -5,6 +5,7 @@ import {
   addUserAvatar,
   findUsersByName,
   getAllUsers as getAllUsersFirestore,
+  getUserAvatar,
   getUserById,
   setUserById,
 } from '@/services';
@@ -59,9 +60,7 @@ export const userApi = createApi({
           const updatedUserData = { ...data };
 
           if (avatar) {
-            const url = await addUserAvatar(userId, avatar);
-
-            updatedUserData.avatar = url;
+            await addUserAvatar(userId, avatar);
           }
 
           await setUserById(userId, updatedUserData);
@@ -77,10 +76,10 @@ export const userApi = createApi({
       },
       invalidatesTags: ['User'],
     }),
-    findUsers: builder.query<UserDataType[], string>({
+    findUsers: builder.query<UserDataType[] | null, string>({
       queryFn: async (value, { getState }) => {
         try {
-          if (!value.length) return { data: [] };
+          if (!value.length) return { data: null };
 
           const state = getState() as { user: { data: UserDataType | null } };
           const { data } = state.user;
@@ -95,6 +94,22 @@ export const userApi = createApi({
         }
       },
     }),
+    userAvatar: builder.query<string | null, string | undefined | null>({
+      queryFn: async (userId) => {
+        try {
+          if (!userId) return { data: null };
+
+          const url = await getUserAvatar(userId);
+
+          return { data: url };
+        } catch (error) {
+          console.error(error);
+
+          return GENERAL_ERROR;
+        }
+      },
+      providesTags: ['User'],
+    }),
   }),
 });
 
@@ -103,4 +118,5 @@ export const {
   useUpdateUserMutation,
   useLazyFindUsersQuery,
   useGetAllUsersQuery,
+  useUserAvatarQuery,
 } = userApi;

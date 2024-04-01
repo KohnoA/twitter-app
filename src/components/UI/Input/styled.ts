@@ -70,8 +70,8 @@ export const VisibilityButton = styled.button`
   cursor: pointer;
 
   & svg {
-    width: 25px;
-    height: 25px;
+    width: ${({ theme }) => theme.iconSize.md}px;
+    height: ${({ theme }) => theme.iconSize.md}px;
 
     transition: opacity ${({ theme }) => theme.duration}ms;
     opacity: ${({ theme }) => theme.opacity.high};
@@ -88,18 +88,19 @@ export const VisibilityButton = styled.button`
     }
   }
 
-  ${media('tablet')`
+  ${({ theme }) =>
+    media('tablet')(`
     right: 8px;
 
     padding: 0;
 
     & svg {
-      width: 20px;
-      height: 20px;
+      width: ${theme.iconSize.sm}px;
+      height: ${theme.iconSize.sm}px;
 
       & path {
         transform: scale(0.4);
       }
     }
-  `}
+  `)}
 `;

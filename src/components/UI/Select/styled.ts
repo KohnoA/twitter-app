@@ -14,7 +14,7 @@ export const PositionWrapper = styled.div`
 export const SelectStyled = styled.select<SelectStyledProps>`
   width: 100%;
   padding: ${({ theme }) => theme.margins.md}px;
-  padding-right: 50px;
+  padding-right: 35px;
 
   font-size: ${({ theme }) => theme.fontSizes.xl}px;
   color: ${({ theme }) => theme.colors.text};

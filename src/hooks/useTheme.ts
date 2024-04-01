@@ -12,7 +12,7 @@ export function useTheme() {
 
   const toggleTheme = useCallback(() => {
     dispatch(changeTheme(theme === AppThemes.LIGHT ? AppThemes.DARK : AppThemes.LIGHT));
-  }, [theme, dispatch]);
+  }, [theme]);
 
   return { theme, toggleTheme };
 }

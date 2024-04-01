@@ -4,13 +4,15 @@ import { Backdrop, flex, interactive, media } from '@/styles';
 
 export const BackdropStyled = styled(Backdrop)`
   ${flex()}
+
+  padding: 5px;
 `;
 
 export const ModalContent = styled.section`
   position: relative;
 
   margin: auto;
-  padding: 50px 40px 40px 40px;
+  padding: 50px 40px 40px;
 
   background-color: ${({ theme }) => theme.colors.bgPrimary};
   border-radius: ${({ theme }) => theme.radius.low}px;
@@ -35,7 +37,7 @@ export const ModalCloseButtom = styled.button`
   cursor: pointer;
 
   & svg {
-    width: 40px;
-    height: 40px;
+    width: ${({ theme }) => theme.iconSize.xl}px;
+    height: ${({ theme }) => theme.iconSize.xl}px;
   }
 `;

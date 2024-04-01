@@ -6,15 +6,14 @@ import {
   addLikeToTweet as setLikeToTweetFirestore,
   addTweet as addTweetFireStore,
   addTweetImage,
+  deleteTweet as deleteTweetFirestore,
   findTweetsByMessage,
   getAllTweets as getAllTweetsFirestore,
   getTweetById as getTweetByIdFirestore,
   getUserTweets as getUserTweetsFirestore,
   removeLikeToTweet,
 } from '@/services';
-import { TweetDataType } from '@/types';
-
-import { type RootState } from '..';
+import { TweetDataType, UserDataType } from '@/types';
 
 const GENERAL_ERROR = { error: { message: Errors.GENERAL_ERROR } };
 
@@ -42,12 +41,12 @@ export const tweetApi = createApi({
         try {
           const {
             user: { data: userData },
-          } = getState() as RootState;
+          } = getState() as { user: { data: UserDataType | null } };
           const { email, name, id } = userData!;
+          const tweetId = v4();
           const tweetData: TweetDataType = {
-            id: v4(),
+            id: tweetId,
             author: {
-              avatar: userData?.avatar,
               email,
               name,
               id,
@@ -61,7 +60,7 @@ export const tweetApi = createApi({
           };
 
           if (image) {
-            const url = await addTweetImage(image);
+            const url = await addTweetImage(tweetId, image);
 
             tweetData.photo = url;
           }
@@ -77,12 +76,17 @@ export const tweetApi = createApi({
       },
       invalidatesTags: ['Tweet'],
     }),
-    getUserTweets: builder.query<TweetDataType[], string>({
-      queryFn: async (userId) => {
-        try {
-          const tweets = await getUserTweetsFirestore(userId);
+    getUserTweets: builder.query<
+      { total: number; tweets: TweetDataType[] },
+      { userId?: string | null; page?: number }
+    >({
+      queryFn: async ({ userId, page }) => {
+        if (!userId) return { data: { total: 0, tweets: [] } };
 
-          return { data: tweets };
+        try {
+          const data = await getUserTweetsFirestore(userId, page);
+
+          return { data };
         } catch (error) {
           console.error(error);
 
@@ -91,12 +95,12 @@ export const tweetApi = createApi({
       },
       providesTags: ['Tweet'],
     }),
-    getAllTweets: builder.query<TweetDataType[], void>({
-      queryFn: async () => {
+    getAllTweets: builder.query<{ total: number; tweets: TweetDataType[] }, number | void>({
+      queryFn: async (page) => {
         try {
-          const tweets = await getAllTweetsFirestore();
+          const data = await getAllTweetsFirestore(page ?? undefined);
 
-          return { data: tweets };
+          return { data };
         } catch (error) {
           console.error(error);
 
@@ -105,10 +109,10 @@ export const tweetApi = createApi({
       },
       providesTags: ['Tweet'],
     }),
-    findTweets: builder.query<TweetDataType[], string>({
+    findTweets: builder.query<TweetDataType[] | null, string>({
       queryFn: async (value) => {
         try {
-          if (!value.length) return { data: [] };
+          if (!value.length) return { data: null };
 
           const tweets = await findTweetsByMessage(value);
 
@@ -129,9 +133,10 @@ export const tweetApi = createApi({
         } catch (error) {
           console.error(error);
 
-          return { error: { message: Errors.GENERAL_ERROR } };
+          return GENERAL_ERROR;
         }
       },
+      invalidatesTags: ['Tweet'],
     }),
     removeLikeToTweet: builder.mutation<null, { tweetId: string; userId: string }>({
       queryFn: async ({ tweetId, userId }) => {
@@ -142,9 +147,24 @@ export const tweetApi = createApi({
         } catch (error) {
           console.error(error);
 
-          return { error: { message: Errors.GENERAL_ERROR } };
+          return GENERAL_ERROR;
         }
       },
+      invalidatesTags: ['Tweet'],
+    }),
+    deleteTweet: builder.mutation<null, string>({
+      queryFn: async (tweetId) => {
+        try {
+          await deleteTweetFirestore(tweetId);
+
+          return { data: null };
+        } catch (error) {
+          console.error(error);
+
+          return GENERAL_ERROR;
+        }
+      },
+      invalidatesTags: ['Tweet'],
     }),
   }),
 });
@@ -157,4 +177,5 @@ export const {
   useGetTweetByIdQuery,
   useAddLikeToTweetMutation,
   useRemoveLikeToTweetMutation,
+  useDeleteTweetMutation,
 } = tweetApi;

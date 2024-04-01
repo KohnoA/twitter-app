@@ -1,4 +1,4 @@
-import { memo, useMemo } from 'react';
+import { memo, useMemo, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
 import { SearchBarByTweets, SearchBarByUsers } from '@/components';
@@ -6,39 +6,35 @@ import { AppRoutes } from '@/constants';
 
 import { Footer } from '../Footer';
 
-import {
-  RecommendationsStyled,
-  RightSidebarFooter,
-  RightSidebarSearchWrapper,
-  RightSidebarWrapper,
-} from './styled';
-
-interface RightSidebarProps {
-  className?: string;
-}
+import * as S from './styled';
+import { RightSidebarProps } from './types';
 
 export const RightSidebar = memo(({ className }: RightSidebarProps) => {
+  const [hideRecommendations, setHideRecommendations] = useState<boolean>(false);
   const { pathname } = useLocation();
 
-  const currentSearchBar = useMemo(() => {
-    switch (pathname) {
-      case AppRoutes.HOME:
-        return <SearchBarByTweets />;
+  const handleRecommendationShow = (isOpen: boolean) => {
+    setHideRecommendations(isOpen);
+  };
 
+  const currentSearchBar = useMemo(() => {
+    switch (true) {
+      case pathname.includes(AppRoutes.HOME):
+        return <SearchBarByTweets onOpen={handleRecommendationShow} />;
       default:
-        return <SearchBarByUsers />;
+        return <SearchBarByUsers onOpen={handleRecommendationShow} />;
     }
   }, [pathname]);
 
   return (
-    <RightSidebarWrapper className={className}>
-      <RightSidebarSearchWrapper>{currentSearchBar}</RightSidebarSearchWrapper>
+    <S.RightSidebarWrapper className={className}>
+      <S.RightSidebarSearchWrapper>{currentSearchBar}</S.RightSidebarSearchWrapper>
 
-      <RecommendationsStyled />
+      <S.RecommendationsStyled $isHidden={hideRecommendations} />
 
-      <RightSidebarFooter>
+      <S.RightSidebarFooter>
         <Footer />
-      </RightSidebarFooter>
-    </RightSidebarWrapper>
+      </S.RightSidebarFooter>
+    </S.RightSidebarWrapper>
   );
 });

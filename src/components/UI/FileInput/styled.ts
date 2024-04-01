@@ -15,14 +15,16 @@ export const ImageButton = styled.button`
   border-radius: ${({ theme }) => theme.radius.low}px;
   cursor: pointer;
 
-  & svg {
-    width: 24px;
-    height: 24px;
+  ${({ theme }) => `
+    & svg {
+      width: ${theme.iconSize.md}px;
+      height: ${theme.iconSize.md}px;
 
-    & path {
-      fill: ${({ theme }) => theme.colors.main};
+      & path {
+        fill: ${theme.colors.main};
+      }
     }
-  }
+  `};
 `;
 
 export const FileInputStyled = styled.input`

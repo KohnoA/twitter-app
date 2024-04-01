@@ -2,7 +2,7 @@ import { memo, useMemo } from 'react';
 
 import { FOOTER_LINKS, UNASSIGNED_LINK_VALUE } from '@/constants';
 
-import { FooterLinkItem, FooterLinkList } from './styled';
+import * as S from './styled';
 
 interface FooterProps {
   className?: string;
@@ -13,17 +13,17 @@ export const Footer = memo(({ className }: FooterProps) => {
 
   return (
     <footer className={className}>
-      <FooterLinkList>
+      <S.FooterLinkList>
         {FOOTER_LINKS.map(({ title, link }) => (
           <li key={title}>
-            <FooterLinkItem href={link ?? UNASSIGNED_LINK_VALUE}>{title}</FooterLinkItem>
+            <S.FooterLinkItem href={link ?? UNASSIGNED_LINK_VALUE}>{title}</S.FooterLinkItem>
           </li>
         ))}
 
         <li>
           <p>© {currentYear} Twitter, Inc.</p>
         </li>
-      </FooterLinkList>
+      </S.FooterLinkList>
     </footer>
   );
 });

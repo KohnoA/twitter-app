@@ -1,31 +1,36 @@
-import { useCallback } from 'react';
-
+import { useDebounce } from '@/hooks/useDebounce';
 import { useLazyFindUsersQuery } from '@/store/api';
 
 import { ElasticSearch } from '../UI';
 
-import { UserCardStyled } from './styled';
+import * as S from './styled';
 
-export const SearchBarByUsers = () => {
+interface SearchBarByUsersProps {
+  onOpen?: (isOpen: boolean) => void;
+}
+
+export const SearchBarByUsers = ({ onOpen }: SearchBarByUsersProps) => {
   const [trigger, { data, isFetching }] = useLazyFindUsersQuery();
-  const showEmptyMessage = !data?.length;
+  const debounce = useDebounce();
+  const showEmptyMessage = !!data && !data.length;
 
-  const handleSearchValue = useCallback(
-    (value: string) => {
+  const handleSearchValue = (value: string) => {
+    debounce(() => {
       trigger(value);
-    },
-    [trigger],
-  );
+      if (onOpen) onOpen(!!value.length);
+    });
+  };
 
   return (
     <ElasticSearch
+      data-testid="searchbar-by-users"
       placeholder="Search Users"
       onChange={handleSearchValue}
       isLoading={isFetching}
       isEmpty={showEmptyMessage}
       emptyMessage="No Users Found"
     >
-      {data && data.map((user) => <UserCardStyled key={user.id} user={user} />)}
+      {data && data.map((user) => <S.UserCardStyled key={user.id} user={user} />)}
     </ElasticSearch>
   );
 };

@@ -1,25 +1,30 @@
-import { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { AppRoutes } from '@/constants';
+import { useDebounce } from '@/hooks';
 import { useLazyFindTweetsQuery } from '@/store/api';
 import { getShortDate } from '@/utils';
 
 import { ElasticSearch } from '../UI';
 
-import { TweetAuthor, TweetAuthorName, TweetMessage, TweetWrapper } from './styled';
+import * as S from './styled';
 
-export const SearchBarByTweets = () => {
+interface SearchBarByTweetsProps {
+  onOpen?: (isOpen: boolean) => void;
+}
+
+export const SearchBarByTweets = ({ onOpen }: SearchBarByTweetsProps) => {
   const [trigger, { data, isFetching }] = useLazyFindTweetsQuery();
+  const debounce = useDebounce();
   const navigate = useNavigate();
-  const showEmptyMessage = !data?.length;
+  const showEmptyMessage = !!data && !data.length;
 
-  const handleSearchValue = useCallback(
-    (value: string) => {
+  const handleSearchValue = (value: string) => {
+    debounce(() => {
       trigger(value);
-    },
-    [trigger],
-  );
+      if (onOpen) onOpen(!!value.length);
+    });
+  };
 
   const handleClick = (tweetId: string) => {
     navigate(`${AppRoutes.HOME}/${tweetId}`);
@@ -27,6 +32,7 @@ export const SearchBarByTweets = () => {
 
   return (
     <ElasticSearch
+      data-testid="searchbar-by-tweets"
       placeholder="Search Tweets"
       isLoading={isFetching}
       isEmpty={showEmptyMessage}
@@ -35,12 +41,13 @@ export const SearchBarByTweets = () => {
     >
       {data &&
         data.map(({ message, author, date, id }) => (
-          <TweetWrapper key={id} onClick={() => handleClick(id)}>
-            <TweetAuthor>
-              <TweetAuthorName>{author.name}</TweetAuthorName> {author.email} · {getShortDate(date)}
-            </TweetAuthor>
-            <TweetMessage>{message}</TweetMessage>
-          </TweetWrapper>
+          <S.TweetWrapper key={id} onClick={() => handleClick(id)}>
+            <S.TweetAuthor>
+              <S.TweetAuthorName>{author.name}</S.TweetAuthorName> {author.email} ·{' '}
+              {getShortDate(date)}
+            </S.TweetAuthor>
+            <S.TweetMessage>{message}</S.TweetMessage>
+          </S.TweetWrapper>
         ))}
     </ElasticSearch>
   );

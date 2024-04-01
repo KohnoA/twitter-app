@@ -1,88 +1,98 @@
-import { useMemo, useState } from 'react';
+import { memo, useMemo, useState } from 'react';
 
-import { useGetUserQuery } from '@/store/api';
+import { useGetUserQuery, useUserAvatarQuery } from '@/store/api';
 import { getDateString } from '@/utils';
 
+import { ChangePasswordForm } from '../ChangePasswordForm';
 import { EditProfileForm } from '../EditProfileForm';
 
-import { DEFAULT_USER_DATA, INITIAL_MODAL_STATE } from './constants';
 import {
-  EditButton,
-  EditWrapper,
-  ModalStyled,
-  ProfileBg,
-  ProfileWrapper,
-  SpinnerStyled,
-  UserAvatarStyled,
-  UserDescription,
-  UserInfoItem,
-  UserInfoWrapper,
-  UserName,
-  UserStatsItem,
-  UserStatsList,
-} from './styled';
+  DEFAULT_STAT_VALUE,
+  DEFAULT_USER_DATA,
+  INITIAL_CHANGE_PASSWORD_FORM_VISIBILITY,
+  INITIAL_MODAL_STATE,
+} from './constants';
+import * as S from './styled';
 import { ProfileProps } from './types';
 
-export const Profile = ({ userId, isOwner }: ProfileProps) => {
+export const Profile = memo(({ userId, isOwner, tweetsCount }: ProfileProps) => {
   const { data: user, isLoading } = useGetUserQuery(userId);
+  const { data: avatar } = useUserAvatarQuery(userId);
   const [showEditModal, setShowEditModal] = useState<boolean>(INITIAL_MODAL_STATE);
-  const { name, email, phone, birthday, description, avatar } = user ?? DEFAULT_USER_DATA;
-
-  const handleModal = () => setShowEditModal(!showEditModal);
+  const [showChangePasswordForm, setShowChangePasswordForm] = useState(
+    INITIAL_CHANGE_PASSWORD_FORM_VISIBILITY,
+  );
+  const { name, email, phone, birthday, description } = user ?? DEFAULT_USER_DATA;
 
   const birthdayString = useMemo(() => getDateString(birthday), [birthday]);
 
+  const handleChangeForm = () => setShowChangePasswordForm((prev) => !prev);
+
+  const handleModal = () => {
+    setShowEditModal((prev) => {
+      if (prev) setShowChangePasswordForm(INITIAL_CHANGE_PASSWORD_FORM_VISIBILITY);
+      return !prev;
+    });
+  };
+
   if (isLoading) {
     return (
-      <ProfileWrapper>
-        <SpinnerStyled width={50} height={50} />
-      </ProfileWrapper>
+      <S.ProfileWrapper>
+        <S.SpinnerStyled />
+      </S.ProfileWrapper>
     );
   }
 
   return (
-    <ProfileWrapper>
-      <ProfileBg>
-        <EditWrapper>
-          <UserAvatarStyled $avatarUrl={avatar} />
-
+    <S.ProfileWrapper data-testid="profile">
+      <S.ProfileBg>
+        <S.EditWrapper>
+          <S.UserAvatarStyled $avatarUrl={avatar} />
           {isOwner && (
-            <EditButton data-testid="edit-profile-button" $view="primary" onClick={handleModal}>
+            <S.EditButton data-testid="edit-profile-button" $view="primary" onClick={handleModal}>
               Edit profile
-            </EditButton>
+            </S.EditButton>
           )}
-        </EditWrapper>
-      </ProfileBg>
+        </S.EditWrapper>
+      </S.ProfileBg>
 
-      <UserInfoWrapper>
-        <UserName $size="xl2" data-testid="user-name">
+      <S.UserInfoWrapper>
+        <S.UserName $size="xl2" data-testid="user-name">
           {name}
-        </UserName>
+        </S.UserName>
 
-        <UserInfoItem data-testid="user-email">Email: {email}</UserInfoItem>
-        <UserInfoItem data-testid="user-phone">Phone: {phone}</UserInfoItem>
-        <UserInfoItem>Date of Birth: {birthdayString}</UserInfoItem>
+        <S.UserInfoItem data-testid="user-email">Email: {email}</S.UserInfoItem>
+        <S.UserInfoItem data-testid="user-phone">Phone: {phone}</S.UserInfoItem>
+        <S.UserInfoItem>Date of Birth: {birthdayString}</S.UserInfoItem>
 
-        <UserDescription $size="xl" data-testid="user-description">
+        <S.UserDescription $size="xl" data-testid="user-description">
           {description}
-        </UserDescription>
-      </UserInfoWrapper>
+        </S.UserDescription>
+      </S.UserInfoWrapper>
 
-      <UserStatsList>
-        <UserStatsItem>
+      <S.UserStatsList>
+        <S.UserStatsItem>
           <span>67</span> Following
-        </UserStatsItem>
-        <UserStatsItem>
+        </S.UserStatsItem>
+        <S.UserStatsItem>
           <span>47</span> Followers
-        </UserStatsItem>
-        <UserStatsItem>
-          <span>47</span> Tweets
-        </UserStatsItem>
-      </UserStatsList>
+        </S.UserStatsItem>
+        <S.UserStatsItem>
+          <span>{tweetsCount ?? DEFAULT_STAT_VALUE}</span> Tweets
+        </S.UserStatsItem>
+      </S.UserStatsList>
 
-      <ModalStyled isActive={showEditModal} onClose={handleModal}>
-        <EditProfileForm onClose={handleModal} />
-      </ModalStyled>
-    </ProfileWrapper>
+      <S.ModalStyled
+        data-testid="edit-profile-modal"
+        isActive={showEditModal}
+        onClose={handleModal}
+      >
+        {showChangePasswordForm ? (
+          <ChangePasswordForm onCancel={handleModal} />
+        ) : (
+          <EditProfileForm onCancel={handleModal} onChangePassword={handleChangeForm} />
+        )}
+      </S.ModalStyled>
+    </S.ProfileWrapper>
   );
-};
+});

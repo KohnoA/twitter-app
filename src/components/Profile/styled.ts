@@ -100,12 +100,17 @@ export const UserStatsItem = styled.li`
 
 export const ModalStyled = styled(Modal)`
   width: 100%;
-  max-width: 650px;
+  max-width: 600px;
 `;
 
 export const SpinnerStyled = styled(Spinner)`
   position: static;
   transform: initial;
 
-  margin: 20vh auto;
+  margin: 20% auto;
+
+  & svg {
+    width: ${({ theme }) => theme.iconSize.xl}px;
+    height: ${({ theme }) => theme.iconSize.xl}px;
+  }
 `;

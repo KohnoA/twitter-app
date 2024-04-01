@@ -32,13 +32,13 @@ export const TitleStyled = styled(Title)`
 `;
 
 export const TwitterIconStyled = styled(TwitterIcon)`
-  width: 40px;
-  height: 40px;
+  width: ${({ theme }) => theme.iconSize.xl}px;
+  height: ${({ theme }) => theme.iconSize.xl}px;
 `;
 
 export const SpinnerIconStyled = styled(SpinnerIcon)`
-  width: 60px;
-  height: 60px;
+  width: ${({ theme }) => theme.iconSize.xl2}px;
+  height: ${({ theme }) => theme.iconSize.xl2}px;
 
   & circle {
     stroke: ${({ theme }) => theme.colors.text};

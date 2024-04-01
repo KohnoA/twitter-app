@@ -1,15 +1,14 @@
 import { Button } from '../Button';
-import { Spinner } from '../Spinner';
 
-import { ChildrenWapper } from './styled';
+import { ChildrenWapper, SpinnerStyled } from './styled';
 import { ButtonWithSpinnerProps } from './types';
 
 export const ButtonWithSpinner = (props: ButtonWithSpinnerProps) => {
-  const { children, isLoading, disabled, ...otherProps } = props;
+  const { children, isLoading, disabled, $view, ...otherProps } = props;
 
   return (
-    <Button disabled={isLoading || disabled} {...otherProps}>
-      <Spinner show={isLoading} />
+    <Button $view={$view} disabled={isLoading || disabled} {...otherProps}>
+      <SpinnerStyled $view={$view} show={isLoading} />
 
       <ChildrenWapper $hidden={isLoading}>{children}</ChildrenWapper>
     </Button>

@@ -7,9 +7,10 @@ const lightTheme = {
   textInput: AppColors.PURPLE,
   bgPrimary: AppColors.WHITE,
   bgSecondary: AppColors.GREY_LIGHT,
-  stroke: AppColors.GREY_DARK,
+  stroke: AppColors.GREY_DARK_ALT,
   error: AppColors.RED,
   blackTransparent: AppColors.BLACK_TRANSPARENT,
+  scrollThumb: AppColors.BLACK_TRANSPARENT,
 };
 
 const darkTheme = {
@@ -22,6 +23,7 @@ const darkTheme = {
   stroke: AppColors.GREY_DARK,
   error: AppColors.RED,
   blackTransparent: AppColors.BLACK_TRANSPARENT,
+  scrollThumb: AppColors.WHITE_TRANSPARENT,
 };
 
 export const generalTheme = {
@@ -76,6 +78,14 @@ export const generalTheme = {
   duration: 300,
 
   shadow: `4px 4px 10px 4px ${AppColors.BLACK_TRANSPARENT}`,
+
+  iconSize: {
+    xl2: 60,
+    xl: 40,
+    lg: 30,
+    md: 24,
+    sm: 20,
+  },
 };
 
 export const getTheme = (theme: AppThemes) => ({

@@ -3,4 +3,5 @@ export interface SpinnerProps {
   height?: number;
   show?: boolean;
   className?: string;
+  'data-testid'?: string;
 }
