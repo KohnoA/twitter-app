@@ -1,11 +1,224 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1711902540335" clover="3.2.0">
-  <project timestamp="1711902540335" name="All files">
-    <metrics statements="365" coveredstatements="281" conditionals="261" coveredconditionals="166" methods="60" coveredmethods="35" elements="686" coveredelements="482" complexity="0" loc="365" ncloc="365" packages="26" files="30" classes="30"/>
+<coverage generated="1711931244629" clover="3.2.0">
+  <project timestamp="1711931244630" name="All files">
+    <metrics statements="1503" coveredstatements="1212" conditionals="425" coveredconditionals="282" methods="292" coveredmethods="181" elements="2220" coveredelements="1675" complexity="0" loc="1503" ncloc="1503" packages="46" files="164" classes="164"/>
+    <package name="assets.fonts.Roboto">
+      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="Roboto-Black.woff" path="C:\VSCode Projects\twitter-app\src\assets\fonts\Roboto\Roboto-Black.woff">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="13" type="stmt"/>
+      </file>
+      <file name="Roboto-Bold.woff" path="C:\VSCode Projects\twitter-app\src\assets\fonts\Roboto\Roboto-Bold.woff">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="13" type="stmt"/>
+      </file>
+      <file name="Roboto-Medium.woff" path="C:\VSCode Projects\twitter-app\src\assets\fonts\Roboto\Roboto-Medium.woff">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="13" type="stmt"/>
+      </file>
+      <file name="Roboto-Regular.woff" path="C:\VSCode Projects\twitter-app\src\assets\fonts\Roboto\Roboto-Regular.woff">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="13" type="stmt"/>
+      </file>
+    </package>
+    <package name="assets.icons">
+      <metrics statements="87" coveredstatements="65" conditionals="0" coveredconditionals="0" methods="29" coveredmethods="7"/>
+      <file name="arrow-down.svg" path="C:\VSCode Projects\twitter-app\src\assets\icons\arrow-down.svg">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="2" count="25" type="stmt"/>
+        <line num="4" count="36" type="stmt"/>
+        <line num="9" count="25" type="stmt"/>
+      </file>
+      <file name="back.svg" path="C:\VSCode Projects\twitter-app\src\assets\icons\back.svg">
+        <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="2" count="25" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="9" count="25" type="stmt"/>
+      </file>
+      <file name="bookmarks-fill.svg" path="C:\VSCode Projects\twitter-app\src\assets\icons\bookmarks-fill.svg">
+        <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="2" count="25" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="9" count="25" type="stmt"/>
+      </file>
+      <file name="bookmarks-outline.svg" path="C:\VSCode Projects\twitter-app\src\assets\icons\bookmarks-outline.svg">
+        <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="2" count="25" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="9" count="25" type="stmt"/>
+      </file>
+      <file name="burger.svg" path="C:\VSCode Projects\twitter-app\src\assets\icons\burger.svg">
+        <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="2" count="25" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="9" count="25" type="stmt"/>
+      </file>
+      <file name="cross.svg" path="C:\VSCode Projects\twitter-app\src\assets\icons\cross.svg">
+        <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="2" count="25" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="9" count="25" type="stmt"/>
+      </file>
+      <file name="dots.svg" path="C:\VSCode Projects\twitter-app\src\assets\icons\dots.svg">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="2" count="25" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="9" count="25" type="stmt"/>
+      </file>
+      <file name="explore-fill.svg" path="C:\VSCode Projects\twitter-app\src\assets\icons\explore-fill.svg">
+        <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="2" count="25" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="9" count="25" type="stmt"/>
+      </file>
+      <file name="explore.svg" path="C:\VSCode Projects\twitter-app\src\assets\icons\explore.svg">
+        <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="2" count="25" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="9" count="25" type="stmt"/>
+      </file>
+      <file name="google-icon.svg" path="C:\VSCode Projects\twitter-app\src\assets\icons\google-icon.svg">
+        <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="2" count="25" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="9" count="25" type="stmt"/>
+      </file>
+      <file name="home-fill.svg" path="C:\VSCode Projects\twitter-app\src\assets\icons\home-fill.svg">
+        <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="2" count="25" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="9" count="25" type="stmt"/>
+      </file>
+      <file name="home-outline.svg" path="C:\VSCode Projects\twitter-app\src\assets\icons\home-outline.svg">
+        <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="2" count="25" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="9" count="25" type="stmt"/>
+      </file>
+      <file name="image.svg" path="C:\VSCode Projects\twitter-app\src\assets\icons\image.svg">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="2" count="25" type="stmt"/>
+        <line num="4" count="20" type="stmt"/>
+        <line num="9" count="25" type="stmt"/>
+      </file>
+      <file name="like-fill.svg" path="C:\VSCode Projects\twitter-app\src\assets\icons\like-fill.svg">
+        <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="2" count="25" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="9" count="25" type="stmt"/>
+      </file>
+      <file name="like.svg" path="C:\VSCode Projects\twitter-app\src\assets\icons\like.svg">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="2" count="25" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="9" count="25" type="stmt"/>
+      </file>
+      <file name="list-fill.svg" path="C:\VSCode Projects\twitter-app\src\assets\icons\list-fill.svg">
+        <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="2" count="25" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="9" count="25" type="stmt"/>
+      </file>
+      <file name="lists.svg" path="C:\VSCode Projects\twitter-app\src\assets\icons\lists.svg">
+        <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="2" count="25" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="9" count="25" type="stmt"/>
+      </file>
+      <file name="messages-fill.svg" path="C:\VSCode Projects\twitter-app\src\assets\icons\messages-fill.svg">
+        <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="2" count="25" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="9" count="25" type="stmt"/>
+      </file>
+      <file name="messages.svg" path="C:\VSCode Projects\twitter-app\src\assets\icons\messages.svg">
+        <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="2" count="25" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="9" count="25" type="stmt"/>
+      </file>
+      <file name="more.svg" path="C:\VSCode Projects\twitter-app\src\assets\icons\more.svg">
+        <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="2" count="25" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="9" count="25" type="stmt"/>
+      </file>
+      <file name="notification-fill.svg" path="C:\VSCode Projects\twitter-app\src\assets\icons\notification-fill.svg">
+        <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="2" count="25" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="9" count="25" type="stmt"/>
+      </file>
+      <file name="notification.svg" path="C:\VSCode Projects\twitter-app\src\assets\icons\notification.svg">
+        <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="2" count="25" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="9" count="25" type="stmt"/>
+      </file>
+      <file name="profile-fill.svg" path="C:\VSCode Projects\twitter-app\src\assets\icons\profile-fill.svg">
+        <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="2" count="25" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="9" count="25" type="stmt"/>
+      </file>
+      <file name="profile-outline.svg" path="C:\VSCode Projects\twitter-app\src\assets\icons\profile-outline.svg">
+        <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="2" count="25" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="9" count="25" type="stmt"/>
+      </file>
+      <file name="search.svg" path="C:\VSCode Projects\twitter-app\src\assets\icons\search.svg">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="2" count="25" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="9" count="25" type="stmt"/>
+      </file>
+      <file name="spinner.svg" path="C:\VSCode Projects\twitter-app\src\assets\icons\spinner.svg">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="2" count="25" type="stmt"/>
+        <line num="4" count="6" type="stmt"/>
+        <line num="9" count="25" type="stmt"/>
+      </file>
+      <file name="twitter-logo.svg" path="C:\VSCode Projects\twitter-app\src\assets\icons\twitter-logo.svg">
+        <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="2" count="25" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="9" count="25" type="stmt"/>
+      </file>
+      <file name="unvisible-icon.svg" path="C:\VSCode Projects\twitter-app\src\assets\icons\unvisible-icon.svg">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="2" count="25" type="stmt"/>
+        <line num="4" count="28" type="stmt"/>
+        <line num="9" count="25" type="stmt"/>
+      </file>
+      <file name="visible-icon.svg" path="C:\VSCode Projects\twitter-app\src\assets\icons\visible-icon.svg">
+        <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="2" count="25" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="9" count="25" type="stmt"/>
+      </file>
+    </package>
+    <package name="assets.images">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="default-avatar.png" path="C:\VSCode Projects\twitter-app\src\assets\images\default-avatar.png">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="13" type="stmt"/>
+      </file>
+      <file name="default-profile-bg.jpg" path="C:\VSCode Projects\twitter-app\src\assets\images\default-profile-bg.jpg">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+      </file>
+    </package>
     <package name="components.ChangePasswordForm">
-      <metrics statements="18" coveredstatements="13" conditionals="11" coveredconditionals="7" methods="3" coveredmethods="2"/>
+      <metrics statements="28" coveredstatements="28" conditionals="11" coveredconditionals="10" methods="4" coveredmethods="4"/>
+      <file name="config.ts" path="C:\VSCode Projects\twitter-app\src\components\ChangePasswordForm\config.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="5" count="6" type="stmt"/>
+        <line num="13" count="6" type="stmt"/>
+      </file>
       <file name="index.tsx" path="C:\VSCode Projects\twitter-app\src\components\ChangePasswordForm\index.tsx">
-        <metrics statements="18" coveredstatements="13" conditionals="11" coveredconditionals="7" methods="3" coveredmethods="2"/>
+        <metrics statements="18" coveredstatements="18" conditionals="11" coveredconditionals="10" methods="3" coveredmethods="3"/>
         <line num="1" count="2" type="stmt"/>
         <line num="2" count="2" type="stmt"/>
         <line num="4" count="2" type="stmt"/>
@@ -13,23 +226,49 @@
         <line num="7" count="2" type="stmt"/>
         <line num="9" count="2" type="stmt"/>
         <line num="10" count="2" type="stmt"/>
-        <line num="13" count="2" type="stmt"/>
-        <line num="14" count="2" type="stmt"/>
-        <line num="20" count="1" type="stmt"/>
-        <line num="22" count="1" type="stmt"/>
-        <line num="23" count="1" type="cond" truecount="0" falsecount="1"/>
-        <line num="26" count="1" type="stmt"/>
-        <line num="27" count="0" type="stmt"/>
-        <line num="29" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="30" count="0" type="stmt"/>
-        <line num="31" count="0" type="stmt"/>
-        <line num="34" count="0" type="stmt"/>
+        <line num="13" count="6" type="stmt"/>
+        <line num="14" count="12" type="stmt"/>
+        <line num="20" count="6" type="stmt"/>
+        <line num="22" count="6" type="stmt"/>
+        <line num="23" count="5" type="cond" truecount="1" falsecount="0"/>
+        <line num="26" count="6" type="stmt"/>
+        <line num="27" count="2" type="stmt"/>
+        <line num="29" count="2" type="cond" truecount="1" falsecount="0"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
+      </file>
+      <file name="styled.ts" path="C:\VSCode Projects\twitter-app\src\components\ChangePasswordForm\styled.ts">
+        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="7" count="6" type="stmt"/>
+        <line num="10" count="6" type="stmt"/>
+        <line num="12" count="6" type="stmt"/>
+        <line num="15" count="2" type="stmt"/>
       </file>
     </package>
     <package name="components.EditProfileForm">
-      <metrics statements="24" coveredstatements="22" conditionals="40" coveredconditionals="28" methods="4" coveredmethods="3"/>
+      <metrics statements="59" coveredstatements="56" conditionals="61" coveredconditionals="51" methods="11" coveredmethods="11"/>
+      <file name="config.ts" path="C:\VSCode Projects\twitter-app\src\components\EditProfileForm\config.ts">
+        <metrics statements="13" coveredstatements="11" conditionals="21" coveredconditionals="19" methods="3" coveredmethods="3"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="7" count="11" type="stmt"/>
+        <line num="15" count="11" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="27" count="33" type="stmt"/>
+        <line num="31" count="11" type="stmt"/>
+        <line num="33" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="36" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="40" count="11" type="stmt"/>
+        <line num="41" count="11" type="stmt"/>
+      </file>
       <file name="index.tsx" path="C:\VSCode Projects\twitter-app\src\components\EditProfileForm\index.tsx">
-        <metrics statements="24" coveredstatements="22" conditionals="40" coveredconditionals="28" methods="4" coveredmethods="3"/>
+        <metrics statements="24" coveredstatements="23" conditionals="40" coveredconditionals="32" methods="4" coveredmethods="4"/>
         <line num="1" count="2" type="stmt"/>
         <line num="2" count="2" type="stmt"/>
         <line num="4" count="2" type="stmt"/>
@@ -40,57 +279,96 @@
         <line num="10" count="2" type="stmt"/>
         <line num="12" count="2" type="stmt"/>
         <line num="13" count="2" type="stmt"/>
-        <line num="16" count="2" type="stmt"/>
-        <line num="17" count="4" type="stmt"/>
-        <line num="18" count="2" type="stmt"/>
-        <line num="19" count="2" type="cond" truecount="2" falsecount="2"/>
-        <line num="26" count="2" type="stmt"/>
-        <line num="27" count="2" type="stmt"/>
-        <line num="28" count="2" type="cond" truecount="3" falsecount="1"/>
-        <line num="30" count="2" type="stmt"/>
-        <line num="32" count="2" type="cond" truecount="7" falsecount="1"/>
-        <line num="36" count="2" type="stmt"/>
-        <line num="37" count="1" type="cond" truecount="0" falsecount="1"/>
-        <line num="40" count="2" type="stmt"/>
-        <line num="50" count="0" type="stmt"/>
+        <line num="16" count="11" type="stmt"/>
+        <line num="17" count="22" type="stmt"/>
+        <line num="18" count="11" type="stmt"/>
+        <line num="19" count="11" type="cond" truecount="4" falsecount="0"/>
+        <line num="26" count="11" type="stmt"/>
+        <line num="27" count="11" type="stmt"/>
+        <line num="28" count="11" type="cond" truecount="3" falsecount="1"/>
+        <line num="30" count="11" type="stmt"/>
+        <line num="32" count="6" type="cond" truecount="7" falsecount="1"/>
+        <line num="36" count="11" type="stmt"/>
+        <line num="37" count="5" type="cond" truecount="1" falsecount="0"/>
+        <line num="40" count="11" type="stmt"/>
+        <line num="50" count="1" type="stmt"/>
         <line num="66" count="0" type="stmt"/>
       </file>
-    </package>
-    <package name="components.ErrorBoundary">
-      <metrics statements="9" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="4" coveredmethods="0"/>
-      <file name="index.tsx" path="C:\VSCode Projects\twitter-app\src\components\ErrorBoundary\index.tsx">
-        <metrics statements="9" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="4" coveredmethods="0"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="20" count="0" type="stmt"/>
-        <line num="24" count="0" type="stmt"/>
-        <line num="25" count="0" type="stmt"/>
-        <line num="27" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="31" count="0" type="stmt"/>
+      <file name="styled.ts" path="C:\VSCode Projects\twitter-app\src\components\EditProfileForm\styled.ts">
+        <metrics statements="22" coveredstatements="22" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="7" count="11" type="stmt"/>
+        <line num="8" count="11" type="stmt"/>
+        <line num="11" count="11" type="stmt"/>
+        <line num="14" count="11" type="stmt"/>
+        <line num="16" count="11" type="stmt"/>
+        <line num="19" count="11" type="stmt"/>
+        <line num="20" count="11" type="stmt"/>
+        <line num="23" count="11" type="stmt"/>
+        <line num="26" count="11" type="stmt"/>
+        <line num="28" count="11" type="stmt"/>
+        <line num="31" count="11" type="stmt"/>
+        <line num="35" count="11" type="stmt"/>
+        <line num="37" count="11" type="stmt"/>
+        <line num="40" count="11" type="stmt"/>
+        <line num="48" count="11" type="stmt"/>
+        <line num="49" count="11" type="stmt"/>
+        <line num="53" count="11" type="stmt"/>
+        <line num="59" count="11" type="stmt"/>
+        <line num="63" count="11" type="stmt"/>
       </file>
     </package>
     <package name="components.LoginForm">
-      <metrics statements="10" coveredstatements="9" conditionals="9" coveredconditionals="7" methods="1" coveredmethods="1"/>
+      <metrics statements="24" coveredstatements="24" conditionals="9" coveredconditionals="7" methods="3" coveredmethods="3"/>
+      <file name="config.ts" path="C:\VSCode Projects\twitter-app\src\components\LoginForm\config.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="5" count="4" type="stmt"/>
+        <line num="13" count="4" type="stmt"/>
+      </file>
       <file name="index.tsx" path="C:\VSCode Projects\twitter-app\src\components\LoginForm\index.tsx">
-        <metrics statements="10" coveredstatements="9" conditionals="9" coveredconditionals="7" methods="1" coveredmethods="1"/>
+        <metrics statements="10" coveredstatements="10" conditionals="9" coveredconditionals="7" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
         <line num="7" count="1" type="stmt"/>
         <line num="9" count="1" type="stmt"/>
         <line num="10" count="1" type="stmt"/>
-        <line num="12" count="1" type="stmt"/>
-        <line num="13" count="2" type="stmt"/>
-        <line num="18" count="1" type="stmt"/>
-        <line num="20" count="0" type="stmt"/>
+        <line num="12" count="3" type="stmt"/>
+        <line num="13" count="8" type="stmt"/>
+        <line num="18" count="4" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+      </file>
+      <file name="styled.ts" path="C:\VSCode Projects\twitter-app\src\components\LoginForm\styled.ts">
+        <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="7" count="4" type="stmt"/>
+        <line num="9" count="4" type="stmt"/>
+        <line num="12" count="4" type="stmt"/>
+        <line num="13" count="4" type="stmt"/>
+        <line num="14" count="4" type="stmt"/>
+        <line num="16" count="4" type="stmt"/>
+        <line num="19" count="4" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
       </file>
     </package>
     <package name="components.NewTweet">
-      <metrics statements="22" coveredstatements="18" conditionals="24" coveredconditionals="16" methods="3" coveredmethods="2"/>
+      <metrics statements="47" coveredstatements="47" conditionals="27" coveredconditionals="22" methods="8" coveredmethods="8"/>
+      <file name="config.ts" path="C:\VSCode Projects\twitter-app\src\components\NewTweet\config.ts">
+        <metrics statements="6" coveredstatements="6" conditionals="3" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="5" count="9" type="stmt"/>
+        <line num="10" count="9" type="stmt"/>
+        <line num="12" count="2" type="cond" truecount="1" falsecount="0"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="15" count="1" type="cond" truecount="1" falsecount="1"/>
+      </file>
       <file name="index.tsx" path="C:\VSCode Projects\twitter-app\src\components\NewTweet\index.tsx">
-        <metrics statements="22" coveredstatements="18" conditionals="24" coveredconditionals="16" methods="3" coveredmethods="2"/>
+        <metrics statements="22" coveredstatements="22" conditionals="24" coveredconditionals="20" methods="3" coveredmethods="3"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
@@ -99,24 +377,53 @@
         <line num="8" count="1" type="stmt"/>
         <line num="10" count="1" type="stmt"/>
         <line num="11" count="1" type="stmt"/>
-        <line num="14" count="2" type="stmt"/>
-        <line num="15" count="2" type="stmt"/>
-        <line num="16" count="2" type="stmt"/>
-        <line num="17" count="2" type="cond" truecount="2" falsecount="2"/>
-        <line num="24" count="2" type="stmt"/>
-        <line num="25" count="2" type="cond" truecount="3" falsecount="1"/>
-        <line num="26" count="2" type="stmt"/>
-        <line num="28" count="2" type="stmt"/>
-        <line num="29" count="0" type="stmt"/>
-        <line num="31" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="32" count="0" type="stmt"/>
-        <line num="33" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="36" count="2" type="stmt"/>
-        <line num="37" count="2" type="cond" truecount="6" falsecount="1"/>
+        <line num="14" count="9" type="stmt"/>
+        <line num="15" count="9" type="stmt"/>
+        <line num="16" count="9" type="stmt"/>
+        <line num="17" count="9" type="cond" truecount="4" falsecount="0"/>
+        <line num="24" count="9" type="stmt"/>
+        <line num="25" count="9" type="cond" truecount="3" falsecount="1"/>
+        <line num="26" count="9" type="stmt"/>
+        <line num="28" count="9" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="31" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="33" count="1" type="cond" truecount="0" falsecount="1"/>
+        <line num="36" count="9" type="stmt"/>
+        <line num="37" count="8" type="cond" truecount="7" falsecount="0"/>
+      </file>
+      <file name="styled.ts" path="C:\VSCode Projects\twitter-app\src\components\NewTweet\styled.ts">
+        <metrics statements="19" coveredstatements="19" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="7" count="9" type="stmt"/>
+        <line num="9" count="9" type="stmt"/>
+        <line num="12" count="9" type="stmt"/>
+        <line num="14" count="9" type="stmt"/>
+        <line num="16" count="9" type="stmt"/>
+        <line num="17" count="9" type="stmt"/>
+        <line num="22" count="9" type="stmt"/>
+        <line num="30" count="9" type="stmt"/>
+        <line num="34" count="9" type="stmt"/>
+        <line num="38" count="9" type="stmt"/>
+        <line num="42" count="9" type="stmt"/>
+        <line num="45" count="9" type="stmt"/>
+        <line num="48" count="9" type="stmt"/>
+        <line num="53" count="1" type="stmt"/>
+        <line num="57" count="1" type="stmt"/>
+        <line num="62" count="1" type="stmt"/>
       </file>
     </package>
     <package name="components.Profile">
-      <metrics statements="20" coveredstatements="16" conditionals="12" coveredconditionals="9" methods="4" coveredmethods="2"/>
+      <metrics statements="56" coveredstatements="52" conditionals="16" coveredconditionals="12" methods="11" coveredmethods="9"/>
+      <file name="constants.ts" path="C:\VSCode Projects\twitter-app\src\components\Profile\constants.ts">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="5" type="stmt"/>
+        <line num="4" count="5" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+      </file>
       <file name="index.tsx" path="C:\VSCode Projects\twitter-app\src\components\Profile\index.tsx">
         <metrics statements="20" coveredstatements="16" conditionals="12" coveredconditionals="9" methods="4" coveredmethods="2"/>
         <line num="1" count="1" type="stmt"/>
@@ -126,42 +433,107 @@
         <line num="7" count="1" type="stmt"/>
         <line num="14" count="1" type="stmt"/>
         <line num="15" count="1" type="stmt"/>
-        <line num="18" count="3" type="stmt"/>
-        <line num="19" count="3" type="stmt"/>
-        <line num="20" count="3" type="stmt"/>
-        <line num="21" count="6" type="stmt"/>
-        <line num="22" count="6" type="stmt"/>
-        <line num="25" count="3" type="cond" truecount="4" falsecount="0"/>
-        <line num="27" count="3" type="stmt"/>
+        <line num="18" count="5" type="stmt"/>
+        <line num="19" count="5" type="stmt"/>
+        <line num="20" count="5" type="stmt"/>
+        <line num="21" count="10" type="stmt"/>
+        <line num="22" count="10" type="stmt"/>
+        <line num="25" count="5" type="cond" truecount="4" falsecount="0"/>
+        <line num="27" count="5" type="stmt"/>
         <line num="29" count="0" type="stmt"/>
-        <line num="31" count="3" type="stmt"/>
+        <line num="31" count="5" type="stmt"/>
         <line num="32" count="0" type="stmt"/>
         <line num="33" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="34" count="0" type="stmt"/>
-        <line num="38" count="3" type="cond" truecount="1" falsecount="0"/>
+        <line num="38" count="5" type="cond" truecount="1" falsecount="0"/>
+      </file>
+      <file name="styled.ts" path="C:\VSCode Projects\twitter-app\src\components\Profile\styled.ts">
+        <metrics statements="32" coveredstatements="32" conditionals="4" coveredconditionals="3" methods="7" coveredmethods="7"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="10" count="5" type="stmt"/>
+        <line num="11" count="5" type="stmt"/>
+        <line num="14" count="3" type="stmt"/>
+        <line num="21" count="3" type="cond" truecount="3" falsecount="1"/>
+        <line num="28" count="3" type="stmt"/>
+        <line num="36" count="3" type="stmt"/>
+        <line num="43" count="3" type="stmt"/>
+        <line num="58" count="1" type="stmt"/>
+        <line num="62" count="3" type="stmt"/>
+        <line num="63" count="3" type="stmt"/>
+        <line num="66" count="3" type="stmt"/>
+        <line num="67" count="3" type="stmt"/>
+        <line num="72" count="9" type="stmt"/>
+        <line num="73" count="9" type="stmt"/>
+        <line num="75" count="9" type="stmt"/>
+        <line num="78" count="3" type="stmt"/>
+        <line num="79" count="3" type="stmt"/>
+        <line num="83" count="3" type="stmt"/>
+        <line num="87" count="3" type="stmt"/>
+        <line num="89" count="3" type="stmt"/>
+        <line num="92" count="9" type="stmt"/>
+        <line num="93" count="9" type="stmt"/>
+        <line num="96" count="9" type="stmt"/>
+        <line num="97" count="9" type="stmt"/>
+        <line num="101" count="3" type="stmt"/>
+        <line num="106" count="2" type="stmt"/>
+        <line num="113" count="2" type="stmt"/>
+        <line num="114" count="2" type="stmt"/>
       </file>
     </package>
     <package name="components.Recommendations">
-      <metrics statements="13" coveredstatements="11" conditionals="17" coveredconditionals="9" methods="3" coveredmethods="2"/>
+      <metrics statements="37" coveredstatements="31" conditionals="17" coveredconditionals="15" methods="9" coveredmethods="6"/>
+      <file name="constants.ts" path="C:\VSCode Projects\twitter-app\src\components\Recommendations\constants.ts">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="5" count="8" type="stmt"/>
+        <line num="6" count="6" type="stmt"/>
+      </file>
       <file name="index.tsx" path="C:\VSCode Projects\twitter-app\src\components\Recommendations\index.tsx">
-        <metrics statements="13" coveredstatements="11" conditionals="17" coveredconditionals="9" methods="3" coveredmethods="2"/>
+        <metrics statements="13" coveredstatements="11" conditionals="17" coveredconditionals="15" methods="3" coveredmethods="2"/>
         <line num="1" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
         <line num="10" count="1" type="stmt"/>
         <line num="11" count="1" type="stmt"/>
-        <line num="14" count="2" type="stmt"/>
-        <line num="15" count="4" type="stmt"/>
-        <line num="16" count="2" type="stmt"/>
-        <line num="17" count="2" type="cond" truecount="2" falsecount="1"/>
-        <line num="18" count="2" type="cond" truecount="1" falsecount="5"/>
-        <line num="20" count="2" type="stmt"/>
+        <line num="14" count="6" type="stmt"/>
+        <line num="15" count="12" type="stmt"/>
+        <line num="16" count="6" type="stmt"/>
+        <line num="17" count="6" type="cond" truecount="3" falsecount="0"/>
+        <line num="18" count="6" type="cond" truecount="6" falsecount="0"/>
+        <line num="20" count="6" type="stmt"/>
         <line num="21" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="24" count="2" type="stmt"/>
+        <line num="24" count="6" type="stmt"/>
         <line num="28" count="0" type="stmt"/>
+      </file>
+      <file name="styled.ts" path="C:\VSCode Projects\twitter-app\src\components\Recommendations\styled.ts">
+        <metrics statements="19" coveredstatements="15" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="4"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="8" count="6" type="stmt"/>
+        <line num="9" count="6" type="stmt"/>
+        <line num="10" count="6" type="stmt"/>
+        <line num="12" count="6" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="31" count="3" type="stmt"/>
+        <line num="34" count="3" type="stmt"/>
+        <line num="37" count="3" type="stmt"/>
+        <line num="38" count="3" type="stmt"/>
+        <line num="42" count="3" type="stmt"/>
+        <line num="43" count="3" type="stmt"/>
       </file>
     </package>
     <package name="components.SearchBarByTweets">
-      <metrics statements="20" coveredstatements="14" conditionals="4" coveredconditionals="2" methods="4" coveredmethods="1"/>
+      <metrics statements="29" coveredstatements="19" conditionals="4" coveredconditionals="2" methods="6" coveredmethods="1"/>
       <file name="index.tsx" path="C:\VSCode Projects\twitter-app\src\components\SearchBarByTweets\index.tsx">
         <metrics statements="20" coveredstatements="14" conditionals="4" coveredconditionals="2" methods="4" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
@@ -185,9 +557,21 @@
         <line num="43" count="0" type="stmt"/>
         <line num="44" count="0" type="stmt"/>
       </file>
+      <file name="styled.ts" path="C:\VSCode Projects\twitter-app\src\components\SearchBarByTweets\styled.ts">
+        <metrics statements="9" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+      </file>
     </package>
     <package name="components.SearchBarByUsers">
-      <metrics statements="13" coveredstatements="9" conditionals="4" coveredconditionals="2" methods="3" coveredmethods="1"/>
+      <metrics statements="16" coveredstatements="12" conditionals="4" coveredconditionals="2" methods="3" coveredmethods="1"/>
       <file name="index.tsx" path="C:\VSCode Projects\twitter-app\src\components\SearchBarByUsers\index.tsx">
         <metrics statements="13" coveredstatements="9" conditionals="4" coveredconditionals="2" methods="3" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
@@ -204,9 +588,29 @@
         <line num="20" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="33" count="0" type="cond" truecount="1" falsecount="0"/>
       </file>
+      <file name="styled.ts" path="C:\VSCode Projects\twitter-app\src\components\SearchBarByUsers\styled.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+      </file>
     </package>
     <package name="components.SignUpEmailForm">
-      <metrics statements="19" coveredstatements="17" conditionals="24" coveredconditionals="18" methods="3" coveredmethods="2"/>
+      <metrics statements="51" coveredstatements="47" conditionals="24" coveredconditionals="18" methods="9" coveredmethods="7"/>
+      <file name="config.ts" path="C:\VSCode Projects\twitter-app\src\components\SignUpEmailForm\config.ts">
+        <metrics statements="11" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="37" count="3" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
+      </file>
       <file name="index.tsx" path="C:\VSCode Projects\twitter-app\src\components\SignUpEmailForm\index.tsx">
         <metrics statements="19" coveredstatements="17" conditionals="24" coveredconditionals="18" methods="3" coveredmethods="2"/>
         <line num="1" count="1" type="stmt"/>
@@ -229,11 +633,41 @@
         <line num="30" count="0" type="stmt"/>
         <line num="31" count="0" type="stmt"/>
       </file>
+      <file name="styled.ts" path="C:\VSCode Projects\twitter-app\src\components\SignUpEmailForm\styled.ts">
+        <metrics statements="21" coveredstatements="21" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="5"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
+        <line num="44" count="1" type="stmt"/>
+        <line num="45" count="1" type="stmt"/>
+      </file>
     </package>
     <package name="components.SignUpPasswordForm">
-      <metrics statements="26" coveredstatements="16" conditionals="11" coveredconditionals="7" methods="2" coveredmethods="1"/>
+      <metrics statements="40" coveredstatements="39" conditionals="11" coveredconditionals="9" methods="4" coveredmethods="4"/>
+      <file name="config.ts" path="C:\VSCode Projects\twitter-app\src\components\SignUpPasswordForm\config.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="5" count="6" type="stmt"/>
+        <line num="13" count="6" type="stmt"/>
+      </file>
       <file name="index.tsx" path="C:\VSCode Projects\twitter-app\src\components\SignUpPasswordForm\index.tsx">
-        <metrics statements="26" coveredstatements="16" conditionals="11" coveredconditionals="7" methods="2" coveredmethods="1"/>
+        <metrics statements="26" coveredstatements="25" conditionals="11" coveredconditionals="9" methods="2" coveredmethods="2"/>
         <line num="1" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
@@ -244,26 +678,46 @@
         <line num="11" count="1" type="stmt"/>
         <line num="13" count="1" type="stmt"/>
         <line num="14" count="1" type="stmt"/>
-        <line num="16" count="1" type="stmt"/>
-        <line num="17" count="2" type="stmt"/>
-        <line num="18" count="1" type="stmt"/>
-        <line num="19" count="1" type="stmt"/>
-        <line num="25" count="1" type="stmt"/>
-        <line num="27" count="1" type="stmt"/>
-        <line num="28" count="0" type="stmt"/>
-        <line num="30" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="31" count="0" type="stmt"/>
-        <line num="32" count="0" type="stmt"/>
-        <line num="35" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="36" count="0" type="stmt"/>
-        <line num="37" count="0" type="stmt"/>
-        <line num="39" count="0" type="stmt"/>
-        <line num="40" count="0" type="stmt"/>
+        <line num="16" count="3" type="stmt"/>
+        <line num="17" count="12" type="stmt"/>
+        <line num="18" count="6" type="stmt"/>
+        <line num="19" count="6" type="stmt"/>
+        <line num="25" count="6" type="stmt"/>
+        <line num="27" count="6" type="stmt"/>
+        <line num="28" count="2" type="stmt"/>
+        <line num="30" count="2" type="cond" truecount="1" falsecount="0"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="35" count="1" type="cond" truecount="0" falsecount="1"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
         <line num="43" count="0" type="stmt"/>
+      </file>
+      <file name="styled.ts" path="C:\VSCode Projects\twitter-app\src\components\SignUpPasswordForm\styled.ts">
+        <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="7" count="6" type="stmt"/>
+        <line num="9" count="6" type="stmt"/>
+        <line num="12" count="6" type="stmt"/>
+        <line num="15" count="6" type="stmt"/>
+        <line num="17" count="6" type="stmt"/>
+        <line num="19" count="6" type="stmt"/>
+        <line num="20" count="6" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
       </file>
     </package>
     <package name="components.TweetItem">
-      <metrics statements="29" coveredstatements="22" conditionals="19" coveredconditionals="9" methods="4" coveredmethods="2"/>
+      <metrics statements="62" coveredstatements="53" conditionals="21" coveredconditionals="11" methods="16" coveredmethods="12"/>
+      <file name="constants.ts" path="C:\VSCode Projects\twitter-app\src\components\TweetItem\constants.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+      </file>
       <file name="index.tsx" path="C:\VSCode Projects\twitter-app\src\components\TweetItem\index.tsx">
         <metrics statements="29" coveredstatements="22" conditionals="19" coveredconditionals="9" methods="4" coveredmethods="2"/>
         <line num="1" count="2" type="stmt"/>
@@ -296,9 +750,48 @@
         <line num="43" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="44" count="0" type="stmt"/>
       </file>
+      <file name="styled.ts" path="C:\VSCode Projects\twitter-app\src\components\TweetItem\styled.ts">
+        <metrics statements="30" coveredstatements="28" conditionals="2" coveredconditionals="2" methods="12" coveredmethods="10"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="15" count="2" type="stmt"/>
+        <line num="21" count="2" type="stmt"/>
+        <line num="22" count="2" type="stmt"/>
+        <line num="32" count="2" type="stmt"/>
+        <line num="45" count="2" type="stmt"/>
+        <line num="57" count="2" type="stmt"/>
+        <line num="60" count="2" type="stmt"/>
+        <line num="62" count="2" type="stmt"/>
+        <line num="71" count="2" type="stmt"/>
+        <line num="74" count="2" type="stmt"/>
+        <line num="75" count="2" type="stmt"/>
+        <line num="80" count="2" type="stmt"/>
+        <line num="81" count="2" type="stmt"/>
+        <line num="84" count="2" type="stmt"/>
+        <line num="92" count="2" type="stmt"/>
+        <line num="93" count="2" type="stmt"/>
+        <line num="99" count="2" type="stmt"/>
+        <line num="100" count="2" type="stmt"/>
+        <line num="103" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="107" count="2" type="stmt"/>
+        <line num="108" count="2" type="stmt"/>
+        <line num="116" count="2" type="stmt"/>
+        <line num="120" count="0" type="stmt"/>
+        <line num="122" count="0" type="stmt"/>
+      </file>
     </package>
     <package name="components.TweetItem.TweetOptions">
-      <metrics statements="9" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <metrics statements="37" coveredstatements="35" conditionals="6" coveredconditionals="4" methods="10" coveredmethods="10"/>
+      <file name="constants.ts" path="C:\VSCode Projects\twitter-app\src\components\TweetItem\TweetOptions\constants.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+      </file>
       <file name="index.tsx" path="C:\VSCode Projects\twitter-app\src\components\TweetItem\TweetOptions\index.tsx">
         <metrics statements="9" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="1" count="2" type="stmt"/>
@@ -311,9 +804,37 @@
         <line num="13" count="0" type="stmt"/>
         <line num="15" count="0" type="stmt"/>
       </file>
+      <file name="styled.ts" path="C:\VSCode Projects\twitter-app\src\components\TweetItem\TweetOptions\styled.ts">
+        <metrics statements="25" coveredstatements="25" conditionals="6" coveredconditionals="4" methods="9" coveredmethods="9"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="33" count="1" type="stmt"/>
+        <line num="35" count="1" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
+        <line num="43" count="1" type="stmt"/>
+        <line num="52" count="1" type="stmt"/>
+        <line num="53" count="1" type="stmt"/>
+        <line num="57" count="1" type="stmt"/>
+        <line num="59" count="1" type="stmt"/>
+        <line num="63" count="1" type="stmt"/>
+        <line num="64" count="1" type="stmt"/>
+        <line num="65" count="1" type="stmt"/>
+        <line num="68" count="1" type="stmt"/>
+        <line num="69" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="81" count="2" type="stmt"/>
+        <line num="93" count="1" type="stmt"/>
+        <line num="101" count="1" type="stmt"/>
+        <line num="102" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="110" count="1" type="stmt"/>
+        <line num="111" count="1" type="cond" truecount="2" falsecount="0"/>
+      </file>
     </package>
     <package name="components.TweetList">
-      <metrics statements="6" coveredstatements="5" conditionals="7" coveredconditionals="6" methods="1" coveredmethods="1"/>
+      <metrics statements="18" coveredstatements="14" conditionals="7" coveredconditionals="6" methods="3" coveredmethods="2"/>
       <file name="index.tsx" path="C:\VSCode Projects\twitter-app\src\components\TweetList\index.tsx">
         <metrics statements="6" coveredstatements="5" conditionals="7" coveredconditionals="6" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
@@ -323,27 +844,124 @@
         <line num="8" count="1" type="cond" truecount="3" falsecount="0"/>
         <line num="19" count="0" type="cond" truecount="1" falsecount="0"/>
       </file>
+      <file name="styled.ts" path="C:\VSCode Projects\twitter-app\src\components\TweetList\styled.ts">
+        <metrics statements="12" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.UI">
+      <metrics statements="15" coveredstatements="15" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.ts" path="C:\VSCode Projects\twitter-app\src\components\UI\index.ts">
+        <metrics statements="15" coveredstatements="15" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="12" type="stmt"/>
+        <line num="2" count="25" type="stmt"/>
+        <line num="3" count="25" type="stmt"/>
+        <line num="4" count="12" type="stmt"/>
+        <line num="5" count="12" type="stmt"/>
+        <line num="6" count="12" type="stmt"/>
+        <line num="7" count="57" type="stmt"/>
+        <line num="8" count="12" type="stmt"/>
+        <line num="9" count="12" type="stmt"/>
+        <line num="10" count="12" type="stmt"/>
+        <line num="11" count="36" type="stmt"/>
+        <line num="12" count="12" type="stmt"/>
+        <line num="13" count="12" type="stmt"/>
+        <line num="14" count="12" type="stmt"/>
+        <line num="15" count="13" type="stmt"/>
+      </file>
     </package>
     <package name="components.UI.AppLoader">
-      <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <metrics statements="20" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
       <file name="index.tsx" path="C:\VSCode Projects\twitter-app\src\components\UI\AppLoader\index.tsx">
         <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="7" count="12" type="stmt"/>
         <line num="9" count="0" type="stmt"/>
       </file>
+      <file name="styled.ts" path="C:\VSCode Projects\twitter-app\src\components\UI\AppLoader\styled.ts">
+        <metrics statements="18" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <line num="1" count="12" type="stmt"/>
+        <line num="3" count="12" type="stmt"/>
+        <line num="4" count="12" type="stmt"/>
+        <line num="6" count="12" type="stmt"/>
+        <line num="8" count="12" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="41" count="0" type="stmt"/>
+        <line num="44" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.UI.Button">
+      <metrics statements="15" coveredstatements="15" conditionals="2" coveredconditionals="2" methods="9" coveredmethods="9"/>
+      <file name="index.ts" path="C:\VSCode Projects\twitter-app\src\components\UI\Button\index.ts">
+        <metrics statements="15" coveredstatements="15" conditionals="2" coveredconditionals="2" methods="9" coveredmethods="9"/>
+        <line num="1" count="12" type="stmt"/>
+        <line num="3" count="12" type="stmt"/>
+        <line num="7" count="61" type="stmt"/>
+        <line num="12" count="61" type="stmt"/>
+        <line num="17" count="61" type="stmt"/>
+        <line num="18" count="61" type="stmt"/>
+        <line num="20" count="61" type="stmt"/>
+        <line num="21" count="61" type="stmt"/>
+        <line num="25" count="61" type="stmt"/>
+        <line num="26" count="61" type="cond" truecount="2" falsecount="0"/>
+        <line num="40" count="61" type="stmt"/>
+        <line num="44" count="61" type="stmt"/>
+        <line num="45" count="61" type="stmt"/>
+        <line num="51" count="61" type="stmt"/>
+        <line num="52" count="61" type="stmt"/>
+      </file>
     </package>
     <package name="components.UI.ButtonWithSpinner">
-      <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+      <metrics statements="12" coveredstatements="12" conditionals="6" coveredconditionals="4" methods="1" coveredmethods="1"/>
       <file name="index.tsx" path="C:\VSCode Projects\twitter-app\src\components\UI\ButtonWithSpinner\index.tsx">
         <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
         <line num="1" count="12" type="stmt"/>
         <line num="3" count="12" type="stmt"/>
-        <line num="6" count="12" type="stmt"/>
-        <line num="7" count="7" type="stmt"/>
+        <line num="6" count="25" type="stmt"/>
+        <line num="7" count="36" type="stmt"/>
+      </file>
+      <file name="styled.ts" path="C:\VSCode Projects\twitter-app\src\components\UI\ButtonWithSpinner\styled.ts">
+        <metrics statements="8" coveredstatements="8" conditionals="4" coveredconditionals="2" methods="0" coveredmethods="0"/>
+        <line num="1" count="12" type="stmt"/>
+        <line num="3" count="12" type="stmt"/>
+        <line num="5" count="12" type="stmt"/>
+        <line num="9" count="36" type="stmt"/>
+        <line num="10" count="36" type="cond" truecount="1" falsecount="1"/>
+        <line num="13" count="36" type="stmt"/>
+        <line num="14" count="36" type="stmt"/>
+        <line num="15" count="36" type="cond" truecount="1" falsecount="1"/>
       </file>
     </package>
     <package name="components.UI.ElasticSearch">
-      <metrics statements="17" coveredstatements="11" conditionals="20" coveredconditionals="10" methods="3" coveredmethods="1"/>
+      <metrics statements="55" coveredstatements="36" conditionals="20" coveredconditionals="10" methods="17" coveredmethods="8"/>
+      <file name="constants.ts" path="C:\VSCode Projects\twitter-app\src\components\UI\ElasticSearch\constants.ts">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="12" type="stmt"/>
+        <line num="3" count="12" type="stmt"/>
+        <line num="4" count="12" type="stmt"/>
+        <line num="5" count="12" type="stmt"/>
+        <line num="6" count="12" type="stmt"/>
+      </file>
       <file name="index.tsx" path="C:\VSCode Projects\twitter-app\src\components\UI\ElasticSearch\index.tsx">
         <metrics statements="17" coveredstatements="11" conditionals="20" coveredconditionals="10" methods="3" coveredmethods="1"/>
         <line num="1" count="12" type="stmt"/>
@@ -364,36 +982,131 @@
         <line num="38" count="0" type="stmt"/>
         <line num="39" count="0" type="cond" truecount="0" falsecount="1"/>
       </file>
+      <file name="styled.ts" path="C:\VSCode Projects\twitter-app\src\components\UI\ElasticSearch\styled.ts">
+        <metrics statements="33" coveredstatements="20" conditionals="0" coveredconditionals="0" methods="14" coveredmethods="7"/>
+        <line num="1" count="12" type="stmt"/>
+        <line num="3" count="12" type="stmt"/>
+        <line num="5" count="12" type="stmt"/>
+        <line num="7" count="12" type="stmt"/>
+        <line num="11" count="12" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="24" count="2" type="stmt"/>
+        <line num="25" count="2" type="stmt"/>
+        <line num="28" count="2" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="41" count="12" type="stmt"/>
+        <line num="49" count="0" type="stmt"/>
+        <line num="55" count="2" type="stmt"/>
+        <line num="59" count="2" type="stmt"/>
+        <line num="60" count="2" type="stmt"/>
+        <line num="63" count="2" type="stmt"/>
+        <line num="65" count="2" type="stmt"/>
+        <line num="68" count="2" type="stmt"/>
+        <line num="71" count="2" type="stmt"/>
+        <line num="72" count="2" type="stmt"/>
+        <line num="77" count="12" type="stmt"/>
+        <line num="92" count="0" type="stmt"/>
+        <line num="93" count="0" type="stmt"/>
+        <line num="95" count="0" type="stmt"/>
+        <line num="100" count="12" type="stmt"/>
+        <line num="106" count="0" type="stmt"/>
+        <line num="109" count="0" type="stmt"/>
+        <line num="121" count="0" type="stmt"/>
+        <line num="122" count="0" type="stmt"/>
+        <line num="124" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.UI.ErrorMessage">
+      <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <file name="index.ts" path="C:\VSCode Projects\twitter-app\src\components\UI\ErrorMessage\index.ts">
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="1" count="12" type="stmt"/>
+        <line num="3" count="12" type="stmt"/>
+        <line num="5" count="6" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="11" count="2" type="stmt"/>
+      </file>
     </package>
     <package name="components.UI.FileInput">
-      <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <metrics statements="13" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
       <file name="index.tsx" path="C:\VSCode Projects\twitter-app\src\components\UI\FileInput\index.tsx">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="12" type="stmt"/>
         <line num="3" count="12" type="stmt"/>
         <line num="5" count="12" type="stmt"/>
         <line num="8" count="12" type="stmt"/>
-        <line num="10" count="4" type="stmt"/>
+        <line num="10" count="20" type="stmt"/>
+      </file>
+      <file name="styled.ts" path="C:\VSCode Projects\twitter-app\src\components\UI\FileInput\styled.ts">
+        <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <line num="1" count="12" type="stmt"/>
+        <line num="3" count="12" type="stmt"/>
+        <line num="5" count="20" type="stmt"/>
+        <line num="13" count="20" type="stmt"/>
+        <line num="14" count="20" type="stmt"/>
+        <line num="15" count="20" type="stmt"/>
+        <line num="18" count="20" type="stmt"/>
+        <line num="30" count="20" type="stmt"/>
       </file>
     </package>
     <package name="components.UI.Input">
-      <metrics statements="10" coveredstatements="9" conditionals="11" coveredconditionals="9" methods="1" coveredmethods="1"/>
+      <metrics statements="40" coveredstatements="39" conditionals="15" coveredconditionals="13" methods="14" coveredmethods="14"/>
+      <file name="constants.ts" path="C:\VSCode Projects\twitter-app\src\components\UI\Input\constants.ts">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="12" type="stmt"/>
+        <line num="3" count="28" type="stmt"/>
+        <line num="4" count="29" type="stmt"/>
+        <line num="5" count="57" type="stmt"/>
+      </file>
       <file name="index.tsx" path="C:\VSCode Projects\twitter-app\src\components\UI\Input\index.tsx">
         <metrics statements="10" coveredstatements="9" conditionals="11" coveredconditionals="9" methods="1" coveredmethods="1"/>
         <line num="1" count="12" type="stmt"/>
         <line num="3" count="12" type="stmt"/>
         <line num="10" count="12" type="stmt"/>
         <line num="11" count="12" type="stmt"/>
-        <line num="14" count="13" type="stmt"/>
-        <line num="15" count="13" type="cond" truecount="2" falsecount="0"/>
-        <line num="17" count="26" type="stmt"/>
-        <line num="18" count="13" type="stmt"/>
-        <line num="19" count="13" type="stmt"/>
+        <line num="14" count="57" type="stmt"/>
+        <line num="15" count="57" type="cond" truecount="2" falsecount="0"/>
+        <line num="17" count="114" type="stmt"/>
+        <line num="18" count="57" type="stmt"/>
+        <line num="19" count="57" type="stmt"/>
         <line num="21" count="0" type="stmt"/>
+      </file>
+      <file name="styled.ts" path="C:\VSCode Projects\twitter-app\src\components\UI\Input\styled.ts">
+        <metrics statements="26" coveredstatements="26" conditionals="4" coveredconditionals="4" methods="13" coveredmethods="13"/>
+        <line num="1" count="12" type="stmt"/>
+        <line num="3" count="12" type="stmt"/>
+        <line num="7" count="57" type="stmt"/>
+        <line num="8" count="57" type="stmt"/>
+        <line num="10" count="57" type="stmt"/>
+        <line num="11" count="57" type="stmt"/>
+        <line num="16" count="57" type="stmt"/>
+        <line num="22" count="57" type="stmt"/>
+        <line num="24" count="57" type="stmt"/>
+        <line num="27" count="57" type="stmt"/>
+        <line num="28" count="57" type="stmt"/>
+        <line num="32" count="57" type="stmt"/>
+        <line num="33" count="57" type="stmt"/>
+        <line num="35" count="57" type="stmt"/>
+        <line num="36" count="57" type="cond" truecount="2" falsecount="0"/>
+        <line num="45" count="57" type="cond" truecount="2" falsecount="0"/>
+        <line num="48" count="57" type="stmt"/>
+        <line num="49" count="57" type="stmt"/>
+        <line num="57" count="28" type="stmt"/>
+        <line num="73" count="28" type="stmt"/>
+        <line num="74" count="28" type="stmt"/>
+        <line num="76" count="28" type="stmt"/>
+        <line num="77" count="28" type="stmt"/>
+        <line num="81" count="28" type="stmt"/>
+        <line num="91" count="28" type="stmt"/>
+        <line num="92" count="28" type="stmt"/>
       </file>
     </package>
     <package name="components.UI.Modal">
-      <metrics statements="9" coveredstatements="7" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
+      <metrics statements="19" coveredstatements="11" conditionals="1" coveredconditionals="1" methods="5" coveredmethods="1"/>
       <file name="index.tsx" path="C:\VSCode Projects\twitter-app\src\components\UI\Modal\index.tsx">
         <metrics statements="9" coveredstatements="7" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
         <line num="2" count="12" type="stmt"/>
@@ -402,38 +1115,113 @@
         <line num="9" count="12" type="stmt"/>
         <line num="11" count="12" type="stmt"/>
         <line num="12" count="0" type="stmt"/>
-        <line num="14" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="15" count="1" type="stmt"/>
+        <line num="14" count="3" type="cond" truecount="1" falsecount="0"/>
+        <line num="15" count="3" type="stmt"/>
         <line num="18" count="0" type="stmt"/>
+      </file>
+      <file name="styled.ts" path="C:\VSCode Projects\twitter-app\src\components\UI\Modal\styled.ts">
+        <metrics statements="10" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
+        <line num="1" count="12" type="stmt"/>
+        <line num="3" count="12" type="stmt"/>
+        <line num="5" count="12" type="stmt"/>
+        <line num="11" count="12" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="41" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.UI.MyLink">
+      <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="index.ts" path="C:\VSCode Projects\twitter-app\src\components\UI\MyLink\index.ts">
+        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="12" type="stmt"/>
+        <line num="2" count="12" type="stmt"/>
+        <line num="4" count="12" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="7" count="5" type="stmt"/>
+        <line num="11" count="5" type="stmt"/>
+        <line num="12" count="5" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.UI.Paragraph">
+      <metrics statements="7" coveredstatements="7" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="2"/>
+      <file name="index.ts" path="C:\VSCode Projects\twitter-app\src\components\UI\Paragraph\index.ts">
+        <metrics statements="7" coveredstatements="7" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="2"/>
+        <line num="1" count="12" type="stmt"/>
+        <line num="3" count="12" type="stmt"/>
+        <line num="9" count="6" type="stmt"/>
+        <line num="10" count="10" type="stmt"/>
+        <line num="12" count="10" type="cond" truecount="1" falsecount="1"/>
+        <line num="15" count="10" type="stmt"/>
+        <line num="16" count="10" type="stmt"/>
       </file>
     </package>
     <package name="components.UI.Select">
-      <metrics statements="7" coveredstatements="7" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
+      <metrics statements="25" coveredstatements="25" conditionals="7" coveredconditionals="5" methods="9" coveredmethods="9"/>
       <file name="index.tsx" path="C:\VSCode Projects\twitter-app\src\components\UI\Select\index.tsx">
         <metrics statements="7" coveredstatements="7" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
         <line num="1" count="12" type="stmt"/>
         <line num="3" count="12" type="stmt"/>
         <line num="5" count="12" type="stmt"/>
+        <line num="8" count="36" type="stmt"/>
+        <line num="9" count="36" type="stmt"/>
+        <line num="11" count="36" type="stmt"/>
+        <line num="32" count="1176" type="stmt"/>
+      </file>
+      <file name="styled.ts" path="C:\VSCode Projects\twitter-app\src\components\UI\Select\styled.ts">
+        <metrics statements="18" coveredstatements="18" conditionals="4" coveredconditionals="2" methods="8" coveredmethods="8"/>
+        <line num="1" count="12" type="stmt"/>
+        <line num="3" count="12" type="stmt"/>
+        <line num="4" count="12" type="stmt"/>
         <line num="8" count="12" type="stmt"/>
-        <line num="9" count="9" type="stmt"/>
-        <line num="11" count="9" type="stmt"/>
-        <line num="32" count="294" type="stmt"/>
+        <line num="10" count="36" type="stmt"/>
+        <line num="14" count="36" type="stmt"/>
+        <line num="16" count="36" type="stmt"/>
+        <line num="19" count="36" type="stmt"/>
+        <line num="20" count="36" type="stmt"/>
+        <line num="24" count="36" type="stmt"/>
+        <line num="25" count="36" type="stmt"/>
+        <line num="33" count="36" type="stmt"/>
+        <line num="34" count="36" type="cond" truecount="1" falsecount="1"/>
+        <line num="43" count="36" type="cond" truecount="1" falsecount="1"/>
+        <line num="46" count="36" type="stmt"/>
+        <line num="47" count="36" type="stmt"/>
+        <line num="54" count="36" type="stmt"/>
+        <line num="66" count="36" type="stmt"/>
       </file>
     </package>
     <package name="components.UI.Spinner">
-      <metrics statements="6" coveredstatements="6" conditionals="11" coveredconditionals="9" methods="1" coveredmethods="1"/>
+      <metrics statements="15" coveredstatements="15" conditionals="11" coveredconditionals="9" methods="1" coveredmethods="1"/>
+      <file name="constants.ts" path="C:\VSCode Projects\twitter-app\src\components\UI\Spinner\constants.ts">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="12" type="stmt"/>
+        <line num="3" count="12" type="stmt"/>
+        <line num="4" count="12" type="stmt"/>
+        <line num="5" count="12" type="stmt"/>
+        <line num="6" count="12" type="stmt"/>
+      </file>
       <file name="index.tsx" path="C:\VSCode Projects\twitter-app\src\components\UI\Spinner\index.tsx">
         <metrics statements="6" coveredstatements="6" conditionals="11" coveredconditionals="9" methods="1" coveredmethods="1"/>
         <line num="1" count="12" type="stmt"/>
         <line num="2" count="12" type="stmt"/>
         <line num="5" count="14" type="stmt"/>
-        <line num="6" count="9" type="cond" truecount="2" falsecount="0"/>
-        <line num="8" count="9" type="cond" truecount="1" falsecount="0"/>
-        <line num="9" count="7" type="stmt"/>
+        <line num="6" count="38" type="cond" truecount="2" falsecount="0"/>
+        <line num="8" count="38" type="cond" truecount="1" falsecount="0"/>
+        <line num="9" count="36" type="stmt"/>
+      </file>
+      <file name="styled.ts" path="C:\VSCode Projects\twitter-app\src\components\UI\Spinner\styled.ts">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="12" type="stmt"/>
+        <line num="3" count="12" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="20" count="2" type="stmt"/>
       </file>
     </package>
     <package name="components.UI.Switch">
-      <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <metrics statements="14" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
       <file name="index.tsx" path="C:\VSCode Projects\twitter-app\src\components\UI\Switch\index.tsx">
         <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="1" count="12" type="stmt"/>
@@ -441,23 +1229,67 @@
         <line num="6" count="12" type="stmt"/>
         <line num="7" count="0" type="stmt"/>
       </file>
+      <file name="styled.ts" path="C:\VSCode Projects\twitter-app\src\components\UI\Switch\styled.ts">
+        <metrics statements="10" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <line num="1" count="12" type="stmt"/>
+        <line num="3" count="12" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="30" count="12" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+      </file>
     </package>
     <package name="components.UI.Textaria">
-      <metrics statements="6" coveredstatements="6" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+      <metrics statements="21" coveredstatements="21" conditionals="4" coveredconditionals="3" methods="8" coveredmethods="8"/>
       <file name="index.tsx" path="C:\VSCode Projects\twitter-app\src\components\UI\Textaria\index.tsx">
         <metrics statements="6" coveredstatements="6" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
         <line num="1" count="12" type="stmt"/>
         <line num="3" count="12" type="stmt"/>
         <line num="5" count="12" type="stmt"/>
         <line num="8" count="12" type="stmt"/>
-        <line num="9" count="4" type="stmt"/>
-        <line num="11" count="4" type="stmt"/>
+        <line num="9" count="20" type="stmt"/>
+        <line num="11" count="20" type="stmt"/>
+      </file>
+      <file name="styled.ts" path="C:\VSCode Projects\twitter-app\src\components\UI\Textaria\styled.ts">
+        <metrics statements="15" coveredstatements="15" conditionals="2" coveredconditionals="1" methods="7" coveredmethods="7"/>
+        <line num="1" count="12" type="stmt"/>
+        <line num="3" count="12" type="stmt"/>
+        <line num="7" count="20" type="stmt"/>
+        <line num="8" count="20" type="stmt"/>
+        <line num="11" count="20" type="stmt"/>
+        <line num="13" count="20" type="stmt"/>
+        <line num="16" count="20" type="stmt"/>
+        <line num="18" count="20" type="stmt"/>
+        <line num="19" count="20" type="stmt"/>
+        <line num="20" count="20" type="stmt"/>
+        <line num="24" count="20" type="cond" truecount="1" falsecount="1"/>
+        <line num="29" count="20" type="stmt"/>
+        <line num="30" count="20" type="stmt"/>
+        <line num="34" count="11" type="stmt"/>
+        <line num="36" count="11" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.UI.Title">
+      <metrics statements="7" coveredstatements="7" conditionals="2" coveredconditionals="1" methods="3" coveredmethods="3"/>
+      <file name="index.ts" path="C:\VSCode Projects\twitter-app\src\components\UI\Title\index.ts">
+        <metrics statements="7" coveredstatements="7" conditionals="2" coveredconditionals="1" methods="3" coveredmethods="3"/>
+        <line num="1" count="12" type="stmt"/>
+        <line num="3" count="12" type="stmt"/>
+        <line num="9" count="25" type="stmt"/>
+        <line num="10" count="29" type="stmt"/>
+        <line num="12" count="29" type="stmt"/>
+        <line num="13" count="29" type="cond" truecount="1" falsecount="1"/>
+        <line num="15" count="29" type="stmt"/>
       </file>
     </package>
     <package name="components.UserCard">
-      <metrics statements="16" coveredstatements="14" conditionals="5" coveredconditionals="2" methods="2" coveredmethods="1"/>
+      <metrics statements="30" coveredstatements="30" conditionals="7" coveredconditionals="6" methods="5" coveredmethods="5"/>
       <file name="index.tsx" path="C:\VSCode Projects\twitter-app\src\components\UserCard\index.tsx">
-        <metrics statements="16" coveredstatements="14" conditionals="5" coveredconditionals="2" methods="2" coveredmethods="1"/>
+        <metrics statements="16" coveredstatements="16" conditionals="5" coveredconditionals="4" methods="2" coveredmethods="2"/>
         <line num="1" count="3" type="stmt"/>
         <line num="2" count="3" type="stmt"/>
         <line num="4" count="3" type="stmt"/>
@@ -465,28 +1297,783 @@
         <line num="6" count="3" type="stmt"/>
         <line num="7" count="3" type="stmt"/>
         <line num="9" count="3" type="stmt"/>
-        <line num="12" count="3" type="stmt"/>
-        <line num="13" count="2" type="stmt"/>
-        <line num="15" count="2" type="stmt"/>
-        <line num="16" count="2" type="stmt"/>
-        <line num="17" count="2" type="stmt"/>
-        <line num="18" count="2" type="cond" truecount="2" falsecount="2"/>
-        <line num="20" count="2" type="stmt"/>
-        <line num="21" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="12" count="5" type="stmt"/>
+        <line num="13" count="5" type="stmt"/>
+        <line num="15" count="5" type="stmt"/>
+        <line num="16" count="5" type="stmt"/>
+        <line num="17" count="5" type="stmt"/>
+        <line num="18" count="5" type="cond" truecount="3" falsecount="1"/>
+        <line num="20" count="5" type="stmt"/>
+        <line num="21" count="2" type="cond" truecount="1" falsecount="0"/>
+        <line num="22" count="1" type="stmt"/>
+      </file>
+      <file name="styled.ts" path="C:\VSCode Projects\twitter-app\src\components\UserCard\styled.ts">
+        <metrics statements="14" coveredstatements="14" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="7" count="5" type="stmt"/>
+        <line num="10" count="5" type="stmt"/>
+        <line num="13" count="5" type="stmt"/>
+        <line num="16" count="5" type="cond" truecount="2" falsecount="0"/>
+        <line num="18" count="5" type="stmt"/>
+        <line num="19" count="5" type="stmt"/>
+        <line num="26" count="5" type="stmt"/>
+        <line num="35" count="5" type="stmt"/>
+        <line num="39" count="5" type="stmt"/>
+        <line num="42" count="5" type="stmt"/>
+        <line num="45" count="5" type="stmt"/>
+        <line num="48" count="5" type="stmt"/>
+      </file>
+    </package>
+    <package name="constants">
+      <metrics statements="67" coveredstatements="67" conditionals="28" coveredconditionals="28" methods="7" coveredmethods="7"/>
+      <file name="app.ts" path="C:\VSCode Projects\twitter-app\src\constants\app.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="6" coveredconditionals="6" methods="3" coveredmethods="3"/>
+        <line num="1" count="25" type="cond" truecount="2" falsecount="0"/>
+        <line num="17" count="25" type="cond" truecount="2" falsecount="0"/>
+        <line num="22" count="25" type="cond" truecount="2" falsecount="0"/>
+      </file>
+      <file name="errors.ts" path="C:\VSCode Projects\twitter-app\src\constants\errors.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="1" count="25" type="cond" truecount="2" falsecount="0"/>
+      </file>
+      <file name="firebase.ts" path="C:\VSCode Projects\twitter-app\src\constants\firebase.ts">
+        <metrics statements="9" coveredstatements="9" conditionals="18" coveredconditionals="18" methods="2" coveredmethods="2"/>
+        <line num="1" count="25" type="cond" truecount="2" falsecount="0"/>
+        <line num="2" count="25" type="cond" truecount="2" falsecount="0"/>
+        <line num="3" count="25" type="cond" truecount="2" falsecount="0"/>
+        <line num="4" count="25" type="cond" truecount="2" falsecount="0"/>
+        <line num="5" count="25" type="cond" truecount="2" falsecount="0"/>
+        <line num="6" count="25" type="cond" truecount="2" falsecount="0"/>
+        <line num="7" count="25" type="cond" truecount="2" falsecount="0"/>
+        <line num="9" count="25" type="cond" truecount="2" falsecount="0"/>
+        <line num="17" count="25" type="cond" truecount="2" falsecount="0"/>
+      </file>
+      <file name="footerLinks.ts" path="C:\VSCode Projects\twitter-app\src\constants\footerLinks.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="6" count="25" type="stmt"/>
+      </file>
+      <file name="icons.ts" path="C:\VSCode Projects\twitter-app\src\constants\icons.ts">
+        <metrics statements="30" coveredstatements="30" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="25" type="stmt"/>
+        <line num="2" count="25" type="stmt"/>
+        <line num="3" count="25" type="stmt"/>
+        <line num="4" count="25" type="stmt"/>
+        <line num="5" count="25" type="stmt"/>
+        <line num="6" count="25" type="stmt"/>
+        <line num="7" count="25" type="stmt"/>
+        <line num="8" count="25" type="stmt"/>
+        <line num="9" count="25" type="stmt"/>
+        <line num="10" count="25" type="stmt"/>
+        <line num="11" count="25" type="stmt"/>
+        <line num="12" count="25" type="stmt"/>
+        <line num="13" count="25" type="stmt"/>
+        <line num="14" count="25" type="stmt"/>
+        <line num="15" count="25" type="stmt"/>
+        <line num="16" count="25" type="stmt"/>
+        <line num="17" count="25" type="stmt"/>
+        <line num="18" count="25" type="stmt"/>
+        <line num="19" count="25" type="stmt"/>
+        <line num="20" count="25" type="stmt"/>
+        <line num="21" count="25" type="stmt"/>
+        <line num="22" count="25" type="stmt"/>
+        <line num="23" count="25" type="stmt"/>
+        <line num="24" count="25" type="stmt"/>
+        <line num="25" count="25" type="stmt"/>
+        <line num="26" count="25" type="stmt"/>
+        <line num="27" count="25" type="stmt"/>
+        <line num="28" count="25" type="stmt"/>
+        <line num="29" count="25" type="stmt"/>
+        <line num="31" count="529" type="stmt"/>
+      </file>
+      <file name="index.ts" path="C:\VSCode Projects\twitter-app\src\constants\index.ts">
+        <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="25" type="stmt"/>
+        <line num="2" count="25" type="stmt"/>
+        <line num="3" count="25" type="stmt"/>
+        <line num="4" count="25" type="stmt"/>
+        <line num="5" count="25" type="stmt"/>
+        <line num="6" count="25" type="stmt"/>
+        <line num="7" count="25" type="stmt"/>
+        <line num="8" count="25" type="stmt"/>
+        <line num="10" count="25" type="stmt"/>
+        <line num="11" count="25" type="stmt"/>
+      </file>
+      <file name="navigationList.ts" path="C:\VSCode Projects\twitter-app\src\constants\navigationList.ts">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="25" type="stmt"/>
+        <line num="2" count="25" type="stmt"/>
+        <line num="20" count="25" type="stmt"/>
+        <line num="22" count="25" type="stmt"/>
+      </file>
+      <file name="regexes.ts" path="C:\VSCode Projects\twitter-app\src\constants\regexes.ts">
+        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="25" type="stmt"/>
+        <line num="2" count="25" type="stmt"/>
+        <line num="3" count="25" type="stmt"/>
+        <line num="4" count="25" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="6" count="25" type="stmt"/>
+        <line num="7" count="25" type="stmt"/>
+      </file>
+      <file name="signup.ts" path="C:\VSCode Projects\twitter-app\src\constants\signup.ts">
+        <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="1" count="34" type="stmt"/>
+        <line num="16" count="25" type="cond" truecount="2" falsecount="0"/>
+      </file>
+    </package>
+    <package name="firebase">
+      <metrics statements="15" coveredstatements="15" conditionals="1" coveredconditionals="1" methods="0" coveredmethods="0"/>
+      <file name="index.ts" path="C:\VSCode Projects\twitter-app\src\firebase\index.ts">
+        <metrics statements="15" coveredstatements="15" conditionals="1" coveredconditionals="1" methods="0" coveredmethods="0"/>
+        <line num="1" count="20" type="stmt"/>
+        <line num="2" count="20" type="stmt"/>
+        <line num="3" count="20" type="stmt"/>
+        <line num="4" count="20" type="stmt"/>
+        <line num="14" count="20" type="stmt"/>
+        <line num="16" count="20" type="stmt"/>
+        <line num="26" count="20" type="stmt"/>
+        <line num="27" count="20" type="stmt"/>
+        <line num="28" count="20" type="stmt"/>
+        <line num="29" count="20" type="stmt"/>
+        <line num="30" count="20" type="stmt"/>
+        <line num="32" count="20" type="cond" truecount="1" falsecount="0"/>
+        <line num="33" count="20" type="stmt"/>
+        <line num="34" count="20" type="stmt"/>
+        <line num="35" count="20" type="stmt"/>
+      </file>
+    </package>
+    <package name="hooks">
+      <metrics statements="50" coveredstatements="27" conditionals="7" coveredconditionals="2" methods="8" coveredmethods="1"/>
+      <file name="index.ts" path="C:\VSCode Projects\twitter-app\src\hooks\index.ts">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="34" type="stmt"/>
+        <line num="2" count="11" type="stmt"/>
+        <line num="3" count="11" type="stmt"/>
+        <line num="4" count="11" type="stmt"/>
+        <line num="5" count="11" type="stmt"/>
+      </file>
+      <file name="redux.ts" path="C:\VSCode Projects\twitter-app\src\hooks\redux.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="11" type="stmt"/>
+        <line num="5" count="11" type="stmt"/>
+        <line num="6" count="34" type="stmt"/>
+      </file>
+      <file name="useAuth.ts" path="C:\VSCode Projects\twitter-app\src\hooks\useAuth.ts">
+        <metrics statements="17" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <line num="1" count="11" type="stmt"/>
+        <line num="2" count="11" type="stmt"/>
+        <line num="4" count="11" type="stmt"/>
+        <line num="5" count="11" type="stmt"/>
+        <line num="6" count="11" type="stmt"/>
+        <line num="8" count="11" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+      </file>
+      <file name="useDebounce.ts" path="C:\VSCode Projects\twitter-app\src\hooks\useDebounce.ts">
+        <metrics statements="8" coveredstatements="6" conditionals="5" coveredconditionals="2" methods="2" coveredmethods="1"/>
+        <line num="1" count="11" type="stmt"/>
+        <line num="3" count="11" type="stmt"/>
+        <line num="5" count="4" type="cond" truecount="2" falsecount="2"/>
+        <line num="6" count="4" type="stmt"/>
+        <line num="8" count="4" type="stmt"/>
+        <line num="9" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="14" count="4" type="stmt"/>
+      </file>
+      <file name="usePagination.ts" path="C:\VSCode Projects\twitter-app\src\hooks\usePagination.ts">
+        <metrics statements="6" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="11" type="stmt"/>
+        <line num="3" count="11" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+      </file>
+      <file name="useTheme.ts" path="C:\VSCode Projects\twitter-app\src\hooks\useTheme.ts">
+        <metrics statements="11" coveredstatements="5" conditionals="2" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="1" count="11" type="stmt"/>
+        <line num="3" count="11" type="stmt"/>
+        <line num="4" count="11" type="stmt"/>
+        <line num="5" count="11" type="stmt"/>
+        <line num="7" count="11" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="14" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="17" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="services">
+      <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.ts" path="C:\VSCode Projects\twitter-app\src\services\index.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="13" type="stmt"/>
+        <line num="2" count="13" type="stmt"/>
+        <line num="3" count="13" type="stmt"/>
+      </file>
+    </package>
+    <package name="services.authentication">
+      <metrics statements="34" coveredstatements="22" conditionals="12" coveredconditionals="0" methods="5" coveredmethods="0"/>
+      <file name="index.ts" path="C:\VSCode Projects\twitter-app\src\services\authentication\index.ts">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="13" type="stmt"/>
+        <line num="2" count="13" type="stmt"/>
+        <line num="3" count="13" type="stmt"/>
+        <line num="4" count="13" type="stmt"/>
+        <line num="5" count="13" type="stmt"/>
+      </file>
+      <file name="signIn.ts" path="C:\VSCode Projects\twitter-app\src\services\authentication\signIn.ts">
+        <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="13" type="stmt"/>
+        <line num="3" count="13" type="stmt"/>
+        <line num="5" count="9" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+      </file>
+      <file name="signInViaGoogle.ts" path="C:\VSCode Projects\twitter-app\src\services\authentication\signInViaGoogle.ts">
+        <metrics statements="9" coveredstatements="4" conditionals="12" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="13" type="stmt"/>
+        <line num="3" count="13" type="stmt"/>
+        <line num="5" count="13" type="stmt"/>
+        <line num="7" count="9" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
         <line num="22" count="0" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+      </file>
+      <file name="signOut.ts" path="C:\VSCode Projects\twitter-app\src\services\authentication\signOut.ts">
+        <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="13" type="stmt"/>
+        <line num="3" count="13" type="stmt"/>
+        <line num="5" count="9" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+      </file>
+      <file name="signUp.ts" path="C:\VSCode Projects\twitter-app\src\services\authentication\signUp.ts">
+        <metrics statements="7" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="13" type="stmt"/>
+        <line num="3" count="13" type="stmt"/>
+        <line num="6" count="13" type="stmt"/>
+        <line num="8" count="9" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+      </file>
+      <file name="updatePassword.ts" path="C:\VSCode Projects\twitter-app\src\services\authentication\updatePassword.ts">
+        <metrics statements="5" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="13" type="stmt"/>
+        <line num="3" count="13" type="stmt"/>
+        <line num="5" count="9" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="services.firestore">
+      <metrics statements="112" coveredstatements="67" conditionals="28" coveredconditionals="0" methods="12" coveredmethods="0"/>
+      <file name="addLikeToTweet.ts" path="C:\VSCode Projects\twitter-app\src\services\firestore\addLikeToTweet.ts">
+        <metrics statements="8" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="20" type="stmt"/>
+        <line num="3" count="20" type="stmt"/>
+        <line num="4" count="20" type="stmt"/>
+        <line num="7" count="9" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+      </file>
+      <file name="addTweet.ts" path="C:\VSCode Projects\twitter-app\src\services\firestore\addTweet.ts">
+        <metrics statements="6" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="20" type="stmt"/>
+        <line num="3" count="20" type="stmt"/>
+        <line num="4" count="20" type="stmt"/>
+        <line num="7" count="9" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+      </file>
+      <file name="deleteTweet.ts" path="C:\VSCode Projects\twitter-app\src\services\firestore\deleteTweet.ts">
+        <metrics statements="5" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="20" type="stmt"/>
+        <line num="3" count="20" type="stmt"/>
+        <line num="4" count="20" type="stmt"/>
+        <line num="6" count="9" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+      </file>
+      <file name="findTweetsByMessage.ts" path="C:\VSCode Projects\twitter-app\src\services\firestore\findTweetsByMessage.ts">
+        <metrics statements="9" coveredstatements="5" conditionals="4" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="20" type="stmt"/>
+        <line num="3" count="20" type="stmt"/>
+        <line num="4" count="20" type="stmt"/>
+        <line num="7" count="20" type="stmt"/>
+        <line num="9" count="9" type="cond" truecount="0" falsecount="4"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+      </file>
+      <file name="findUsersByName.ts" path="C:\VSCode Projects\twitter-app\src\services\firestore\findUsersByName.ts">
+        <metrics statements="10" coveredstatements="5" conditionals="4" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="20" type="stmt"/>
+        <line num="3" count="20" type="stmt"/>
+        <line num="4" count="20" type="stmt"/>
+        <line num="7" count="20" type="stmt"/>
+        <line num="9" count="9" type="cond" truecount="0" falsecount="4"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+      </file>
+      <file name="getAllTweets.ts" path="C:\VSCode Projects\twitter-app\src\services\firestore\getAllTweets.ts">
+        <metrics statements="12" coveredstatements="6" conditionals="8" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="20" type="stmt"/>
+        <line num="3" count="20" type="stmt"/>
+        <line num="4" count="20" type="stmt"/>
+        <line num="7" count="20" type="stmt"/>
+        <line num="8" count="20" type="stmt"/>
+        <line num="10" count="9" type="cond" truecount="0" falsecount="8"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+      </file>
+      <file name="getAllUsers.ts" path="C:\VSCode Projects\twitter-app\src\services\firestore\getAllUsers.ts">
+        <metrics statements="9" coveredstatements="5" conditionals="4" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="20" type="stmt"/>
+        <line num="3" count="20" type="stmt"/>
+        <line num="4" count="20" type="stmt"/>
+        <line num="7" count="20" type="stmt"/>
+        <line num="9" count="9" type="cond" truecount="0" falsecount="4"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+      </file>
+      <file name="getTweetById.ts" path="C:\VSCode Projects\twitter-app\src\services\firestore\getTweetById.ts">
+        <metrics statements="7" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="20" type="stmt"/>
+        <line num="3" count="20" type="stmt"/>
+        <line num="4" count="20" type="stmt"/>
+        <line num="7" count="9" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+      </file>
+      <file name="getUserById.ts" path="C:\VSCode Projects\twitter-app\src\services\firestore\getUserById.ts">
+        <metrics statements="7" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="20" type="stmt"/>
+        <line num="3" count="20" type="stmt"/>
+        <line num="4" count="20" type="stmt"/>
+        <line num="7" count="9" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+      </file>
+      <file name="getUserTweets.ts" path="C:\VSCode Projects\twitter-app\src\services\firestore\getUserTweets.ts">
+        <metrics statements="13" coveredstatements="6" conditionals="8" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="9" count="20" type="stmt"/>
+        <line num="11" count="20" type="stmt"/>
+        <line num="12" count="20" type="stmt"/>
+        <line num="15" count="20" type="stmt"/>
+        <line num="16" count="20" type="stmt"/>
+        <line num="18" count="9" type="cond" truecount="0" falsecount="8"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+      </file>
+      <file name="index.ts" path="C:\VSCode Projects\twitter-app\src\services\firestore\index.ts">
+        <metrics statements="12" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="20" type="stmt"/>
+        <line num="2" count="20" type="stmt"/>
+        <line num="3" count="20" type="stmt"/>
+        <line num="4" count="20" type="stmt"/>
+        <line num="5" count="20" type="stmt"/>
+        <line num="6" count="20" type="stmt"/>
+        <line num="7" count="20" type="stmt"/>
+        <line num="8" count="20" type="stmt"/>
+        <line num="9" count="20" type="stmt"/>
+        <line num="10" count="20" type="stmt"/>
+        <line num="11" count="20" type="stmt"/>
+        <line num="12" count="20" type="stmt"/>
+      </file>
+      <file name="removeLikeToTweet.ts" path="C:\VSCode Projects\twitter-app\src\services\firestore\removeLikeToTweet.ts">
+        <metrics statements="9" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="20" type="stmt"/>
+        <line num="3" count="20" type="stmt"/>
+        <line num="4" count="20" type="stmt"/>
+        <line num="7" count="9" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+      </file>
+      <file name="setUserById.ts" path="C:\VSCode Projects\twitter-app\src\services\firestore\setUserById.ts">
+        <metrics statements="5" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="20" type="stmt"/>
+        <line num="3" count="20" type="stmt"/>
+        <line num="4" count="20" type="stmt"/>
+        <line num="7" count="9" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="services.storage">
+      <metrics statements="24" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
+      <file name="addTweetImage.ts" path="C:\VSCode Projects\twitter-app\src\services\storage\addTweetImage.ts">
+        <metrics statements="7" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="13" type="stmt"/>
+        <line num="3" count="13" type="stmt"/>
+        <line num="5" count="9" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+      </file>
+      <file name="addUserAvatar.ts" path="C:\VSCode Projects\twitter-app\src\services\storage\addUserAvatar.ts">
+        <metrics statements="7" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="13" type="stmt"/>
+        <line num="2" count="13" type="stmt"/>
+        <line num="4" count="13" type="stmt"/>
+        <line num="6" count="9" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+      </file>
+      <file name="getUserAvatar.ts" path="C:\VSCode Projects\twitter-app\src\services\storage\getUserAvatar.ts">
+        <metrics statements="7" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="13" type="stmt"/>
+        <line num="3" count="13" type="stmt"/>
+        <line num="5" count="9" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+      </file>
+      <file name="index.ts" path="C:\VSCode Projects\twitter-app\src\services\storage\index.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="13" type="stmt"/>
+        <line num="2" count="13" type="stmt"/>
+        <line num="3" count="13" type="stmt"/>
+      </file>
+    </package>
+    <package name="store">
+      <metrics statements="16" coveredstatements="16" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.ts" path="C:\VSCode Projects\twitter-app\src\store\index.ts">
+        <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="13" type="stmt"/>
+        <line num="11" count="13" type="stmt"/>
+        <line num="12" count="13" type="stmt"/>
+        <line num="14" count="13" type="stmt"/>
+        <line num="15" count="13" type="stmt"/>
+        <line num="17" count="13" type="stmt"/>
+        <line num="23" count="13" type="stmt"/>
+        <line num="25" count="35" type="stmt"/>
+        <line num="28" count="13" type="stmt"/>
+        <line num="35" count="13" type="stmt"/>
+      </file>
+      <file name="rootReducer.ts" path="C:\VSCode Projects\twitter-app\src\store\rootReducer.ts">
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="13" type="stmt"/>
+        <line num="3" count="13" type="stmt"/>
+        <line num="4" count="13" type="stmt"/>
+        <line num="5" count="13" type="stmt"/>
+        <line num="6" count="13" type="stmt"/>
+        <line num="8" count="13" type="stmt"/>
+      </file>
+    </package>
+    <package name="store.api">
+      <metrics statements="122" coveredstatements="74" conditionals="12" coveredconditionals="0" methods="16" coveredmethods="8"/>
+      <file name="authApi.ts" path="C:\VSCode Projects\twitter-app\src\store\api\authApi.ts">
+        <metrics statements="23" coveredstatements="17" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <line num="1" count="13" type="stmt"/>
+        <line num="2" count="13" type="stmt"/>
+        <line num="4" count="13" type="stmt"/>
+        <line num="9" count="13" type="stmt"/>
+        <line num="11" count="13" type="stmt"/>
+        <line num="13" count="13" type="stmt"/>
+        <line num="15" count="13" type="stmt"/>
+        <line num="17" count="39" type="stmt"/>
+        <line num="20" count="13" type="stmt"/>
+        <line num="22" count="13" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="37" count="13" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="42" count="0" type="stmt"/>
+        <line num="45" count="0" type="stmt"/>
+        <line num="51" count="13" type="stmt"/>
+        <line num="53" count="1" type="stmt"/>
+        <line num="56" count="0" type="stmt"/>
+        <line num="57" count="0" type="stmt"/>
+        <line num="66" count="13" type="stmt"/>
+      </file>
+      <file name="index.ts" path="C:\VSCode Projects\twitter-app\src\store\api\index.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="13" type="stmt"/>
+        <line num="2" count="13" type="stmt"/>
+        <line num="3" count="13" type="stmt"/>
+      </file>
+      <file name="tweetApi.ts" path="C:\VSCode Projects\twitter-app\src\store\api\tweetApi.ts">
+        <metrics statements="54" coveredstatements="26" conditionals="4" coveredconditionals="0" methods="8" coveredmethods="1"/>
+        <line num="1" count="13" type="stmt"/>
+        <line num="2" count="13" type="stmt"/>
+        <line num="4" count="13" type="stmt"/>
+        <line num="15" count="13" type="stmt"/>
+        <line num="18" count="13" type="stmt"/>
+        <line num="20" count="39" type="stmt"/>
+        <line num="24" count="13" type="stmt"/>
+        <line num="26" count="13" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="40" count="13" type="stmt"/>
+        <line num="44" count="1" type="stmt"/>
+        <line num="45" count="1" type="stmt"/>
+        <line num="46" count="1" type="stmt"/>
+        <line num="47" count="1" type="stmt"/>
+        <line num="63" count="0" type="stmt"/>
+        <line num="65" count="0" type="stmt"/>
+        <line num="68" count="1" type="stmt"/>
+        <line num="71" count="0" type="stmt"/>
+        <line num="72" count="0" type="stmt"/>
+        <line num="83" count="13" type="stmt"/>
+        <line num="87" count="0" type="stmt"/>
+        <line num="90" count="0" type="stmt"/>
+        <line num="91" count="0" type="stmt"/>
+        <line num="99" count="13" type="stmt"/>
+        <line num="101" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="104" count="0" type="stmt"/>
+        <line num="105" count="0" type="stmt"/>
+        <line num="113" count="13" type="stmt"/>
+        <line num="117" count="0" type="stmt"/>
+        <line num="120" count="0" type="stmt"/>
+        <line num="121" count="0" type="stmt"/>
+        <line num="128" count="13" type="stmt"/>
+        <line num="130" count="0" type="stmt"/>
+        <line num="133" count="0" type="stmt"/>
+        <line num="134" count="0" type="stmt"/>
+        <line num="142" count="13" type="stmt"/>
+        <line num="144" count="0" type="stmt"/>
+        <line num="147" count="0" type="stmt"/>
+        <line num="148" count="0" type="stmt"/>
+        <line num="156" count="13" type="stmt"/>
+        <line num="158" count="0" type="stmt"/>
+        <line num="161" count="0" type="stmt"/>
+        <line num="162" count="0" type="stmt"/>
+        <line num="173" count="9" type="stmt"/>
+        <line num="174" count="0" type="stmt"/>
+        <line num="175" count="0" type="stmt"/>
+        <line num="176" count="1" type="stmt"/>
+        <line num="177" count="0" type="stmt"/>
+        <line num="178" count="2" type="stmt"/>
+        <line num="179" count="2" type="stmt"/>
+        <line num="180" count="1" type="stmt"/>
+        <line num="181" count="13" type="stmt"/>
+      </file>
+      <file name="userApi.ts" path="C:\VSCode Projects\twitter-app\src\store\api\userApi.ts">
+        <metrics statements="42" coveredstatements="28" conditionals="8" coveredconditionals="0" methods="5" coveredmethods="4"/>
+        <line num="1" count="13" type="stmt"/>
+        <line num="3" count="13" type="stmt"/>
+        <line num="11" count="13" type="stmt"/>
+        <line num="14" count="13" type="stmt"/>
+        <line num="16" count="13" type="stmt"/>
+        <line num="18" count="40" type="stmt"/>
+        <line num="22" count="13" type="stmt"/>
+        <line num="24" count="13" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="38" count="13" type="stmt"/>
+        <line num="40" count="2" type="stmt"/>
+        <line num="41" count="2" type="stmt"/>
+        <line num="42" count="2" type="stmt"/>
+        <line num="43" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="46" count="1" type="stmt"/>
+        <line num="47" count="1" type="stmt"/>
+        <line num="58" count="13" type="stmt"/>
+        <line num="60" count="1" type="stmt"/>
+        <line num="63" count="0" type="stmt"/>
+        <line num="66" count="1" type="stmt"/>
+        <line num="68" count="1" type="stmt"/>
+        <line num="71" count="0" type="stmt"/>
+        <line num="72" count="0" type="stmt"/>
+        <line num="80" count="13" type="stmt"/>
+        <line num="84" count="0" type="stmt"/>
+        <line num="85" count="0" type="stmt"/>
+        <line num="86" count="0" type="stmt"/>
+        <line num="87" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="90" count="0" type="stmt"/>
+        <line num="91" count="0" type="stmt"/>
+        <line num="98" count="13" type="stmt"/>
+        <line num="102" count="7" type="stmt"/>
+        <line num="105" count="0" type="stmt"/>
+        <line num="106" count="0" type="stmt"/>
+        <line num="117" count="5" type="stmt"/>
+        <line num="118" count="11" type="stmt"/>
+        <line num="119" count="1" type="stmt"/>
+        <line num="120" count="6" type="stmt"/>
+        <line num="121" count="32" type="stmt"/>
+        <line num="122" count="13" type="stmt"/>
+      </file>
+    </package>
+    <package name="store.selectors">
+      <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.ts" path="C:\VSCode Projects\twitter-app\src\store\selectors\index.ts">
+        <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="58" type="stmt"/>
+        <line num="4" count="14" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="store.slices">
+      <metrics statements="33" coveredstatements="26" conditionals="3" coveredconditionals="0" methods="9" coveredmethods="4"/>
+      <file name="index.ts" path="C:\VSCode Projects\twitter-app\src\store\slices\index.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="13" type="stmt"/>
+        <line num="2" count="13" type="stmt"/>
+        <line num="3" count="13" type="stmt"/>
+      </file>
+      <file name="signUpSlice.ts" path="C:\VSCode Projects\twitter-app\src\store\slices\signUpSlice.ts">
+        <metrics statements="11" coveredstatements="9" conditionals="1" coveredconditionals="0" methods="4" coveredmethods="2"/>
+        <line num="1" count="13" type="stmt"/>
+        <line num="3" count="13" type="stmt"/>
+        <line num="11" count="13" type="stmt"/>
+        <line num="15" count="13" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="29" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="34" count="1" type="stmt"/>
+        <line num="35" count="13" type="stmt"/>
+        <line num="37" count="13" type="stmt"/>
+      </file>
+      <file name="themeSlice.ts" path="C:\VSCode Projects\twitter-app\src\store\slices\themeSlice.ts">
+        <metrics statements="7" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="13" type="stmt"/>
+        <line num="3" count="13" type="stmt"/>
+        <line num="9" count="13" type="stmt"/>
+        <line num="13" count="13" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="23" count="13" type="stmt"/>
+        <line num="25" count="13" type="stmt"/>
+      </file>
+      <file name="userSlice.ts" path="C:\VSCode Projects\twitter-app\src\store\slices\userSlice.ts">
+        <metrics statements="12" coveredstatements="8" conditionals="2" coveredconditionals="0" methods="4" coveredmethods="2"/>
+        <line num="1" count="13" type="stmt"/>
+        <line num="12" count="13" type="stmt"/>
+        <line num="19" count="13" type="stmt"/>
+        <line num="24" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="25" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="32" count="3" type="stmt"/>
+        <line num="33" count="3" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="41" count="13" type="stmt"/>
+        <line num="43" count="13" type="stmt"/>
+      </file>
+    </package>
+    <package name="styles">
+      <metrics statements="55" coveredstatements="37" conditionals="16" coveredconditionals="12" methods="11" coveredmethods="2"/>
+      <file name="fonts.ts" path="C:\VSCode Projects\twitter-app\src\styles\fonts.ts">
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="13" type="stmt"/>
+        <line num="3" count="13" type="stmt"/>
+        <line num="4" count="13" type="stmt"/>
+        <line num="5" count="13" type="stmt"/>
+        <line num="6" count="13" type="stmt"/>
+        <line num="8" count="13" type="stmt"/>
+      </file>
+      <file name="globals.ts" path="C:\VSCode Projects\twitter-app\src\styles\globals.ts">
+        <metrics statements="27" coveredstatements="9" conditionals="6" coveredconditionals="3" methods="9" coveredmethods="0"/>
+        <line num="1" count="13" type="stmt"/>
+        <line num="3" count="13" type="stmt"/>
+        <line num="4" count="13" type="stmt"/>
+        <line num="6" count="13" type="stmt"/>
+        <line num="8" count="13" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="49" count="0" type="stmt"/>
+        <line num="53" count="0" type="stmt"/>
+        <line num="56" count="13" type="stmt"/>
+        <line num="61" count="0" type="stmt"/>
+        <line num="65" count="0" type="stmt"/>
+        <line num="68" count="12" type="stmt"/>
+        <line num="77" count="0" type="stmt"/>
+        <line num="78" count="0" type="stmt"/>
+        <line num="81" count="0" type="stmt"/>
+        <line num="82" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="93" count="0" type="stmt"/>
+        <line num="94" count="0" type="stmt"/>
+        <line num="99" count="9" type="stmt"/>
+        <line num="103" count="30" type="cond" truecount="3" falsecount="1"/>
+      </file>
+      <file name="index.ts" path="C:\VSCode Projects\twitter-app\src\styles\index.ts">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="13" type="stmt"/>
+        <line num="2" count="13" type="stmt"/>
+        <line num="3" count="13" type="stmt"/>
+        <line num="4" count="13" type="stmt"/>
+      </file>
+      <file name="mixins.ts" path="C:\VSCode Projects\twitter-app\src\styles\mixins.ts">
+        <metrics statements="13" coveredstatements="13" conditionals="8" coveredconditionals="8" methods="2" coveredmethods="2"/>
+        <line num="1" count="13" type="stmt"/>
+        <line num="3" count="13" type="stmt"/>
+        <line num="5" count="96" type="stmt"/>
+        <line num="6" count="139" type="stmt"/>
+        <line num="10" count="139" type="stmt"/>
+        <line num="14" count="139" type="stmt"/>
+        <line num="18" count="33" type="stmt"/>
+        <line num="25" count="165" type="cond" truecount="8" falsecount="0"/>
+        <line num="31" count="434" type="stmt"/>
+        <line num="33" count="434" type="stmt"/>
+        <line num="35" count="24" type="stmt"/>
+        <line num="46" count="20" type="stmt"/>
+        <line num="50" count="5" type="stmt"/>
+      </file>
+      <file name="theme.ts" path="C:\VSCode Projects\twitter-app\src\styles\theme.ts">
+        <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="1" methods="0" coveredmethods="0"/>
+        <line num="1" count="13" type="stmt"/>
+        <line num="3" count="13" type="stmt"/>
+        <line num="16" count="13" type="stmt"/>
+        <line num="29" count="434" type="stmt"/>
+        <line num="91" count="31" type="stmt"/>
       </file>
     </package>
     <package name="utils">
-      <metrics statements="41" coveredstatements="29" conditionals="23" coveredconditionals="8" methods="8" coveredmethods="6"/>
+      <metrics statements="51" coveredstatements="44" conditionals="23" coveredconditionals="15" methods="8" coveredmethods="7"/>
       <file name="date.ts" path="C:\VSCode Projects\twitter-app\src\utils\date.ts">
         <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
-        <line num="1" count="5" type="stmt"/>
-        <line num="2" count="5" type="stmt"/>
-        <line num="3" count="5" type="stmt"/>
-        <line num="4" count="5" type="stmt"/>
-        <line num="6" count="5" type="stmt"/>
-        <line num="9" count="10" type="stmt"/>
-        <line num="10" count="10" type="stmt"/>
+        <line num="1" count="7" type="stmt"/>
+        <line num="2" count="7" type="stmt"/>
+        <line num="3" count="7" type="stmt"/>
+        <line num="4" count="7" type="stmt"/>
+        <line num="6" count="7" type="stmt"/>
+        <line num="9" count="14" type="stmt"/>
+        <line num="10" count="14" type="stmt"/>
         <line num="13" count="8" type="stmt"/>
         <line num="14" count="8" type="stmt"/>
       </file>
@@ -509,30 +2096,43 @@
         <line num="4" count="13" type="stmt"/>
       </file>
       <file name="inputs.ts" path="C:\VSCode Projects\twitter-app\src\utils\inputs.ts">
-        <metrics statements="6" coveredstatements="1" conditionals="10" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <metrics statements="6" coveredstatements="6" conditionals="10" coveredconditionals="7" methods="1" coveredmethods="1"/>
         <line num="1" count="13" type="stmt"/>
-        <line num="3" count="0" type="stmt"/>
-        <line num="4" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="8" count="0" type="cond" truecount="0" falsecount="3"/>
-        <line num="10" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="cond" truecount="0" falsecount="1"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="8" count="1" type="cond" truecount="2" falsecount="1"/>
+        <line num="10" count="1" type="cond" truecount="1" falsecount="1"/>
       </file>
       <file name="signup.ts" path="C:\VSCode Projects\twitter-app\src\utils\signup.ts">
         <metrics statements="14" coveredstatements="14" conditionals="8" coveredconditionals="8" methods="3" coveredmethods="3"/>
         <line num="1" count="16" type="stmt"/>
         <line num="3" count="16" type="stmt"/>
         <line num="5" count="16" type="stmt"/>
-        <line num="7" count="6" type="cond" truecount="4" falsecount="0"/>
-        <line num="8" count="6" type="stmt"/>
-        <line num="10" count="250" type="stmt"/>
-        <line num="13" count="4" type="stmt"/>
-        <line num="14" count="4" type="stmt"/>
-        <line num="17" count="11" type="stmt"/>
-        <line num="18" count="11" type="stmt"/>
-        <line num="19" count="11" type="stmt"/>
-        <line num="21" count="11" type="cond" truecount="2" falsecount="0"/>
-        <line num="22" count="11" type="cond" truecount="2" falsecount="0"/>
-        <line num="26" count="337" type="stmt"/>
+        <line num="7" count="15" type="cond" truecount="4" falsecount="0"/>
+        <line num="8" count="15" type="stmt"/>
+        <line num="10" count="745" type="stmt"/>
+        <line num="13" count="5" type="stmt"/>
+        <line num="14" count="5" type="stmt"/>
+        <line num="17" count="20" type="stmt"/>
+        <line num="18" count="20" type="stmt"/>
+        <line num="19" count="20" type="stmt"/>
+        <line num="21" count="20" type="cond" truecount="2" falsecount="0"/>
+        <line num="22" count="20" type="cond" truecount="2" falsecount="0"/>
+        <line num="26" count="616" type="stmt"/>
+      </file>
+      <file name="testHelpers.tsx" path="C:\VSCode Projects\twitter-app\src\utils\testHelpers.tsx">
+        <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="2" count="13" type="stmt"/>
+        <line num="3" count="13" type="stmt"/>
+        <line num="4" count="13" type="stmt"/>
+        <line num="5" count="13" type="stmt"/>
+        <line num="7" count="13" type="stmt"/>
+        <line num="8" count="13" type="stmt"/>
+        <line num="9" count="13" type="stmt"/>
+        <line num="15" count="31" type="stmt"/>
+        <line num="24" count="31" type="stmt"/>
+        <line num="27" count="31" type="stmt"/>
       </file>
     </package>
   </project>
