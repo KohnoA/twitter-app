@@ -1,0 +1,25 @@
+{
+  "kind": "identitytoolkit#DownloadAccountResponse",
+  "users": [
+    {
+      "localId": "kby1f1SehgJ8817UlZWddgyQaCmm",
+      "lastLoginAt": "1711936400239",
+      "emailVerified": false,
+      "email": "alex123@gmail.com",
+      "salt": "fakeSaltfSWFTPyFfsg6CcYf5oaj",
+      "passwordHash": "fakeHash:salt=fakeSaltfSWFTPyFfsg6CcYf5oaj:password=Qwertyu1",
+      "passwordUpdatedAt": 1711936400239,
+      "validSince": "1711936400",
+      "createdAt": "1711936400239",
+      "providerUserInfo": [
+        {
+          "providerId": "password",
+          "email": "alex123@gmail.com",
+          "federatedId": "alex123@gmail.com",
+          "rawId": "alex123@gmail.com"
+        }
+      ],
+      "lastRefreshAt": "2024-04-01T01:53:20.240Z"
+    }
+  ]
+}

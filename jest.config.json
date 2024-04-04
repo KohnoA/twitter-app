@@ -1,0 +1,51 @@
+{
+  "clearMocks": true,
+  "testEnvironment": "jsdom",
+  "passWithNoTests": true,
+  "setupFilesAfterEnv": ["./src/setupTests.ts"],
+  "transformIgnorePatterns": ["/node_modules/"],
+  "extensionsToTreatAsEsm": [".ts", ".tsx"],
+  "coveragePathIgnorePatterns": [
+    "node_modules",
+    "test-config",
+    "interfaces",
+    "jestGlobalMocks.ts",
+    ".module.ts",
+    "<rootDir>/src/app/main.ts",
+    ".mock.ts",
+    "styled.ts",
+    "assets",
+    "constants",
+    "firebase",
+    "store",
+    "styles"
+],
+  "moduleNameMapper": {
+    "^@/(.*)$": "<rootDir>/src/$1"
+  },
+  "transform": {
+    "^.+\\.(t|j)sx?$": [
+      "@swc/jest",
+      {
+        "$schema": "https://json.schemastore.org/swcrc",
+        "jsc": {
+          "parser": {
+            "syntax": "typescript"
+          },
+          "transform": {
+            "react": {
+              "runtime": "automatic"
+            }
+          },
+          "target": "es5",
+          "loose": false,
+          "externalHelpers": false,
+          "keepClassNames": false
+        },
+        "minify": false
+      }
+    ],
+    "^.+\\.svg$": "jest-transformer-svg",
+    "\\.(jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|mp4|webm|wav|mp3)$": "jest-transform-stub"
+  }
+}

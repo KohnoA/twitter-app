@@ -1,0 +1,12 @@
+export { addLikeToTweet } from './addLikeToTweet';
+export { addTweet } from './addTweet';
+export { deleteTweet } from './deleteTweet';
+export { findTweetsByMessage } from './findTweetsByMessage';
+export { findUsersByName } from './findUsersByName';
+export { getAllTweets } from './getAllTweets';
+export { getAllUsers } from './getAllUsers';
+export { getTweetById } from './getTweetById';
+export { getUserById } from './getUserById';
+export { getUserTweets } from './getUserTweets';
+export { removeLikeToTweet } from './removeLikeToTweet';
+export { setUserById } from './setUserById';
